@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X4TCVJMVEP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X4TCVJMVEP', {
+      'send_page_view': true,
+      'cookie_flags': 'SameSite=None;Secure'
+    });
+  </script>
+
   <meta name="google-site-verification" content="rs92M-x7UmH0YQ6M5D2_y7qIeueO0KHaqVRNvXdkTt0" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -22,6 +34,20 @@
   <meta property="og:locale:alternate" content="en_CA" />
   <meta property="og:locale:alternate" content="en_GB" />
   <meta property="og:locale:alternate" content="en_AU" />
+  <!-- OpenGraph Card (1200x630) -->
+  <meta property="og:image" content="https://invoicesnap.work/og-image.png" />
+  <meta property="og:image:secure_url" content="https://invoicesnap.work/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:alt" content="InvoiceSnap — AI Invoicing & Estimates for Contractors ($39 Lifetime)" />
+
+  <!-- Twitter / X Large Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="InvoiceSnap — AI Invoicing & Estimates for Contractors ($39 Lifetime)" />
+  <meta name="twitter:description" content="Instant AI estimates from a job site photo. 100% offline SQLite storage. Zero recurring monthly subscription." />
+  <meta name="twitter:image" content="https://invoicesnap.work/og-image.png" />
+
 
   <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -2258,6 +2284,49 @@
     }
 
     renderCalculator();
+  
+    // GA4 Custom Event Tracking
+    function trackEvent(eventName, params) {
+      if (typeof gtag === 'function') {
+        gtag('event', eventName, params);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Track App Store CTAs
+      document.querySelectorAll('a[href*="apps.apple.com"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          trackEvent('click_app_store', {
+            'event_category': 'conversion',
+            'event_label': btn.innerText.trim() || 'App Store CTA',
+            'link_url': btn.href
+          });
+        });
+      });
+
+      // Track PDF Preview opens
+      const pdfBtn = document.getElementById('preview-pdf-btn');
+      if (pdfBtn) {
+        pdfBtn.addEventListener('click', () => {
+          trackEvent('preview_pdf_modal', {
+            'event_category': 'engagement',
+            'event_label': 'PDF Invoice Preview'
+          });
+        });
+      }
+
+      // Track Redeem clicks
+      const redeemBtn = document.getElementById('redeem-btn');
+      if (redeemBtn) {
+        redeemBtn.addEventListener('click', () => {
+          trackEvent('click_redeem_voucher', {
+            'event_category': 'conversion',
+            'event_label': 'Redeem Lifetime Deal'
+          });
+        });
+      }
+    });
+
   </script>
 </body>
 </html>
