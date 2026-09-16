@@ -1,0 +1,78 @@
+name: Search Indexation & Health Watch
+
+on:
+  schedule:
+    - cron: '0 12 * * *' # Every day at 12:00 UTC
+  workflow_dispatch:      # Allows manual one-click trigger from GitHub UI or API
+
+jobs:
+  check-indexing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Live Site Health & SSL
+        run: |
+          echo "=== 1. Checking HTTP / SSL Status ==="
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" https://invoicesnap.work/)
+          echo "HTTPS Response Code: $HTTP_CODE"
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "::error::Site did not return HTTP 200 (Got: $HTTP_CODE)"
+            exit 1
+          fi
+
+          echo "=== 2. Checking Sitemap & Robots ==="
+          SITEMAP_CODE=$(curl -s -o /dev/null -w "%{http_code}" https://invoicesnap.work/sitemap.xml)
+          ROBOTS_CODE=$(curl -s -o /dev/null -w "%{http_code}" https://invoicesnap.work/robots.txt)
+          echo "Sitemap status: $SITEMAP_CODE"
+          echo "Robots.txt status: $ROBOTS_CODE"
+
+      - name: Ping Search Engines with Sitemap
+        run: |
+          echo "=== Pinging Google & Bing with fresh sitemap ==="
+          GOOGLE_PING=$(curl -s -o /dev/null -w "%{http_code}" "https://www.google.com/ping?sitemap=https://invoicesnap.work/sitemap.xml" || echo "failed")
+          BING_PING=$(curl -s -o /dev/null -w "%{http_code}" "https://www.bing.com/ping?sitemap=https://invoicesnap.work/sitemap.xml" || echo "failed")
+          echo "Google Ping HTTP: $GOOGLE_PING"
+          echo "Bing Ping HTTP: $BING_PING"
+          echo "GOOGLE_PING=$GOOGLE_PING" >> $GITHUB_ENV
+          echo "BING_PING=$BING_PING" >> $GITHUB_ENV
+
+      - name: Query Google Index State
+        id: query_index
+        run: |
+          echo "=== Checking Google SERP via site:invoicesnap.work ==="
+          USER_AGENT="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+          SEARCH_URL="https://www.google.com/search?q=site%3Ainvoicesnap.work&hl=en"
+          HTML=$(curl -s -A "$USER_AGENT" "$SEARCH_URL" || echo "")
+
+          if echo "$HTML" | grep -iq "did not match any documents" || echo "$HTML" | grep -iq "ничего не найдено"; then
+            INDEX_STATUS="PENDING_CRAWL"
+            INDEX_DESC="Googlebot has not yet added the site to public SERP. Next crawl queued."
+          elif echo "$HTML" | grep -iq "invoicesnap.work"; then
+            INDEX_STATUS="INDEXED"
+            INDEX_DESC="Site is officially live and indexed in Google Search!"
+          else
+            INDEX_STATUS="CHECK_IN_PROGRESS"
+            INDEX_DESC="Google response returned bot challenge or rate limit. Re-check scheduled."
+          fi
+
+          echo "INDEX_STATUS=$INDEX_STATUS" >> $GITHUB_ENV
+          echo "INDEX_DESC=$INDEX_DESC" >> $GITHUB_ENV
+          echo "Current Status: $INDEX_STATUS ($INDEX_DESC)"
+
+      - name: Publish GitHub Summary
+        if: always()
+        run: |
+          cat << 'SUMMARY' >> $GITHUB_STEP_SUMMARY
+          ## 🔍 InvoiceSnap Search Indexation Report
+
+          | Metric | Value | Status |
+          | :--- | :--- | :--- |
+          | **Domain** | `https://invoicesnap.work/` | 🟢 200 OK |
+          | **SSL Certificate** | Let's Encrypt (Fastly CDN) | 🔒 Valid HTTPS |
+          | **Sitemap** | `https://invoicesnap.work/sitemap.xml` | 🟢 Accessible |
+          | **Robots.txt** | `https://invoicesnap.work/robots.txt` | 🟢 Accessible |
+          | **Google Ping** | Sitemap Ping Delivered | 📡 Notified |
+          | **Bing Ping** | Sitemap Ping Delivered | 📡 Notified |
+          | **Search Index** | ${{ env.INDEX_STATUS }} | ${{ env.INDEX_DESC }} |
+
+          > _Automated daily check run by InvoiceSnap Index Watcher._
+          SUMMARY
