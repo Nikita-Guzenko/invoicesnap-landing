@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="How InvoiceSnap handles account, invoice, business, support, analytics, and optional AI data.">
+  <link rel="canonical" href="https://invoicesnap.work/privacy/">
+  <title>Privacy Policy — InvoiceSnap</title>
+  <style>
+    :root{color-scheme:light;--bg:#f5f8ff;--paper:#fff;--ink:#0b1220;--muted:#536174;--line:#dbe4f0;--brand:#2563eb;--soft:#edf4ff}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 20% 0%,#e8f1ff 0,transparent 42%),var(--bg);color:var(--ink);font:16px/1.7 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Arial,sans-serif}
+    a{color:#1749b2;text-underline-offset:3px}a:focus-visible{outline:3px solid #2563eb;outline-offset:3px;border-radius:3px}.site-header,.site-footer{max-width:1000px;margin:auto;padding:24px clamp(20px,5vw,56px)}
+    .brand{font-weight:750;letter-spacing:-.04em;color:var(--ink);text-decoration:none;font-size:20px}.brand span{color:var(--brand)}.site-header{display:flex;align-items:center;justify-content:space-between;gap:18px}.nav{display:flex;flex-wrap:wrap;gap:18px;font-size:14px}.nav a{color:var(--muted)}
+    main{max-width:900px;margin:16px auto 70px;padding:clamp(24px,5vw,58px);background:var(--paper);border:1px solid var(--line);border-radius:22px;box-shadow:0 18px 60px #1b3e7010}
+    .eyebrow{color:var(--brand);font-size:12px;font-weight:750;letter-spacing:.13em;text-transform:uppercase}h1{font-size:clamp(34px,6vw,54px);letter-spacing:-.055em;line-height:1.08;margin:10px 0 12px}h2{font-size:22px;letter-spacing:-.025em;line-height:1.25;margin:34px 0 10px}h3{font-size:17px;line-height:1.3;margin:22px 0 8px}p,li{color:#334155}p{margin:10px 0}ul{padding-left:22px}li+li{margin-top:6px}.updated{color:var(--muted);font-size:14px}.notice{margin:24px 0;padding:16px 18px;border:1px solid #c9daf8;border-radius:14px;background:var(--soft);color:#263954}
+    .site-footer{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:13px}.site-footer nav{display:flex;gap:16px;flex-wrap:wrap}.site-footer a{color:var(--muted)}
+    @media(max-width:600px){body{font-size:15px}.site-header{align-items:flex-start;flex-direction:column}.nav{gap:14px}main{margin:8px 12px 36px;padding:24px 20px;border-radius:16px}h2{font-size:20px}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="InvoiceSnap home">Invoice<span>Snap</span></a>
+    <nav class="nav" aria-label="Legal and support"><a href="/privacy/" aria-current="page">Privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a></nav>
+  </header>
+  <main>
+    <p class="eyebrow">InvoiceSnap · Privacy</p>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Effective date: September 28, 2026</p>
+    <p>This policy explains how InvoiceSnap handles information when you use the InvoiceSnap app and the invoicesnap.work website. The app is published under the 731labs brand; the App Store seller is Kazakov Invent Corp.</p>
+    <div class="notice"><strong>Local-first, with optional online features.</strong> InvoiceSnap stores core business records on your device. Signing in and using cloud sync, support, AI, sharing, reminders, billing, or analytics can send information to InvoiceSnap and the providers that operate those features. Local storage does not mean the app has no network or analytics activity.</div>
+
+    <h2>Information you enter or create</h2>
+    <p>Depending on the features you use, the app can process account identifiers and email; business and customer names, addresses, phone numbers, email addresses and tax identifiers; invoice, estimate and credit-note details, line items, amounts, notes, payment instructions and payment records; time and expense details; and logos, signatures, receipt images or other media you add. Free-text fields and images may contain information beyond these examples.</p>
+    <p>If you choose to import a contact, InvoiceSnap can request Contacts permission to read contact details you select and use them to fill a client record. The app also processes information you provide in support conversations and, when you use website forms or other site features, information submitted there.</p>
+
+    <h2>Where information is stored</h2>
+    <h3>On your device</h3>
+    <p>Core records are stored in the app’s local database so local invoicing can work without an account or network connection. Some preferences, queued changes and files are also stored locally.</p>
+    <h3>Cloud services</h3>
+    <p>When you sign in and use connected features, account and business records are synchronized with Supabase, which provides authentication, database and file storage. The records involved can include business profiles, clients, invoices and their line items, payments, saved items, recurring schedules, time entries and expenses. Logos and other media may be uploaded for sync or document rendering. Some uploaded logo files are stored in a publicly addressable storage bucket; do not upload a logo that must remain confidential. Shared invoice or estimate links and PDFs expose the document information you choose to share to their recipients. Recipients can retain or forward a copy outside InvoiceSnap.</p>
+    <p>InvoiceSnap is not end-to-end encrypted: cloud service processing is needed to provide cloud features.</p>
+
+    <h2>Optional features and service providers</h2>
+    <p>These providers receive information when the related feature is used or enabled. Their processing is governed by their own service terms and privacy practices.</p>
+    <ul>
+      <li><strong>AI estimates:</strong> the job description and any photo you submit are sent from InvoiceSnap’s server to Google Gemini to generate estimate suggestions.</li>
+      <li><strong>AI logos:</strong> the business name and the prompt details you choose, such as industry and colors, are sent through OpenRouter to a Google image model to generate a logo.</li>
+      <li><strong>Client information assistance:</strong> if you use the website-based client enrichment feature, the website address you provide is retrieved through Firecrawl and content used to generate extracted client details is processed through OpenRouter.</li>
+      <li><strong>Support chat:</strong> conversation text, session identifier, language and page context are stored through Supabase. Automated replies and related retrieval may be processed by OpenRouter and Google. When an operator is notified or takes over, configured support notifications may send the message and conversation context through Telegram.</li>
+      <li><strong>Analytics and diagnostics:</strong> PostHog receives product events and identifiers, including a generated identifier that may be linked to a verified account identifier after sign-in. Sentry receives crash, error and performance diagnostics; the app applies a client-side filter to diagnostic payloads. EAS Observe receives selected performance measurements and limited product events.</li>
+      <li><strong>Advertising attribution:</strong> AppsFlyer and Meta SDKs support attribution measurement. On iOS, their setup follows the App Tracking Transparency prompt, and permission-dependent advertising identifiers and event linking are gated by the result. Denying permission does not disable every analytics or diagnostic feature or prove that no SDK network request occurs.</li>
+      <li><strong>Purchases and billing:</strong> Apple processes App Store purchases. RevenueCat processes subscription and entitlement information. If you use web billing or a hosted invoice payment feature, Stripe processes the related billing, invoice and payment information.</li>
+      <li><strong>Reminders and notifications:</strong> if you enable invoice reminders, the recipient and reminder details are sent through Resend for email delivery. If you enable push notifications, a device push token is registered with the notification infrastructure.</li>
+      <li><strong>Website analytics:</strong> the marketing website uses Google Analytics 4 to measure website visits. Browser and device information and analytics identifiers may be processed by Google according to the site configuration and your browser settings.</li>
+    </ul>
+
+    <h2>How information is used</h2>
+    <p>Information is processed to create and manage business documents; synchronize records and files; provide the optional AI, support, link-sharing, reminder, purchase and billing features you choose; operate and secure the app; diagnose failures and measure product performance; and measure marketing attribution where enabled. Information in a document or support message can be visible to the recipients or service providers needed for the feature you request.</p>
+
+    <h2>Choices and account deletion</h2>
+    <ul>
+      <li>You can use local invoicing without creating an account. You can choose whether to sign in and whether to use optional connected features.</li>
+      <li>You can change the iOS tracking permission in device Settings. That permission controls permission-dependent attribution behavior; it does not turn off PostHog product analytics, crash diagnostics, or other features.</li>
+      <li>You can manage app permissions through your device settings and choose which documents, photos or contact details to add or share.</li>
+      <li>The app includes a Delete Account flow at <strong>More → Delete Account</strong> in the Account section. It clears app-owned local data and files and attempts to remove account-owned cloud storage and account data. Errors can be surfaced for retry. This does not promise immediate or total deletion from third-party billing systems, support conversations, provider backups, exported files or copies held by document recipients. Some security and usage-control records can be retained independently of sign-out.</li>
+    </ul>
+
+    <h2>Retention</h2>
+    <p>There is no single retention period for every data type. Local records remain on the device until removed through app or device controls. Cloud and feature data are retained according to the feature, account state and provider processes. Account deletion initiates the app’s local and account-owned cloud cleanup described above; it does not establish a fixed deletion deadline for every provider, backup, transcript or recipient copy.</p>
+
+    <h2>Security</h2>
+    <p>The app uses account-scoped access controls for cloud records and filters diagnostic events before sending them. These are technical safeguards, not a guarantee that every transmission, provider record or copy is private or inaccessible.</p>
+
+    <h2>Privacy requests and contact</h2>
+    <p>For a privacy question or account request, open InvoiceSnap and go to <strong>More → Help &amp; support → Contact support</strong>. The app’s support conversation is the currently verified contact channel. We do not publish a support email address or street address on this page.</p>
+
+    <h2>Policy updates</h2>
+    <p>We may update this policy as the app and its data flows change. The effective date at the top identifies the current version.</p>
+    <p>Related pages: <a href="/terms/">Terms of Service</a> · <a href="/support/">Support</a>.</p>
+  </main>
+  <footer class="site-footer"><span>© 2026 InvoiceSnap · 731labs</span><nav aria-label="Footer"><a href="/">Home</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a></nav></footer>
+</body>
+</html>
