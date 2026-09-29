@@ -1412,6 +1412,7 @@
           <a href="#calculator" class="nav-link">Estimator</a>
           <a href="#pricing" class="nav-link">Free & Pro</a>
           <a href="#faq" class="nav-link">FAQ</a>
+          <a href="https://app.invoicesnap.work/?destination=home" data-app-destination="home" class="nav-link">Web App</a>
         </div>
 
         <a href="https://apps.apple.com/app/id6759242022" target="_blank" rel="noopener" class="nav-cta">
@@ -1449,6 +1450,9 @@
               <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 1.01-2.87-.96.04-2.12.64-2.79 1.43-.59.68-1.1 1.77-.96 2.81 1.07.08 2.13-.57 2.74-1.37z"/>
             </svg>
             Download on App Store
+          </a>
+          <a href="https://app.invoicesnap.work/?destination=home" data-app-destination="home" class="btn-secondary">
+            Open Web App ↗
           </a>
           <a href="#calculator" class="btn-secondary">
             Try Sample Calculator ↓
@@ -1805,7 +1809,7 @@
 
         <div class="calc-actions">
           <button class="btn-secondary" onclick="openInvoiceModal()">📄 Preview Sample Invoice</button>
-          <a href="https://apps.apple.com/app/id6759242022" target="_blank" class="btn-primary">Generate in App ↗</a>
+          <a href="https://app.invoicesnap.work/?destination=invoices" data-app-destination="invoices" class="btn-primary">Generate in App ↗</a>
         </div>
       </div>
     </div>
@@ -1865,6 +1869,7 @@
           <a href="/privacy/" class="footer-link">Privacy Policy</a>
           <a href="/terms/" class="footer-link">Terms of Service</a>
           <a href="/support/" class="footer-link">Support</a>
+          <a href="https://app.invoicesnap.work/?destination=home" data-app-destination="home" class="footer-link">Web App</a>
           <a href="https://apps.apple.com/app/id6759242022" target="_blank" rel="noopener" class="footer-link">App Store</a>
         </div>
       </div>
@@ -2079,7 +2084,63 @@
       }
     }
 
+    // Forward only the acquisition fields accepted by the app's consent-aware
+    // first-touch ledger. The destination is a named app route; arbitrary URLs,
+    // query parameters, referrers, and consent values never cross this boundary.
+    const WEB_APP_ORIGIN = 'https://app.invoicesnap.work/';
+    const APP_DESTINATIONS = new Set([
+      'home', 'invoices', 'clients', 'items', 'time', 'expenses', 'analytics'
+    ]);
+    const UTM_SOURCES = new Set([
+      'google', 'bing', 'meta', 'facebook', 'instagram', 'tiktok', 'linkedin',
+      'newsletter', 'email', 'partner', 'affiliate', 'referral', 'organic',
+      'direct', 'other'
+    ]);
+    const UTM_MEDIA = new Set([
+      'cpc', 'paid_search', 'paid_social', 'social', 'email', 'referral',
+      'organic', 'display', 'video', 'affiliate', 'partner', 'none'
+    ]);
+
+    function sanitizeCampaignValue(value, allowedValues) {
+      if (!value || value.length > 80) return null;
+      const normalized = value.trim().toLowerCase();
+      if (
+        !normalized ||
+        normalized.length > 64 ||
+        /@|\bhttps?:|\+|\s/.test(normalized) ||
+        !/^[a-z0-9][a-z0-9._-]*$/.test(normalized) ||
+        /\d{7,}/.test(normalized)
+      ) return null;
+      if (allowedValues && !allowedValues.has(normalized)) return null;
+      return normalized;
+    }
+
+    function buildWebAppEntry(destination) {
+      const safeDestination = APP_DESTINATIONS.has(destination) ? destination : 'home';
+      const target = new URL(WEB_APP_ORIGIN);
+      target.searchParams.set('destination', safeDestination);
+
+      const incoming = new URL(window.location.href);
+      const fields = [
+        ['utm_source', UTM_SOURCES],
+        ['utm_medium', UTM_MEDIA],
+        ['utm_campaign', null],
+        ['utm_content', null]
+      ];
+      fields.forEach(([key, allowedValues]) => {
+        const values = incoming.searchParams.getAll(key);
+        if (values.length !== 1) return;
+        const value = sanitizeCampaignValue(values[0], allowedValues);
+        if (value) target.searchParams.set(key, value);
+      });
+      return target.toString();
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a[data-app-destination]').forEach(link => {
+        link.href = buildWebAppEntry(link.dataset.appDestination || 'home');
+      });
+
       // Track App Store CTAs
       document.querySelectorAll('a[href*="apps.apple.com"]').forEach(btn => {
         btn.addEventListener('click', () => {
