@@ -809,7 +809,7 @@
 
     .trades-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
       gap: 20px;
       margin-top: 36px;
     }
@@ -954,6 +954,19 @@
       color: var(--ink);
       cursor: pointer;
       outline: none;
+    }
+
+    .calc-table-wrap {
+      max-width: 100%;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+
+    .calc-table-wrap:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 3px;
     }
 
     .calc-table {
@@ -1748,19 +1761,21 @@
           </div>
         </div>
 
-        <table class="calc-table">
-          <thead>
-            <tr>
-              <th>Description / Item</th>
-              <th>Unit Rate</th>
-              <th>Quantity</th>
-              <th class="num-col">Total</th>
-            </tr>
-          </thead>
-          <tbody id="calcBody">
-            <!-- Populated dynamically by JS -->
-          </tbody>
-        </table>
+        <div class="calc-table-wrap" role="region" aria-label="Estimate line items" tabindex="0">
+          <table class="calc-table">
+            <thead>
+              <tr>
+                <th>Description / Item</th>
+                <th>Unit Rate</th>
+                <th>Quantity</th>
+                <th class="num-col">Total</th>
+              </tr>
+            </thead>
+            <tbody id="calcBody">
+              <!-- Populated dynamically by JS -->
+            </tbody>
+          </table>
+        </div>
 
         <div class="calc-summary-row">
           <span>Subtotal</span>
