@@ -23,3 +23,8 @@ Production repository for the official marketing and conversion landing page of 
 
 ## Deploying Updates
 Every push to `main` automatically deploys live to `https://invoicesnap.work/` in ~30 seconds via GitHub Pages.
+
+## Product artwork
+
+All site product marks and browser icons use `assets/invoicesnap-icon.png`, the unchanged artwork from the [official App Store listing](https://apps.apple.com/us/app/invoice-snap-estimate-maker/id6759242022), verified October 1, 2026.
+SHA-256: `c84afeaf6c3ef9f53a1afc4ff6966f1d4fb135c8a65c7627a72a71c29971de6d`.
