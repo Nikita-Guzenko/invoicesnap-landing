@@ -1409,7 +1409,7 @@
           <a href="#calculator" class="nav-link">Estimator</a>
           <a href="#pricing" class="nav-link">Free & Pro</a>
           <a href="#faq" class="nav-link">FAQ</a>
-          <a href="https://app.invoicesnap.work/?destination=home" data-app-destination="home" class="nav-link">Web App</a>
+          <a href="https://app.invoicesnap.work/sign-in?destination=home" data-app-destination="home" class="nav-link">Web App</a>
         </div>
 
         <a href="https://apps.apple.com/app/id6759242022" target="_blank" rel="noopener" class="nav-cta">
@@ -1448,7 +1448,7 @@
             </svg>
             Download on App Store
           </a>
-          <a href="https://app.invoicesnap.work/?destination=home" data-app-destination="home" class="btn-secondary">
+          <a href="https://app.invoicesnap.work/sign-in?destination=home" data-app-destination="home" class="btn-secondary">
             Open Web App ↗
           </a>
           <a href="#calculator" class="btn-secondary">
@@ -1806,7 +1806,7 @@
 
         <div class="calc-actions">
           <button class="btn-secondary" onclick="openInvoiceModal()">📄 Preview Sample Invoice</button>
-          <a href="https://app.invoicesnap.work/?destination=invoices" data-app-destination="invoices" class="btn-primary">Generate in App ↗</a>
+          <a href="https://app.invoicesnap.work/sign-in?destination=invoices" data-app-destination="invoices" class="btn-primary">Generate in App ↗</a>
         </div>
       </div>
     </div>
@@ -1866,7 +1866,7 @@
           <a href="/privacy/" class="footer-link">Privacy Policy</a>
           <a href="/terms/" class="footer-link">Terms of Service</a>
           <a href="/support/" class="footer-link">Support</a>
-          <a href="https://app.invoicesnap.work/?destination=home" data-app-destination="home" class="footer-link">Web App</a>
+          <a href="https://app.invoicesnap.work/sign-in?destination=home" data-app-destination="home" class="footer-link">Web App</a>
           <a href="https://apps.apple.com/app/id6759242022" target="_blank" rel="noopener" class="footer-link">App Store</a>
         </div>
       </div>
@@ -2114,7 +2114,7 @@
 
     function buildWebAppEntry(destination) {
       const safeDestination = APP_DESTINATIONS.has(destination) ? destination : 'home';
-      const target = new URL(WEB_APP_ORIGIN);
+      const target = new URL('/sign-in', WEB_APP_ORIGIN);
       target.searchParams.set('destination', safeDestination);
 
       const incoming = new URL(window.location.href);
