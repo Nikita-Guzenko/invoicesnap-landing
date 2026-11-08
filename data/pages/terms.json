@@ -1,0 +1,10 @@
+{
+  "id": "terms",
+  "page_type": "about",
+  "locales": {
+    "en": {
+      "slug": "terms",
+      "source": "terms/index.html"
+    }
+  }
+}

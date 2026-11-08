@@ -21,10 +21,11 @@ Production repository for the official marketing and conversion landing page of 
 - **Rich Schema.org (JSON-LD):** `@type: SoftwareApplication` and `@type: FAQPage` structured data.
 - **Founder Lifetime Deal:** $39 one-time license with `#redeem` voucher activation portal for AppSumo / Lifetime Deal campaigns.
 
-## Deploying Updates
-Every push to `main` automatically deploys live to `https://invoicesnap.work/` in ~30 seconds via GitHub Pages.
+## Add a page or deploy
+The site is generated from `data/` by `build.py` (no dependencies). `python3 build.py --help` says how to add a page.
+Deploy with `python3 publish.py`: it runs the checks, pushes `dist/` to branch `gh-pages`, crawls production and tells IndexNow. A push to `main` does not deploy.
 
 ## Product artwork
 
-All site product marks and browser icons use `assets/invoicesnap-icon.png`, the unchanged artwork from the [official App Store listing](https://apps.apple.com/us/app/invoice-snap-estimate-maker/id6759242022), verified October 1, 2026.
+All site product marks and browser icons use `src/static/assets/invoicesnap-icon.png`, the unchanged artwork from the [official App Store listing](https://apps.apple.com/us/app/invoice-snap-estimate-maker/id6759242022), verified October 1, 2026.
 SHA-256: `c84afeaf6c3ef9f53a1afc4ff6966f1d4fb135c8a65c7627a72a71c29971de6d`.

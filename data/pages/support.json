@@ -1,0 +1,10 @@
+{
+  "id": "support",
+  "page_type": "contact",
+  "locales": {
+    "en": {
+      "slug": "support",
+      "source": "support/index.html"
+    }
+  }
+}

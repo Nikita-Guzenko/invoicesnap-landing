@@ -1,0 +1,10 @@
+{
+  "id": "home",
+  "page_type": "home",
+  "locales": {
+    "en": {
+      "slug": "",
+      "source": "index.html"
+    }
+  }
+}

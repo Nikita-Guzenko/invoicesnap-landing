@@ -1,0 +1,26 @@
+# Checks only: build, crawl, end-to-end test (NIK-545, 8 Nov 2026). Deploy is `python3 publish.py`, see its header.
+# Since 28 Sep 2026 Actions jobs do not start: "account is locked due to a billing issue". This file runs again when
+# the billing lock ends. Until then, run the same three commands by hand and write the result in the PR.
+name: Site
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build (fails if data/lastmod.json is out of date)
+        run: python3 build.py --check
+      - name: Crawl the build over HTTP
+        run: python3 check_site.py --dir dist
+      - name: End-to-end test (1,408 fixture pages, every check must be able to fail)
+        run: python3 tests/test_site.py
