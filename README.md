@@ -23,7 +23,7 @@ Production repository for the official marketing and conversion landing page of 
 
 ## Add a page or deploy
 The site is generated from `data/` by `build.py` (no dependencies). `python3 build.py --help` says how to add a page.
-A push to `main` runs `.github/workflows/site.yml`: build, crawl, deploy to GitHub Pages, crawl production, tell IndexNow.
+Deploy with `python3 publish.py`: it runs the checks, pushes `dist/` to branch `gh-pages`, crawls production and tells IndexNow. A push to `main` does not deploy.
 
 ## Product artwork
 

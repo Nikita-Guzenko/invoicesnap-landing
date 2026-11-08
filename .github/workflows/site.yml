@@ -1,6 +1,6 @@
-# Build the site from data, crawl it, deploy it to GitHub Pages, crawl production, tell IndexNow (NIK-545, 8 Nov 2026).
-# Pages source must be "GitHub Actions" (build_type=workflow): the repo root holds no site files since NIK-545, so a
-# branch build would publish nothing. Check: gh api repos/Nikita-Guzenko/invoicesnap-landing/pages --jq .build_type
+# Checks only: build, crawl, end-to-end test (NIK-545, 8 Nov 2026). Deploy is `python3 publish.py`, see its header.
+# Since 28 Sep 2026 Actions jobs do not start: "account is locked due to a billing issue". This file runs again when
+# the billing lock ends. Until then, run the same three commands by hand and write the result in the PR.
 name: Site
 
 on:
@@ -12,12 +12,8 @@ on:
 permissions:
   contents: read
 
-concurrency:
-  group: site-${{ github.ref }}
-  cancel-in-progress: false
-
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -28,37 +24,3 @@ jobs:
         run: python3 check_site.py --dir dist
       - name: End-to-end test (1,408 fixture pages, every check must be able to fail)
         run: python3 tests/test_site.py
-      - uses: actions/upload-pages-artifact@v3
-        if: github.ref == 'refs/heads/main'
-        with:
-          path: dist
-
-  deploy:
-    if: github.ref == 'refs/heads/main'
-    needs: build
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - uses: actions/checkout@v4
-      - name: Read live lastmod before deploy
-        run: python3 indexnow.py snapshot before.json
-      - id: deployment
-        uses: actions/deploy-pages@v4
-      - name: Crawl production
-        # The CDN can serve an old file for up to 10 minutes (cache-control: max-age=600), so it tries 4 times.
-        run: |
-          for attempt in 1 2 3 4; do
-            python3 check_site.py --base https://invoicesnap.work && exit 0
-            sleep 200
-          done
-          exit 1
-      - name: Tell IndexNow about new and changed pages
-        run: |
-          python3 build.py --check
-          python3 indexnow.py submit before.json dist

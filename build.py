@@ -3,8 +3,9 @@
 
 Usage:
   python3 build.py            build dist/ and update data/lastmod.json. Commit that file.
-  python3 build.py --check    build dist/ but fail if data/lastmod.json is out of date (CI runs this).
+  python3 build.py --check    build dist/ but fail if data/lastmod.json is out of date.
   python3 check_site.py --dir dist    crawl the build over real HTTP and check every SEO rule.
+  python3 publish.py          deploy to production (see its header).
 
 Add a page: write data/pages/<id>.json, one file for one page in all its languages.
   {"id": "plumber-invoice", "page_type": "guide",

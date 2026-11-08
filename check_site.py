@@ -2,8 +2,8 @@
 """Crawl the site over HTTP and check every search rule on every URL (NIK-545, 8 Nov 2026). Standard library only.
 
 Usage:
-  python3 check_site.py --dir dist                     serve dist/ on a local port and crawl it (CI, before deploy)
-  python3 check_site.py --base https://invoicesnap.work    crawl the live site (CI, after deploy)
+  python3 check_site.py --dir dist                     serve dist/ on a local port and crawl it (before deploy)
+  python3 check_site.py --base https://invoicesnap.work    crawl the live site (publish.py runs it after deploy)
 Exit 0 = every check passed. Exit 1 = each problem is printed with its URL. tests/test_site.py proves that each check can fail.
 
 It starts at /sitemap.xml and checks (playbook rules in brackets):

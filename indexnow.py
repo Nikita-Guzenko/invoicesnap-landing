@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Tell IndexNow (Bing, Yandex and others) which pages changed in a deploy (playbook rule R03, NIK-545, 8 Nov 2026).
 
-Usage, in this order, in the deploy job (.github/workflows/site.yml):
+Usage, in this order (publish.py runs both):
   python3 indexnow.py snapshot before.json      before deploy: read lastmod of each live URL
   python3 indexnow.py submit before.json dist   after deploy: send the URLs that are new or have a new lastmod
 
-Google does not use IndexNow; it reads the sitemap named in robots.txt. A non-2xx answer fails the job with the
+Google does not use IndexNow; it reads the sitemap named in robots.txt. A non-2xx answer exits 1 with the
 answer text. 403 means IndexNow could not read the key file: check https://invoicesnap.work/<key>.txt. 429 means
-too many requests: run the job again later. An unreadable live sitemap writes an empty snapshot, so all URLs go out.
+too many requests: run it again later. An unreadable live sitemap writes an empty snapshot, so all URLs go out.
 """
 from __future__ import annotations
 
