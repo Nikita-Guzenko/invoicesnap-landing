@@ -5,8 +5,9 @@ Usage:
   python3 publish.py                 run from a clean, pushed main
   python3 publish.py --from-branch   allow another branch (only for the first cutover, before main has the generator)
 Needs: git push access and the gh CLI. It runs the build, the crawl and the tests first and stops on any failure.
-Steps: checks -> IndexNow snapshot -> commit dist/ on gh-pages -> Pages source = gh-pages -> wait for the Pages build
-       -> crawl production -> tell IndexNow about new and changed pages.
+Steps: checks -> commit dist/ on gh-pages -> Pages source = gh-pages -> wait for the Pages build -> wait until production
+       serves the same bytes as dist/ -> crawl production -> tell IndexNow about new and changed pages.
+A failure at any step leaves the last good deployment live. Fix the cause and run it again: it requests a build if needed.
 
 Why a local script and not GitHub Actions (checked 8 Nov 2026): since 28 Sep 2026 every Actions job stops with "account is
 locked due to a billing issue". Branch builds of Pages still ran during the lock (29 Sep, 1 Oct, 2 Oct), so this path
@@ -14,9 +15,12 @@ works today. `gh api repos/Nikita-Guzenko/invoicesnap-landing/actions/runs?per_p
 
 Gotchas:
 - main holds no site files at its root. Pages source on main would publish an empty site, so the script sets gh-pages.
-- gh-pages only gets new commits: the push is never forced. To roll back, check out the old main commit and publish it.
+- gh-pages only gets new commits: the push is never forced. To roll back, check out an older commit that has
+  publish.py and publish it. To go back before the generator:
+  gh api -X PUT repos/Nikita-Guzenko/invoicesnap-landing/pages -f build_type=legacy -f 'source[branch]=main' -f 'source[path]=/'
+  That works only on a main commit that still holds index.html at its root.
 - src/static/.nojekyll stays: without it the branch build runs Jekyll, which drops files that start with "_".
-- The CDN can serve an old file for up to 10 minutes (cache-control: max-age=600), so the crawl tries 4 times.
+- The CDN can serve an old file for up to 10 minutes (cache-control: max-age=600), so it compares for up to 15 minutes.
 """
 from __future__ import annotations
 
@@ -27,6 +31,9 @@ import subprocess
 import sys
 import tempfile
 import time
+import urllib.error
+import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -40,7 +47,10 @@ class PublishError(Exception):
 
 
 def run(*args: str, cwd: Path = ROOT, check: bool = True) -> str:
-    result = subprocess.run(args, cwd=cwd, capture_output=True, text=True, timeout=900)
+    try:
+        result = subprocess.run(args, cwd=cwd, capture_output=True, text=True, timeout=1200)
+    except subprocess.TimeoutExpired as e:
+        raise PublishError(f"{' '.join(args)} ran over {e.timeout} s") from e
     if check and result.returncode != 0:
         raise PublishError(f"{' '.join(args)} failed:\n{result.stdout[-1500:]}\n{result.stderr[-1500:]}")
     return result.stdout.strip()
@@ -60,6 +70,8 @@ def check_source_tree(from_branch: bool) -> str:
     head = git("rev-parse", "HEAD")
     if not git("branch", "-r", "--contains", head):
         raise PublishError("HEAD is not on the remote: push it first, so each published commit has a source")
+    if not from_branch and head != git("rev-parse", "origin/main"):
+        raise PublishError("HEAD is not origin/main: pull or push first, so an old site cannot replace a newer one")
     return head
 
 
@@ -100,28 +112,59 @@ def set_source() -> None:
 
 
 def wait_for_build(commit: str) -> None:
-    for _ in range(40):
-        latest = json.loads(run("gh", "api", f"{REPO}/pages/builds/latest"))
-        if latest.get("commit") == commit:
-            if latest["status"] == "built":
-                print(f"Pages build done for {commit[:12]}")
-                return
-            if latest["status"] == "errored":
-                raise PublishError(f"Pages build failed: {latest.get('error')}. The site keeps its last good deployment")
+    requested = False
+    for attempt in range(40):
+        try:
+            latest = json.loads(run("gh", "api", f"{REPO}/pages/builds/latest"))
+        except PublishError as e:  # One failed API call must not stop a publish that already pushed.
+            print(f"could not read the Pages build, trying again: {str(e)[:200]}")
+            latest = {}
+        current = latest.get("commit") == commit
+        if current and latest.get("status") == "built":
+            print(f"Pages build done for {commit[:12]}")
+            return
+        errored = latest.get("status") == "errored"
+        if not requested and (errored or (latest and not current and attempt >= 4)):
+            print(f"latest build: {latest.get('status')} for {str(latest.get('commit'))[:12]}: {latest.get('error')}. Requesting a build")
+            run("gh", "api", "-X", "POST", f"{REPO}/pages/builds")
+            requested = True
+        elif requested and errored and current:
+            raise PublishError(f"Pages build failed: {latest.get('error')}. The site keeps its last good deployment")
         time.sleep(15)
     raise PublishError(f"no finished Pages build for {commit[:12]} after 10 minutes: "
                        f"gh api {REPO}/pages/builds/latest. If Pages started to need Actions, see the header of this file")
 
 
-def crawl_live() -> None:
-    for attempt in range(4):
-        result = subprocess.run([sys.executable, "check_site.py", "--base", LIVE], cwd=ROOT, capture_output=True, text=True)
-        print(result.stdout.strip().splitlines()[-1] if result.stdout.strip() else result.stderr[-300:])
-        if result.returncode == 0:
+def differs(path: Path) -> str | None:
+    """The URL path if production does not serve the bytes of this dist/ file."""
+    relative = path.relative_to(ROOT / "dist").as_posix()
+    url = f"{LIVE}/{relative.removesuffix('index.html')}"
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, headers={"Cache-Control": "no-cache"}), timeout=60) as r:
+            return None if r.read() == path.read_bytes() else url
+    except OSError:
+        return url
+
+
+def wait_for_live_bytes() -> None:
+    """A green crawl alone cannot tell the old deployment from the new one: the old site is valid too."""
+    files = [p for p in (ROOT / "dist").rglob("*") if p.suffix in (".html", ".xml", ".txt") and p.is_file()]
+    for attempt in range(15):
+        with ThreadPoolExecutor(16) as pool:
+            old = [u for u in pool.map(differs, files) if u]
+        if not old:
+            print(f"production serves the same bytes as dist/ for {len(files)} files")
             return
-        if attempt == 3:
-            raise PublishError(f"production crawl failed:\n{result.stdout[-3000:]}")
-        time.sleep(200)
+        print(f"{len(old)} of {len(files)} files are not new yet, first: {old[0]}")
+        time.sleep(60)
+    raise PublishError(f"production still serves old files after 15 minutes, first: {old[0]}")
+
+
+def crawl_live() -> None:
+    result = subprocess.run([sys.executable, "check_site.py", "--base", LIVE], cwd=ROOT, capture_output=True, text=True)
+    print(result.stdout.strip().splitlines()[-1] if result.stdout.strip() else result.stderr[-300:])
+    if result.returncode != 0:
+        raise PublishError(f"production crawl failed:\n{result.stdout[-3000:]}\n{result.stderr[-500:]}")
 
 
 def main() -> int:
@@ -133,14 +176,12 @@ def main() -> int:
         run(sys.executable, "build.py", "--check")
         print(run(sys.executable, "check_site.py", "--dir", "dist"))
         print(run(sys.executable, "tests/test_site.py").splitlines()[-1])
-        with tempfile.TemporaryDirectory(dir=Path.home() / ".cache") as tmp:
-            before = str(Path(tmp) / "before.json")
-            print(run(sys.executable, "indexnow.py", "snapshot", before))
-            commit = commit_dist(source)
-            set_source()
-            wait_for_build(commit)
-            crawl_live()
-            print(run(sys.executable, "indexnow.py", "submit", before, "dist"))
+        commit = commit_dist(source)
+        set_source()
+        wait_for_build(commit)
+        wait_for_live_bytes()
+        crawl_live()
+        print(run(sys.executable, "indexnow.py"))
         print(f"published {source[:12]} as {BRANCH} {commit[:12]}")
         return 0
     except PublishError as e:

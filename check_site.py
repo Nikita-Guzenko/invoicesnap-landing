@@ -9,7 +9,8 @@ Exit 0 = every check passed. Exit 1 = each problem is printed with its URL. test
 It starts at /sitemap.xml and checks (playbook rules in brackets):
 - the index lists only language sitemaps, and each one lists pages of that language [R03]
 - each URL: HTTP 200 with no redirect, no noindex, one canonical in <head> that equals the URL, a title and a
-  description unique in its language, <h1> and at least MIN_TEXT characters inside <main>, not hidden [R01]
+  description unique in its language, <h1> and at least MIN_TEXT characters inside <main>, not hidden [R01].
+  "Hidden" means the hidden attribute, <noscript> or <template>. Text hidden by CSS is not detected.
 - hreflang: self link, x-default, valid tags, every target in a sitemap, and the same set on every page of a cluster
 - JSON-LD parses, exists on each page, and WebPage, FAQPage values appear on the page [R12]
 - internal <a> links return 200, have no query string, and every linked page is in a sitemap [R03, R31]
@@ -19,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import functools
+import http.client
 import http.server
 import json
 import re
@@ -97,7 +99,7 @@ class Page(HTMLParser):
         if tag == "h1" and self.inside("main") and not self.hidden() and "hidden" not in a:
             self.h1_in_main = True
         if tag not in VOID:
-            self.stack.append((tag, "hidden" in a))
+            self.stack.append((tag, "hidden" in a or tag in ("noscript", "template")))
 
     def handle_startendtag(self, tag, attrs):
         self.handle_starttag(tag, attrs)
@@ -142,15 +144,15 @@ class Crawl:
         with self.lock:
             self.errors.append(f"{where}: {message}")
 
-    def fetch(self, path: str) -> tuple[int, str, dict]:
+    def fetch(self, path: str):
         request = urllib.request.Request(self.base + path, headers={"User-Agent": "invoicesnap-check-site/1"})
         try:
             with OPENER.open(request, timeout=60) as response:
-                return response.status, response.read().decode("utf-8", "replace"), dict(response.headers)
+                return response.status, response.read().decode("utf-8", "replace"), response.headers  # Not dict(): names must stay case-insensitive, http.server sends "Content-type".
         except urllib.error.HTTPError as e:
-            return e.code, "", dict(e.headers or {})
-        except OSError as e:
-            return 0, str(e), {}  # Status 0 = could not look. It is reported, never counted as empty.
+            return e.code, "", e.headers
+        except (OSError, http.client.HTTPException) as e:
+            return 0, str(e), http.client.HTTPMessage()  # Status 0 = could not look. It is reported, never counted as empty.
 
     def to_path(self, url: str) -> str | None:
         return url[len(self.origin):] if url.startswith(self.origin + "/") else None
@@ -184,6 +186,8 @@ class Crawl:
             except ET.ParseError as e:
                 self.error(path, f"not valid XML: {e}")
                 continue
+            if child.tag != "{%s}urlset" % NS["s"] or not child.findall("s:url", NS):
+                self.error(path, "is not a urlset with at least one URL")
             for url in child.findall("s:url", NS):
                 page = self.to_path(url.findtext("s:loc", "", NS))
                 if not page:
@@ -300,11 +304,11 @@ class Crawl:
                 elif results[target_path] and results[target_path]["alternates"] != result["alternates"]:
                     self.error(path, f"hreflang set differs on {target_path}: the pair is not reciprocal")
         self.check_links(results)
-        self.check_robots(list(pages)[:3])
+        self.check_robots(list(pages))
         status, text, _ = self.fetch(f"/{self.key}.txt")
         if status != 200 or text.strip() != self.key:
             self.error(f"/{self.key}.txt", f"IndexNow key file: HTTP {status}")
-        for line in sorted(self.errors)[:200]:
+        for line in sorted(self.errors)[:2000]:  # A high cap: one broken page can repeat in every sibling of its cluster.
             print(f"FAIL {line}")
         print(f"checked {len(results)} pages in {len(set(pages.values()))} language sitemaps: {len(self.errors)} problem(s)")
         return 1 if self.errors else 0

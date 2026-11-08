@@ -15,7 +15,8 @@ Add a page: write data/pages/<id>.json, one file for one page in all its languag
             "faq": [{"q": "...", "a": "..."}],
             "schema": [{"@type": "HowTo", "name": "..."}]},
      "de": {"slug": "rechnung-klempner", "title": "...", ...}}}
-  URL = /<locale prefix from data/locales.json>/<slug>/. Each locale may have its own native slug.
+  URL = /<locale prefix from data/locales.json>/<slug>/. Each locale may have its own slug, in ASCII: a-z, 0-9, hyphen
+  (write native words in Latin letters). The build stops on other characters.
   The build makes the canonical, the hreflang pairs and x-default, the WebPage schema, the FAQPage schema
   (from "faq", shown on the page too) and the language sitemap. "en" is required: it is x-default.
   "faq" and "schema" are optional. Any value in "schema" must match the visible text (playbook rule R12).
@@ -26,8 +27,8 @@ Add a page: write data/pages/<id>.json, one file for one page in all its languag
 Facts that are not obvious:
 - Sitemaps stay at the site root: a sitemap may list only URLs at or below its own folder, so
   /sitemaps/en.xml could not list /privacy/.
-- lastmod changes only when the visible text, title or description changes (playbook rule R03). A template or
-  CSS change does not move it, and two builds give the same date. data/lastmod.json keeps hash and date.
+- lastmod changes only when the <main> text, title or description changes (playbook rule R03). A template, CSS or
+  footer change does not move it, so a new locale in the language list does not move the sibling pages. Two builds give the same date. data/lastmod.json keeps hash and date.
 - data/locales.json follows the app bundles in invoicesnap-expo src/i18n/locales ("app_locale" names the bundle).
   translations/ in that repo is deprecated: do not use it as the list. Bundle en-US is the root locale "en", which
   is also x-default; en-GB, en-CA and en-AU are separate URL sets.
@@ -48,6 +49,7 @@ from string import Template
 from xml.sax.saxutils import escape as xml_escape
 
 ROOT = Path(__file__).resolve().parent
+VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
 TITLE_MAX, DESCRIPTION_MAX = 70, 170  # Longer text is cut in search results: a warning, not an error.
 
 
@@ -70,6 +72,8 @@ class PageText(HTMLParser):
         self.description = ""
         self.canonical = ""
         self.lang = ""
+        self.main_depth = 0
+        self.main_parts: list[str] = []
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -83,10 +87,14 @@ class PageText(HTMLParser):
             self.description = a.get("content", "")
         elif tag == "link" and a.get("rel") == "canonical":
             self.canonical = a.get("href", "")
+        if tag == "main" or (tag not in VOID and self.main_depth):
+            self.main_depth += 1
         if tag in self.SKIP:
             self.skip += 1
 
     def handle_endtag(self, tag):
+        if self.main_depth and tag not in VOID:
+            self.main_depth -= 1
         if tag == "head":
             self.in_head = False
         elif tag == "title":
@@ -99,9 +107,11 @@ class PageText(HTMLParser):
             self.title += data
         elif not self.skip and not self.in_head:
             self.parts.append(data)
+            if self.main_depth:
+                self.main_parts.append(data)
 
-    def text(self) -> str:
-        return " ".join(" ".join(self.parts).split())
+    def main_text(self) -> str:
+        return " ".join(" ".join(self.main_parts).split())
 
 
 def parse(page_html: str) -> PageText:
@@ -155,8 +165,8 @@ class Site:
                 if "slug" not in entry:
                     raise BuildError(f"page {page['id']} {tag}: field slug is required")
                 path = self.url_path(tag, entry["slug"])
-                if not re.fullmatch(r"/(?:[^/?#\s]+/)*", path) or path != path.lower():
-                    raise BuildError(f"page {page['id']} {tag}: bad URL {path}: use lower case, no spaces")
+                if not re.fullmatch(r"/(?:[a-z0-9-]+/)*", path):
+                    raise BuildError(f"page {page['id']} {tag}: bad URL {path}: use lower case ASCII a-z, 0-9 and hyphen")
                 if path in seen:
                     raise BuildError(f"URL {path} is used by pages {seen[path]} and {page['id']}")
                 seen[path] = page["id"]
@@ -232,7 +242,7 @@ class Site:
 
     def lastmod(self, path: str, rendered: str, stale: list[str]) -> str:
         parsed = parse(rendered)
-        digest = hashlib.sha256("\n".join((parsed.title.strip(), parsed.description.strip(), parsed.text())).encode()).hexdigest()
+        digest = hashlib.sha256("\n".join((parsed.title.strip(), parsed.description.strip(), parsed.main_text())).encode()).hexdigest()
         known = self.lock.get(path)
         if known and known["hash"] == digest:
             return known["lastmod"]

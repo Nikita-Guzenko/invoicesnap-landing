@@ -108,6 +108,10 @@ def mutations(out: Path) -> list[tuple[str, str, object]]:
         ("broken internal link", "HTTP 404", lambda: sub(de, 'href="/privacy/"', 'href="/nope/"')),
         ("robots blocks a search robot", "is blocked from", lambda: (out / "robots.txt").write_text("User-agent: OAI-SearchBot\nDisallow: /\n\nSitemap: https://invoicesnap.work/sitemap.xml\n")),
         ("robots has no sitemap line", "does not name the sitemap", lambda: (out / "robots.txt").write_text("User-agent: *\nAllow: /\n")),
+        ("linked page is not in a sitemap", "the page is not in a sitemap", lambda: ((out / "orphan").mkdir(), (out / "orphan/index.html").write_text("<!doctype html><title>x</title>"), sub(de, 'href="/privacy/"', 'href="/orphan/"'))),
+        ("robots blocks one language", "is blocked from", lambda: (out / "robots.txt").write_text("User-agent: *\nDisallow: /de/\n\nSitemap: https://invoicesnap.work/sitemap.xml\n")),
+        ("empty language sitemap", "at least one URL", lambda: (out / "sitemap-de.xml").write_text('<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>')),
+        ("text only in noscript", "characters of server-rendered text", lambda: de.write_text(re.sub(r"<main>.*?</main>", "<main><h1>x</h1><noscript>" + "y" * 400 + "</noscript></main>", de.read_text(encoding="utf-8"), flags=re.S), encoding="utf-8")),
         ("IndexNow key file is gone", "IndexNow key file", lambda: next(out.glob("*.txt")).unlink()),
     ]
 
@@ -150,6 +154,15 @@ def main() -> int:
         expect("only the changed page moves", moved == {"https://invoicesnap.work/de/fixture-3/"}, str(sorted(moved))[:300])
         page_file.write_text(original, encoding="utf-8")
         build(data, out, "--today", "2026-11-08")
+        one = json.loads(original)
+        sibling_lang = one["locales"].pop("vi")
+        page_file.write_text(json.dumps(one), encoding="utf-8")
+        before_removal = lastmods(out)
+        build(data, out, "--today", "2027-01-05")
+        moved = {u for u, m in lastmods(out).items() if before_removal.get(u) != m}
+        expect("a language list change moves no sibling date", not moved and sibling_lang, str(sorted(moved))[:300])
+        page_file.write_text(original, encoding="utf-8")
+        build(data, out, "--today", "2026-11-08")
 
         # 3. each check can fail
         pristine = tmp_path / "pristine"
@@ -177,6 +190,7 @@ def main() -> int:
         bad("unknown locale", "is not in data/locales.json", "pages/fixture-0.json", lambda v: v["locales"].update({"xx": v["locales"]["de"]}))
         bad("same URL twice", "is used by pages", "pages/fixture-0.json", lambda v: v["locales"]["de"].update({"slug": "fixture-0/../fixture-1"}) or v["locales"]["de"].update({"slug": "fixture-1"}))
         bad("upper case slug", "use lower case", "pages/fixture-0.json", lambda v: v["locales"]["de"].update({"slug": "Fixture-0x"}))
+        bad("non-ASCII slug", "use lower case ASCII", "pages/fixture-0.json", lambda v: v["locales"]["es"].update({"slug": "guía"}))
         bad("no title", "field title is required", "pages/fixture-0.json", lambda v: v["locales"]["de"].pop("title"))
         bad("no ui for the locale", 'add a "ui" block for de', "locales.json", lambda v: v["de"].pop("ui"))
         bad("same title twice", "have the same title", "pages/fixture-0.json", lambda v: v["locales"]["de"].update({"title": "Fixture 1 de"}))
