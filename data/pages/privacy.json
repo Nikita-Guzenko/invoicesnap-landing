@@ -1,0 +1,10 @@
+{
+  "id": "privacy",
+  "page_type": "about",
+  "locales": {
+    "en": {
+      "slug": "privacy",
+      "source": "privacy/index.html"
+    }
+  }
+}

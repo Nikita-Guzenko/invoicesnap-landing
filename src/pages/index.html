@@ -1423,6 +1423,7 @@
   </header>
 
   <!-- Ambient Light Container -->
+  <main><!-- R01: h1 and page text sit in <main>; the modal below is a dialog, so it stays out (NIK-545, 8 Nov 2026). -->
   <div class="ambient-sky">
 
     <!-- Hero Section -->
@@ -1819,6 +1820,7 @@
   <section id="faq" class="faq-section"><div class="container"><div class="section-header"><div class="section-tag">Frequently Asked Questions</div><h2 class="section-title">About InvoiceSnap</h2></div><div class="faq-accordion"><div class="faq-item open"><div class="faq-q" onclick="toggleFaq(this)"><span>What is included for free?</span><span class="faq-icon">+</span></div><div class="faq-a">Create up to 3 invoices and 3 estimates in total, with up to 2 AI-estimate uses. These are total limits, not monthly allowances. Manual payment records and PDF export are available on the free plan.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Which features need internet?</span><span class="faq-icon">+</span></div><div class="faq-a">Core invoice and estimate editing works locally. AI generation and optional cloud sync require internet. Pro cloud sync also requires an account; AI features depend on service limits and availability.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>How does AI estimate drafting work?</span><span class="faq-icon">+</span></div><div class="faq-a">Describe the job and optionally attach a photo. Online AI suggests editable line items. Review the description, quantities and rates before using or sharing an estimate.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Does recording a payment charge my customer?</span><span class="faq-icon">+</span></div><div class="faq-a">No. Payment records are manual bookkeeping entries for money received outside the app. They help you track full or partial payments and the remaining balance.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Can I customize and share documents?</span><span class="faq-icon">+</span></div><div class="faq-a">Add your business details, logo and payment instructions, then export a PDF. On iOS, share it using supported apps through the system share sheet. Optional AI logo generation requires internet and produces an image.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Where can I find Pro prices?</span><span class="faq-icon">+</span></div><div class="faq-a">See the available plans, localized prices and any applicable offer terms in the app before confirming a purchase. App Store subscriptions are managed through Apple subscription settings.</div></div></div></div></section>
 
   <!-- PDF Preview Modal -->
+  </main>
   <div id="invoiceModal" class="modal-backdrop" onclick="closeInvoiceModal(event)">
     <div class="modal-card" onclick="event.stopPropagation()">
       <button class="modal-close" onclick="closeInvoiceModal()">✕</button>
