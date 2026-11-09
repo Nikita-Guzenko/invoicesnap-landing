@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://invoicesnap.work/</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://invoicesnap.work/estimate-generator/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/estimate-template/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/estimate-template/cleaning/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/estimate-template/contractor/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/estimate-template/electrical/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/estimate-template/landscaping/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/estimate-template/painting/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/estimate-template/plumbing/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/estimate-template/roofing/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/guides/estimate-vs-invoice/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/guides/how-much-over-an-estimate-can-a-contractor-go/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/guides/what-to-include-on-an-invoice/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/invoice-generator/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/invoice-template/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/invoice-template/cleaning/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/invoice-template/consulting/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/invoice-template/contractor/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/invoice-template/electrical/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/invoice-template/freelance-writer/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/invoice-template/freelancer/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/invoice-template/handyman/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/invoice-template/hvac/</loc><lastmod>2026-11-09</lastmod></url>
+  <url><loc>https://invoicesnap.work/invoice-template/plumbing/</loc><lastmod>2026-11-09</lastmod></url>
   <url><loc>https://invoicesnap.work/privacy/</loc><lastmod>2026-09-28</lastmod></url>
   <url><loc>https://invoicesnap.work/support/</loc><lastmod>2026-09-28</lastmod></url>
   <url><loc>https://invoicesnap.work/terms/</loc><lastmod>2026-09-28</lastmod></url>
