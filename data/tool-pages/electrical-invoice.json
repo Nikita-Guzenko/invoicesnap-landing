@@ -95,7 +95,7 @@
   }
  },
  "must_show": {
-  "heading": "What an electrical invoice must show",
+  "heading": "What to show on an electrical invoice",
   "intro_html": "An electrical invoice shows who did the work under which license, what changed in the panel or circuit, and which permit covers it.",
   "why_label": "Why it matters on electrical work",
   "rows": [
@@ -295,7 +295,7 @@
   },
   {
    "q": "Do I list the breaker and wire on the invoice?",
-   "a": "List them when the customer or inspector will ask. A single materials line is fine for a small repair."
+   "a": "List them if the customer asks. For a small repair, you can use one materials line."
   },
   {
    "q": "What if a permit fee changes after the estimate?",
@@ -303,7 +303,7 @@
   },
   {
    "q": "Can I show an apprentice and a journeyman on one job?",
-   "a": "Yes. Give each person a line with hours and rate, so the customer can see why the rates differ."
+   "a": "Give each person a line with hours and rate."
   }
  ],
  "source_ids": [

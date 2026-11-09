@@ -76,7 +76,7 @@
   }
  },
  "must_show": {
-  "heading": "What a contractor invoice must show",
+  "heading": "What to show on a contractor invoice",
   "intro_html": "A construction invoice links the amount to the contract: which stage, which change order, what the customer already paid, and what remains.",
   "why_label": "Why it matters on a construction job",
   "rows": [
@@ -264,7 +264,7 @@
   },
   {
    "q": "Should each change order have its own invoice?",
-   "a": "It can. Most jobs add a line to the next progress bill with the change order number, so one document shows the running total."
+   "a": "Choose what your contract allows. You can add a line to the next progress bill with the change order number, so one document shows the running total."
   },
   {
    "q": "Can I bill for material that is on site but not installed?",

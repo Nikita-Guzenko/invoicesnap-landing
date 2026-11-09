@@ -162,6 +162,7 @@ SOURCE TEXT:
 ADVICE_PROMPT = """You sort sentences from a website about invoices. For each STATEMENT decide:
 - "advice": it only gives instructions, describes the form or page, or explains why a field is useful. It states no law, tax rule, license rule, money amount or rate that a reader could rely on as a fact about the world.
 - "fact": it states any law, tax rule, license rule, deadline, money amount, rate, or says what a state, the IRS or another authority does or requires.
+A sentence that says what usually happens, what customers or clients do, or what a business practice is, is "fact": it is a claim about the world with no source. An instruction to the reader is "advice".
 A statement with both parts is "fact". Be strict: when not sure, answer "fact".
 A line marked [form label] names a field. A line marked [form sample] is invented demo text typed into the form: its names, dates and amounts are fiction. Answer "advice" for those two unless the line says what a law, a state or an authority requires.
 
@@ -174,7 +175,7 @@ STATEMENTS:
 
 def form_mark(st: dict) -> str:
     place = st["pages"][0]
-    return " [form label]" if "#form.labels." in place else " [form sample]" if "#form.sample." in place else ""
+    return " [form label]" if "#form.labels." in place else " [form sample]" if "#form.sample." in place or "#example.items" in place else ""
 
 
 def packets(retry: str = "") -> int:

@@ -94,7 +94,7 @@
    ],
    [
     "Prep work",
-    "Grading, stripping and soil are often the largest hidden cost."
+    "Say what grading, stripping and soil cost."
    ],
    [
     "Haul-away",
@@ -282,7 +282,7 @@
   },
   {
    "q": "Do I need a separate line for delivery?",
-   "a": "Add one when the material price does not include it. Bulk delivery costs differ by distance."
+   "a": "Add one when the material price does not include it."
   },
   {
    "q": "Can I ask for a deposit on a landscape job?",

@@ -78,7 +78,7 @@
   "tax_hint": "Enter a rate only if your state taxes your service. The form does not decide this."
  },
  "must_show": {
-  "heading": "What a freelance invoice must show",
+  "heading": "What to show on a freelance invoice",
   "intro_html": "A freelance invoice says who you are, what you delivered, what is left to pay, by when, and how. It also says what the client owns. The IRS names invoices among the supporting documents that you keep for your books.",
   "why_label": "Why it matters when you work alone",
   "rows": [
@@ -137,7 +137,7 @@
   "total_label": "Total"
  },
  "line_items": {
-  "heading": "Common freelance jobs and US wage ranges",
+  "heading": "Common freelance jobs, with ranges from the sources",
   "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row, and the button adds a sample inside it. <b>Treat each range as a guide, not as your freelance rate.</b> Set your own rate to cover your costs.",
   "items": [
    {

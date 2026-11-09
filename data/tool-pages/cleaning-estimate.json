@@ -82,7 +82,7 @@
   "rows": [
    [
     "Frequency and hours",
-    "Weekly, biweekly or nightly. After-hours access is a cost."
+    "Weekly, biweekly or nightly. Price any after-hours access."
    ],
    [
     "Task list per room",
@@ -94,7 +94,7 @@
    ],
    [
     "First deep clean",
-    "The first visit often takes longer, so price it apart."
+    "Price the first visit apart."
    ],
    [
     "Access and keys",
@@ -253,7 +253,7 @@
   },
   {
    "q": "Should I show a price per square foot?",
-   "a": "Use it for offices if your client compares bids that way. Homes usually compare by rooms."
+   "a": "Use it if your client compares bids that way."
   },
   {
    "q": "What if the client wants supplies included?",

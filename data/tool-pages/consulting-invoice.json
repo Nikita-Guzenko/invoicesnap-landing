@@ -75,8 +75,8 @@
   "tax_hint": "Enter a rate only if your state taxes this service. The form does not decide this."
  },
  "must_show": {
-  "heading": "What a consulting invoice must show",
-  "intro_html": "The invoice links the amount to the agreement: the statement of work, the period and what you delivered. A client finance team often pays against the reference, not the text.",
+  "heading": "What to show on a consulting invoice",
+  "intro_html": "Link the amount to the agreement: the statement of work, the period and what you delivered.",
   "why_label": "Why it matters on advisory work",
   "rows": [
    [
@@ -85,7 +85,7 @@
    ],
    [
     "Billing period",
-    "A retainer covers a month, so write the month."
+    "Write the month that the retainer covers."
    ],
    [
     "Hours or milestone",
@@ -93,7 +93,7 @@
    ],
    [
     "Expenses, apart from fees",
-    "Most agreements treat them differently."
+    "Bill them on their own lines."
    ],
    [
     "Ownership of deliverables",
@@ -219,7 +219,7 @@
     "kind": "M"
    }
   ],
-  "after_html": "BLS adds that self-employed management analysts are paid by the hour or by the project (<a href=\"https://www.bls.gov/ooh/business-and-financial/management-analysts.htm\" rel=\"noopener\">BLS</a>).",
+  "after_html": "",
   "range_label": "Employee wage range, May 2023 (10th to 90th percentile)"
  },
  "rules": {
@@ -254,7 +254,7 @@
   },
   {
    "q": "Do I add expenses with a markup?",
-   "a": "Follow your agreement. Many consultants bill travel at cost with receipts and say so in the notes."
+   "a": "Follow your agreement. If you bill travel at cost, add receipts and say so in the notes."
   },
   {
    "q": "Do I need a separate invoice for each statement of work?",

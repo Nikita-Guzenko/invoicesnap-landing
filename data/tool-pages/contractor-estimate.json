@@ -114,7 +114,7 @@
    ],
    [
     "Payment schedule",
-    "Tie payments to stages. Check the deposit limit of your state."
+    "Tie payments to stages. Check any deposit limit in your state."
    ],
    [
     "License and insurance",
@@ -275,7 +275,7 @@
   },
   {
    "q": "Should I show my markup?",
-   "a": "You do not have to. If you bill cost plus a fee, the fee has its own line. On a fixed price, one number per stage is fine."
+   "a": "Choose what your contract needs. If you bill cost plus a fee, put the fee on its own line. On a fixed price, give one number per stage."
   },
   {
    "q": "How do I handle allowances?",

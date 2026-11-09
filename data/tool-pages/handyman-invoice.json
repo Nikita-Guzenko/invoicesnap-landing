@@ -28,7 +28,7 @@
   "sample": {
    "bizName": "Reliable Repairs by Tom",
    "bizAddr": "5 Workbench Rd, Sacramento, CA 95814",
-   "bizId": "Not a licensed contractor; jobs under $1,000",
+   "bizId": "EIN 00-0000000",
    "bizContact": "(916) 555-0164",
    "pay": "Zelle or check to Tom Reyes",
    "custName": "Alicia Grant",
@@ -72,13 +72,13 @@
   }
  },
  "must_show": {
-  "heading": "What a handyman invoice must show",
+  "heading": "What to show on a handyman invoice",
   "intro_html": "A handyman invoice lists small tasks clearly, shows how you bill time and material, and states your license status where a state asks.",
   "why_label": "Why it matters on small jobs",
   "rows": [
    [
     "One line per task",
-    "A customer pays faster when each small job has its own line."
+    "Give each small job its own line."
    ],
    [
     "Minimum charge",
@@ -98,7 +98,7 @@
    ],
    [
     "Payment method",
-    "Name Zelle, check or card. Small jobs are often paid on the day."
+    "Name Zelle, check or card. Say if you expect payment on the day."
    ]
   ]
  },
@@ -142,10 +142,10 @@
     "k": "M"
    }
   ],
-  "after_html": "Prices are samples inside the ranges from <a href=\"https://www.housecallpro.com/resources/how-to-price-handyman-jobs/\" rel=\"noopener\">Housecall Pro</a>."
+  "after_html": "Prices are samples."
  },
  "line_items": {
-  "heading": "Handyman line items and typical prices",
+  "heading": "Handyman line items, with ranges from the sources",
   "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row. The price that the button adds is a sample inside that range, not a price recommendation.",
   "items": [
    {
@@ -264,7 +264,7 @@
   },
   {
    "q": "Do I need sales tax on a handyman invoice?",
-   "a": "It depends on the state and the job. Leave the rate empty when you do not charge it. Ask your state revenue office if you are not sure."
+   "a": "Ask your state revenue office. Leave the rate empty when you do not charge it. Ask your state revenue office if you are not sure."
   },
   {
    "q": "What goes in the license field when I do not have one?",

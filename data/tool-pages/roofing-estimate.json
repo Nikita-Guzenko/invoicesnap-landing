@@ -43,7 +43,7 @@
    "taxOn": "parts",
    "scope": "Tear off 1 layer, install underlayment, drip edge, architectural shingles on 24 squares. Replace pipe boots. Clean up with magnet sweep.",
    "exclusions": "Rotten decking beyond the allowance, gutters, skylights, attic ventilation changes.",
-   "terms": "Decking is priced per sheet after tear-off. Your insurance deductible is yours to pay.",
+   "terms": "Decking is priced per sheet after tear-off.",
    "items": [
     {
      "d": "Tear-off and disposal",
@@ -89,24 +89,24 @@
  },
  "must_show": {
   "heading": "What a roofing estimate should say",
-  "intro_html": "A roofing estimate is mostly measurements. Give the roof size in squares, the layers to remove, the materials by name, and how you will price the decking that you cannot see yet.",
+  "intro_html": "Give the roof size in squares, the layers to remove, the materials by name, and how you will price the decking that you cannot see yet.",
   "why_label": "Why it matters on a roof",
   "rows": [
    [
     "Roof size in squares",
-    "One square is 100 sq ft. The customer can compare bids on the same size."
+    "Give the size so that the customer can compare bids."
    ],
    [
     "Layers to tear off",
-    "Each added layer costs more to remove and dispose of."
+    "Say how many layers the price covers."
    ],
    [
     "Shingle maker and grade",
-    "A plain word such as \"shingles\" invites disputes."
+    "Name the maker and grade, not only \"shingles\"."
    ],
    [
     "Decking price per sheet",
-    "The damage is unknown until tear-off, so agree on a unit price now."
+    "Agree on a unit price now for damage that you find at tear-off."
    ],
    [
     "Workmanship warranty",

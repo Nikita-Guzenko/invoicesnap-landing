@@ -72,7 +72,7 @@
   }
  },
  "must_show": {
-  "heading": "What a cleaning invoice must show",
+  "heading": "What to show on a cleaning invoice",
   "intro_html": "A cleaning invoice lists the visit dates and what each one covered. Dates and add-ons answer most client questions. The IRS names invoices among the supporting documents that you keep for your books.",
   "why_label": "Why it matters on a cleaning job",
   "rows": [
@@ -82,7 +82,7 @@
    ],
    [
     "Service type",
-    "Standard, deep and move-out cleans have different prices."
+    "Name the clean: standard, deep or move-out."
    ],
    [
     "Home or office size",
@@ -257,7 +257,7 @@
   },
   {
    "q": "How do I bill tips?",
-   "a": "Tips are not part of your price. Leave them off the invoice unless the client asks you to add one."
+   "a": "Leave tips off the invoice unless the client asks you to add one."
   },
   {
    "q": "Should I charge when a client locks me out?",

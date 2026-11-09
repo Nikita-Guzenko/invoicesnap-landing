@@ -344,7 +344,9 @@ class Crawl:
                 print(f"gate: {path} is blocked, noindex: {'; '.join(problems)[:200]}")
                 # A green page must be live: without this, a build bug could hide pages from search with no failure. Gates 8 and 6 can block
                 # with no data problem, so those run first; a page that one of them blocks keeps its noindex and does not stop the release.
-                if not problems and status == 200 and not gate.html_problems(page, raw, ctx.claims):
+                if not problems and status != 200:
+                    self.error(path, f"gate: the page passes every data gate but the server says {status}")
+                elif not problems and not gate.html_problems(page, raw, ctx.claims):
                     held[path] = " ".join(gate.parse(raw).unique)
                 continue
             if status != 200:

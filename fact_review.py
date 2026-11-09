@@ -8,7 +8,7 @@ What must be in the record is computed from the data, never listed by hand, so n
 - law:   each legal field of data/law/<locale>.json (LAW_FIELDS)
 - range: each line item with a low and a high
 - rule:  each trade rule, always
-- prose: each text block of a page that LEGAL_WORDS matches
+- prose: every text that a page prints. A word list missed claims with no legal word ("You can deduct all mileage"), so there is no list (PR review, 9 Nov 2026)
 A statement id is a hash of its text. Change one word and the old checks no longer count: run the checks again.
 
 Types in the record: "fact" = needs a source and 2 "confirmed" verdicts from 2 different models, and no "refuted" verdict.
@@ -30,15 +30,8 @@ from pathlib import Path
 MAX_AGE_DAYS = 365  # As gate 4: a check older than this is no check.
 MIN_CHECKS = 2
 LAW_FIELDS = ("tax_name", "tax_rate", "required_fields", "exemption_text", "reverse_charge", "retention", "estimate_word_html", "notes")
-# Words that mark a legal, tax, license or money statement. Wide on purpose (tested on all 23 pages, 9 Nov 2026): a false match only
-# adds one "advice" row; a miss lets a legal claim go out unchecked.
-LEGAL_WORDS = re.compile(
-    r"\b(IRS|federal|statutes?|laws?|legal(?:ly)?|licen[sc]\w*|permits?|tax(?:es|ed|able|ation)?|W-9|1099\S*|copyright|cooling-off|FTC|EPA|"
-    r"court|liens?|bonds?|bonded|certif\w+|requires?|required|must|exempt\w*|withh\w+|statute|act|section|N\.J\.A\.C|U\.S\.C|median|percent|"
-    # Added after the PR review, 9 Nov 2026: "The service date starts any warranty" and "The price holds unless..." went past the first list.
-    r"warrant\w+|contracts?|deductibles?|deposits?|writing|written|holds?|binds?|insur\w+|"
-    r"Texas|California|Florida|New York|New Jersey|Washington|states?)\b|\$\d|\d%|§|\b\d+ days\b", re.I)
-SAMPLE_TEXT = ("terms", "scope", "exclusions", "rights", "lateFee")  # Sample fields with sentences. Names and amounts in a sample are fiction.
+# Page data that does not print as text: ids, links to other pages, search terms, one-word units. All else is checked, so a new text field cannot skip the gate.
+NOT_PRINTED = {"id", "law", "locale", "slug", "parent", "type", "kind", "k", "u", "unit", "range_unit", "src", "page", "related", "source_ids", "demand", "checked", "body_html"}
 BLOCK_END = re.compile(r"</(?:p|li|tr|h2|h3|table|ul|ol|div)>")
 
 
@@ -68,12 +61,27 @@ def page_blocks(page: dict) -> list[tuple[str, str]]:
     form = page.get("form") or {}
     if form.get("tax_hint"):
         out.append(("form.tax_hint", form["tax_hint"]))
-    out += [(f"form.labels.{k}", v) for k, v in (form.get("labels") or {}).items()]
-    out += [(f"form.sample.{k}", form["sample"][k]) for k in SAMPLE_TEXT if (form.get("sample") or {}).get(k)]
     for i, part in enumerate(BLOCK_END.split(page.get("body_html", ""))):
         out.append((f"body[{i}]", part))
     out += [(f"faq[{i}]", f"{q['q']} {q['a']}") for i, q in enumerate(page.get("faq", []))]
     out += [(f"rows[{i}]", r.get("html", "")) for i, r in enumerate(page.get("rows", []))]
+    # Then every other string in the page data: headings, labels, sample text, table heads. Not a list of fields: the review found 8 that a list had missed.
+    seen = " ".join(text_of(fragment) for _, fragment in out) + " " + " ".join(f"{r.get('title', '')}. {text_of(r.get('html', ''))}" for r in (page.get("rules") or {}).get("items", []))
+    seen += " " + (page.get("line_items") or {}).get("range_label", "")  # The column head is inside each range claim, so the checks already cover it.
+    ranged = {i["name"] for i in (page.get("line_items") or {}).get("items", []) if i.get("low") is not None}
+
+    def walk(node, path: str) -> None:
+        if isinstance(node, dict):
+            for key, value in node.items():
+                if key not in NOT_PRINTED:
+                    walk(value, f"{path}.{key}" if path else key)
+        elif isinstance(node, list):
+            for i, value in enumerate(node):
+                walk(value, f"{path}[{i}]")
+        elif isinstance(node, str) and re.search(r"[^\W\d_]", node) and text_of(node) not in seen and node not in ranged:
+            out.append((path, node))
+
+    walk(page, "")
     return out
 
 
@@ -94,7 +102,7 @@ def page_statements(page: dict, sources: dict) -> list[dict]:
         out.append({"id": sid("rule", f"{claim}|{rule.get('src')}"), "kind": "rule", "claim": claim, "source_id": rule.get("src"), "extra_source_ids": also, "place": f"rules[{i}]"})
     for place, fragment in page_blocks(page):
         claim = text_of(fragment)
-        if claim and LEGAL_WORDS.search(claim):
+        if claim:
             urls = [u for u in links(fragment) if u.rstrip("/") in by_url]
             out.append({"id": sid("prose", claim), "kind": "prose", "claim": claim, "source_id": by_url[urls[0].rstrip("/")] if urls else None,
                         "extra_source_ids": [by_url[u.rstrip("/")] for u in urls[1:]], "place": place})
@@ -132,7 +140,8 @@ def statement_problems(st: dict, entry: dict | None, today: str) -> list[str]:
     if entry is None:
         return [f"gate 5: not checked: {label}. Run: python3 review_checks.py --help"]
     # The text in the record must be the text on the page. The id alone leaves out a range's column head (PR review, 9 Nov 2026).
-    if entry.get("claim") is not None and entry["claim"] != st["claim"]:
+    # Case does not count: a title and an h1 can be the same words in different case, with one id and one row.
+    if " ".join(str(entry.get("claim")).split()).casefold() != " ".join(st["claim"].split()).casefold():
         return [f"gate 5: not checked: {label}: the text changed after the check. Run: python3 review_checks.py --help"]
     checks = entry.get("checks", [])
     kind = entry.get("type")

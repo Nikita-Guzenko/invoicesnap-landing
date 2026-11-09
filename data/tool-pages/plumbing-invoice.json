@@ -94,7 +94,7 @@
   }
  },
  "must_show": {
-  "heading": "What a plumbing invoice must show",
+  "heading": "What to show on a plumbing invoice",
   "intro_html": "A plumbing invoice shows who did the work, where and when, each part and each labor charge, the tax, the amount due and how to pay. The IRS names invoices among the supporting documents that you keep for your books (<a href=\"https://www.irs.gov/businesses/small-businesses-self-employed/what-kind-of-records-should-i-keep\" rel=\"noopener\">IRS</a>), so keep each one.",
   "why_label": "Why it matters on a plumbing job",
   "rows": [
@@ -108,7 +108,7 @@
    ],
    [
     "Service address",
-    "The job address is often not the billing address, for example with a landlord."
+    "Write the job address if it differs from the billing address."
    ],
    [
     "Invoice number, invoice date, service date",
@@ -176,7 +176,7 @@
  },
  "line_items": {
   "heading": "Plumbing line items and typical prices",
-  "intro_html": "Tap <b>Add</b> to put a line on the form. The range is what US customers typically pay, from the source in the same row. The price that the button adds is a sample inside that range. It is not a price recommendation.",
+  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row. The price that the button adds is a sample inside that range. It is not a price recommendation.",
   "items": [
    {
     "name": "Service call (trip fee)",
@@ -326,11 +326,11 @@
  "faq": [
   {
    "q": "Can I charge a trip fee and hourly labor on one invoice?",
-   "a": "Yes, if you told the customer before the visit. Write the trip fee on its own line. If you credit it against the repair, write that in the notes."
+   "a": "Tell the customer before the visit. Write the trip fee on its own line. If you credit it against the repair, write that in the notes."
   },
   {
    "q": "Do I show my cost for parts or my price?",
-   "a": "Show your price to the customer. Your markup does not need its own line. Keep the supplier receipts for your records."
+   "a": "Show your price to the customer. Keep the supplier receipts for your records."
   },
   {
    "q": "Should the invoice list the permit number?",

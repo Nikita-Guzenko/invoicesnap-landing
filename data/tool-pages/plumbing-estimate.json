@@ -97,7 +97,7 @@
    ],
    [
     "Exclusions",
-    "Tile, drywall finish and fixtures are common items that a customer assumes are in the price."
+    "List what the price does not cover, such as tile, drywall finish and fixtures."
    ],
    [
     "Hidden conditions",
@@ -113,7 +113,7 @@
    ],
    [
     "Valid-until date",
-    "Copper and water heater prices move. A date protects your margin."
+    "Set a date so that the price does not stay open."
    ],
    [
     "Deposit and payment steps",
@@ -282,7 +282,7 @@
   },
   {
    "q": "How long should a plumbing estimate stay valid?",
-   "a": "Choose a date that matches how fast your supplier prices change. Thirty days is common in the samples on this page. The form prints the date from the number of days you enter."
+   "a": "Choose a date that matches how fast your supplier prices change. The form prints the date from the number of days you enter."
   },
   {
    "q": "Can I charge for writing an estimate?",

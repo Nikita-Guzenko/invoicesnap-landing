@@ -20,6 +20,7 @@ import http.server
 import io
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -58,9 +59,9 @@ def save(path: Path, value) -> None:
     path.write_text(json.dumps(value, ensure_ascii=False), encoding="utf-8")
 
 
-def fixture_row(url: str) -> dict:
+def fixture_row(url: str, claim: str) -> dict:
     checks = [{"checker": name, "verdict": "confirmed", "date": TODAY, "quote": "fixture"} for name in ("fixture-a", "fixture-b")]
-    return {"type": "fact", "source_url": url, "source_fetched": TODAY, "checks": checks}
+    return {"type": "fact", "claim": claim, "source_url": url, "source_fetched": TODAY, "checks": checks}
 
 
 def make_data(tmp: Path) -> Path:
@@ -110,7 +111,7 @@ def make_data(tmp: Path) -> Path:
     for law_id, fixture in (("de-DE", page), ("ar-SA", arabic)):
         record = load(data / f"law/{law_id}.json")
         rows = fact_review.law_statements(record) + fact_review.page_statements(fixture, sources)
-        save(data / f"law/{law_id}.review.json", {"statements": {r["id"]: fixture_row(sources[fixture["source_ids"][0]]["url"]) for r in rows}})
+        save(data / f"law/{law_id}.review.json", {"statements": {r["id"]: fixture_row(sources[fixture["source_ids"][0]]["url"], r["claim"]) for r in rows}})
     return data
 
 
@@ -247,6 +248,11 @@ def main() -> int:
         bad("the source was fetched too long ago", "the fetched source is", rec, lambda v: v["statements"][rule_id].update(source_fetched="2020-01-01"))
         bad("the record holds other text under the id", "the text changed after the check", rec, lambda v: v["statements"][range_id].update(claim="other text"))
         bad("a legal claim in the description", "gate 5: not checked: prose-", page, lambda v: v.update(description="Ohio law requires a license on each invoice, and this page explains it."))
+        bad("a legal claim in the h1", "gate 5: not checked: prose-", page, lambda v: v.update(h1="Ohio law requires this invoice form"))
+        bad("a legal claim with no legal word", "gate 5: not checked: prose-", page, lambda v: v.update(lede_html="You can deduct all mileage on your return."))
+        bad("a claim in a heading", "gate 5: not checked: prose-", page, lambda v: v["must_show"].update(heading="Ohio requires a 5% fee on these"))
+        bad("a claim in a sample field", "gate 5: not checked: prose-", page, lambda v: v["form"]["sample"].update(bizId="Ohio requires no license under $1,000"))
+        bad("a record row with no text", "the text changed after the check", rec, lambda v: v["statements"][range_id].pop("claim"))
         bad("a legal claim in the title", "gate 5: not checked: prose-", page, lambda v: v.update(title="Ohio law requires this invoice"))
         bad("a legal claim in a form label", "gate 5: not checked: prose-", page, lambda v: v["form"]["labels"].update(bizId="License no. (Ohio law requires it)"))
         bad("one word of a rule changed after the check", "gate 5: not checked: rule-", page, lambda v: v["rules"]["items"][0].update(html=v["rules"]["items"][0]["html"].replace("Texas", "Ohio")))
@@ -330,6 +336,11 @@ def main() -> int:
             ("a page names our reviewers", "gate 8: forbidden text", raw_page.replace("</main>", "<p>Our reviewers read each page.</p></main>", 1)),
             ("a person in JSON-LD", "gate 8: JSON-LD holds", raw_page.replace('"@type": "WebApplication"', '"author": {"@type": "Person", "name": "Jane Doe"}, "@type": "WebApplication"', 1)),
             ("reviewedBy in JSON-LD", "gate 8: JSON-LD holds", raw_page.replace('"@type": "WebApplication"', '"reviewedBy": "Jane Doe", "@type": "WebApplication"', 1)),
+            ("a page says an attorney checked it", "gate 8: forbidden text", raw_page.replace("</main>", "<p>A tax attorney checked this page.</p></main>", 1)),
+            ("a page says a lawyer wrote it", "gate 8: forbidden text", raw_page.replace("</main>", "<p>Written by a tax attorney.</p></main>", 1)),
+            ("a page says attorney-approved", "gate 8: forbidden text", raw_page.replace("</main>", "<p>Attorney-approved.</p></main>", 1)),
+            ("a page says a lawyer vetted it", "gate 8: forbidden text", raw_page.replace("</main>", "<p>Vetted by a lawyer.</p></main>", 1)),
+            ("a page says each number links", "gate 8: forbidden text", raw_page.replace("</main>", "<p>Each number links to its source.</p></main>", 1)),
             ("the not-advice line removed", "does not say 'not tax or legal advice'", raw_page.replace("It is not tax or legal advice.", "", 1)),
             ("rating in JSON-LD", "gate 8: JSON-LD holds", raw_page.replace('"@type": "WebApplication"', '"aggregateRating": {"@type": "AggregateRating"}, "@type": "WebApplication"', 1)),
             ("a 4.9-star claim", "gate 8: forbidden text", raw_page.replace("<title>", "<title>4.9-star app: ", 1)),
@@ -344,6 +355,30 @@ def main() -> int:
             res = run(str(ROOT / "check_site.py"), "--dir", str(out), "--data", str(data), "--no-browser")
             expect(f"check_site fails: {name}", res.returncode == 1 and reason in res.stdout, res.stdout[-500:])
         file.write_text(raw_page, encoding="utf-8")
+
+        # 7: a page outside the sitemap. A green one must stop the release; one that gate 8 blocks stays noindex and must not read as green (PR review, 9 Nov 2026).
+        map_file = out / "sitemap-en.xml"
+        kept_map = map_file.read_text(encoding="utf-8")
+        map_file.write_text(re.sub(r"<url>(?:(?!</url>).)*?" + re.escape(SOME_PATH) + r"</loc>.*?</url>", "", kept_map, count=1, flags=re.S), encoding="utf-8")
+        expect("test can break: the page left the sitemap", map_file.read_text(encoding="utf-8") != kept_map, "")
+        hidden = raw_page.replace("<head>", '<head><meta name="robots" content="noindex">', 1)
+        file.write_text(hidden, encoding="utf-8")
+        res = run(str(ROOT / "check_site.py"), "--dir", str(out), "--data", str(data), "--no-browser")
+        expect("check_site fails: a green page is hidden from search", res.returncode == 1 and "passes every gate but is not in a sitemap" in res.stdout, res.stdout[-500:])
+        file.write_text(hidden.replace("</main>", "<p>Rated 4.9 by users</p></main>", 1), encoding="utf-8")
+        res = run(str(ROOT / "check_site.py"), "--dir", str(out), "--data", str(data), "--no-browser")
+        expect("a page that gate 8 blocks is not called green", "passes every gate" not in res.stdout, res.stdout[-500:])
+        shutil.rmtree(file.parent)  # The folder too: the test server answers 200 with a file list for a folder with no index.html.
+        res = run(str(ROOT / "check_site.py"), "--dir", str(out), "--data", str(data), "--no-browser")
+        expect("check_site fails: a green page is gone from the server", res.returncode == 1 and "the server says 404" in res.stdout, res.stdout[-500:])
+        file.parent.mkdir(parents=True)
+        file.write_text(raw_page, encoding="utf-8")
+        map_file.write_text(kept_map, encoding="utf-8")
+
+        # 8: the source says 87.5 cents, so the page must not round it.
+        writer = (out / "invoice-template/freelance-writer/index.html")
+        writer_text = writer.read_text(encoding="utf-8") if writer.exists() else ""
+        expect("the page prints 0.875, not a rounded number", "0.875" in writer_text and "0.88" not in writer_text, writer.as_posix())
     print(f"{len(failures)} failure(s)")
     return 1 if failures else 0
 

@@ -31,7 +31,12 @@ FORBIDDEN_TEXT = re.compile(
     r"\blegally (?:valid|compliant|binding invoice)\b|\bfully compliant\b|(?<!\w)#1\b|\bnumber one\b|\bthe best\b|\bbest[- ](?:in|invoice|estimate|app|free)\b|"
     r"\bworld-class\b|\bunbeatable\b|\bhurry\b|\bact now\b|\blimited time\b|\bguaranteed\b|"
     # Nikita's order, 9 Nov 2026: no page names a human reviewer or says that a person reviewed it. "No person reviewed it" stays allowed.
-    r"\breviewers?\b|\breviewed\b|\bapproved by\b|\bchecked by\b|\bverified by\b", re.I)
+    r"\breviewers?\b|\breviewed\b|\bapproved by\b|\bchecked by\b|\bverified by\b|"
+    # No professional checked or wrote this page (PR review, 9 Nov 2026). "Ask a local lawyer" stays allowed.
+    r"\b(?:attorney|lawyer|CPA|accountant|expert|tax pro(?:fessional)?)s?\b[^.]{0,30}\b(?:checked|wrote|written|approved|vetted|verified|signed)\b|"
+    r"\b(?:checked|written|approved|vetted|verified|signed)\b[^.]{0,20}\b(?:attorney|lawyer|CPA|accountant|expert|tax pro(?:fessional)?)s?\b|"
+    r"\b(?:attorney|lawyer|CPA|expert)-(?:approved|checked|vetted|written)\b|"
+    r"\beach number links\b", re.I)
 HONEST_LINE = "No person reviewed this page."  # The one sentence with that word that the gate allows: it is the opposite of a claim.
 NOT_ADVICE = "not tax or legal advice"  # Nikita's order, 9 Nov 2026: each page says this plainly. tool_pages.sources_html prints it.
 

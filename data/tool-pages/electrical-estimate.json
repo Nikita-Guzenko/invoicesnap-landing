@@ -85,7 +85,7 @@
    ],
    [
     "Panel work in or out",
-    "A panel upgrade is the largest swing in a charger or addition job."
+    "Say if a panel upgrade is in the price."
    ],
    [
     "Who supplies the hardware",
@@ -97,11 +97,11 @@
    ],
    [
     "Open wall work",
-    "Patch and paint are often excluded. Write that."
+    "Say if patch and paint are excluded."
    ],
    [
     "Valid until",
-    "Copper and breaker prices move, so set a date."
+    "Set a date for the price."
    ]
   ]
  },
@@ -241,7 +241,7 @@
  "faq": [
   {
    "q": "Should I quote a panel upgrade inside a charger estimate?",
-   "a": "Give it as a separate option. Then the customer can accept the charger, and the upgrade only if the load calculation needs it."
+   "a": "Give it as a separate option. Let the customer accept each one apart."
   },
   {
    "q": "Do customers need separate pricing for parts?",
@@ -252,8 +252,8 @@
    "a": "It depends on the state and your material cost. Check your state before you enter the percent."
   },
   {
-   "q": "What is the difference between an electrical bid and an estimate?",
-   "a": "A bid usually answers a request for a price on a defined scope. An estimate is your priced view of the job. Write the scope either way, and say if the price is fixed."
+   "q": "Should I call my price a bid or an estimate?",
+   "a": "Use the word that your customer uses. Write the scope either way, and say if the price is fixed."
   }
  ],
  "source_ids": [

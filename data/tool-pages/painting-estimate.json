@@ -84,7 +84,7 @@
  },
  "must_show": {
   "heading": "What a painting estimate should say",
-  "intro_html": "A paint estimate says which surfaces, how many coats, how much prep and which paint. Most price gaps between two painters come from prep, so write it down.",
+  "intro_html": "Say which surfaces, how many coats, how much prep and which paint.",
   "why_label": "Why it matters on a paint job",
   "rows": [
    [
@@ -109,7 +109,7 @@
    ],
    [
     "Color changes",
-    "A new color after the start can need another coat."
+    "Say what a new color after the start costs."
    ]
   ]
  },
@@ -281,7 +281,7 @@
  "faq": [
   {
    "q": "Should I price by the room or by the square foot?",
-   "a": "Rooms are easy for customers. Square feet suit exterior work and big interiors. The form has a unit for each line, so use both on one estimate if you want."
+   "a": "Choose the unit that your customer can compare. The form has a unit for each line, so use both on one estimate if you want."
   },
   {
    "q": "Do I include paint in the price?",
@@ -293,7 +293,7 @@
   },
   {
    "q": "Should the estimate give a finish date?",
-   "a": "Give a planned start and a duration in the scope. Weather can move exterior work, so say that in the terms."
+   "a": "Give a planned start and a duration in the scope. Say in the terms how weather affects exterior work."
   }
  ],
  "source_ids": [
