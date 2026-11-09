@@ -21,6 +21,7 @@ from pathlib import Path
 import subprocess
 import sys
 import tempfile
+import time
 import urllib.parse
 import urllib.request
 
@@ -85,8 +86,8 @@ def downloads(start, end, offline):
     Flow (NIK-594, 9 Nov 2026; ~/.claude/refs/asc-cli.md): ONGOING request -> report -> DAILY
     instances -> segments -> TSV. Verified gotchas:
     - Instances overlap: the 8 Nov instance held 6 Nov rows, the 7 Nov one held 5 and 6 Nov.
-      Summing all instances double-counts, so each data day is taken from the newest instance
-      that has rows for it.
+      Summing all instances double-counts, so identical rows (all columns but Counts) merge and
+      keep their largest Counts.
     - Apple makes no instance for a day without downloads, and data lags 1-3 days. The line names
       the last Apple data day; a week that ends after it is preliminary.
     """
@@ -95,39 +96,53 @@ def downloads(start, end, offline):
     if offline:
         return dict(result, reason='offline check')
     try:
+        # The unit stops the whole run at TimeoutStartSec=900 (review, 9 Nov 2026). Give Apple at most
+        # 420 s: an overrun raises TimeoutExpired, so the line says unknown and the run exits 3.
+        deadline = time.monotonic() + 420
+
+        def asc(*args):
+            left = deadline - time.monotonic()
+            if left <= 5:
+                raise TimeoutError('App Store Connect budget spent')
+            return run_json([str(HOME / '.local/bin/asc'), 'analytics', *args], timeout=min(240, left))
+
         with tempfile.TemporaryDirectory(dir=HOME / '.cache') as tmp:
-            asc = str(HOME / '.local/bin/asc')
-            requests = run_json([asc, 'analytics', 'requests', '--app', APP_ID, '--output', 'json'])
+            requests = asc('requests', '--app', APP_ID, '--output', 'json')
             request = next(r['id'] for r in requests['data'] if r['attributes']['accessType'] == 'ONGOING')
-            view = run_json([asc, 'analytics', 'view', '--request-id', request, '--output', 'json'])
+            view = asc('view', '--request-id', request, '--output', 'json')
             report = next(r for r in view['data'] if r.get('name') == 'App Downloads Standard')
-            # processingDate >= data date, so earlier instances cannot hold rows for this week.
-            instances = sorted((i for i in report.get('instances', [])
-                                if i['granularity'] == 'DAILY' and i['processingDate'] >= str(start)),
-                               key=lambda i: i['processingDate'])
+            # The view embeds a possibly truncated instance list; the paginated links list is complete.
+            known = {i['id']: i for i in report.get('instances', [])}
+            instances = []
+            for link in asc('reports', 'links', '--report-id', report['id'], '--paginate')['data']:
+                instance = known.get(link['id'])
+                if instance is None:
+                    attributes = asc('instances', 'view', '--instance-id', link['id'])['data']['attributes']
+                    instance = dict(attributes, id=link['id'])
+                # processingDate >= data date, so earlier instances cannot hold rows for this week.
+                if instance['granularity'] == 'DAILY' and instance['processingDate'] >= str(start):
+                    instances.append(instance)
             if not instances:
                 return dict(result, reason='no Apple report day for this week yet')
-            by_day = {}  # data day -> rows from the newest instance that covers that day
-            for instance in instances:
-                segments = run_json([asc, 'analytics', 'instances', 'links', '--instance-id',
-                                     instance['id'], '--paginate'])['data']
+            by_day = {}  # data day -> {row without Counts: largest Counts seen in any instance}
+            for instance in sorted(instances, key=lambda i: i['processingDate']):
+                segments = asc('instances', 'links', '--instance-id', instance['id'], '--paginate')['data']
                 if not segments:
                     raise ValueError('instance without segments')
-                rows = []
                 for segment in segments:
                     path = Path(tmp) / (instance['id'] + segment['id'] + '.csv.gz')
-                    run_json([asc, 'analytics', 'download', '--request-id', request, '--instance-id',
-                              instance['id'], '--segment-id', segment['id'], '--decompress',
-                              '--output', str(path)])
+                    asc('download', '--request-id', request, '--instance-id', instance['id'],
+                        '--segment-id', segment['id'], '--decompress', '--output', str(path))
                     with open(path.with_suffix(''), newline='') as handle:
-                        rows += list(csv.DictReader(handle, delimiter='\t'))
-                for day in {row['Date'] for row in rows}:
-                    by_day[day] = [row for row in rows if row['Date'] == day]
+                        for row in csv.DictReader(handle, delimiter='\t'):
+                            key = tuple(sorted((k, v) for k, v in row.items() if k != 'Counts'))
+                            day = by_day.setdefault(row['Date'], {})
+                            day[key] = max(day.get(key, 0), int(row['Counts']))
             latest = max(by_day) if by_day else None
-            value = sum(int(row['Counts']) for day, rows in by_day.items()
-                        if str(start) <= day <= str(end) for row in rows
-                        if row['Download Type'] == 'First-time download'
-                        and row['App Apple Identifier'] == APP_ID)
+            value = sum(count for day, rows in by_day.items() if str(start) <= day <= str(end)
+                        for key, count in rows.items()
+                        if dict(key)['Download Type'] == 'First-time download'
+                        and dict(key)['App Apple Identifier'] == APP_ID)
             note = f'Apple data through {latest}' if latest else 'no Apple rows yet'
             return dict(result, status='measured', value=f'{value} first-time downloads',
                         note=note + ('; preliminary' if not latest or latest < str(end) else ''))
@@ -147,8 +162,8 @@ def money(start, end, offline):
         charts = {name: run_json([axi, 'chart', name, '--start', str(start), '--end', str(end),
                                   '--project', RC_PROJECT, '--json'], timeout=120)
                   for name in ('revenue', 'trials_new', 'actives_new')}
-        if any(chart['days'] != 7 for chart in charts.values()):
-            raise ValueError('chart does not cover 7 days')
+        if any(chart['days'] != (end - start).days + 1 for chart in charts.values()):
+            raise ValueError('chart does not cover every day')
         revenue = charts['revenue']['totals']
         trials = charts['trials_new']['totals']['New Trials']
         paid = charts['actives_new']['totals']
