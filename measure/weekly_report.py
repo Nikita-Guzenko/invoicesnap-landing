@@ -7,6 +7,7 @@ last Monday–Sunday; indexing is a separately dated current snapshot. --post
 adds the report to NIK-551 through the full-path Linear AXI. No email or AI API.
 --offline exercises unavailable sources without credentials or network access.
 Exit 3: a live source (GA4 or URL Inspection) was unreachable; its line says unknown.
+Indexing runs ~/firstmate-invoicesnap/data/nik-542/index-gate.py (outside this repo).
 The timer loads the vault; credentials never enter an artifact or an error.
 """
 import argparse
@@ -54,7 +55,8 @@ def visits(start, end, offline):
             raise ValueError('missing report metadata')
         rows = data.get('rows', [])
         if not rows:
-            raise ValueError('no observed rows')
+            # GA4 reached, but no rows: zero traffic or a missing tag. Not a source failure (no exit 3).
+            return dict(result, reason='no rows: zero traffic or missing tag')
         value = sum(int(row['metricValues'][0]['value']) for row in rows)
         if value < 0:
             raise ValueError('negative sessions')
@@ -137,7 +139,7 @@ def main():
         marker = args.output / (week + '.posted')
         if not marker.exists():
             subprocess.run([str(HOME / '.local/bin/linear-axi'), 'issue', 'comment', 'NIK-551',
-                            '--body-file', str(path.with_suffix('.md'))], check=True, timeout=90)
+                            '--body-file', str(path.with_suffix('.md'))], check=True, timeout=300)
             marker.write_text(dt.datetime.now(dt.timezone.utc).isoformat() + '\n')
     # A live source that could not be read fails the run loudly (9 Nov 2026, NIK-551): the report
     # still says unknown, then exit 3 marks the systemd unit failed. The unit sets
