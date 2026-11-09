@@ -22,7 +22,10 @@
  "related": [
   "invoice-generator",
   "estimate-hub",
-  "what-to-include-on-an-invoice"
+  "what-to-include-on-an-invoice",
+  "create-an-invoice-without-an-account",
+  "invoicesnap-vs-joist",
+  "invoicesnap-vs-jobber"
  ],
  "table_heading": "Pages by type of work",
  "table_headers": [

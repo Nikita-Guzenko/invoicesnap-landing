@@ -22,7 +22,8 @@
   "invoice-generator",
   "estimate-vs-invoice",
   "contractor-estimate",
-  "roofing-estimate"
+  "roofing-estimate",
+  "invoicesnap-vs-joist"
  ],
  "form": {
   "kind": "estimate",

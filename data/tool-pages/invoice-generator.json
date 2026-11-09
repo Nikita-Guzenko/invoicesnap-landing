@@ -22,7 +22,8 @@
   "estimate-generator",
   "what-to-include-on-an-invoice",
   "contractor-invoice",
-  "freelancer-invoice"
+  "freelancer-invoice",
+  "create-an-invoice-without-an-account"
  ],
  "form": {
   "kind": "invoice",

@@ -662,5 +662,21 @@
   "page_date": null,
   "checked": "2026-11-09",
   "used_for": "the exceptions to the cooling-off rule."
+ },
+ "joist-features": {
+  "name": "Joist, features page",
+  "short": "Joist",
+  "url": "https://www.joist.com/features/",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "what Joist lists as its own features."
+ },
+ "jobber-features": {
+  "name": "Jobber, features page",
+  "short": "Jobber",
+  "url": "https://www.getjobber.com/features/",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "what Jobber lists as its own features."
  }
 }

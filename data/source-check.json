@@ -263,6 +263,18 @@
   "numbers": 0,
   "status": "ok"
  },
+ "jobber-features": {
+  "checked": "2026-11-09",
+  "missing": [],
+  "numbers": 0,
+  "status": "ok"
+ },
+ "joist-features": {
+  "checked": "2026-11-09",
+  "missing": [],
+  "numbers": 0,
+  "status": "ok"
+ },
  "kirkland": {
   "checked": "2026-11-09",
   "missing": [],

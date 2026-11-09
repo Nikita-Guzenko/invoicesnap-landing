@@ -3,8 +3,16 @@
 "hash": "5ec2b270aafec41ffafbd380a8f52220b0c6f5e8d50aa028aed774058e93e90f",
 "lastmod": "2026-10-01"
 },
+"/compare/invoicesnap-vs-jobber/": {
+"hash": "79e3d3bbc9053336be9e7207dd27d5fe2268af2af79d1f1d90f0f9bb839e712a",
+"lastmod": "2026-11-09"
+},
+"/compare/invoicesnap-vs-joist/": {
+"hash": "67d37f8052163637860e66d8edfba4c0da5e92eef41d45eadda226774c580152",
+"lastmod": "2026-11-09"
+},
 "/estimate-generator/": {
-"hash": "25ea32accb96cabc0f34d11ecd05686319c5f8b83a8a5e6fc7bf182b81e75e71",
+"hash": "01b43c3405fb362c172283254023fd12b9f6c35fd1278da30ae34b7d3556b5d1",
 "lastmod": "2026-11-09"
 },
 "/estimate-template/": {
@@ -39,8 +47,12 @@
 "hash": "0a4c7000cfdec4606c538ab688ef9ff86fdc934dcdfe22fa5463c646cdeef9f5",
 "lastmod": "2026-11-09"
 },
+"/guides/create-an-invoice-without-an-account/": {
+"hash": "08e50888c6d7968105d2e9df343758f8f37f04e26943c63680e4a7a451602238",
+"lastmod": "2026-11-09"
+},
 "/guides/estimate-vs-invoice/": {
-"hash": "46b36dc2a5c0ce11a4bff14c37af9630adbe91d248c30f78b0cb80c95e54f449",
+"hash": "f43478849e2c98fab33fdec41b02e29e54c9e0b5c96294bf67a97dc41fa7eafa",
 "lastmod": "2026-11-09"
 },
 "/guides/how-much-over-an-estimate-can-a-contractor-go/": {
@@ -48,15 +60,15 @@
 "lastmod": "2026-11-09"
 },
 "/guides/what-to-include-on-an-invoice/": {
-"hash": "0d307bc4b5d8c7a06ec2603bbb0f848d04013b368ff09c1ec260ccf0116879dd",
+"hash": "01854305ecc738f301b7911390ac04df07da3a8f6249b8ccbeba3e5ba826b959",
 "lastmod": "2026-11-09"
 },
 "/invoice-generator/": {
-"hash": "2f03942b3d8dc64d0a61813cd71ca6845515f26093d048b575d1688b093f93db",
+"hash": "8f1f82015e91b0c9ab976c5a00cb258d346c52025241560ae902634d5e338b27",
 "lastmod": "2026-11-09"
 },
 "/invoice-template/": {
-"hash": "3c748af599861a037ab79d66b0eac3c927011a8dfeecc4820015a5b9ad52622d",
+"hash": "f9550b7b0d42bd534a02b25d979e34c2e247e4924334f3b245d01b7bc55dc8eb",
 "lastmod": "2026-11-09"
 },
 "/invoice-template/cleaning/": {
