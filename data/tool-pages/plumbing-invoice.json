@@ -112,7 +112,7 @@
    ],
    [
     "Invoice number, invoice date, service date",
-    "Each number is unique. The service date starts any warranty on the work."
+    "Each number is unique. The service date shows when the work took place."
    ],
    [
     "Labor lines and parts lines, apart",

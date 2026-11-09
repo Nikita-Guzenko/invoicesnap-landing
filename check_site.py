@@ -330,7 +330,7 @@ class Crawl:
         if not ctx.pages:
             return
         today = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
-        fetched, gated, texts, h1s = {}, [], {}, {}
+        fetched, gated, texts, h1s, held = {}, [], {}, {}, {}
         jobs = gate.filled_job_problems(ctx.pages)
         path_of = lambda p: ("" if p.get("locale", "en") == "en" else f"/{p['locale']}") + "/" + p["slug"].strip("/") + "/"  # noqa: E731
         for page in ctx.pages:
@@ -342,8 +342,10 @@ class Crawl:
                 if status == 200 and "noindex" not in gate.parse(raw).robots:
                     self.error(path, "gate: the page is outside the sitemap but has no noindex")
                 print(f"gate: {path} is blocked, noindex: {'; '.join(problems)[:200]}")
-                if not problems:  # A green page must be live: without this, a build bug could hide pages from search with no failure.
-                    self.error(path, "gate: the page passes every data gate but is not in a sitemap")
+                # A green page must be live: without this, a build bug could hide pages from search with no failure. Gates 8 and 6 can block
+                # with no data problem, so those run first; a page that one of them blocks keeps its noindex and does not stop the release.
+                if not problems and status == 200 and not gate.html_problems(page, raw, ctx.claims):
+                    held[path] = " ".join(gate.parse(raw).unique)
                 continue
             if status != 200:
                 continue
@@ -357,6 +359,10 @@ class Crawl:
                 problems.append(f"gate 1: same h1 as {other}")
             for line in problems:
                 self.error(path, line)
+        overlapping = gate.overlap_problems({**texts, **held})
+        for path in held:
+            if path not in overlapping:
+                self.error(path, "gate: the page passes every gate but is not in a sitemap")
         for path, problems in gate.overlap_problems(texts).items():
             for line in problems:
                 self.error(path, line)

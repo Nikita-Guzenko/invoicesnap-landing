@@ -13,10 +13,13 @@ Fixture text is throwaway; it never goes live.
 """
 from __future__ import annotations
 
+import contextlib
 import copy
 import datetime
 import http.server
+import io
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -53,6 +56,11 @@ def load(path: Path):
 
 def save(path: Path, value) -> None:
     path.write_text(json.dumps(value, ensure_ascii=False), encoding="utf-8")
+
+
+def fixture_row(url: str) -> dict:
+    checks = [{"checker": name, "verdict": "confirmed", "date": TODAY, "quote": "fixture"} for name in ("fixture-a", "fixture-b")]
+    return {"type": "fact", "source_url": url, "source_fetched": TODAY, "checks": checks}
 
 
 def make_data(tmp: Path) -> Path:
@@ -98,12 +106,11 @@ def make_data(tmp: Path) -> Path:
     arabic["form"]["sample"]["items"] = [{"d": "عمل السباكة", "q": 2, "u": "ساعة", "r": 90, "k": "L"}]
     arabic["example"]["items"] = [{"d": "صيانة السخان", "q": 1, "u": "وحدة", "r": 150, "k": "L"}]
     save(data / "tool-pages/fixture-ar.json", arabic)
-    # Throwaway records, so that the fixture pages reach the browser gate. "advice" needs no source; the failures of gate 5 are tested on en-US.
+    # Throwaway records, so that the fixture pages reach the browser gate. The failures of gate 5 are tested on en-US.
     for law_id, fixture in (("de-DE", page), ("ar-SA", arabic)):
         record = load(data / f"law/{law_id}.json")
         rows = fact_review.law_statements(record) + fact_review.page_statements(fixture, sources)
-        checks = [{"checker": name, "verdict": "advice", "date": TODAY} for name in ("fixture-a", "fixture-b")]
-        save(data / f"law/{law_id}.review.json", {"statements": {r["id"]: {"type": "advice", "checks": checks} for r in rows}})
+        save(data / f"law/{law_id}.review.json", {"statements": {r["id"]: fixture_row(sources[fixture["source_ids"][0]]["url"]) for r in rows}})
     return data
 
 
@@ -128,7 +135,40 @@ def blocked(out: Path, data_edit_path: str) -> tuple[bool, bool]:
     return 'content="noindex"' in raw, listed
 
 
+def check_merge() -> None:
+    """The record cannot lie about a quote or a date: review_checks.merge runs on a copy of the data with planted results."""
+    import review_checks as rc
+    with tempfile.TemporaryDirectory(dir=Path.home() / ".cache") as tmp_name:
+        tmp = Path(tmp_name)
+        shutil.copytree(ROOT / "data", tmp / "data")
+        kept = rc.ROOT, rc.CACHE
+        rc.ROOT, rc.CACHE = tmp, tmp / "cache"
+        try:
+            sources, seen, _ = rc.load()
+            st = next(s for s in seen.values() if s["kind"] == "rule" and s.get("source_id") != rc.ADVICE and not s.get("extra_source_ids"))
+            key = st.get("source_id") or next(k for k, s in sources.items() if s["url"] == st["source_url"])
+            (rc.CACHE / "src").mkdir(parents=True)
+            (rc.CACHE / "src" / f"{key}.txt").write_text("The real text of the source.", "utf-8")
+            old = datetime.datetime(2026, 1, 15).timestamp()
+            for checker, quote in [("a", "The real text of the source."), ("b", "A quote that the source does not hold.")]:
+                folder = rc.CACHE / "results" / checker
+                folder.mkdir(parents=True)
+                result = folder / f"{key}.json"
+                result.write_text(json.dumps([{"id": st["id"], "verdict": "confirmed", "quote": quote}]), "utf-8")
+                os.utime(result, (old, old))
+            with contextlib.redirect_stdout(io.StringIO()):
+                rc.merge()
+            checks = {c["checker"]: c for c in load(tmp / "data/law/en-US.review.json")["statements"][st["id"]]["checks"]}
+            expect("merge: a real quote stays confirmed", checks["a"]["verdict"] == "confirmed", str(checks["a"]))
+            expect("merge: a quote that is not in the source fails", checks["b"]["verdict"] == "not_found", str(checks["b"]))
+            expect("merge: a re-merge keeps the date of the run", checks["a"]["date"] == "2026-01-15", str(checks["a"]))
+            expect("merge: a range quote needs both numbers", not rc.quote_ok("from $40 per hour", rc.norm_q("from $40 per hour to $90"), "Labor: $40-$90", "range") and rc.quote_ok("$40 to $90", rc.norm_q("from $40 to $90"), "Labor: $40-$90", "range"), "")
+        finally:
+            rc.ROOT, rc.CACHE = kept
+
+
 def main() -> int:
+    check_merge()
     with tempfile.TemporaryDirectory(dir=Path.home() / ".cache", prefix="invoicesnap-test-") as t:
         tmp = Path(t)
         data, out = make_data(tmp), tmp / "dist"
@@ -199,7 +239,16 @@ def main() -> int:
         bad("a checker refuted the fact", "a checker refuted it", rec, lambda v: v["statements"][rule_id]["checks"].append({**same, "checker": "three", "verdict": "refuted"}))
         bad("a fact has no source", "no source URL", rec, lambda v: v["statements"][rule_id].pop("source_url"))
         bad("a check is too old", "days old, limit 365", rec, lambda v: [c.update(date="2020-01-01") for c in v["statements"][rule_id]["checks"]])
-        bad("a fact marked as advice with no agreeing checks", "0 different checkers agree, need 2", rec, lambda v: v["statements"][rule_id].update(type="advice"))
+        bad("a rule marked as advice", "is always a fact", rec, lambda v: v["statements"][rule_id].update(type="advice"))
+        bad("a range marked as advice", "is always a fact", rec, lambda v: v["statements"][range_id].update(type="advice"))
+        bad("checks with no checker name", "0 different checkers agree, need 2", rec, lambda v: [c.pop("checker") for c in v["statements"][rule_id]["checks"]])
+        bad("a confirmed check with no quote", "has no quote from the source", rec, lambda v: v["statements"][rule_id]["checks"][0].update(quote=""))
+        bad("two agree and a third does not find it", "a checker disagrees", rec, lambda v: v["statements"][rule_id]["checks"].append({**same, "checker": "three", "verdict": "not_found"}))
+        bad("the source was fetched too long ago", "the fetched source is", rec, lambda v: v["statements"][rule_id].update(source_fetched="2020-01-01"))
+        bad("the record holds other text under the id", "the text changed after the check", rec, lambda v: v["statements"][range_id].update(claim="other text"))
+        bad("a legal claim in the description", "gate 5: not checked: prose-", page, lambda v: v.update(description="Ohio law requires a license on each invoice, and this page explains it."))
+        bad("a legal claim in the title", "gate 5: not checked: prose-", page, lambda v: v.update(title="Ohio law requires this invoice"))
+        bad("a legal claim in a form label", "gate 5: not checked: prose-", page, lambda v: v["form"]["labels"].update(bizId="License no. (Ohio law requires it)"))
         bad("one word of a rule changed after the check", "gate 5: not checked: rule-", page, lambda v: v["rules"]["items"][0].update(html=v["rules"]["items"][0]["html"].replace("Texas", "Ohio")))
         bad("a range changed after the check", "gate 5: not checked: range-", page, lambda v: items(v)[0].update(high=9999))
         bad("new legal text with no check", "gate 5: not checked: prose-", page, lambda v: v.update(lede_html="Ohio law requires a license on each invoice."))
@@ -276,6 +325,11 @@ def main() -> int:
         for name, reason, changed in [
             ("a human reviewer named on the server", "gate 8: forbidden text", raw_page.replace("</main>", "<p>Reviewer: Jane Doe.</p></main>", 1)),
             ("a page says a person reviewed it", "gate 8: forbidden text", raw_page.replace("</main>", "<p>Reviewed by our tax team.</p></main>", 1)),
+            ("a page says an attorney reviewed it", "gate 8: forbidden text", raw_page.replace("</main>", "<p>A tax attorney reviewed this page.</p></main>", 1)),
+            ("a page says a CPA approved it", "gate 8: forbidden text", raw_page.replace("</main>", "<p>Approved by our CPA.</p></main>", 1)),
+            ("a page names our reviewers", "gate 8: forbidden text", raw_page.replace("</main>", "<p>Our reviewers read each page.</p></main>", 1)),
+            ("a person in JSON-LD", "gate 8: JSON-LD holds", raw_page.replace('"@type": "WebApplication"', '"author": {"@type": "Person", "name": "Jane Doe"}, "@type": "WebApplication"', 1)),
+            ("reviewedBy in JSON-LD", "gate 8: JSON-LD holds", raw_page.replace('"@type": "WebApplication"', '"reviewedBy": "Jane Doe", "@type": "WebApplication"', 1)),
             ("the not-advice line removed", "does not say 'not tax or legal advice'", raw_page.replace("It is not tax or legal advice.", "", 1)),
             ("rating in JSON-LD", "gate 8: JSON-LD holds", raw_page.replace('"@type": "WebApplication"', '"aggregateRating": {"@type": "AggregateRating"}, "@type": "WebApplication"', 1)),
             ("a 4.9-star claim", "gate 8: forbidden text", raw_page.replace("<title>", "<title>4.9-star app: ", 1)),

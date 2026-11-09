@@ -110,7 +110,7 @@
    ],
    [
     "Schedule",
-    "A start date and a duration. <a href=\"https://www.nysenate.gov/legislation/laws/GBS/771\" rel=\"noopener\">New York</a> asks for approximate dates in the contract."
+    "A start date and a duration."
    ],
    [
     "Payment schedule",
@@ -294,9 +294,8 @@
   "pricer",
   "ctbh",
   "nj-16-2",
-  "cfr-429",
+  "cfr-429", "cfr-4290",
   "cslb-guide",
-  "ny-771",
   "ftc-scam"
  ]
 }

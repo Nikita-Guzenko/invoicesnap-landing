@@ -71,6 +71,12 @@
   "numbers": 0,
   "status": "ok"
  },
+ "cfr-4290": {
+  "checked": "2026-11-09",
+  "missing": [],
+  "numbers": 0,
+  "status": "ok"
+ },
  "cslb-2622": {
   "checked": "2026-11-09",
   "missing": [],
@@ -288,12 +294,6 @@
   "status": "ok"
  },
  "ny-1411": {
-  "checked": "2026-11-09",
-  "missing": [],
-  "numbers": 0,
-  "status": "ok"
- },
- "ny-771": {
   "checked": "2026-11-09",
   "missing": [],
   "numbers": 0,

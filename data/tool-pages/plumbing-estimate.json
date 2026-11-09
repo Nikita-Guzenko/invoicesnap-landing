@@ -265,7 +265,7 @@
    },
    {
     "title": "Sales at the customer home",
-    "html": "A buyer may cancel a home sale until midnight of the third business day under the FTC Cooling-Off Rule. Ask a lawyer about your case.",
+    "html": "A buyer may cancel a home sale until midnight of the third business day under the FTC Cooling-Off Rule. The rule has exceptions, such as a repair visit that the buyer asked for. Ask a lawyer about your case.",
     "src": "cfr-429"
    }
   ]
@@ -293,6 +293,6 @@
   "tr-plumb",
   "tsbpe",
   "kirkland",
-  "cfr-429"
+  "cfr-429", "cfr-4290"
  ]
 }

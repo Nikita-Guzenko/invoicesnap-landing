@@ -268,6 +268,8 @@ def range_text(it: dict, law: dict) -> str:
     if it.get("low") is None:
         return "Your price"
     def m(v):
+        if d(v) != cents(d(v)):  # EFA gives 87.5 cents a word. Rounding to $0.88 would print a number that the source does not hold.
+            return f"{law['fmt']['symbol']}{d(v).normalize():f}"
         text = money(v, law)
         return text[:-3] if text.endswith(".00") else text
     unit = f" per {it['range_unit']}" if it.get("range_unit") else ""
@@ -319,7 +321,7 @@ def sources_html(page: dict, ctx, law: dict) -> str:
     # Nikita's order, 9 Nov 2026: never a human name, and an honest word on how the page was checked. gate.py enforces both.
     return (f'<section id="sources" class="prose"><h2>Sources and how this page was checked</h2><p data-shared>Published by 731labs, the maker of InvoiceSnap. Last checked {e(checked)}. '
             f'An AI tool helped draft this page. An automated check compared the legal facts and price ranges with their sources, using two AI models. No person reviewed this page. '
-            f'Each number links to its source. This page is general information. It is not tax or legal advice.</p><ul class="src">{items}</ul></section>')
+            f'The sources are listed below. This page is general information. It is not tax or legal advice.</p><ul class="src">{items}</ul></section>')
 
 
 def rules_html(page: dict, ctx) -> str:

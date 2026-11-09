@@ -4,95 +4,95 @@
 "lastmod": "2026-10-01"
 },
 "/estimate-generator/": {
-"hash": "d54da39fc973045babb5bf7642090ed6b93f6153ece6c9dad57ca50997aa2017",
+"hash": "25ea32accb96cabc0f34d11ecd05686319c5f8b83a8a5e6fc7bf182b81e75e71",
 "lastmod": "2026-11-09"
 },
 "/estimate-template/": {
-"hash": "52c49de689e7da48b3cb9279e717ab39eab99a599df5f9e7ad912e35065877b2",
+"hash": "fead9bc0a8df6a3ea4ea4f006ec427816c0302727cd2fa298748e557d7359d8b",
 "lastmod": "2026-11-09"
 },
 "/estimate-template/cleaning/": {
-"hash": "0cb08cae35c7665e036dd6d335a771fbf0dc4bf165746724ac33722da8faab5a",
+"hash": "85c9e9884717adabe319ff345b6503485f20acf0b67a332c3e807f40d5547631",
 "lastmod": "2026-11-09"
 },
 "/estimate-template/contractor/": {
-"hash": "683aa8f33ac3ff908a14ecd6ab7ad92b2b3f5fba5c228c217f2a2c3f60ec490d",
+"hash": "817e004372b102e68a1d771a903412ba9b46d7d9aaae3eab432b0fd2cba0358d",
 "lastmod": "2026-11-09"
 },
 "/estimate-template/electrical/": {
-"hash": "c77975d855c7aa348a7ed8332bf32a2c1caee6aae598ed46f24d3b0be1112e0a",
+"hash": "2e9edefb07d4592ac055f6ec87805b2cbdc91de506298c9a80b12e60c8d9f767",
 "lastmod": "2026-11-09"
 },
 "/estimate-template/landscaping/": {
-"hash": "eac42025c52221abd5d71638d1b162dd3abca5c132e3b528c82dc31c7529f7e0",
+"hash": "2f1bd031ec1417b94a15109ac12908901b2f530420724806d9c2cc5504fcdd27",
 "lastmod": "2026-11-09"
 },
 "/estimate-template/painting/": {
-"hash": "ad2d93345ca1d3d316fca3cd4d11a5e7dfd4394568ee972418d28bcd4dcdcdb8",
+"hash": "621de19fcb720c07ce43c64d4429d1e5b04a13494e6be8b6df13142dd79d0d21",
 "lastmod": "2026-11-09"
 },
 "/estimate-template/plumbing/": {
-"hash": "e121265ccf0856fb9e03f1616a8da5ccd204585cef46df52de4e4379d8ca3e12",
+"hash": "e7edf93628eb3187ffc8bac76c6ae128c8b3ff2dd712f9df338004502299d8c3",
 "lastmod": "2026-11-09"
 },
 "/estimate-template/roofing/": {
-"hash": "1ee8e82c87d0ba0db332cc662449476f6014c05e6c00882648a769fd6aec6477",
+"hash": "db213a1cc8f41dd820f974a2441fdcb9ad25811a4ab82b6ceae5d807f22d6fdf",
 "lastmod": "2026-11-09"
 },
 "/guides/estimate-vs-invoice/": {
-"hash": "ddb8a1651e4bcfff01d5f89d53e5b75852b9962a7e722b11811f97886020458f",
+"hash": "93baa0a8a6633fee8f45515b04ea89174d57c35d93bf60563ec2a3be3493a14e",
 "lastmod": "2026-11-09"
 },
 "/guides/how-much-over-an-estimate-can-a-contractor-go/": {
-"hash": "3dbf076ce55f801d1747d12843bc4c61fe77cc173dcf03e2bce6a7dd15415487",
+"hash": "f8e435f44085955139ebf575b2e0ba7688722c2c3a5c04b895c2a5c4357e23cd",
 "lastmod": "2026-11-09"
 },
 "/guides/what-to-include-on-an-invoice/": {
-"hash": "af5a036355ad74f5e349975d96a6cfaaf960737edb805093861655585d3b73fb",
+"hash": "9a27703224a2b484f094bf7417facb9cb153d8b20fb63d36b84f2387f6d3c756",
 "lastmod": "2026-11-09"
 },
 "/invoice-generator/": {
-"hash": "fcb7951532524f79b983f976b2ab0e03aae44248ba6abc560262018b5cc22807",
+"hash": "8f54e44a68d863efb50062b629b43538e44ac6c898d4bb81dc30a96da0574212",
 "lastmod": "2026-11-09"
 },
 "/invoice-template/": {
-"hash": "47ce7ad0a6b8f573f4a95ad7b3f2975005f5ccc22d993f04f5589771a97a5641",
+"hash": "9bac58495a1273aa7e2b7d6aecc1a1a644b7a9eedc3e11a252d21fe1801ab3a2",
 "lastmod": "2026-11-09"
 },
 "/invoice-template/cleaning/": {
-"hash": "6d28f3adbb6c278b15929f13cc5d60da84ccfeeced6d7b13e46a1601ed11c822",
+"hash": "fbbff34c6f8cfced3315f3844efe8ccc7a9d772915e0e03cd1592bde458011e2",
 "lastmod": "2026-11-09"
 },
 "/invoice-template/consulting/": {
-"hash": "a430221b9a6ee47661a686d4622f6ce2a7cccba5990bb0957c08dc4b51253fa8",
+"hash": "07175244a3692a65d9a7c6ab3a15ad90c8354523eb652d66c90a368eab5cdb4e",
 "lastmod": "2026-11-09"
 },
 "/invoice-template/contractor/": {
-"hash": "e373d087b8c27ca49cb228ef0ea05b4ed339fc01991d401504ab633df7d4d4fb",
+"hash": "5bc837c879f6ee442f4d078a88922fd5572d752e882ea12f6b779bba107e93f3",
 "lastmod": "2026-11-09"
 },
 "/invoice-template/electrical/": {
-"hash": "7299cfef88f4cdc7816a946265b760ef0839436f9a6f23200be615a04c2064be",
+"hash": "b47b749df26e813c5a47a7ff96c0df7c6ec7454d86c5519151fb4bc38bbbbd7b",
 "lastmod": "2026-11-09"
 },
 "/invoice-template/freelance-writer/": {
-"hash": "a3de2cb0bb4ec13694f296a6173af1be61cccfbb465b5a475c83207eed6c2ccc",
+"hash": "4b0c500fb93093fb15fca9a42481e09c4e1e92cb73573da4b710a7cf08799ddc",
 "lastmod": "2026-11-09"
 },
 "/invoice-template/freelancer/": {
-"hash": "3ae602c31c87c7fb90912834f65dc5a17a39aeafb58820691814e7393f8f8327",
+"hash": "a95b8ff352d56152b34ba94e82b3221166f391330f68d80f7c5b3fcb93c31367",
 "lastmod": "2026-11-09"
 },
 "/invoice-template/handyman/": {
-"hash": "9802d3de4f5c63bbfb3caa94d249835f258d2b394b80dc47d47af62e9aaabe82",
+"hash": "a564ea78300029df70bb7d3d457c39f8ecfd54a589e2bbb1b1c79d3953ccf6ae",
 "lastmod": "2026-11-09"
 },
 "/invoice-template/hvac/": {
-"hash": "e1c03b6f9eb332d477b1df5b8eaa95292c580e0c4d06cef50432ff819b605cc1",
+"hash": "069355bea6b003d11958bf7da5e536432f67c99093cae104222ca73537f69fd8",
 "lastmod": "2026-11-09"
 },
 "/invoice-template/plumbing/": {
-"hash": "f5706954d3370c6c84038444218bab3e6ed288ea809180314a6bbcb50ba74ac9",
+"hash": "40bcc341907c7bbcf0a83d8fb5af030c451ad989409774917319953d6d3d3e15",
 "lastmod": "2026-11-09"
 },
 "/privacy/": {

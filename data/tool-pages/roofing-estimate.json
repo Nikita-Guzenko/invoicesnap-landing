@@ -282,8 +282,8 @@
     "src": "cslb-guide"
    },
    {
-    "title": "Door-to-door roof sales",
-    "html": "After a sale at the home, a buyer may cancel until midnight of the third business day, under the FTC Cooling-Off Rule. Add the notice when you sign after a door-knock.",
+    "title": "Sales at the customer home",
+    "html": "After a sale at the home, a buyer may cancel until midnight of the third business day, under the FTC Cooling-Off Rule. The rule has exceptions, such as a repair visit that the buyer asked for. Add the notice when you sign after a door-knock.",
     "src": "cfr-429"
    }
   ]
@@ -313,6 +313,6 @@
   "bls-roof",
   "fl-489147",
   "cslb-guide",
-  "cfr-429"
+  "cfr-429", "cfr-4290"
  ]
 }

@@ -159,7 +159,33 @@
      "note": "USA is listed as Not applicable for B2G, B2B, and B2C e-invoicing."
     }
    ],
-   "source_url": "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/tax-guides/documents/ey-gl-e-invoicing-developments-tracker-08-2026.pdf"
+   "source_url": "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/tax-guides/documents/ey-gl-e-invoicing-developments-tracker-08-2026.pdf",
+   "source_fetched": "2026-11-09",
+   "source_sha256": "34fa5de59f626d83b66b244945e1cb539b939e9d6270d82acee1571be5a19265"
+  },
+  "prose-021c631d4950": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Choose a trade to price a job before you start. Each page adds scope, exclusions, a valid-until date and a deposit to the form.",
+   "pages": [
+    "estimate-hub#lede"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instructions and description of template options."
+    }
+   ]
   },
   "prose-022bd7c16a0a": {
    "type": "advice",
@@ -182,6 +208,126 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Explains how to enter flat rate or hourly billing on the form."
+    }
+   ]
+  },
+  "prose-028fbf56ece0": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Deposit of $800 received 3 Oct.",
+   "pages": [
+    "freelancer-invoice#form.sample.terms"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Sample deposit text."
+    }
+   ]
+  },
+  "prose-02bb4b0d4f58": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Can I charge for writing an estimate? Say so before the visit. A paid diagnostic visit is a separate charge from a free written price. Credit it to the job if you promised that.",
+   "pages": [
+    "plumbing-estimate#faq[3]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Business practice guidance on charging for estimates."
+    }
+   ]
+  },
+  "prose-03119805f158": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Write a plumbing estimate in your browser with scope, exclusions, valid-until date and deposit. No sign-up. US price ranges for bigger plumbing jobs, with sources.",
+   "pages": [
+    "plumbing-estimate#description"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes page features and tool functionality."
+    }
+   ]
+  },
+  "prose-051f0bc30438": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "On the estimate: the scope, what is not included, the date until the price holds, the deposit, and how the price can change. On the invoice: the number, the date of the work, each line, what the customer already paid, the balance and the due date.",
+   "pages": [
+    "estimate-vs-invoice#body[17]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes recommended fields for estimates and invoices."
+    }
+   ]
+  },
+  "prose-05c6729b65ff": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Bill consulting by hour, retainer or milestone from your browser. No sign-up. PDF, Word, Excel, with BLS wage data, 1099 and estimated tax notes.",
+   "pages": [
+    "consulting-invoice#description"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes web tool features and formats."
     }
    ]
   },
@@ -290,6 +436,30 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "645d8fd62f9c11e2b409d9c447ed27b674a6da34f12adfa692a116a9204ea820"
   },
+  "prose-0a86cd6e4019": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Monthly billing in advance. Either side may end with 30 days written notice.",
+   "pages": [
+    "cleaning-estimate#form.sample.terms"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Fictional form sample text."
+    }
+   ]
+  },
   "prose-0a9d1ac7d506": {
    "type": "fact",
    "kind": "prose",
@@ -344,6 +514,78 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "4791b71cde428cfdca192e6190b3e55bca85d540294e53b0d011f96c10232661"
   },
+  "prose-0f4b91ca2d2b": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Bill writing work per word, per hour or per project from your browser. No sign-up. PDF, Word, Excel, with 2026 EFA rate ranges and rights wording.",
+   "pages": [
+    "freelance-writer-invoice#description"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes writing invoice tool features."
+    }
+   ]
+  },
+  "prose-1151dc15122e": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Equipment make, model and serial number: Warranty claims and the next technician need them. Write them in the notes.",
+   "pages": [
+    "hvac-invoice#must_show[0]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instructions on what to include in notes."
+    }
+   ]
+  },
+  "prose-11be8bfb2e76": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Watering and care: Say what watering you expect for any plant warranty.",
+   "pages": [
+    "landscaping-estimate#must_show[4]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction on drafting plant warranty terms."
+    }
+   ]
+  },
   "prose-13d321e38fae": {
    "type": "advice",
    "kind": "prose",
@@ -392,32 +634,53 @@
     }
    ]
   },
-  "prose-19fe4f67bbc3": {
-   "type": "fact",
+  "prose-1bab007c2d74": {
+   "type": "advice",
    "kind": "prose",
-   "claim": "Schedule: A start date and a duration. New York asks for approximate dates in the contract.",
+   "claim": "Should I price a mowing contract as one estimate? Yes. Enter visits as the quantity and the visit price as the unit price. The total shows the full season.",
    "pages": [
-    "contractor-estimate#must_show[3]"
+    "landscaping-estimate#faq[0]"
    ],
    "checks": [
     {
      "checker": "anthropic/claude-sonnet",
-     "verdict": "confirmed",
+     "verdict": "advice",
      "date": "2026-11-09",
-     "quote": "The approximate dates, or estimated dates, when the work will begin and be substantially completed",
-     "note": "NY requires approximate start and completion dates in the contract."
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
     },
     {
      "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "confirmed",
+     "verdict": "advice",
      "date": "2026-11-09",
-     "quote": "The approximate dates, or estimated dates, when the work will\nbegin and be substantially completed",
-     "note": "NY law requires contracts to state approximate or estimated start and completion dates."
+     "quote": "",
+     "note": "Instructions on how to enter mowing estimates."
     }
+   ]
+  },
+  "prose-1d4aaac6ade6": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Price panel upgrades, EV chargers and new circuits in your browser. No sign-up. Estimate with scope, exclusions, validity and deposit, plus sourced US ranges.",
+   "pages": [
+    "electrical-estimate#description"
    ],
-   "source_url": "https://www.nysenate.gov/legislation/laws/GBS/771",
-   "source_fetched": "2026-11-09",
-   "source_sha256": "76e2ba028c344b68a94842bcd3628d60a213f080f3485f1fe4a6c7fed25972df"
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes web tool pricing features."
+    }
+   ]
   },
   "prose-21aeae0b1579": {
    "type": "advice",
@@ -524,6 +787,54 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "08474917e7d6cb34f4de3b5304d28b1d8036229333b6e9d509a9af72f00cdd3d"
   },
+  "prose-2715ddf3f0ed": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Any change in scope needs a written change order before the work.",
+   "pages": [
+    "plumbing-estimate#form.sample.terms"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form sample with standard change order clause."
+    }
+   ]
+  },
+  "prose-28625b808a15": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Roofing license no.",
+   "pages": [
+    "roofing-estimate#form.labels.bizId"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a license number field."
+    }
+   ]
+  },
   "prose-2b02f8bf10c9": {
    "type": "fact",
    "kind": "prose",
@@ -550,6 +861,102 @@
    "source_url": "https://www.housecallpro.com/resources/how-to-price-electrical-work/",
    "source_fetched": "2026-11-09",
    "source_sha256": "a8b9c778c5d32cab26cee54a97d786c906da988604397e915d279f05277dd419"
+  },
+  "prose-2b3dda842e0f": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Workmanship warranty: Keep it apart from the maker warranty on the material.",
+   "pages": [
+    "roofing-estimate#must_show[4]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Practical instruction on separating workmanship warranty from manufacturer warranty."
+    }
+   ]
+  },
+  "prose-2b8731d9e4fe": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Interest applies after the due date as our contract states.",
+   "pages": [
+    "freelancer-invoice#form.sample.lateFee"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Sample text for interest clause."
+    }
+   ]
+  },
+  "prose-2f6c8871170b": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "A construction invoice links the amount to the contract: which stage, which change order, what the customer already paid, and what remains.",
+   "pages": [
+    "contractor-invoice#must_show.intro"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Explains the purpose and components of a construction invoice."
+    }
+   ]
+  },
+  "prose-3291854294f9": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "A deposit paid and a balance due.",
+   "pages": [
+    "what-to-include-on-an-invoice#body[16]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes deposit and balance due form elements."
+    }
+   ]
   },
   "prose-3341b4a4bc27": {
    "type": "advice",
@@ -632,30 +1039,6 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "803c82a7c13ce2e08ca6df3269cc1775b1806fd000bda5b69c9df06a6dcd291d"
   },
-  "prose-37594bb3f277": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "Can a customer refuse to pay more than the estimate? A customer can dispute it. Your position is stronger with a signed change order. Without one, the outcome depends on the paper, the facts and your state.",
-   "pages": [
-    "how-much-over-an-estimate#faq[0]"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "No specific law stated."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "General guidance on disputes and change orders."
-    }
-   ]
-  },
   "prose-37739cd6d92b": {
    "type": "fact",
    "kind": "prose",
@@ -682,6 +1065,30 @@
    "source_url": "https://www.homeyou.com/room-addition-cost",
    "source_fetched": "2026-11-09",
    "source_sha256": "aa454fa8356fc0089540b8323d771e4f05fffe3837b87f693ba6990ded069687"
+  },
+  "prose-378474b97086": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Plant material warranty: 30 days with watering as advised. Call 811 before digging.",
+   "pages": [
+    "landscaping-estimate#form.sample.terms"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form sample with invented terms."
+    }
+   ]
   },
   "prose-3959ac52e979": {
    "type": "advice",
@@ -731,6 +1138,30 @@
     }
    ]
   },
+  "prose-3e67752f99c3": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Write a roofing estimate in your browser: squares, tear-off, flashing, decking allowance, deposit. No sign-up. US price ranges and insurance rules, with sources.",
+   "pages": [
+    "roofing-estimate#description"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes features and contents of the browser-based roofing estimate tool."
+    }
+   ]
+  },
   "prose-402388694281": {
    "type": "advice",
    "kind": "prose",
@@ -752,6 +1183,174 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Guidance on itemizing fees to prevent disputes."
+    }
+   ]
+  },
+  "prose-41088e7a396b": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Create a freelance invoice for any kind of work in your browser. No sign-up. Rights, late fee, PDF, Word and Excel. State freelance laws and 1099 notes.",
+   "pages": [
+    "freelancer-invoice#description"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes freelance invoice tool features."
+    }
+   ]
+  },
+  "prose-417af85a0d52": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Notes: permit no., panel, warranty",
+   "pages": [
+    "electrical-invoice#form.labels.terms"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming notes field."
+    }
+   ]
+  },
+  "prose-42a980c0ecc4": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "License or tax no.",
+   "pages": [
+    "estimate-generator#form.labels.bizId"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label for license or tax number."
+    }
+   ]
+  },
+  "prose-440c7ac974e7": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Electrical license no.",
+   "pages": [
+    "electrical-invoice#form.labels.bizId"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field."
+    }
+   ]
+  },
+  "prose-4b6f5305bbdb": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Materials at cost plus 15%. Receipts on request.",
+   "pages": [
+    "handyman-invoice#form.sample.terms"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form sample with invented pricing terms."
+    }
+   ]
+  },
+  "prose-4b87512170b0": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "A second job at sample prices. Use your contract amounts.",
+   "pages": [
+    "contractor-invoice#example.intro_html"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instructions for using sample prices."
+    }
+   ]
+  },
+  "prose-4f0faef4fbd8": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Does an invoice need a signature? Your contract or your customer can ask for one. Check your contract.",
+   "pages": [
+    "what-to-include-on-an-invoice#faq[0]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Advises checking contract terms rather than stating a legal requirement."
     }
    ]
   },
@@ -781,6 +1380,30 @@
    "source_url": "https://www.epa.gov/lead/renovation-repair-and-painting-program",
    "source_fetched": "2026-11-09",
    "source_sha256": "fc0ee5b497af6d87f07f1a86a2d6581ff2f00d7d055abfbe662e5825d6d1c0c3"
+  },
+  "prose-5489d116e06c": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Use \"estimate\" when hidden conditions can move the price, such as old pipe behind a wall. Use \"fixed price\" or \"quote\" when you have seen all the work and will hold the number. Some customers ask for a \"bid\", which usually answers their own written scope. Say in one sentence which of these your paper is, because the customer will read the word as a promise.",
+   "pages": [
+    "estimate-vs-invoice#body[20]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Advice on choosing terminology."
+    }
+   ]
   },
   "prose-54af49e4fa8a": {
    "type": "fact",
@@ -836,6 +1459,103 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "645d8fd62f9c11e2b409d9c447ed27b674a6da34f12adfa692a116a9204ea820"
   },
+  "prose-56d28ab14367": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "An HVAC invoice ties the charge to one piece of equipment. The parts below stop most warranty and refrigerant questions later.",
+   "pages": [
+    "hvac-invoice#must_show.intro"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Gives general guidance on invoicing practices."
+    }
+   ]
+  },
+  "prose-578c6ec839fa": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Bill an electrical job from your browser: labor by license level, panel work, permits. No sign-up. PDF, Word and Excel, with US price ranges and sources.",
+   "pages": [
+    "electrical-invoice#description"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes web tool features and formats."
+    }
+   ]
+  },
+  "prose-57b85fb8f051": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Business or tax permit no.",
+   "pages": [
+    "cleaning-estimate#form.labels.bizId",
+    "cleaning-invoice#form.labels.bizId"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field."
+    }
+   ]
+  },
+  "prose-5926737a0d73": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Late fee: Print only what your contract allows.",
+   "pages": [
+    "freelancer-invoice#must_show[5]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction to follow contract terms."
+    }
+   ]
+  },
   "prose-6091234e220f": {
    "type": "advice",
    "kind": "prose",
@@ -857,6 +1577,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Disclaimer stating table is guidance, not legal rule."
+    }
+   ]
+  },
+  "prose-6334484577e4": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Add a 50 A, 240 V circuit from the main panel to the garage. Mount the owner-supplied Level 2 charger. Load calculation and permit included.",
+   "pages": [
+    "electrical-estimate#form.sample.scope"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Fictional form sample text."
     }
    ]
   },
@@ -908,6 +1652,126 @@
     }
    ]
   },
+  "prose-653f201d12c6": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Bill small jobs from your browser: hourly labor, minimum charge, materials markup. No sign-up. PDF, Word and Excel files, with US prices and license limits.",
+   "pages": [
+    "handyman-invoice#description"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes small job billing tool features."
+    }
+   ]
+  },
+  "prose-6567658f81fa": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Price sod, mulch, patios and lawn care in your browser. No sign-up. An estimate with scope, exclusions and deposit, plus US ranges and state rules, with sources.",
+   "pages": [
+    "landscaping-estimate#description"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes features and contents of the page."
+    }
+   ]
+  },
+  "prose-6691b96b1695": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Notes: warranty, trip fee credit, permit",
+   "pages": [
+    "plumbing-invoice#form.labels.terms"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field."
+    }
+   ]
+  },
+  "prose-66b2400e6d70": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Deposit and past payments",
+   "pages": [
+    "contractor-invoice#form.labels.paid"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field."
+    }
+   ]
+  },
+  "prose-677ea0af6985": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "License no., or your exemption",
+   "pages": [
+    "handyman-invoice#form.labels.bizId"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label for license or exemption."
+    }
+   ]
+  },
   "prose-6816f41482ce": {
    "type": "advice",
    "kind": "prose",
@@ -956,6 +1820,54 @@
     }
    ]
   },
+  "prose-6a3d8bd5faf3": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Write a job estimate in your browser with scope, exclusions, valid-until date and deposit. Free, no sign-up. Download PDF, Word or Excel.",
+   "pages": [
+    "estimate-generator#description"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes browser estimate generator features."
+    }
+   ]
+  },
+  "prose-6d61c355972e": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "A rights line for writing and creative work .",
+   "pages": [
+    "what-to-include-on-an-invoice#body[15]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes a form field for rights in creative work."
+    }
+   ]
+  },
   "prose-6dcc13f1daf7": {
    "type": "advice",
    "kind": "prose",
@@ -980,6 +1892,102 @@
     }
    ]
   },
+  "prose-6e16a8763469": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Is a signed estimate a contract? Ask a local lawyer before you rely on it.",
+   "pages": [
+    "estimate-vs-invoice#faq[1]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Advises consulting a lawyer."
+    }
+   ]
+  },
+  "prose-6f1c8249e34d": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "See how the wording of an estimate and written change orders affect a final bill. State examples and sources.",
+   "pages": [
+    "how-much-over-an-estimate#description"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes page content; states no law, amount or rule."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction pointing to examples; states no specific rule, law, deadline, or requirement."
+    }
+   ]
+  },
+  "prose-6f56db475047": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Write a construction or remodel estimate online with scope, allowances, exclusions and deposit. No sign-up. US project price ranges, with sources.",
+   "pages": [
+    "contractor-estimate#description"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes web tool estimate features."
+    }
+   ]
+  },
+  "prose-74157d5ee298": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Deposit and balance: Show what the client already paid.",
+   "pages": [
+    "freelancer-invoice#must_show[2]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction on showing deposit."
+    }
+   ]
+  },
   "prose-74f551153f0a": {
    "type": "advice",
    "kind": "prose",
@@ -1001,6 +2009,54 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Advises checking state rules before choosing a deposit percentage."
+    }
+   ]
+  },
+  "prose-76e421678be6": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "The estimate tells the customer what you will do, what you will not do, the price, and how long the price holds. Hidden pipe work is the usual source of a price dispute, so say how you treat it.",
+   "pages": [
+    "plumbing-estimate#must_show.intro"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Practical advice on estimate drafting."
+    }
+   ]
+  },
+  "prose-77c774a1eaab": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Deposit received",
+   "pages": [
+    "freelancer-invoice#form.labels.paid"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label for deposit received."
     }
    ]
   },
@@ -1058,6 +2114,54 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "6d71d9f619a8adfb0b8c922377ff6701f2e95588a90e2d303e53bea6a70dcd88"
   },
+  "prose-7a08c68c3b22": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Contractor license no.",
+   "pages": [
+    "contractor-invoice#form.labels.bizId"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field."
+    }
+   ]
+  },
+  "prose-7a1f10b11275": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Pick an estimate template with a working form for your trade. Each page has scope, exclusions, valid-until date, deposit, US price ranges and sources.",
+   "pages": [
+    "estimate-hub#description"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes template features and instructions."
+    }
+   ]
+  },
   "prose-7cc68ffd31b9": {
    "type": "advice",
    "kind": "prose",
@@ -1079,6 +2183,78 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Recommends tying payments to stages and checking state deposit limits."
+    }
+   ]
+  },
+  "prose-7cd03657a9b7": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Warranty period: Say how long your labor warranty runs.",
+   "pages": [
+    "electrical-invoice#must_show[5]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Explains the purpose of a form field."
+    }
+   ]
+  },
+  "prose-7efaf26083a4": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "License no.",
+   "pages": [
+    "electrical-estimate#form.labels.bizId"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field."
+    }
+   ]
+  },
+  "prose-7f58abac2b49": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Parts warranty and labor warranty, apart: Show the end date of each one.",
+   "pages": [
+    "hvac-invoice#must_show[4]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction on formatting warranty terms."
     }
    ]
   },
@@ -1109,31 +2285,6 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "e27cf89c9fd3a25fdc6e683c94aef3acba500dfcc058eecb73e5fca63b9ada7e"
   },
-  "prose-84c8eed6c27b": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "Tap Add to put a line on the form. The range comes from the source in the same row, and the button adds a sample inside it. These are wages of employees, not freelance rates. Set your own rate: you also pay your own taxes, insurance and unpaid time.",
-   "pages": [
-    "consulting-invoice#line_items.intro_html",
-    "freelancer-invoice#line_items.intro_html"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Describes the form and tells the reader to set own rate."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Describes form buttons and gives general guidance on setting freelance rates."
-    }
-   ]
-  },
   "prose-84db25bdd004": {
    "type": "fact",
    "kind": "prose",
@@ -1161,6 +2312,30 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "5e137d058e4c57b6b3c833b27f99bc4ad9078e8819f000ae8f91b9b6e31656b7"
   },
+  "prose-86e496871133": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "EIN or tax ID",
+   "pages": [
+    "consulting-invoice#form.labels.bizId"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field."
+    }
+   ]
+  },
   "prose-875051eeb06a": {
    "type": "advice",
    "kind": "prose",
@@ -1182,6 +2357,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Gives instructions on when to enter a tax rate on the form."
+    }
+   ]
+  },
+  "prose-87f32516cb98": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Terms: decking, insurance, weather",
+   "pages": [
+    "roofing-estimate#form.labels.terms"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming contract terms field."
     }
    ]
   },
@@ -1230,6 +2429,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Advises on parts pricing strategies and explains form tax options."
+    }
+   ]
+  },
+  "prose-88b82669e83d": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Changes to the scope need written approval before the work.",
+   "pages": [
+    "estimate-generator#form.sample.terms"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Sample text for scope changes."
     }
    ]
   },
@@ -1308,6 +2531,30 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "e27cf89c9fd3a25fdc6e683c94aef3acba500dfcc058eecb73e5fca63b9ada7e"
   },
+  "prose-930247877c23": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "1.5% per month on any balance after the due date, as agreed in our contract.",
+   "pages": [
+    "freelance-writer-invoice#form.sample.lateFee"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Sample invoice text referring to contract."
+    }
+   ]
+  },
   "prose-9701510e8ffd": {
    "type": "advice",
    "kind": "prose",
@@ -1353,6 +2600,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Explains who can use the form and directs users to alternative pages."
+    }
+   ]
+  },
+  "prose-9ca674aebdec": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Anyone who has to give a written price before a job starts. It adds what an invoice does not have: scope, what is not included, how long the price holds, and a deposit. The file ends with a line for the customer to sign. The trade pages add line items and prices for contractor , roofing , painting and more.",
+   "pages": [
+    "estimate-generator#body[1]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes estimate purpose and page features."
     }
    ]
   },
@@ -1455,6 +2726,30 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "20f04eb538cb438f63bc2ce667bc223853d59edb82bfde8d5136698468d1d786"
   },
+  "prose-a1c4e4704ab3": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Bill house or office cleaning from your browser: per visit, hourly or per square foot. No sign-up. PDF, Word and Excel, with US price ranges and tax rules.",
+   "pages": [
+    "cleaning-invoice#description"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes features and capabilities of the web tool."
+    }
+   ]
+  },
   "prose-a2b32398d263": {
    "type": "advice",
    "kind": "prose",
@@ -1506,6 +2801,54 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "b05faf634719deb9df568c6d32e0f554af7fdc323d69e33cb39e82bdfab9519b"
   },
+  "prose-a315462e2a53": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "License and lead-safe no.",
+   "pages": [
+    "painting-estimate#form.labels.bizId"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field."
+    }
+   ]
+  },
+  "prose-a581ee312b5d": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Should I show insurance estimate amounts on my estimate? Show your own price for your own scope. If the customer shares the adjuster paperwork, answer it in a separate document and do not offer to absorb the deductible.",
+   "pages": [
+    "roofing-estimate#faq[0]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instructions on presenting pricing and handling insurance paperwork."
+    }
+   ]
+  },
   "prose-a9388b1fd85a": {
    "type": "fact",
    "kind": "prose",
@@ -1532,6 +2875,54 @@
    "source_url": "https://www.cslb.ca.gov/resources/GuidesAndPublications/HomeImprovementContractsConsumerGuide.pdf",
    "source_fetched": "2026-11-09",
    "source_sha256": "3e87ccabbe4cbbf8ff51681a007425d05d028bf82f2053f79fa4c186f72e5eed"
+  },
+  "prose-a9a1d405a193": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Deposit paid, balance due, due date, how to pay: The customer sees one clear amount and one clear date.",
+   "pages": [
+    "plumbing-invoice#must_show[6]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Explains why payment fields are useful."
+    }
+   ]
+  },
+  "prose-aae61e3db1a3": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Tax or license no.",
+   "pages": [
+    "invoice-generator#form.labels.bizId"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field."
+    }
+   ]
   },
   "prose-ac604417adac": {
    "type": "fact",
@@ -1608,6 +2999,30 @@
     }
    ]
   },
+  "prose-b1096f8c787e": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "How do I quote a commercial job? Price per visit, then multiply by visits per month. Set the deposit to empty when you bill monthly in advance.",
+   "pages": [
+    "cleaning-estimate#faq[1]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Gives quoting instructions and form usage guidance."
+    }
+   ]
+  },
   "prose-b2b6afc730b1": {
    "type": "advice",
    "kind": "prose",
@@ -1680,6 +3095,31 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Description of Excel template features."
+    }
+   ]
+  },
+  "prose-b7c18e260657": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Tax ID, if the client needs it",
+   "pages": [
+    "freelance-writer-invoice#form.labels.bizId",
+    "freelancer-invoice#form.labels.bizId"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label for tax ID."
     }
    ]
   },
@@ -1815,6 +3255,30 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "c3c7ce1036ee1b819b46e2c2c15003c0507ccc2d9fec2238f6e687841e1931bc"
   },
+  "prose-be4e83309eaf": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "License and EPA 608 no.",
+   "pages": [
+    "hvac-invoice#form.labels.bizId"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field."
+    }
+   ]
+  },
   "prose-bf5c6c905412": {
    "type": "advice",
    "kind": "prose",
@@ -1836,6 +3300,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Describes recommended contents for a handyman invoice."
+    }
+   ]
+  },
+  "prose-c0076333a954": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "When do I add a kill fee? When the client stops a piece after you started and your contract has a kill fee. Add it as its own line with the article title.",
+   "pages": [
+    "freelance-writer-invoice#faq[2]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instructions on when to add a kill fee."
     }
    ]
   },
@@ -1920,6 +3408,30 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "96374c4afb99830624d5fbb84dca3a9c6a11cada9148651359912898c340432f"
   },
+  "prose-c2cef20f60b2": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Trip fee is credited to the repair. Parts carry the maker warranty. Labor warranty: 1 year.",
+   "pages": [
+    "plumbing-invoice#form.sample.terms"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form sample with invented warranty terms."
+    }
+   ]
+  },
   "prose-c2e26f8759b5": {
    "type": "fact",
    "kind": "prose",
@@ -1946,6 +3458,54 @@
    "source_url": "https://www.nysenate.gov/legislation/laws/GBS/1411",
    "source_fetched": "2026-11-09",
    "source_sha256": "13c9a1d7e3ec0bfa05e4e61cd3f3a0a7eb475bb148235a2348f8c2e9f1688b98"
+  },
+  "prose-c5b8724b23ab": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "How do I show a deposit that I already got? Enter it in the deposit field. The total, the amount paid and the balance due then print on the file.",
+   "pages": [
+    "freelancer-invoice#faq[1]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instructions for entering deposit in form."
+    }
+   ]
+  },
+  "prose-c5c4bc6e2b3f": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Notes: warranty, refrigerant, serial no.",
+   "pages": [
+    "hvac-invoice#form.labels.terms"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field."
+    }
+   ]
   },
   "prose-c5c7d06905dd": {
    "type": "advice",
@@ -1998,6 +3558,30 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "2eb647c177eb22cd7f87b8f99b379491536afe14bb74dde840958dfb7d8936c6"
   },
+  "prose-c90b89305126": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "What binds you",
+   "pages": [
+    "estimate-vs-invoice#body[8]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Section heading."
+    }
+   ]
+  },
   "prose-c9113d17555c": {
    "type": "fact",
    "kind": "prose",
@@ -2049,6 +3633,30 @@
     }
    ]
   },
+  "prose-cbab416a8825": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "SOW or contract reference: Ties the bill to an approved budget.",
+   "pages": [
+    "consulting-invoice#must_show[0]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Explains the purpose of a form field."
+    }
+   ]
+  },
   "prose-ccb2f4c558f3": {
    "type": "advice",
    "kind": "prose",
@@ -2070,6 +3678,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Instructs user to enter a rate only if work is taxed."
+    }
+   ]
+  },
+  "prose-cce25a3e561f": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Deposit and payment steps: Link payments to steps such as rough-in passed and final connection.",
+   "pages": [
+    "plumbing-estimate#must_show[6]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Advice on structuring progress payments."
     }
    ]
   },
@@ -2280,6 +3912,78 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "b05faf634719deb9df568c6d32e0f554af7fdc323d69e33cb39e82bdfab9519b"
   },
+  "prose-d872c4e5c376": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Terms: plant warranty, watering",
+   "pages": [
+    "landscaping-estimate#form.labels.terms"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field."
+    }
+   ]
+  },
+  "prose-e1364d4dbef1": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Parts warranty is from the maker. Labor warranty is 90 days. Refrigerant added: 2 lb R-410A.",
+   "pages": [
+    "hvac-invoice#form.sample.terms"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form sample with invented warranty terms."
+    }
+   ]
+  },
+  "prose-e1ab387f7c0d": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Contract or job reference: One job can have many bills, so give each one a reference.",
+   "pages": [
+    "contractor-invoice#must_show[1]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Explains the purpose of a form field."
+    }
+   ]
+  },
   "prose-e2a53056b5ff": {
    "type": "advice",
    "kind": "prose",
@@ -2301,6 +4005,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Explains why including a sales tax rate is useful for customers."
+    }
+   ]
+  },
+  "prose-e3196da0203a": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "License no. (pesticide, landscape)",
+   "pages": [
+    "landscaping-estimate#form.labels.bizId"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field."
     }
    ]
   },
@@ -2357,6 +4085,30 @@
    "source_url": "https://comptroller.texas.gov/taxes/publications/94-112.php",
    "source_fetched": "2026-11-09",
    "source_sha256": "babedc962bb8c16f87ffdd5c2b1fe28518a0a60317e99c210d3238dbf32033e0"
+  },
+  "prose-e80224c59d7b": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Decking is priced per sheet after tear-off. Your insurance deductible is yours to pay.",
+   "pages": [
+    "roofing-estimate#form.sample.terms"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Sample demo text for roofing contract terms."
+    }
+   ]
   },
   "prose-eb064af0f4a4": {
    "type": "advice",
@@ -2433,6 +4185,30 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "5fe8e41c753143694c5ab9db7b6411ea1f3301f5e91045e44af8a988148d58a9"
   },
+  "prose-ecaca448b5b9": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Bill construction and remodeling work from your browser: progress payments, change orders, deposits. No sign-up. PDF, Word and Excel, with sourced US prices.",
+   "pages": [
+    "contractor-invoice#description"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes web tool features and formats."
+    }
+   ]
+  },
   "prose-ed3811237dff": {
    "type": "advice",
    "kind": "prose",
@@ -2478,6 +4254,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Instructs user to enter a tax rate only if service is taxed."
+    }
+   ]
+  },
+  "prose-f14b62733318": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "If the panel fails the load calculation, we send a written change order before any panel work.",
+   "pages": [
+    "electrical-estimate#form.sample.terms"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Fictional form sample text."
     }
    ]
   },
@@ -2556,6 +4356,78 @@
     }
    ]
   },
+  "prose-f53402ec43c7": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "\"Fixed price for the scope above\" This wording says the price stays the same unless the scope changes in writing.",
+   "pages": [
+    "how-much-over-an-estimate#body[2]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Explains standard contract wording and purpose."
+    }
+   ]
+  },
+  "prose-f863d062b681": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Load calculation result: It decides whether the price holds.",
+   "pages": [
+    "electrical-estimate#must_show[0]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Explains the purpose of a form field."
+    }
+   ]
+  },
+  "prose-f899ed917748": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Visits on 10, 17, 24 Oct and 7 Nov. Cancel with 24 hours notice, or a $40 lockout fee applies.",
+   "pages": [
+    "cleaning-invoice#form.sample.terms"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Fictional form sample text."
+    }
+   ]
+  },
   "prose-fa256d009ab3": {
    "type": "fact",
    "kind": "prose",
@@ -2582,6 +4454,30 @@
    "source_url": "https://www.cslb.ca.gov/resources/GuidesAndPublications/HomeImprovementContractsConsumerGuide.pdf",
    "source_fetched": "2026-11-09",
    "source_sha256": "3e87ccabbe4cbbf8ff51681a007425d05d028bf82f2053f79fa4c186f72e5eed"
+  },
+  "prose-faec82413ae0": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "License or registration no.",
+   "pages": [
+    "contractor-estimate#form.labels.bizId"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field."
+    }
+   ]
   },
   "prose-fd926e7c99c8": {
    "type": "fact",
@@ -2631,6 +4527,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Advises obtaining signatures and contracts if required by state."
+    }
+   ]
+  },
+  "prose-ff0a9bccdb60": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "City permit EP-00000 closed after inspection. Labor warranty: 1 year.",
+   "pages": [
+    "electrical-invoice#form.sample.terms"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction, page or form description; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Sample text with fictional permit and warranty."
     }
    ]
   },
@@ -6063,10 +7983,10 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "1af8be4cec9dcb28077d0083ec617f56d1baa0fd3045c561824eace67688973d"
   },
-  "rule-1684926c4efd": {
+  "rule-0fe64ce6fbb6": {
    "type": "fact",
    "kind": "rule",
-   "claim": "Door-to-door roof sales. After a sale at the home, a buyer may cancel until midnight of the third business day, under the FTC Cooling-Off Rule. Add the notice when you sign after a door-knock.",
+   "claim": "Sales at the customer home. After a sale at the home, a buyer may cancel until midnight of the third business day, under the FTC Cooling-Off Rule. The rule has exceptions, such as a repair visit that the buyer asked for. Add the notice when you sign after a door-knock.",
    "pages": [
     "roofing-estimate#rules[2]"
    ],
@@ -6076,17 +7996,20 @@
      "verdict": "confirmed",
      "date": "2026-11-09",
      "quote": "You, the buyer, may cancel this transaction at any time prior to midnight of the third business day after the date of this transaction.",
-     "note": "Applies to door-to-door sales; notice requirement stated in (a) and (b)."
+     "note": "Third business day matches; 429.0(a)(5) excludes buyer-requested repair visits."
     },
     {
      "checker": "gemini-sub/gemini-3.8-flash-high",
      "verdict": "confirmed",
      "date": "2026-11-09",
-     "quote": "You, the buyer, may cancel this transaction at any time prior to midnight of the third business day after the date of this transaction.",
-     "note": "Buyer may cancel transaction prior to midnight of third business day after sale."
+     "quote": "“You, the buyer, may cancel this transaction at any time prior to midnight of the third business day after the date of this transaction.",
+     "note": "FTC Cooling-Off Rule allows cancellation until midnight of the third business day, with exceptions for requested repairs."
     }
    ],
    "source_url": "https://www.law.cornell.edu/cfr/text/16/429.1",
+   "also_sources": [
+    "https://www.law.cornell.edu/cfr/text/16/429.0"
+   ],
    "source_fetched": "2026-11-09",
    "source_sha256": "d5a1b065a24bceace7cc1e9f2488aa41e7d4620c78af25fe6f93587a8919e6f7"
   },
@@ -6225,33 +8148,6 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "babedc962bb8c16f87ffdd5c2b1fe28518a0a60317e99c210d3238dbf32033e0"
   },
-  "rule-55aa09e4edf0": {
-   "type": "fact",
-   "kind": "rule",
-   "claim": "Sales at the customer home. A buyer may cancel a home sale until midnight of the third business day under the FTC Cooling-Off Rule. Ask a lawyer about your case.",
-   "pages": [
-    "plumbing-estimate#rules[2]"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "confirmed",
-     "date": "2026-11-09",
-     "quote": "You, the buyer, may cancel this transaction at any time prior to midnight of the third business day after the date of this transaction.",
-     "note": "Door-to-door sale cancel right until midnight of third business day."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "confirmed",
-     "date": "2026-11-09",
-     "quote": "You, the buyer, may cancel this transaction at any time prior to midnight of the third business day after the date of this transaction.",
-     "note": "The FTC rule allows buyers to cancel door-to-door/home sales prior to midnight of the third business day."
-    }
-   ],
-   "source_url": "https://www.law.cornell.edu/cfr/text/16/429.1",
-   "source_fetched": "2026-11-09",
-   "source_sha256": "d5a1b065a24bceace7cc1e9f2488aa41e7d4620c78af25fe6f93587a8919e6f7"
-  },
   "rule-57306c105d97": {
    "type": "fact",
    "kind": "rule",
@@ -6278,6 +8174,36 @@
    "source_url": "https://lni.wa.gov/licensing-permits/electrical/electrical-permits-fees-and-inspections/index",
    "source_fetched": "2026-11-09",
    "source_sha256": "6e952d7f6493c5fccac6d47b4abf20a8a504101b87f4b373be21fd4e4ddb037c"
+  },
+  "rule-6797f4f2eac6": {
+   "type": "fact",
+   "kind": "rule",
+   "claim": "Sales at the customer home. A buyer may cancel a home sale until midnight of the third business day under the FTC Cooling-Off Rule. The rule has exceptions, such as a repair visit that the buyer asked for. Ask a lawyer about your case.",
+   "pages": [
+    "plumbing-estimate#rules[2]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "You, the buyer, may cancel this transaction at any time prior to midnight of the third business day after the date of this transaction.",
+     "note": "Three business day cancel right; repair visit exclusion in 429.0(a)(5)."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "You, the buyer, may cancel this transaction at any time prior to midnight of the third business day after the date of this transaction.",
+     "note": "FTC rule permits cancellation within three business days, with exceptions including requested repair visits."
+    }
+   ],
+   "source_url": "https://www.law.cornell.edu/cfr/text/16/429.1",
+   "also_sources": [
+    "https://www.law.cornell.edu/cfr/text/16/429.0"
+   ],
+   "source_fetched": "2026-11-09",
+   "source_sha256": "d5a1b065a24bceace7cc1e9f2488aa41e7d4620c78af25fe6f93587a8919e6f7"
   },
   "rule-6d49b975171b": {
    "type": "fact",

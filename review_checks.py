@@ -4,7 +4,7 @@
 Steps (cache in ~/.cache/invoicesnap-facts; /tmp is RAM on this machine):
   python3 review_checks.py fetch              open every source in Chrome (PDF: pdftotext), save its text with its sha256
   python3 review_checks.py packets            write one packet per source: the statements that cite it plus the source text
-  python3 review_checks.py run <codex|gemini>   send each packet to that model through pi; a done packet is skipped
+  python3 review_checks.py run gemini   send each packet to that model through pi; a done packet is skipped
   python3 review_checks.py merge              validate all results and write the record; prints what still fails
   python3 review_checks.py packets --retry r2  after a fix: packets with only failed or changed statements (run them, then merge)
 
@@ -40,9 +40,10 @@ CACHE = Path.home() / ".cache/invoicesnap-facts"
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
 MAX_SOURCE = 60000  # Characters of source text in one packet. Longer sources keep only the windows around words of the claims.
 ADVICE = "advice"
-# OpenCode free models answered "Free usage limit reached" on 9 Nov 2026, so the second checker runs through pi on the Codex plan.
+# OpenCode free models answered "Free usage limit reached" on 9 Nov 2026, so the second checker runs through pi on a paid plan that Nikita already holds.
 # Do not add a pay-per-use provider here: this work is $0 (Nikita, 8 Nov 2026).
-MODELS = {"codex": ("openai-codex", "gpt-5.6-luna"), "gemini": ("gemini-sub", "gemini-3.8-flash-high")}
+# Codex and Kimi logins through pi had expired that day. The other checker is a Claude subagent that writes results/claude/.
+MODELS = {"gemini": ("gemini-sub", "gemini-3.8-flash-high")}
 WORKERS = 4
 
 
@@ -162,12 +163,18 @@ ADVICE_PROMPT = """You sort sentences from a website about invoices. For each ST
 - "advice": it only gives instructions, describes the form or page, or explains why a field is useful. It states no law, tax rule, license rule, money amount or rate that a reader could rely on as a fact about the world.
 - "fact": it states any law, tax rule, license rule, deadline, money amount, rate, or says what a state, the IRS or another authority does or requires.
 A statement with both parts is "fact". Be strict: when not sure, answer "fact".
+A line marked [form label] names a field. A line marked [form sample] is invented demo text typed into the form: its names, dates and amounts are fiction. Answer "advice" for those two unless the line says what a law, a state or an authority requires.
 
 Answer with only a JSON array, no other text: [{{"id": "...", "verdict": "advice", "quote": "", "note": "max 20 words"}}]
 
 STATEMENTS:
 {statements}
 """
+
+
+def form_mark(st: dict) -> str:
+    place = st["pages"][0]
+    return " [form label]" if "#form.labels." in place else " [form sample]" if "#form.sample." in place else ""
 
 
 def packets(retry: str = "") -> int:
@@ -186,7 +193,8 @@ def packets(retry: str = "") -> int:
     if retry:
         record = json.loads(record_file.read_text("utf-8"))
         failed = {row["id"] for row in json.loads(fails_file.read_text("utf-8"))}
-        todo = {i for i in seen if i in failed or i not in record["statements"]}
+        # "claim differs" catches a changed column head, which the id does not hold.
+        todo = {i for i in seen if i in failed or i not in record["statements"] or record["statements"][i]["claim"] != seen[i]["claim"]}
     for st in seen.values():
         if todo is not None and st["id"] not in todo:
             continue
@@ -206,7 +214,7 @@ def packets(retry: str = "") -> int:
             size = 25
             for i in range(0, len(sts), size):
                 part = sts[i:i + size]
-                (out / f"advice-{i // size}{suffix}.txt").write_text(ADVICE_PROMPT.format(statements="\n".join(f"- {s['id']}: {s['claim']}" for s in part)), "utf-8")
+                (out / f"advice-{i // size}{suffix}.txt").write_text(ADVICE_PROMPT.format(statements="\n".join(f"- {s['id']}{form_mark(s)}: {s['claim']}" for s in part)), "utf-8")
                 n += 1
             continue
         parts = key.split("+")
@@ -219,6 +227,20 @@ def packets(retry: str = "") -> int:
         n += 1
     print(f"{n} packets, {len(seen)} statements, {len(orphans)} with no source")
     return 1 if orphans else 0
+
+
+def quote_ok(quote: str, source_norm: str, claim: str = "", kind: str = "") -> bool:
+    """A confirmed verdict stands only on a real quote; a range quote must hold both numbers. 87.5 cents is written 87.5¢ in the source, so ends under $1 skip this."""
+    q = norm_q(quote)
+    if not q or q not in source_norm:
+        return False
+    if kind == "range":
+        low_high = re.match(r".*?: \$([\d.]+)-\$([\d.]+)", claim)
+        if low_high and float(low_high.group(1)) >= 1:
+            # As numbers, not text: the page says $1.5 where a source says $1.50.
+            found = {float(n) for n in re.findall(r"\d+(?:\.\d+)?", quote.replace(",", ""))}
+            return all(float(n) in found for n in low_high.groups())
+    return True
 
 
 def parse_json(text: str) -> list[dict] | None:
@@ -301,14 +323,15 @@ def merge(law_id: str = "en-US", write: bool = True) -> int:
                     if key not in src_norm:
                         files = [CACHE / "src" / f"{k}.txt" for k in key.split("+")]
                         src_norm[key] = norm_q(" ".join(p.read_text("utf-8") for p in files if p.exists()))
-                    if not quote or norm_q(quote) not in src_norm[key]:
+                    if not quote_ok(quote, src_norm[key], seen[row["id"]]["claim"], seen[row["id"]]["kind"]):
                         row["note"] = f"quote is not in the source: {quote[:80]!r}"
                         verdict = "not_found"
-                check = {"checker": name_of[d.name], "verdict": verdict, "date": today, "quote": quote[:240], "note": str(row.get("note") or "")[:200]}
+                # The date of the real run, from the result file: a re-merge must not make an old check look new (PR review, 9 Nov 2026).
+                ran = dt.date.fromtimestamp(f.stat().st_mtime).isoformat()
+                check = {"checker": name_of[d.name], "verdict": verdict, "date": ran, "quote": quote[:240], "note": str(row.get("note") or "")[:200]}
                 prev = verdicts.setdefault(row["id"], [])
                 prev[:] = [c for c in prev if c["checker"] != check["checker"]]  # A rerun replaces the checker's older verdict.
                 prev.append(check)
-    # Keep earlier dated checks of unchanged statements, so a partial rerun does not reset the date.
     record_file = ROOT / "data/law" / f"{law_id}.review.json"
     statements = {}
     fails = []
@@ -322,6 +345,8 @@ def merge(law_id: str = "en-US", write: bool = True) -> int:
             entry["source_url"] = url
             if st.get("extra_source_ids"):
                 entry["also_sources"] = [sources[k]["url"] for k in st["extra_source_ids"]]
+            # A statement with a link in its text has no mapped id: find the source by its URL, so the gate can read the fetch date.
+            key = key or next((k for k, s in sources.items() if s["url"] == url), None)
             meta = CACHE / "src" / f"{key}.meta.json"
             if meta.exists():
                 m = json.loads(meta.read_text())
@@ -329,7 +354,7 @@ def merge(law_id: str = "en-US", write: bool = True) -> int:
         statements[st_id] = entry
         wanted = "advice" if is_advice else "confirmed"
         agree = {c["checker"] for c in checks if c["verdict"] == wanted}
-        if len(agree) < fr.MIN_CHECKS or any(c["verdict"] == "refuted" for c in checks):
+        if len(agree) < fr.MIN_CHECKS or any(c["verdict"] != wanted for c in checks):  # The same test as the gate: any dissent fails.
             fails.append((st_id, st, checks))
     record = {"locale": law_id, "method": "Automated. Each checker model read the fetched source text on its own and did not see the other verdicts. No person reviewed these facts.",
               "updated": today, "checkers": sorted(set(name_of.values())), "statements": statements}

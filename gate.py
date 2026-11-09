@@ -23,7 +23,7 @@ MIN_ITEMS, MIN_RANGES, MIN_RULES, MAX_AGE_DAYS = 8, 4, 3, 365
 MAX_OVERLAP = 0.30  # 5-word overlap with any sibling, outside data-shared blocks. NIK-548's 0.50 is the weak floor.
 SHINGLE = 5
 TRADE_TYPES = {"trade_invoice", "trade_estimate", "freelancer_invoice"}
-FORBIDDEN_LD = {"AggregateRating", "Review", "Rating"}
+FORBIDDEN_LD = {"AggregateRating", "Review", "Rating", "Person"}  # Person: no human name, also in schema (Nikita, 9 Nov 2026).
 # Rule 8 and R25. Word boundaries, so "bestow" or "rated" inside "generated" cannot match. Tested on the real pages.
 FORBIDDEN_TEXT = re.compile(
     r"TODO verify|\btrusted by\b|\b\d[\d,]*\+? (?:users|customers|contractors|businesses|downloads)\b|\b(?:star|stars)\b rating|"
@@ -31,7 +31,8 @@ FORBIDDEN_TEXT = re.compile(
     r"\blegally (?:valid|compliant|binding invoice)\b|\bfully compliant\b|(?<!\w)#1\b|\bnumber one\b|\bthe best\b|\bbest[- ](?:in|invoice|estimate|app|free)\b|"
     r"\bworld-class\b|\bunbeatable\b|\bhurry\b|\bact now\b|\blimited time\b|\bguaranteed\b|"
     # Nikita's order, 9 Nov 2026: no page names a human reviewer or says that a person reviewed it. "No person reviewed it" stays allowed.
-    r"\breviewer\b|\breviewed by\b|\bchecked by\b|\bverified by\b", re.I)
+    r"\breviewers?\b|\breviewed\b|\bapproved by\b|\bchecked by\b|\bverified by\b", re.I)
+HONEST_LINE = "No person reviewed this page."  # The one sentence with that word that the gate allows: it is the opposite of a claim.
 NOT_ADVICE = "not tax or legal advice"  # Nikita's order, 9 Nov 2026: each page says this plainly. tool_pages.sources_html prints it.
 
 
@@ -235,7 +236,7 @@ def html_problems(page: dict, raw: str, claims: dict) -> list[str]:
     title = re.search(r"<title>(.*?)</title>", raw, re.S)
     described = re.search(r'<meta name="description" content="(.*?)"', raw, re.S)
     # The title and description are what a search result shows, so the same rule covers them.
-    for match in FORBIDDEN_TEXT.finditer(" ".join([text, title.group(1) if title else "", described.group(1) if described else ""])):
+    for match in FORBIDDEN_TEXT.finditer(" ".join([text.replace(HONEST_LINE, ""), title.group(1) if title else "", described.group(1) if described else ""])):
         problems.append(f"gate 8: forbidden text {match.group(0)!r}")
         break
     visible = norm(text)
@@ -248,6 +249,8 @@ def html_problems(page: dict, raw: str, claims: dict) -> list[str]:
             problems.append(f"gate 8: JSON-LD does not parse: {err}")
             continue
         bad = ld_types(data) & FORBIDDEN_LD
+        if "reviewedBy" in block:
+            bad = bad | {"reviewedBy"}
         if bad:
             problems.append(f"gate 8: JSON-LD holds {sorted(bad)}")
         for value in visible_ld_strings(data):

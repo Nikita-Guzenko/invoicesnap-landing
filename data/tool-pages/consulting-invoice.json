@@ -135,7 +135,7 @@
  },
  "line_items": {
   "heading": "Consulting work and US wage ranges",
-  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row, and the button adds a sample inside it. <b>These are wages of employees, not freelance rates.</b> Set your own rate: you also pay your own taxes, insurance and unpaid time.",
+  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row, and the button adds a sample inside it. <b>Treat each range as a guide, not as your freelance rate.</b> Set your own rate to cover your costs.",
   "items": [
    {
     "name": "Management consulting",
