@@ -2,27 +2,33 @@
 """InvoiceSnap's five-line web report (NIK-551, 9 Nov 2026).
 
 Usage: python3 measure/weekly_report.py invoicesnap [--post] [--offline]
+Dry run (no Linear comment): omit --post. Load the vault first (source ~/.config/vault/load.sh).
 Writes ~/.local/share/invoicesnap-reports/YYYY-Www.{md,json}. Mondays report
 last Monday–Sunday; indexing is a separately dated current snapshot. --post
 adds the report to NIK-551 through the full-path Linear AXI. No email or AI API.
 --offline exercises unavailable sources without credentials or network access.
-Exit 3: a live source (GA4 or URL Inspection) was unreachable; its line says unknown.
+Exit 3: a live source (GA4, URL Inspection, App Store Connect `asc`, RevenueCat
+`revenuecat-axi chart`, NIK-594) was unreachable; its line says unknown.
 Indexing runs ~/firstmate-invoicesnap/data/nik-542/index-gate.py (outside this repo).
 The timer loads the vault; credentials never enter an artifact or an error.
 """
 import argparse
+import csv
 import datetime as dt
 import json
 import os
 from pathlib import Path
 import subprocess
 import sys
+import tempfile
 import urllib.parse
 import urllib.request
 
 HOME = Path.home()
 INDEX = HOME / 'firstmate-invoicesnap/data/nik-542/index-gate.py'
 OUTPUT = HOME / '.local/share/invoicesnap-reports'
+APP_ID = '6759242022'
+RC_PROJECT = 'proj852d4bba'
 
 
 def post(url, data, token=None):
@@ -66,6 +72,97 @@ def visits(start, end, offline):
         return dict(result, reason='read failed: ' + type(error).__name__)
 
 
+def run_json(command, timeout=240):
+    """Run a read-only CLI and parse its JSON stdout. Stderr is dropped: it can echo request ids."""
+    run = subprocess.run(command, capture_output=True, text=True, timeout=timeout, check=True,
+                         env=dict(os.environ, ASC_TIMEOUT=os.environ.get('ASC_TIMEOUT', '120s')))
+    return json.loads(run.stdout)
+
+
+def downloads(start, end, offline):
+    """First-time downloads, whole app, from the App Store Connect "App Downloads Standard" report.
+
+    Flow (NIK-594, 9 Nov 2026; ~/.claude/refs/asc-cli.md): ONGOING request -> report -> DAILY
+    instances -> segments -> TSV. Verified gotchas:
+    - Instances overlap: the 8 Nov instance held 6 Nov rows, the 7 Nov one held 5 and 6 Nov.
+      Summing all instances double-counts, so each data day is taken from the newest instance
+      that has rows for it.
+    - Apple makes no instance for a day without downloads, and data lags 1-3 days. The line names
+      the last Apple data day; a week that ends after it is preliminary.
+    """
+    source = 'App Store Connect "App Downloads Standard" report, app 6759242022, whole app'
+    result = {'status': 'unknown', 'source': source}
+    if offline:
+        return dict(result, reason='offline check')
+    try:
+        with tempfile.TemporaryDirectory(dir=HOME / '.cache') as tmp:
+            asc = str(HOME / '.local/bin/asc')
+            requests = run_json([asc, 'analytics', 'requests', '--app', APP_ID, '--output', 'json'])
+            request = next(r['id'] for r in requests['data'] if r['attributes']['accessType'] == 'ONGOING')
+            view = run_json([asc, 'analytics', 'view', '--request-id', request, '--output', 'json'])
+            report = next(r for r in view['data'] if r.get('name') == 'App Downloads Standard')
+            # processingDate >= data date, so earlier instances cannot hold rows for this week.
+            instances = sorted((i for i in report.get('instances', [])
+                                if i['granularity'] == 'DAILY' and i['processingDate'] >= str(start)),
+                               key=lambda i: i['processingDate'])
+            if not instances:
+                return dict(result, reason='no Apple report day for this week yet')
+            by_day = {}  # data day -> rows from the newest instance that covers that day
+            for instance in instances:
+                segments = run_json([asc, 'analytics', 'instances', 'links', '--instance-id',
+                                     instance['id'], '--paginate'])['data']
+                if not segments:
+                    raise ValueError('instance without segments')
+                rows = []
+                for segment in segments:
+                    path = Path(tmp) / (instance['id'] + segment['id'] + '.csv.gz')
+                    run_json([asc, 'analytics', 'download', '--request-id', request, '--instance-id',
+                              instance['id'], '--segment-id', segment['id'], '--decompress',
+                              '--output', str(path)])
+                    with open(path.with_suffix(''), newline='') as handle:
+                        rows += list(csv.DictReader(handle, delimiter='\t'))
+                for day in {row['Date'] for row in rows}:
+                    by_day[day] = [row for row in rows if row['Date'] == day]
+            latest = max(by_day) if by_day else None
+            value = sum(int(row['Counts']) for day, rows in by_day.items()
+                        if str(start) <= day <= str(end) for row in rows
+                        if row['Download Type'] == 'First-time download'
+                        and row['App Apple Identifier'] == APP_ID)
+            note = f'Apple data through {latest}' if latest else 'no Apple rows yet'
+            return dict(result, status='measured', value=f'{value} first-time downloads',
+                        note=note + ('; preliminary' if not latest or latest < str(end) else ''))
+    except Exception as error:
+        return dict(result, reason='read failed: ' + type(error).__name__)
+
+
+def money(start, end, offline):
+    """Revenue, new trials and new paid subscriptions, whole app, from RevenueCat charts (UTC days)."""
+    source = f'RevenueCat charts revenue, trials_new, actives_new; project {RC_PROJECT}; whole app'
+    result = {'status': 'unknown', 'source': source}
+    if offline:
+        return dict(result, reason='offline check')
+    try:
+        # The npm global bin holds revenuecat-axi; the timer loads REVENUECAT_API_KEY from the vault.
+        axi = str(HOME / '.npm-global/bin/revenuecat-axi')
+        charts = {name: run_json([axi, 'chart', name, '--start', str(start), '--end', str(end),
+                                  '--project', RC_PROJECT, '--json'], timeout=120)
+                  for name in ('revenue', 'trials_new', 'actives_new')}
+        if any(chart['days'] != 7 for chart in charts.values()):
+            raise ValueError('chart does not cover 7 days')
+        revenue = charts['revenue']['totals']
+        trials = charts['trials_new']['totals']['New Trials']
+        paid = charts['actives_new']['totals']
+        # Product changes are existing payers moving plans, not new paid subscriptions.
+        new_paid = paid['Total Paid Subscriptions'] - paid['Product Changes']
+        incomplete = sum(chart['incomplete_days'] for chart in charts.values())
+        value = (f'${revenue["Revenue"]:,.0f} revenue, {revenue["Transactions"]:.0f} transactions, '
+                 f'{trials:.0f} new trials, {new_paid:.0f} new paid subscriptions')
+        return dict(result, status='measured', value=value,
+                    note='UTC' + ('; preliminary' if incomplete else ''))
+    except Exception as error:
+        return dict(result, reason='read failed: ' + type(error).__name__)
+
+
 def indexed(offline):
     result = {'status': 'unknown', 'source': 'Google URL Inspection; live invoicesnap.work sitemap'}
     if offline:
@@ -100,15 +197,12 @@ def main():
     window = f'{start}..{end}'
     metrics = {
         'visits': visits(start, end, args.offline),
-        # The existing ASC/RevenueCat totals are whole-app, not attributed to web visits.
-        # Until a dated export is connected, keep these unknown rather than reuse an old baseline.
-        'downloads': {'status': 'unknown', 'source': 'App Store Connect, app 6759242022',
-                      'reason': 'weekly download export is not connected; web attribution unavailable'},
+        # Downloads and money are whole-app totals: no source attributes them to web visits (NIK-594).
+        'downloads': downloads(start, end, args.offline),
         'ai_mentions': {'status': 'unknown', 'source': 'geo-playbook/projects/invoicesnap/prompts/v1.yml',
                         'reason': 'no complete weekly measurement; paid API collection disabled'},
         'indexed_pages': indexed(args.offline),
-        'money': {'status': 'unknown', 'source': 'RevenueCat project proj852d4bba',
-                  'reason': 'weekly revenue export is not connected; web attribution unavailable'},
+        'money': money(start, end, args.offline),
     }
     lines = []
     for label, key in [('Visits', 'visits'), ('Downloads', 'downloads'), ('AI mentions', 'ai_mentions'),
@@ -120,6 +214,8 @@ def main():
             if key == 'indexed_pages':
                 value += '/' + str(metric['pages'])
                 period = 'snapshot ' + metric['at']
+            elif 'note' in metric:
+                period += '; ' + metric['note']
             else:
                 period += '; ' + metric['timezone'] + '; preliminary'
             text = f'measured {value}'
@@ -147,7 +243,7 @@ def main():
     failed = [key for key, metric in metrics.items() if metric.get('reason', '').startswith('read failed')]
     if failed:
         print('SOURCE UNREACHABLE: ' + ', '.join(f'{key} ({metrics[key]["reason"]})' for key in failed)
-              + '. Fix: check the vault credentials and index-gate.py, then rerun.', file=sys.stderr)
+              + '. Fix: check the vault credentials, `asc auth status`, `revenuecat-axi`, and index-gate.py, then rerun.', file=sys.stderr)
         raise SystemExit(3)
 
 
