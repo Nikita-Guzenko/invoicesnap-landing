@@ -94,7 +94,7 @@
    ],
    [
     "Prep work",
-    "Grading, stripping and soil are often the largest hidden cost."
+    "Say what grading, stripping and soil cost."
    ],
    [
     "Haul-away",
@@ -102,11 +102,11 @@
    ],
    [
     "Watering and care",
-    "A plant warranty usually depends on watering. Say what you expect."
+    "Say what watering you expect for any plant warranty."
    ],
    [
     "Tax treatment",
-    "Some states tax landscaping labor, so state the tax line."
+    "Texas taxes landscaping labor, so state the tax line where your state asks for it."
    ]
   ]
  },
@@ -137,7 +137,7 @@
    }
   ],
   "total_label": "Estimated season total",
-  "after_html": "The visit price sits inside the $42–$68 range from <a href=\"https://www.lawnstarter.com/blog/cost/landscaping-price/\" rel=\"noopener\">LawnStarter</a>."
+  "after_html": "The range for mowing is $42–$68 from <a href=\"https://www.lawnstarter.com/blog/cost/landscaping-price/\" rel=\"noopener\">LawnStarter</a>."
  },
  "line_items": {
   "heading": "Landscaping line items and typical prices",
@@ -282,11 +282,11 @@
   },
   {
    "q": "Do I need a separate line for delivery?",
-   "a": "Add one when the material price does not include it. Bulk delivery costs differ by distance."
+   "a": "Add one when the material price does not include it."
   },
   {
    "q": "Can I ask for a deposit on a landscape job?",
-   "a": "Many companies do, for plants and sod that they must buy first. Check your state limit if the work counts as home improvement."
+   "a": "Enter the percent on the form. Check the rule of your state first."
   }
  ],
  "source_ids": [

@@ -319,9 +319,6 @@ class Site:
             for page_id, problems in sorted(ctx.blocked.items()):
                 for line in problems:
                     print(f"BLOCKED {page_id}: {line}", file=sys.stderr)
-            for tag, law in ctx.laws.items():
-                if law.get("reviewer_waiver"):
-                    print(f"gate 5 waiver in force for {tag}: {law['reviewer_waiver']['ticket']}", file=sys.stderr)
             print(f"tool pages: {len(ctx.pages) - len(ctx.blocked)} live, {len(ctx.blocked)} blocked (noindex)")
 
     def lastmod(self, path: str, rendered: str, stale: list[str]) -> str:

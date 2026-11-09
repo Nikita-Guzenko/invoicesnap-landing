@@ -75,16 +75,16 @@
    "pay": "How the client pays",
    "paid": "Deposit received"
   },
-  "tax_hint": "Many freelance services carry no sales tax, but some states tax some services. Leave the rate empty unless your state says otherwise."
+  "tax_hint": "Enter a rate only if your state taxes your service. The form does not decide this."
  },
  "must_show": {
-  "heading": "What a freelance invoice must show",
-  "intro_html": "A freelance invoice says who you are, what you delivered, what is left to pay, by when, and how. It also says what the client owns. The IRS names invoices among the records that you should keep.",
+  "heading": "What to show on a freelance invoice",
+  "intro_html": "A freelance invoice says who you are, what you delivered, what is left to pay, by when, and how. It also says what the client owns. The IRS names invoices among the supporting documents that you keep for your books.",
   "why_label": "Why it matters when you work alone",
   "rows": [
    [
     "Your legal name or business name",
-    "It must match your W-9, or finance teams hold the payment."
+    "Use the name on your W-9, so that a finance team can match the payment."
    ],
    [
     "What you delivered",
@@ -137,8 +137,8 @@
   "total_label": "Total"
  },
  "line_items": {
-  "heading": "Common freelance jobs and US wage ranges",
-  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row, and the button adds a sample inside it. <b>These are wages of employees, not freelance rates.</b> Set your own rate: you also pay your own taxes, insurance and unpaid time.",
+  "heading": "Common freelance jobs, with ranges from the sources",
+  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row, and the button adds a sample inside it. <b>Treat each range as a guide, not as your freelance rate.</b> Set your own rate to cover your costs.",
   "items": [
    {
     "name": "Web development",
@@ -248,7 +248,7 @@
  "faq": [
   {
    "q": "What should I do when a client asks for a W-9?",
-   "a": "Send it. The client needs your tax number for an information return. Send it through a secure channel, not plain e-mail."
+   "a": "Send it. Form W-9 gives the person who files an information return your correct taxpayer number."
   },
   {
    "q": "How do I show a deposit that I already got?",
@@ -256,11 +256,11 @@
   },
   {
    "q": "Can I charge a late fee?",
-   "a": "If your contract allows it. Print the same rate on the invoice. Some states limit interest, so check the rule for your state."
+   "a": "Print the rate from your contract on the invoice. Check the rule for your state."
   },
   {
    "q": "Do I keep a copy of each invoice?",
-   "a": "Yes. The IRS names invoices among the records that support your income, and it generally asks you to keep records for 3 years."
+   "a": "Keep it with your records. The IRS says to keep records for 3 years, unless one of its named longer periods applies."
   }
  ],
  "source_ids": [
@@ -274,6 +274,8 @@
   "nyc-free",
   "ca-sb988",
   "irs-rec",
-  "irs-long"
+  "irs-long",
+  "ny-1411",
+  "irs-w9"
  ]
 }

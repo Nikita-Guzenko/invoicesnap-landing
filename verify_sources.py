@@ -6,7 +6,7 @@ Usage: python3 verify_sources.py [--only ID,ID] [--pages DIR]   (needs Google Ch
 Writes data/source-check.json: {source id: {"status", "checked", "missing"}}. Gate 4 reads that file.
 status "ok" = page opened and every quoted number is on it. "missing" = page opened, a number is not there.
 "unknown" = page did not open (403, timeout). Unknown is not a pass: fix the source or remove the number.
-A human still reads rule text: this script checks numbers only.
+This script checks numbers only. Rule text and meaning go through the checks of gate 5: fact_review.py.
 
 Why a browser and not curl (8 Nov 2026): the EFA rate table is built by script, and Taskrabbit and Fixr refuse plain
 HTTP clients. PDF sources go through pdftotext.

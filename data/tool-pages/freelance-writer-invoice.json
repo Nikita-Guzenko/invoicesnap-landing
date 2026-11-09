@@ -72,20 +72,20 @@
    "pay": "How the client pays",
    "custName": "Client name"
   },
-  "tax_hint": "Most writing work needs no sales tax. Leave the rate empty unless your state says otherwise."
+  "tax_hint": "Enter a rate only if your state taxes this work. The form does not decide this."
  },
  "must_show": {
-  "heading": "What a freelance writing invoice must show",
-  "intro_html": "The invoice shows the work by word count or hours, the rights that pass, the due date and how to pay. Accounts payable often needs a PO number before it pays.",
+  "heading": "What to show on a freelance writing invoice",
+  "intro_html": "The invoice shows the work by word count or hours, the rights that pass, the due date and how to pay. Add a PO number if the client asks for one.",
   "why_label": "Why it matters on writing work",
   "rows": [
    [
     "Title and word count",
-    "Editors check the count against the brief."
+    "Show the count so that the editor can check it."
    ],
    [
     "PO or assignment number",
-    "Large clients block unpaid invoices that have none."
+    "Add it if the client gives you one."
    ],
    [
     "Rights statement",
@@ -101,7 +101,7 @@
    ],
    [
     "Your tax details",
-    "The client may need a W-9 before paying you."
+    "A client that files an information return on you asks for your taxpayer number on Form W-9."
    ]
   ]
  },
@@ -134,7 +134,7 @@
   "total_label": "Total"
  },
  "line_items": {
-  "heading": "Writing rates from the 2026 EFA chart",
+  "heading": "Writing line items, with ranges from the sources",
   "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row, and the button adds a sample inside it. The Editorial Freelancers Association chart shows median rate ranges from a survey of its members.",
   "items": [
    {
@@ -248,7 +248,7 @@
    },
    {
     "title": "Work made for hire",
-    "html": "17 U.S.C. 101 limits this to employees and to commissioned works in listed categories with a signed written agreement. A blog post from a freelancer does not become work for hire because the invoice says so.",
+    "html": "17 U.S.C. 101 limits this to employees and to commissioned works in listed categories with a signed written agreement. Ask a lawyer before you write work for hire on an invoice.",
     "src": "usc-101"
    },
    {
@@ -274,7 +274,7 @@
   },
   {
    "q": "Can I bill for research time?",
-   "a": "If you agreed to it. Show research hours on a separate line, or include them in your per-word or project price."
+   "a": "Check your agreement. Show research hours on a separate line, or include them in your per-word or project price."
   }
  ],
  "source_ids": [
@@ -282,6 +282,7 @@
   "bls-writer",
   "usc-204",
   "usc-101",
-  "irs-1099"
+  "irs-1099",
+  "irs-w9"
  ]
 }

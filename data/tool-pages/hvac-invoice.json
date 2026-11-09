@@ -87,8 +87,8 @@
   }
  },
  "must_show": {
-  "heading": "What an HVAC invoice must show",
-  "intro_html": "An HVAC invoice ties the charge to one piece of equipment. No federal rule lists the fields. The parts below stop most warranty and refrigerant questions later.",
+  "heading": "What to show on an HVAC invoice",
+  "intro_html": "An HVAC invoice ties the charge to one piece of equipment. The parts below stop most warranty and refrigerant questions later.",
   "why_label": "Why it matters on HVAC work",
   "rows": [
    [
@@ -97,7 +97,7 @@
    ],
    [
     "Refrigerant type and amount",
-    "Customers ask why the bill has a pound charge. Records also help you show that a certified person did the work."
+    "Show what the pound charge is for."
    ],
    [
     "Technician certification",
@@ -109,7 +109,7 @@
    ],
    [
     "Parts warranty and labor warranty, apart",
-    "A maker warranty and your labor warranty end on different dates."
+    "Show the end date of each one."
    ],
    [
     "Maintenance plan credit",
@@ -150,10 +150,10 @@
     "k": "M"
    }
   ],
-  "after_html": "The tune-up price sits inside the $84–$288 maintenance range from <a href=\"https://www.homeyou.com/hvac-cost\" rel=\"noopener\">Homeyou</a>."
+  "after_html": "The range for routine maintenance is $84–$288 from <a href=\"https://www.homeyou.com/hvac-cost\" rel=\"noopener\">Homeyou</a>."
  },
  "line_items": {
-  "heading": "HVAC line items and typical prices",
+  "heading": "HVAC line items, with ranges from the sources",
   "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row. The price that the button adds is a sample inside that range, not a price recommendation.",
   "items": [
    {
@@ -178,7 +178,7 @@
     "sample": 165
    },
    {
-    "name": "Central AC repair",
+    "name": "Air conditioner repair",
     "unit": "job",
     "kind": "L",
     "low": 171,
@@ -244,7 +244,7 @@
  "faq": [
   {
    "q": "Do I charge the diagnostic fee when the customer declines the repair?",
-   "a": "Yes, if you told the customer the fee before the visit. Bill it alone and note that the customer declined the repair."
+   "a": "Tell the customer the fee before the visit, then bill it on its own line. Bill it alone and note that the customer declined the repair."
   },
   {
    "q": "How do I bill refrigerant?",

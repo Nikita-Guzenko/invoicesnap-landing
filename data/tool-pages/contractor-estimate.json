@@ -110,11 +110,11 @@
    ],
    [
     "Schedule",
-    "A start date and a duration. <a href=\"https://www.nysenate.gov/legislation/laws/GBS/771\" rel=\"noopener\">New York</a> asks for approximate dates in the contract."
+    "A start date and a duration."
    ],
    [
     "Payment schedule",
-    "Tie payments to stages. Check the deposit limit of your state."
+    "Tie payments to stages. Check any deposit limit in your state."
    ],
    [
     "License and insurance",
@@ -275,7 +275,7 @@
   },
   {
    "q": "Should I show my markup?",
-   "a": "You do not have to. If you bill cost plus a fee, the fee has its own line. On a fixed price, one number per stage is fine."
+   "a": "Choose what your contract needs. If you bill cost plus a fee, put the fee on its own line. On a fixed price, give one number per stage."
   },
   {
    "q": "How do I handle allowances?",
@@ -283,7 +283,7 @@
   },
   {
    "q": "Do I need a separate contract as well?",
-   "a": "Often yes for home improvement work. An estimate gives the price, while your state may ask for contract terms that this form does not include. Ask a local lawyer."
+   "a": "It depends on your state. New Jersey, for example, requires a written contract for home improvement sales over $500. This form does not add contract terms. Ask a local lawyer."
   }
  ],
  "source_ids": [
@@ -294,9 +294,8 @@
   "pricer",
   "ctbh",
   "nj-16-2",
-  "cfr-429",
+  "cfr-429", "cfr-4290",
   "cslb-guide",
-  "ny-771",
   "ftc-scam"
  ]
 }

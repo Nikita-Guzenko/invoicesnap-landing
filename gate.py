@@ -17,17 +17,28 @@ import re
 from html.parser import HTMLParser
 from pathlib import Path
 
+import fact_review
+
 MIN_ITEMS, MIN_RANGES, MIN_RULES, MAX_AGE_DAYS = 8, 4, 3, 365
 MAX_OVERLAP = 0.30  # 5-word overlap with any sibling, outside data-shared blocks. NIK-548's 0.50 is the weak floor.
 SHINGLE = 5
 TRADE_TYPES = {"trade_invoice", "trade_estimate", "freelancer_invoice"}
-FORBIDDEN_LD = {"AggregateRating", "Review", "Rating"}
+FORBIDDEN_LD = {"AggregateRating", "Review", "Rating", "Person"}  # Person: no human name, also in schema (Nikita, 9 Nov 2026).
 # Rule 8 and R25. Word boundaries, so "bestow" or "rated" inside "generated" cannot match. Tested on the real pages.
+PROS = r"attorneys?|lawyers?|CPAs?|certified public accountants?|accountants?|experts?|legal team|tax team|tax pros?|tax professionals?|editors|staff|licensed \w+"
+ACTS = r"checked|wrote|written|approved|vetted|verified|signed by|signed off|prepared|drafted|confirmed|looked over|edited|fact-checked"
 FORBIDDEN_TEXT = re.compile(
     r"TODO verify|\btrusted by\b|\b\d[\d,]*\+? (?:users|customers|contractors|businesses|downloads)\b|\b(?:star|stars)\b rating|"
     r"\brated \d|\b\d(?:\.\d)?[- ]stars?\b|\bfive stars?\b|\btop[- ]rated\b|\bno\. ?1\b|\b\d[\d,]* reviews\b|\b(?:thousands|millions|hundreds) of (?:users|customers|contractors|businesses)\b|"
     r"\blegally (?:valid|compliant|binding invoice)\b|\bfully compliant\b|(?<!\w)#1\b|\bnumber one\b|\bthe best\b|\bbest[- ](?:in|invoice|estimate|app|free)\b|"
-    r"\bworld-class\b|\bunbeatable\b|\bhurry\b|\bact now\b|\blimited time\b|\bguaranteed\b", re.I)
+    r"\bworld-class\b|\bunbeatable\b|\bhurry\b|\bact now\b|\blimited time\b|\bguaranteed\b|"
+    # Nikita's order, 9 Nov 2026: no page names a human reviewer or says that a person reviewed it. "No person reviewed it" stays allowed.
+    r"\breviewers?\b|\breviewed\b|\bapproved by\b|\bchecked by\b|\bverified by\b|"
+    # No professional checked or wrote this page (PR review, 9 Nov 2026). "Ask a local lawyer" stays allowed. Tested on all live pages: 0 false matches.
+    rf"\b(?:{PROS})\b[^.]{{0,40}}\b(?:{ACTS})\b|\b(?:{ACTS})\b[^.]{{0,40}}\b(?:{PROS})\b|\b(?:attorney|lawyer|CPA|expert)-(?:approved|checked|vetted|written)\b|"
+    r"\beach number links\b", re.I)
+HONEST_LINE = "No person reviewed this page."  # The one sentence with that word that the gate allows: it is the opposite of a claim.
+NOT_ADVICE = "not tax or legal advice"  # Nikita's order, 9 Nov 2026: each page says this plainly. tool_pages.sources_html prints it.
 
 
 class Parsed(HTMLParser):
@@ -195,16 +206,17 @@ def data_problems(page: dict, sources: dict, demand: dict, laws: dict, default_l
                 problems.append(f"gate 4: rule {rule['title']!r} has no source")
     for src_id in page.get("source_ids", []):
         check_source(src_id, "sources list")
-    law = laws.get(page.get("law", default_law))
+    law_id = page.get("law", default_law)
+    law = laws.get(law_id)
     if not law:
-        problems.append(f"gate 5: no law record {page.get('law', default_law)}")
+        problems.append(f"gate 5: no law record {law_id}")
     else:
         if not law.get("official_urls"):
             problems.append("gate 5: the law record has no official URL")
-        if not law.get("reviewer"):
-            waived = law.get("reviewer_waiver") and page.get("law", default_law) == default_law
-            if not waived:
-                problems.append(f"gate 5: law record {law['locale']} has no named human reviewer")
+        # Nikita's order, 9 Nov 2026 (NIK-548): no human reviewer exists, and a page must never name one. The gate passes on a record instead:
+        # data/law/<locale>.review.json, each fact with a source and two agreeing checks by different models. It fails on a missing record
+        # and on any fact without those checks. "review_record" is loaded by tool_pages.Context. Rule and proof: fact_review.py, tests/test_tool_gate.py.
+        problems += fact_review.problems_for(page, law_id, law, law.get("review_record"), sources, today)
     rows = page.get("demand", [])
     if not rows:
         problems.append("gate 7: no demand proof")
@@ -229,10 +241,12 @@ def html_problems(page: dict, raw: str, claims: dict) -> list[str]:
     title = re.search(r"<title>(.*?)</title>", raw, re.S)
     described = re.search(r'<meta name="description" content="(.*?)"', raw, re.S)
     # The title and description are what a search result shows, so the same rule covers them.
-    for match in FORBIDDEN_TEXT.finditer(" ".join([text, title.group(1) if title else "", described.group(1) if described else ""])):
+    for match in FORBIDDEN_TEXT.finditer(" ".join([text.replace(HONEST_LINE, ""), title.group(1) if title else "", described.group(1) if described else ""])):
         problems.append(f"gate 8: forbidden text {match.group(0)!r}")
         break
     visible = norm(text)
+    if NOT_ADVICE not in visible:
+        problems.append(f"gate 5: the page does not say {NOT_ADVICE!r}")
     for block in parsed.ld:
         try:
             data = json.loads(block)
@@ -240,6 +254,8 @@ def html_problems(page: dict, raw: str, claims: dict) -> list[str]:
             problems.append(f"gate 8: JSON-LD does not parse: {err}")
             continue
         bad = ld_types(data) & FORBIDDEN_LD
+        if "reviewedBy" in block:
+            bad = bad | {"reviewedBy"}
         if bad:
             problems.append(f"gate 8: JSON-LD holds {sorted(bad)}")
         for value in visible_ld_strings(data):

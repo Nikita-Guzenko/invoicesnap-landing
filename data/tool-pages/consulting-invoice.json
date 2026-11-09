@@ -72,11 +72,11 @@
    "custName": "Client name",
    "pay": "How the client pays"
   },
-  "tax_hint": "Consulting is often free of sales tax, but some states tax some services. Leave the rate empty unless your state says otherwise."
+  "tax_hint": "Enter a rate only if your state taxes this service. The form does not decide this."
  },
  "must_show": {
-  "heading": "What a consulting invoice must show",
-  "intro_html": "The invoice links the amount to the agreement: the statement of work, the period and what you delivered. A client finance team often pays against the reference, not the text.",
+  "heading": "What to show on a consulting invoice",
+  "intro_html": "Link the amount to the agreement: the statement of work, the period and what you delivered.",
   "why_label": "Why it matters on advisory work",
   "rows": [
    [
@@ -85,7 +85,7 @@
    ],
    [
     "Billing period",
-    "A retainer covers a month, so write the month."
+    "Write the month that the retainer covers."
    ],
    [
     "Hours or milestone",
@@ -93,7 +93,7 @@
    ],
    [
     "Expenses, apart from fees",
-    "Most agreements treat them differently."
+    "Bill them on their own lines."
    ],
    [
     "Ownership of deliverables",
@@ -101,7 +101,7 @@
    ],
    [
     "Tax details",
-    "The client may need your Form W-9 before the first payment."
+    "A client that files an information return on you asks for your correct taxpayer number on Form W-9."
    ]
   ]
  },
@@ -135,7 +135,7 @@
  },
  "line_items": {
   "heading": "Consulting work and US wage ranges",
-  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row, and the button adds a sample inside it. <b>These are wages of employees, not freelance rates.</b> Set your own rate: you also pay your own taxes, insurance and unpaid time.",
+  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row, and the button adds a sample inside it. <b>Treat each range as a guide, not as your freelance rate.</b> Set your own rate to cover your costs.",
   "items": [
    {
     "name": "Management consulting",
@@ -219,7 +219,7 @@
     "kind": "M"
    }
   ],
-  "after_html": "BLS adds that self-employed management analysts are paid by the hour or by the project (<a href=\"https://www.bls.gov/ooh/business-and-financial/management-analysts.htm\" rel=\"noopener\">BLS</a>).",
+  "after_html": "",
   "range_label": "Employee wage range, May 2023 (10th to 90th percentile)"
  },
  "rules": {
@@ -232,7 +232,7 @@
    },
    {
     "title": "Form W-9",
-    "html": "The IRS says that you give Form W-9 so that the person who files the information return has your correct taxpayer number. Expect the request before the first payment.",
+    "html": "The IRS says that you give Form W-9 so that the person who files the information return has your correct taxpayer number.",
     "src": "irs-w9"
    },
    {
@@ -254,7 +254,7 @@
   },
   {
    "q": "Do I add expenses with a markup?",
-   "a": "Follow your agreement. Many consultants bill travel at cost with receipts and say so in the notes."
+   "a": "Follow your agreement. If you bill travel at cost, add receipts and say so in the notes."
   },
   {
    "q": "Do I need a separate invoice for each statement of work?",

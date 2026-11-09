@@ -69,7 +69,7 @@
   "url": "https://www.cslb.ca.gov/Resources/IndustryBulletins/2024/AB%202622%20Implementation.FINAL.pdf",
   "page_date": "31 Dec 2024",
   "checked": "2026-11-09",
-  "used_for": "the $1,000 minor work exemption."
+  "used_for": "the minor work exemption."
  },
  "fl-489103": {
   "name": "Florida Statutes 489.103",
@@ -623,14 +623,6 @@
   "checked": "2026-11-09",
   "used_for": "the state freelance law."
  },
- "ny-771": {
-  "name": "New York General Business Law 771",
-  "short": "NY GBL 771",
-  "url": "https://www.nysenate.gov/legislation/laws/GBS/771",
-  "page_date": null,
-  "checked": "2026-11-09",
-  "used_for": "home improvement contract contents."
- },
  "ftc-scam": {
   "name": "FTC, how to avoid a home improvement scam",
   "short": "FTC",
@@ -645,6 +637,30 @@
   "url": "https://www.nysenate.gov/legislation/laws/GBS/1410",
   "page_date": null,
   "checked": "2026-11-09",
-  "used_for": "the definition of a freelance worker and the $800 line."
+  "used_for": "the definition of a freelance worker."
+ },
+ "irs-keep": {
+  "name": "IRS, recordkeeping",
+  "short": "IRS",
+  "url": "https://www.irs.gov/businesses/small-businesses-self-employed/recordkeeping",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "the rule that, except in a few cases, the law asks for no special kind of records."
+ },
+ "ey-2026": {
+  "name": "EY, e-invoicing developments tracker, August 2026",
+  "short": "EY tracker",
+  "url": "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/tax-guides/documents/ey-gl-e-invoicing-developments-tracker-08-2026.pdf",
+  "page_date": "29 Jul 2026",
+  "checked": "2026-11-09",
+  "used_for": "the status of e-invoice mandates."
+ },
+ "cfr-4290": {
+  "name": "16 CFR 429.0, FTC Cooling-Off Rule definitions",
+  "short": "16 CFR 429.0",
+  "url": "https://www.law.cornell.edu/cfr/text/16/429.0",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "the exceptions to the cooling-off rule."
  }
 }
