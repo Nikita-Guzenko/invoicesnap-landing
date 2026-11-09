@@ -1,5 +1,9 @@
 [Unit]
 Description=InvoiceSnap five-line weekly web report (NIK-551)
+# Linear delivery retries stop after 6 tries in a day (review, 9 Nov 2026): each try also spends
+# 27 URL inspections from the shared daily quota.
+StartLimitIntervalSec=86400
+StartLimitBurst=6
 
 [Service]
 Type=oneshot
@@ -8,3 +12,5 @@ ExecStart=/bin/bash -c 'export PATH="$HOME/.npm-global/bin:$HOME/.local/bin:/usr
 TimeoutStartSec=600
 Restart=on-failure
 RestartSec=300
+# Exit 3 = a source was unreachable; the report is already posted with unknown. Do not retry it.
+RestartPreventExitStatus=3

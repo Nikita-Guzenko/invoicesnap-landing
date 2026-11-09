@@ -6,6 +6,7 @@ Writes ~/.local/share/invoicesnap-reports/YYYY-Www.{md,json}. Mondays report
 last Monday–Sunday; indexing is a separately dated current snapshot. --post
 adds the report to NIK-551 through the full-path Linear AXI. No email or AI API.
 --offline exercises unavailable sources without credentials or network access.
+Exit 3: a live source (GA4 or URL Inspection) was unreachable; its line says unknown.
 The timer loads the vault; credentials never enter an artifact or an error.
 """
 import argparse
@@ -14,6 +15,7 @@ import json
 import os
 from pathlib import Path
 import subprocess
+import sys
 import urllib.parse
 import urllib.request
 
@@ -137,6 +139,14 @@ def main():
             subprocess.run([str(HOME / '.local/bin/linear-axi'), 'issue', 'comment', 'NIK-551',
                             '--body-file', str(path.with_suffix('.md'))], check=True, timeout=90)
             marker.write_text(dt.datetime.now(dt.timezone.utc).isoformat() + '\n')
+    # A live source that could not be read fails the run loudly (9 Nov 2026, NIK-551): the report
+    # still says unknown, then exit 3 marks the systemd unit failed. The unit sets
+    # RestartPreventExitStatus=3, so a dead source does not repeat 27 URL inspections every 5 minutes.
+    failed = [key for key, metric in metrics.items() if metric.get('reason', '').startswith('read failed')]
+    if failed:
+        print('SOURCE UNREACHABLE: ' + ', '.join(f'{key} ({metrics[key]["reason"]})' for key in failed)
+              + '. Fix: check the vault credentials and index-gate.py, then rerun.', file=sys.stderr)
+        raise SystemExit(3)
 
 
 if __name__ == '__main__':
