@@ -7,19 +7,19 @@
   "dir": "ltr",
   "fmt": {"symbol": "$", "after": false, "thousands": ",", "decimal": "."},
   "tax_name": "Sales tax",
-  "tax_rate": "None at federal level. Each state and many cities set their own rate; the user enters it.",
-  "required_fields": "No federal list of invoice fields. The IRS names invoices as records that support gross receipts.",
+  "tax_rate": "The user enters the rate of the state and city.",
+  "required_fields": "The IRS says that, except in a few cases, the law does not require any special kind of records, and it names invoices among the supporting documents.",
   "exemption_text": null,
   "reverse_charge": null,
-  "retention": "IRS: keep records for the period of limitations, usually 3 years.",
+  "retention": "IRS: keep records for 3 years, unless one of its named longer periods applies.",
   "paper_size": "US Letter",
-  "e_invoice": {"status": "No federal e-invoice mandate for private business invoices.", "as_of": "2026-07-29", "source": "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/tax-guides/documents/ey-gl-e-invoicing-developments-tracker-08-2026.pdf"},
+  "e_invoice": {"status": "EY e-invoicing tracker, August 2026 edition: United States of America is Not applicable for B2G, B2B and B2C e-invoicing.", "as_of": "2026-07-29", "source": "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/technical/tax-guides/documents/ey-gl-e-invoicing-developments-tracker-08-2026.pdf"},
   "official_urls": [
     "https://www.irs.gov/businesses/small-businesses-self-employed/what-kind-of-records-should-i-keep",
-    "https://www.irs.gov/businesses/small-businesses-self-employed/how-long-should-i-keep-records"
+    "https://www.irs.gov/businesses/small-businesses-self-employed/how-long-should-i-keep-records",
+    "https://www.irs.gov/businesses/small-businesses-self-employed/recordkeeping"
   ],
-  "reviewer": null,
-  "estimate_word_html": "<b>Estimate, quote or bid:</b> US law gives these words no single meaning. Your wording and your state decide what binds you. Write \"fixed price\", or say how the price can change. See <a href=\"/guides/estimate-vs-invoice/\">estimate vs invoice</a>.",
+  "estimate_word_html": "<b>Estimate, quote or bid:</b> Say what your paper means. Write \"fixed price\", or say how the price can change. Ask your state board or a lawyer what binds you. See <a href=\"/guides/estimate-vs-invoice/\">estimate vs invoice</a>.",
   "tax": {"type": "rate"},
   "notes": [],
   "ui": {

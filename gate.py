@@ -17,6 +17,8 @@ import re
 from html.parser import HTMLParser
 from pathlib import Path
 
+import fact_review
+
 MIN_ITEMS, MIN_RANGES, MIN_RULES, MAX_AGE_DAYS = 8, 4, 3, 365
 MAX_OVERLAP = 0.30  # 5-word overlap with any sibling, outside data-shared blocks. NIK-548's 0.50 is the weak floor.
 SHINGLE = 5
@@ -27,7 +29,10 @@ FORBIDDEN_TEXT = re.compile(
     r"TODO verify|\btrusted by\b|\b\d[\d,]*\+? (?:users|customers|contractors|businesses|downloads)\b|\b(?:star|stars)\b rating|"
     r"\brated \d|\b\d(?:\.\d)?[- ]stars?\b|\bfive stars?\b|\btop[- ]rated\b|\bno\. ?1\b|\b\d[\d,]* reviews\b|\b(?:thousands|millions|hundreds) of (?:users|customers|contractors|businesses)\b|"
     r"\blegally (?:valid|compliant|binding invoice)\b|\bfully compliant\b|(?<!\w)#1\b|\bnumber one\b|\bthe best\b|\bbest[- ](?:in|invoice|estimate|app|free)\b|"
-    r"\bworld-class\b|\bunbeatable\b|\bhurry\b|\bact now\b|\blimited time\b|\bguaranteed\b", re.I)
+    r"\bworld-class\b|\bunbeatable\b|\bhurry\b|\bact now\b|\blimited time\b|\bguaranteed\b|"
+    # Nikita's order, 9 Nov 2026: no page names a human reviewer or says that a person reviewed it. "No person reviewed it" stays allowed.
+    r"\breviewer\b|\breviewed by\b|\bchecked by\b|\bverified by\b", re.I)
+NOT_ADVICE = "not tax or legal advice"  # Nikita's order, 9 Nov 2026: each page says this plainly. tool_pages.sources_html prints it.
 
 
 class Parsed(HTMLParser):
@@ -195,16 +200,17 @@ def data_problems(page: dict, sources: dict, demand: dict, laws: dict, default_l
                 problems.append(f"gate 4: rule {rule['title']!r} has no source")
     for src_id in page.get("source_ids", []):
         check_source(src_id, "sources list")
-    law = laws.get(page.get("law", default_law))
+    law_id = page.get("law", default_law)
+    law = laws.get(law_id)
     if not law:
-        problems.append(f"gate 5: no law record {page.get('law', default_law)}")
+        problems.append(f"gate 5: no law record {law_id}")
     else:
         if not law.get("official_urls"):
             problems.append("gate 5: the law record has no official URL")
-        if not law.get("reviewer"):
-            waived = law.get("reviewer_waiver") and page.get("law", default_law) == default_law
-            if not waived:
-                problems.append(f"gate 5: law record {law['locale']} has no named human reviewer")
+        # Nikita's order, 9 Nov 2026 (NIK-548): no human reviewer exists, and a page must never name one. The gate passes on a record instead:
+        # data/law/<locale>.review.json, each fact with a source and two agreeing checks by different models. It fails on a missing record
+        # and on any fact without those checks. "review_record" is loaded by tool_pages.Context. Rule and proof: fact_review.py, tests/test_tool_gate.py.
+        problems += fact_review.problems_for(page, law_id, law, law.get("review_record"), sources, today)
     rows = page.get("demand", [])
     if not rows:
         problems.append("gate 7: no demand proof")
@@ -233,6 +239,8 @@ def html_problems(page: dict, raw: str, claims: dict) -> list[str]:
         problems.append(f"gate 8: forbidden text {match.group(0)!r}")
         break
     visible = norm(text)
+    if NOT_ADVICE not in visible:
+        problems.append(f"gate 5: the page does not say {NOT_ADVICE!r}")
     for block in parsed.ld:
         try:
             data = json.loads(block)

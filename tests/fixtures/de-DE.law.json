@@ -6,7 +6,6 @@
  "retention": "§ 14b UStG", "paper_size": "A4",
  "e_invoice": {"status": "Empfang seit 2025, Ausstellung ab 2027/28", "as_of": "2026-07-29", "source": "https://www.bundesfinanzministerium.de/Content/DE/FAQ/e-rechnung.html"},
  "official_urls": ["https://www.gesetze-im-internet.de/ustg_1980/__14.html"],
- "reviewer": "Test Reviewer, Steuerberater (fixture only, never live)",
  "tax": {"type": "modes", "modes": {
    "std": {"label": "Regelbesteuerung 19 %", "rate": 19},
    "klein": {"label": "Kleinunternehmer § 19 UStG", "rate": 0, "note": "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet."},

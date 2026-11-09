@@ -342,11 +342,9 @@ class Crawl:
                 if status == 200 and "noindex" not in gate.parse(raw).robots:
                     self.error(path, "gate: the page is outside the sitemap but has no noindex")
                 print(f"gate: {path} is blocked, noindex: {'; '.join(problems)[:200]}")
-                # Held back only by gate 5 (a reviewer is a person, not a page fault): every other gate still runs,
-                # so the page is ready on the day a reviewer signs.
-                if not problems or any(not line.startswith("gate 5") for line in problems):
-                    continue
-                problems = []
+                if not problems:  # A green page must be live: without this, a build bug could hide pages from search with no failure.
+                    self.error(path, "gate: the page passes every data gate but is not in a sitemap")
+                continue
             if status != 200:
                 continue
             gated.append(path)

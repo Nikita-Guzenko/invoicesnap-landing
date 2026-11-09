@@ -71,9 +71,10 @@
    "html": "Your work is not listed, or you only need a plain invoice."
   }
  ],
- "body_html": "<h2>US rules that apply to each page</h2><p>The US has no federal list of invoice fields. The IRS names invoices among the records that support your income, and generally asks you to keep records for 3 years. Sales tax and license rules come from the states. Each trade page links the state examples that it uses. <a href=\"/guides/what-to-include-on-an-invoice/\">What to include on an invoice</a> has the general field list.</p><h2>How to choose</h2><p>Pick the page for the work that you bill most often, because its sample lines and rules are closest to your job. If you do two trades, use one page and change the lines: every form takes any text.</p>",
+ "body_html": "<h2>US rules that apply to each page</h2><p>The IRS says that, except in a few cases, the law does not require any special kind of records. Each trade page links the state examples that it uses. <a href=\"/guides/what-to-include-on-an-invoice/\">What to include on an invoice</a> has the general field list.</p><h2>How to choose</h2><p>Pick the page for the work that you bill most often, because its sample lines and rules are closest to your job. If you do two trades, use one page and change the lines: every form takes any text.</p>",
  "source_ids": [
   "irs-rec",
-  "irs-long"
+  "irs-long",
+  "irs-keep"
  ]
 }

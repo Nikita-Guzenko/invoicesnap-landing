@@ -72,7 +72,7 @@
    "custName": "Client name",
    "pay": "How the client pays"
   },
-  "tax_hint": "Consulting is often free of sales tax, but some states tax some services. Leave the rate empty unless your state says otherwise."
+  "tax_hint": "Enter a rate only if your state taxes this service. The form does not decide this."
  },
  "must_show": {
   "heading": "What a consulting invoice must show",
@@ -101,7 +101,7 @@
    ],
    [
     "Tax details",
-    "The client may need your Form W-9 before the first payment."
+    "A client that files an information return on you asks for your correct taxpayer number on Form W-9."
    ]
   ]
  },
@@ -232,7 +232,7 @@
    },
    {
     "title": "Form W-9",
-    "html": "The IRS says that you give Form W-9 so that the person who files the information return has your correct taxpayer number. Expect the request before the first payment.",
+    "html": "The IRS says that you give Form W-9 so that the person who files the information return has your correct taxpayer number.",
     "src": "irs-w9"
    },
    {

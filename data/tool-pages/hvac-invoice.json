@@ -88,7 +88,7 @@
  },
  "must_show": {
   "heading": "What an HVAC invoice must show",
-  "intro_html": "An HVAC invoice ties the charge to one piece of equipment. No federal rule lists the fields. The parts below stop most warranty and refrigerant questions later.",
+  "intro_html": "An HVAC invoice ties the charge to one piece of equipment. The parts below stop most warranty and refrigerant questions later.",
   "why_label": "Why it matters on HVAC work",
   "rows": [
    [
@@ -97,7 +97,7 @@
    ],
    [
     "Refrigerant type and amount",
-    "Customers ask why the bill has a pound charge. Records also help you show that a certified person did the work."
+    "Customers ask why the bill has a pound charge."
    ],
    [
     "Technician certification",
@@ -150,7 +150,7 @@
     "k": "M"
    }
   ],
-  "after_html": "The tune-up price sits inside the $84–$288 maintenance range from <a href=\"https://www.homeyou.com/hvac-cost\" rel=\"noopener\">Homeyou</a>."
+  "after_html": "The range for routine maintenance is $84–$288 from <a href=\"https://www.homeyou.com/hvac-cost\" rel=\"noopener\">Homeyou</a>."
  },
  "line_items": {
   "heading": "HVAC line items and typical prices",
@@ -178,7 +178,7 @@
     "sample": 165
    },
    {
-    "name": "Central AC repair",
+    "name": "Air conditioner repair",
     "unit": "job",
     "kind": "L",
     "low": 171,

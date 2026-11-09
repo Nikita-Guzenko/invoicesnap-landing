@@ -4,7 +4,7 @@
 Usage: python3 tests/test_tool_gate.py     (about 3 minutes; needs Google Chrome, pdftotext, openpyxl)
 
 1. A German page on a de-DE law record builds live and passes the browser gate. Proof that a country is data, not code.
-2. The same page without a named reviewer is blocked with noindex (gate 5). A waiver stands only with a written decision of Nikita on the default locale.
+2. Gate 5 passes on the record data/law/<locale>.review.json. With the record missing, or with one fact unchecked, the page is blocked with noindex.
 3. An Arabic page keeps dir="rtl" and fails gate 3, because the PDF font has no Arabic letters.
 4. Each data gate can fail, and the failed page leaves the sitemap and gets noindex.
 5. Breaking the served tool makes the browser gate fail: wrong PDF, form data on the network, a broken Excel file.
@@ -14,6 +14,7 @@ Fixture text is throwaway; it never goes live.
 from __future__ import annotations
 
 import copy
+import datetime
 import http.server
 import json
 import shutil
@@ -26,12 +27,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
+import fact_review  # noqa: E402
 import gate_browser  # noqa: E402
 
 FIX = ROOT / "tests/fixtures"
 failures: list[str] = []
 SOME_PAGE = "plumbing-invoice"
 SOME_PATH = "/invoice-template/plumbing/"
+TODAY = datetime.date.today().isoformat()  # A fixed date fails later: a check dated after it counts as a check from the future.
 
 
 def expect(name: str, ok: bool, detail: str = "") -> None:
@@ -59,13 +62,11 @@ def make_data(tmp: Path) -> Path:
     for tag in ("de", "ar"):
         locales[tag]["ui"] = locales["en"]["ui"]
     save(data / "locales.json", locales)
-    en = load(data / "law/en-US.json")
-    en["reviewer"] = "Test Reviewer (fixture only)"  # The real record has none, so all real pages are noindex; these tests need live pages.
-    save(data / "law/en-US.json", en)
+    en = load(data / "law/en-US.json")  # en-US keeps its real check record: the tests below prove that it opens the real pages.
     law = load(FIX / "de-DE.law.json")
     law["ui"] = {**copy.deepcopy(en["ui"]), **law.pop("ui_overrides")}
     save(data / "law/de-DE.json", law)
-    ar = {**copy.deepcopy(law), "locale": "ar-SA", "country": "SA", "currency": "SAR", "dir": "rtl", "reviewer": "Test Reviewer (fixture only)"}
+    ar = {**copy.deepcopy(law), "locale": "ar-SA", "country": "SA", "currency": "SAR", "dir": "rtl"}
     save(data / "law/ar-SA.json", ar)
     sources = load(data / "sources.json")
     sources["fx-de"] = {"name": "Fixture source", "short": "Fixture", "url": "https://www.gesetze-im-internet.de/ustg_1980/__14.html", "checked": "2026-11-09", "used_for": "test"}
@@ -97,11 +98,17 @@ def make_data(tmp: Path) -> Path:
     arabic["form"]["sample"]["items"] = [{"d": "عمل السباكة", "q": 2, "u": "ساعة", "r": 90, "k": "L"}]
     arabic["example"]["items"] = [{"d": "صيانة السخان", "q": 1, "u": "وحدة", "r": 150, "k": "L"}]
     save(data / "tool-pages/fixture-ar.json", arabic)
+    # Throwaway records, so that the fixture pages reach the browser gate. "advice" needs no source; the failures of gate 5 are tested on en-US.
+    for law_id, fixture in (("de-DE", page), ("ar-SA", arabic)):
+        record = load(data / f"law/{law_id}.json")
+        rows = fact_review.law_statements(record) + fact_review.page_statements(fixture, sources)
+        checks = [{"checker": name, "verdict": "advice", "date": TODAY} for name in ("fixture-a", "fixture-b")]
+        save(data / f"law/{law_id}.review.json", {"statements": {r["id"]: {"type": "advice", "checks": checks} for r in rows}})
     return data
 
 
 def build(data: Path, out: Path) -> subprocess.CompletedProcess:
-    return run(str(ROOT / "build.py"), "--data", str(data), "--out", str(out), "--today", "2026-11-09")
+    return run(str(ROOT / "build.py"), "--data", str(data), "--out", str(out), "--today", TODAY)
 
 
 class Quiet(http.server.SimpleHTTPRequestHandler):
@@ -159,9 +166,45 @@ def main() -> int:
 
         page = f"tool-pages/{SOME_PAGE}.json"
         items = lambda v: v["line_items"]["items"]  # noqa: E731
-        bad("no reviewer on en-US", "gate 5: law record en-US has no named human reviewer", "law/en-US.json", lambda v: v.update(reviewer=None), SOME_PATH)
-        bad("no reviewer on a non-default locale", "gate 5: law record de-DE has no named human reviewer", "law/de-DE.json", lambda v: v.update(reviewer=None), de_path)
-        bad("waiver on a non-default locale", "gate 5: law record de-DE has no named human reviewer", "law/de-DE.json", lambda v: v.update(reviewer=None, reviewer_waiver={"ticket": "x"}), de_path)
+        # Gate 5 on the real record (Nikita's order, 9 Nov 2026). Control first: if the real record did not open the real pages, these prove nothing.
+        noindex, listed = blocked(out, SOME_PATH)
+        expect("5 real en-US page is live on the real record", not noindex and listed, f"noindex={noindex} listed={listed}; {res.stderr[-500:]}")
+        review = data / "law/en-US.review.json"
+        kept = review.read_text(encoding="utf-8")
+        review.unlink()
+        res = build(data, tmp / "bad")
+        review.write_text(kept, encoding="utf-8")
+        noindex, listed = blocked(tmp / "bad", SOME_PATH)
+        expect("5 gate fails: no check record", "has no check record" in res.stderr and noindex and not listed, f"noindex={noindex} listed={listed}; {res.stderr[-500:]}")
+        record_de = data / "law/de-DE.review.json"
+        kept_de = record_de.read_text(encoding="utf-8")
+        record_de.unlink()
+        res = build(data, tmp / "bad")
+        record_de.write_text(kept_de, encoding="utf-8")
+        noindex, listed = blocked(tmp / "bad", de_path)
+        expect("5 gate fails: no check record on another locale", "law record de-DE has no check record" in res.stderr and noindex and not listed, res.stderr[-500:])
+        sources_now = load(data / "sources.json")
+        plumbing = load(data / "tool-pages" / f"{SOME_PAGE}.json")
+        rule_id = next(s["id"] for s in fact_review.page_statements(plumbing, sources_now) if s["kind"] == "rule")
+        range_id = next(s["id"] for s in fact_review.page_statements(plumbing, sources_now) if s["kind"] == "range")
+        law_id = next(s["id"] for s in fact_review.law_statements(load(data / "law/en-US.json")) if s["place"] == "retention")
+        rec = "law/en-US.review.json"
+        same = {"checker": "one-model", "verdict": "confirmed", "date": TODAY}
+        bad("a fact is unchecked", f"gate 5: not checked: {rule_id}", rec, lambda v: v["statements"].pop(rule_id))
+        bad("a range is unchecked", f"gate 5: not checked: {range_id}", rec, lambda v: v["statements"].pop(range_id))
+        bad("a law record fact is unchecked", f"gate 5: not checked: {law_id}", rec, lambda v: v["statements"].pop(law_id))
+        bad("a fact has one check", "1 different checkers agree, need 2", rec, lambda v: v["statements"][rule_id].update(checks=[same]))
+        bad("two checks by the same model", "1 different checkers agree, need 2", rec, lambda v: v["statements"][rule_id].update(checks=[same, same]))
+        bad("the checks disagree", "1 different checkers agree, need 2", rec, lambda v: v["statements"][rule_id].update(checks=[same, {**same, "checker": "two", "verdict": "not_found"}]))
+        bad("a checker refuted the fact", "a checker refuted it", rec, lambda v: v["statements"][rule_id]["checks"].append({**same, "checker": "three", "verdict": "refuted"}))
+        bad("a fact has no source", "no source URL", rec, lambda v: v["statements"][rule_id].pop("source_url"))
+        bad("a check is too old", "days old, limit 365", rec, lambda v: [c.update(date="2020-01-01") for c in v["statements"][rule_id]["checks"]])
+        bad("a fact marked as advice with no agreeing checks", "0 different checkers agree, need 2", rec, lambda v: v["statements"][rule_id].update(type="advice"))
+        bad("one word of a rule changed after the check", "gate 5: not checked: rule-", page, lambda v: v["rules"]["items"][0].update(html=v["rules"]["items"][0]["html"].replace("Texas", "Ohio")))
+        bad("a range changed after the check", "gate 5: not checked: range-", page, lambda v: items(v)[0].update(high=9999))
+        bad("new legal text with no check", "gate 5: not checked: prose-", page, lambda v: v.update(lede_html="Ohio law requires a license on each invoice."))
+        bad("a law record fact changed after the check", "gate 5: not checked: law-", "law/en-US.json", lambda v: v.update(retention="IRS: keep records for 1 year."))
+        bad("a stated fact has no link to its source", "the page does not link its source", "tool-pages/freelancer-invoice.json", lambda v: v.update(source_ids=[i for i in v["source_ids"] if i != "irs-rec"]), "/invoice-template/freelancer/")
         bad("no law record", "no law record xx-XX", page, lambda v: v.update(law="xx-XX"))
         bad("too few line items", "gate 4: 7 line items", page, lambda v: v["line_items"].update(items=items(v)[:7]))
         bad("too few ranges", "sourced ranges, need 4", page, lambda v: [i.pop("low") for i in items(v) if i.get("low") is not None])
@@ -179,7 +222,7 @@ def main() -> int:
         bad("TODO left in text", "gate 8: forbidden text", page, lambda v: v.update(lede_html="TODO verify this."))
         bad("legal-validity claim", "gate 8: forbidden text", page, lambda v: v.update(lede_html="This form is legally valid."))
         sibling = load(data / "tool-pages/hvac-invoice.json")
-        bad("near-duplicate of a sibling", "gate 6: overlap with", page, lambda v: v.update(must_show=sibling["must_show"], line_items=sibling["line_items"], rules=sibling["rules"], faq=sibling["faq"], example={**v["example"]}))
+        bad("near-duplicate of a sibling", "gate 6: overlap with", page, lambda v: v.update(must_show=sibling["must_show"], line_items=sibling["line_items"], rules=sibling["rules"], faq=sibling["faq"], source_ids=sibling["source_ids"], example={**v["example"]}))  # source_ids too: a page that fails gate 5 never reaches gate 6.
         bad("claim no longer at its code line", "no longer holds", "claims.json", lambda v: v["app_note"][0].update(proof="NOT_IN_THE_APP") if "proof" in v["app_note"][0] else None)
 
         # 5: break the served tool. If the gate stays green here, it measures nothing.
@@ -231,6 +274,9 @@ def main() -> int:
         file = out / SOME_PATH.strip("/") / "index.html"
         raw_page = file.read_text(encoding="utf-8")
         for name, reason, changed in [
+            ("a human reviewer named on the server", "gate 8: forbidden text", raw_page.replace("</main>", "<p>Reviewer: Jane Doe.</p></main>", 1)),
+            ("a page says a person reviewed it", "gate 8: forbidden text", raw_page.replace("</main>", "<p>Reviewed by our tax team.</p></main>", 1)),
+            ("the not-advice line removed", "does not say 'not tax or legal advice'", raw_page.replace("It is not tax or legal advice.", "", 1)),
             ("rating in JSON-LD", "gate 8: JSON-LD holds", raw_page.replace('"@type": "WebApplication"', '"aggregateRating": {"@type": "AggregateRating"}, "@type": "WebApplication"', 1)),
             ("a 4.9-star claim", "gate 8: forbidden text", raw_page.replace("<title>", "<title>4.9-star app: ", 1)),
             ("claim in the title", "gate 8: forbidden text", raw_page.replace("<title>", "<title>Rated 4.9 stars: ", 1)),

@@ -73,7 +73,7 @@
  },
  "must_show": {
   "heading": "What a handyman invoice must show",
-  "intro_html": "A handyman invoice lists small tasks clearly, shows how you bill time and material, and states your license status where a state asks. No federal list exists.",
+  "intro_html": "A handyman invoice lists small tasks clearly, shows how you bill time and material, and states your license status where a state asks.",
   "why_label": "Why it matters on small jobs",
   "rows": [
    [
@@ -90,7 +90,7 @@
    ],
    [
     "License status",
-    "In some states, the job size decides whether you need a license."
+    "In California, the job size can decide whether you need a contractor license."
    ],
    [
     "Photos or job notes",

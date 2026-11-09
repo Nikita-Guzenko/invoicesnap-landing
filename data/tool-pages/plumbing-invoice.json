@@ -95,7 +95,7 @@
  },
  "must_show": {
   "heading": "What a plumbing invoice must show",
-  "intro_html": "A plumbing invoice shows who did the work, where and when, each part and each labor charge, the tax, the amount due and how to pay. The US has no single federal list of invoice fields. The IRS names invoices as records that support your gross receipts (<a href=\"https://www.irs.gov/businesses/small-businesses-self-employed/what-kind-of-records-should-i-keep\" rel=\"noopener\">IRS</a>), so keep each one.",
+  "intro_html": "A plumbing invoice shows who did the work, where and when, each part and each labor charge, the tax, the amount due and how to pay. The IRS names invoices among the supporting documents that you keep for your books (<a href=\"https://www.irs.gov/businesses/small-businesses-self-employed/what-kind-of-records-should-i-keep\" rel=\"noopener\">IRS</a>), so keep each one.",
   "why_label": "Why it matters on a plumbing job",
   "rows": [
    [
@@ -104,7 +104,7 @@
    ],
    [
     "Contractor license number",
-    "Most states and some localities license plumbers (<a href=\"https://www.bls.gov/ooh/construction-and-extraction/plumbers-pipefitters-and-steamfitters.htm\" rel=\"noopener\">BLS</a>). Ask your state board what must print on paper."
+    "Most states require plumbers to be licensed (<a href=\"https://www.bls.gov/ooh/construction-and-extraction/plumbers-pipefitters-and-steamfitters.htm\" rel=\"noopener\">BLS</a>). Ask your state board what must print on paper."
    ],
    [
     "Service address",
@@ -116,7 +116,7 @@
    ],
    [
     "Labor lines and parts lines, apart",
-    "Sales tax can apply to parts and labor differently, by state."
+    "The form can tax parts only, or all."
    ],
    [
     "Trip fee, after-hours charge, permit fee",
@@ -172,7 +172,7 @@
     "k": "M"
    }
   ],
-  "after_html": "The total sits inside the $400–$1,500+ range that <a href=\"https://www.taskrabbit.com/cost-guides/plumbing\" rel=\"noopener\">Taskrabbit</a> lists for a burst pipe repair."
+  "after_html": "The range for a burst pipe repair is $400–$1,500+ from <a href=\"https://www.taskrabbit.com/cost-guides/plumbing\" rel=\"noopener\">Taskrabbit</a>."
  },
  "line_items": {
   "heading": "Plumbing line items and typical prices",
@@ -307,7 +307,7 @@
   "items": [
    {
     "title": "License",
-    "html": "Most states and some localities license plumbers, so the number on your paper depends on the state. In Texas, a person other than a responsible master plumber may not do plumbing without the required license, registration or endorsement, and needs supervision by a licensed person.",
+    "html": "In Texas, a person other than a responsible master plumber may not do plumbing without the required license, registration or endorsement, and needs supervision by a licensed person.",
     "src": "tsbpe"
    },
    {

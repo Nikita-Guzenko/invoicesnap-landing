@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import datetime as dt
 import html
+import fact_review
 import gate
 import json
 from decimal import ROUND_HALF_UP, Decimal
@@ -315,10 +316,10 @@ def sources_html(page: dict, ctx, law: dict) -> str:
     used = [i for i in dict.fromkeys(page.get("source_ids", []) + cited) if i in ctx.sources]
     items = "".join(f'<li>{src_link(ctx, i)}{(", " + e(ctx.sources[i]["page_date"])) if ctx.sources[i].get("page_date") else ""}: {e(ctx.sources[i]["used_for"])} Checked {e(date(ctx.sources[i]["checked"], law))}.</li>' for i in used)
     checked = date(page["checked"], law)
-    reviewer = law.get("reviewer")
-    who = f"Reviewer: {e(reviewer)}." if reviewer else "No licensed contractor, lawyer or tax adviser reviewed this page."
-    return (f'<section id="sources" class="prose"><h2>Sources and who checked this page</h2><p data-shared>Published by 731labs, the maker of InvoiceSnap. Last checked {e(checked)}. {who} '
-            f'An AI tool helped draft this page. Each number links to its source. This page is general information, not legal or tax advice.</p><ul class="src">{items}</ul></section>')
+    # Nikita's order, 9 Nov 2026: never a human name, and an honest word on how the page was checked. gate.py enforces both.
+    return (f'<section id="sources" class="prose"><h2>Sources and how this page was checked</h2><p data-shared>Published by 731labs, the maker of InvoiceSnap. Last checked {e(checked)}. '
+            f'An AI tool helped draft this page. An automated check compared the legal facts and price ranges with their sources, using two AI models. No person reviewed this page. '
+            f'Each number links to its source. This page is general information. It is not tax or legal advice.</p><ul class="src">{items}</ul></section>')
 
 
 def rules_html(page: dict, ctx) -> str:
@@ -403,7 +404,10 @@ class Context:
                 self.sources[sid].update(status=seen["status"], checked=seen["checked"])
         self.claims = json.loads((data_dir / "claims.json").read_text(encoding="utf-8")) if (data_dir / "claims.json").exists() else {"app_note": []}
         self.demand = json.loads((data_dir / "demand.json").read_text(encoding="utf-8")) if (data_dir / "demand.json").exists() else {}
-        self.laws = {f.stem: json.loads(f.read_text(encoding="utf-8")) for f in sorted((data_dir / "law").glob("*.json"))} if (data_dir / "law").exists() else {}
+        # <locale>.review.json and <locale>.fact-sources.json stand beside the law records; a stem with a dot is not a locale.
+        self.laws = {f.stem: json.loads(f.read_text(encoding="utf-8")) for f in sorted((data_dir / "law").glob("*.json")) if "." not in f.stem} if (data_dir / "law").exists() else {}
+        for law_id, law in self.laws.items():
+            law["review_record"] = fact_review.load_record(data_dir, law_id)  # None = missing or broken: gate 5 fails.
         self.pages = [json.loads(f.read_text(encoding="utf-8")) for f in sorted(self.dir.glob("*.json"))] if self.dir.exists() else []
         self.pages_by_id = {p["id"]: p for p in self.pages}
         self.blocked: dict[str, list[str]] = {}

@@ -225,7 +225,7 @@
     "sample": 650
    },
    {
-    "name": "Painting labor",
+    "name": "Interior painting labor",
     "unit": "hour",
     "kind": "L",
     "low": 28,

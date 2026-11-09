@@ -119,6 +119,12 @@
   "numbers": 0,
   "status": "ok"
  },
+ "ey-2026": {
+  "checked": "2026-11-09",
+  "missing": [],
+  "numbers": 0,
+  "status": "ok"
+ },
  "fixr-kit": {
   "checked": "2026-11-09",
   "missing": [],
@@ -225,6 +231,12 @@
   "checked": "2026-11-09",
   "missing": [],
   "numbers": 1,
+  "status": "ok"
+ },
+ "irs-keep": {
+  "checked": "2026-11-09",
+  "missing": [],
+  "numbers": 0,
   "status": "ok"
  },
  "irs-long": {

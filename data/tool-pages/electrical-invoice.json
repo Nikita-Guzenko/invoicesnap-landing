@@ -96,16 +96,16 @@
  },
  "must_show": {
   "heading": "What an electrical invoice must show",
-  "intro_html": "An electrical invoice shows who did the work under which license, what changed in the panel or circuit, and which permit covers it. No federal rule sets the list.",
+  "intro_html": "An electrical invoice shows who did the work under which license, what changed in the panel or circuit, and which permit covers it.",
   "why_label": "Why it matters on electrical work",
   "rows": [
    [
     "License number of the contractor",
-    "Most states license electricians, and a home buyer or insurer may ask later."
+    "Most states require electricians to be licensed."
    ],
    [
     "Permit number and inspection result",
-    "Local authorities inspect. The number lets the owner find the record."
+    "The number lets the owner find the record."
    ],
    [
     "Labor by license level",
@@ -117,7 +117,7 @@
    ],
    [
     "Materials, apart from labor",
-    "One state can tax these differently."
+    "The form can tax parts only, or all."
    ],
    [
     "Warranty period",
@@ -282,7 +282,7 @@
    },
    {
     "title": "Local inspection",
-    "html": "Texas TDLR does not inspect for local permits. The local authority does, so your invoice should name the city or county.",
+    "html": "Texas TDLR does not inspect for local permits. The local authority does. Name the city or county on your invoice.",
     "src": "tdlr"
    }
   ]
