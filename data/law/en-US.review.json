@@ -18768,30 +18768,6 @@
     }
    ]
   },
-  "prose-ac0eaf5a4bd0": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "Count the invoices each week. A few documents do not need a monthly tool.",
-   "pages": [
-    "invoicesnap-vs-jobber#body[15]"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Instruction with a suggestion; no rule or amount."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "instruction to the reader"
-    }
-   ]
-  },
   "prose-ac1f22bb9ac2": {
    "type": "advice",
    "kind": "prose",
@@ -27621,6 +27597,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form label"
+    }
+   ]
+  },
+  "prose-fac71ed1accc": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Count the invoices each week. If you send a few invoices, a document form can be enough.",
+   "pages": [
+    "invoicesnap-vs-jobber#body[15]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction to count invoices and a suggestion on form choice; no law, rule, amount or rate."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction and practical suggestion for handling invoices."
     }
    ]
   },
