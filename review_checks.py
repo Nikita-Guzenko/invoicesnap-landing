@@ -164,6 +164,7 @@ ADVICE_PROMPT = """You sort sentences from a website about invoices. For each ST
 - "fact": it states any law, tax rule, license rule, deadline, money amount, rate, or says what a state, the IRS or another authority does or requires.
 A sentence that says what usually happens, what customers or clients do, or what a business practice is, is "fact": it is a claim about the world with no source. An instruction to the reader is "advice".
 A statement with both parts is "fact". Be strict: when not sure, answer "fact".
+A sentence about who wrote or checked a page is "fact". A line marked [source name] is the title of a cited source: answer "advice" unless it states a rule.
 A line marked [form label] names a field. A line marked [form sample] is invented demo text typed into the form: its names, dates and amounts are fiction. Answer "advice" for those two unless the line says what a law, a state or an authority requires.
 
 Answer with only a JSON array, no other text: [{{"id": "...", "verdict": "advice", "quote": "", "note": "max 20 words"}}]
@@ -175,7 +176,9 @@ STATEMENTS:
 
 def form_mark(st: dict) -> str:
     place = st["pages"][0]
-    return " [form label]" if "#form.labels." in place else " [form sample]" if "#form.sample." in place or "#example.items" in place else ""
+    if ".name" in place.partition("#")[2] and "#source." in place or "#source." in place and place.endswith(".short"):
+        return " [source name]"
+    return " [form label]" if "#form.labels." in place or "#ui." in place else " [form sample]" if "#form.sample." in place or "#example.items" in place else ""
 
 
 def packets(retry: str = "") -> int:

@@ -253,6 +253,10 @@ def main() -> int:
         bad("a claim in a heading", "gate 5: not checked: prose-", page, lambda v: v["must_show"].update(heading="Ohio requires a 5% fee on these"))
         bad("a claim in a sample field", "gate 5: not checked: prose-", page, lambda v: v["form"]["sample"].update(bizId="Ohio requires no license under $1,000"))
         bad("a record row with no text", "the text changed after the check", rec, lambda v: v["statements"][range_id].pop("claim"))
+        cited_source = plumbing["source_ids"][0]
+        bad("a claim in a source short name", "gate 5: not checked: prose-", "sources.json", lambda v: v[cited_source].update(short="Ohio law lets you deduct all mileage"))
+        bad("a claim in a unit", "gate 5: not checked: prose-", page, lambda v: v["form"]["sample"]["items"][0].update(u="Ohio law lets you deduct it"))
+        bad("a claim in the form words", "gate 5: not checked: prose-", "law/en-US.json", lambda v: v["ui"].update(missing="Ohio law requires each of these"))
         bad("a legal claim in the title", "gate 5: not checked: prose-", page, lambda v: v.update(title="Ohio law requires this invoice"))
         bad("a legal claim in a form label", "gate 5: not checked: prose-", page, lambda v: v["form"]["labels"].update(bizId="License no. (Ohio law requires it)"))
         bad("one word of a rule changed after the check", "gate 5: not checked: rule-", page, lambda v: v["rules"]["items"][0].update(html=v["rules"]["items"][0]["html"].replace("Texas", "Ohio")))
@@ -340,6 +344,10 @@ def main() -> int:
             ("a page says a lawyer wrote it", "gate 8: forbidden text", raw_page.replace("</main>", "<p>Written by a tax attorney.</p></main>", 1)),
             ("a page says attorney-approved", "gate 8: forbidden text", raw_page.replace("</main>", "<p>Attorney-approved.</p></main>", 1)),
             ("a page says a lawyer vetted it", "gate 8: forbidden text", raw_page.replace("</main>", "<p>Vetted by a lawyer.</p></main>", 1)),
+            ("a page says a tax attorney prepared it", "gate 8: forbidden text", raw_page.replace("</main>", "<p>Prepared by a tax attorney.</p></main>", 1)),
+            ("a page says a legal team looked at it", "gate 8: forbidden text", raw_page.replace("</main>", "<p>Our legal team looked over this page.</p></main>", 1)),
+            ("a page says a licensed trade wrote it", "gate 8: forbidden text", raw_page.replace("</main>", "<p>A licensed plumber wrote this page.</p></main>", 1)),
+            ("a page says a tax team confirmed it", "gate 8: forbidden text", raw_page.replace("</main>", "<p>Our tax team confirmed each fact.</p></main>", 1)),
             ("a page says each number links", "gate 8: forbidden text", raw_page.replace("</main>", "<p>Each number links to its source.</p></main>", 1)),
             ("the not-advice line removed", "does not say 'not tax or legal advice'", raw_page.replace("It is not tax or legal advice.", "", 1)),
             ("rating in JSON-LD", "gate 8: JSON-LD holds", raw_page.replace('"@type": "WebApplication"', '"aggregateRating": {"@type": "AggregateRating"}, "@type": "WebApplication"', 1)),

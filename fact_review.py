@@ -31,7 +31,7 @@ MAX_AGE_DAYS = 365  # As gate 4: a check older than this is no check.
 MIN_CHECKS = 2
 LAW_FIELDS = ("tax_name", "tax_rate", "required_fields", "exemption_text", "reverse_charge", "retention", "estimate_word_html", "notes")
 # Page data that does not print as text: ids, links to other pages, search terms, one-word units. All else is checked, so a new text field cannot skip the gate.
-NOT_PRINTED = {"id", "law", "locale", "slug", "parent", "type", "kind", "k", "u", "unit", "range_unit", "src", "page", "related", "source_ids", "demand", "checked", "body_html"}
+NOT_PRINTED = {"id", "law", "locale", "slug", "parent", "type", "kind", "k", "range_unit", "src", "page", "related", "source_ids", "demand", "checked", "body_html"}
 BLOCK_END = re.compile(r"</(?:p|li|tr|h2|h3|table|ul|ol|div)>")
 
 
@@ -78,7 +78,8 @@ def page_blocks(page: dict) -> list[tuple[str, str]]:
         elif isinstance(node, list):
             for i, value in enumerate(node):
                 walk(value, f"{path}[{i}]")
-        elif isinstance(node, str) and re.search(r"[^\W\d_]", node) and text_of(node) not in seen and node not in ranged:
+        elif isinstance(node, str) and " " in node.strip() and re.search(r"[^\W\d_]", node) and text_of(node) not in seen and node not in ranged:
+            # One word ("ft", "stage") states no claim, and it is often part of a longer word on one page and not on the next.
             out.append((path, node))
 
     walk(page, "")
@@ -100,7 +101,10 @@ def page_statements(page: dict, sources: dict) -> list[dict]:
         claim = f"{rule['title']}. {text_of(rule['html'])}"
         also = [by_url[u.rstrip("/")] for u in links(rule["html"]) if u.rstrip("/") in by_url and by_url[u.rstrip("/")] != rule.get("src")]
         out.append({"id": sid("rule", f"{claim}|{rule.get('src')}"), "kind": "rule", "claim": claim, "source_id": rule.get("src"), "extra_source_ids": also, "place": f"rules[{i}]"})
-    for place, fragment in page_blocks(page):
+    # The source list prints each source's name and short name, so those are page text too.
+    cited = [i.get("src") for i in (page.get("line_items") or {}).get("items", [])] + [r.get("src") for r in (page.get("rules") or {}).get("items", [])]
+    named = [(f"source.{k}.{field}", sources[k][field]) for k in dict.fromkeys(page.get("source_ids", []) + cited) if k in sources for field in ("name", "short") if sources[k].get(field)]
+    for place, fragment in page_blocks(page) + named:
         claim = text_of(fragment)
         if claim:
             urls = [u for u in links(fragment) if u.rstrip("/") in by_url]
@@ -116,6 +120,8 @@ def law_statements(law: dict) -> list[dict]:
         if value:
             claim = text_of(value if isinstance(value, str) else json.dumps(value, ensure_ascii=False))
             out.append({"id": sid("law", f"{field}|{claim}"), "kind": "law", "claim": f"{field}: {claim}", "source_id": None, "place": field})
+    # Form words and hints come from the law record too, and print on each page.
+    out += [{"id": sid("prose", text_of(v)), "kind": "prose", "claim": text_of(v), "source_id": None, "place": f"ui.{k}"} for k, v in sorted((law.get("ui") or {}).items()) if isinstance(v, str) and re.search(r"[^\W\d_]", v)]
     status = (law.get("e_invoice") or {}).get("status")
     if status:
         out.append({"id": sid("law", f"e_invoice|{status}"), "kind": "law", "claim": f"e_invoice: {status}", "source_id": None, "place": "e_invoice", "source_url": law["e_invoice"].get("source")})

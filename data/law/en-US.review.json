@@ -187,6 +187,30 @@
     }
    ]
   },
+  "prose-007b7ea580ed": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "US Bureau of Labor Statistics, HVAC mechanics and installers",
+   "pages": [
+    "hvac-invoice#source.bls-hvac.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'HVAC mechanics and installers' is an occupation in a source title."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "cited source title"
+    }
+   ]
+  },
   "prose-0080cb028758": {
    "type": "advice",
    "kind": "prose",
@@ -280,6 +304,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Practical advice on invoicing per statement of work."
+    }
+   ]
+  },
+  "prose-018bb4ca5e2b": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "BLS wage survey, market research analysts",
+   "pages": [
+    "consulting-invoice#source.oes-mkt.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'market research analysts' wage survey title; no number stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source title without rule"
     }
    ]
   },
@@ -1256,6 +1304,31 @@
     }
    ]
   },
+  "prose-0caf6affeb20": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Housecall Pro, how to price electrical work",
+   "pages": [
+    "electrical-estimate#source.hcp-elec.name",
+    "electrical-invoice#source.hcp-elec.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'how to price electrical work' is a source title, no figure."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-0d527f93324c": {
    "type": "advice",
    "kind": "prose",
@@ -1277,6 +1350,31 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Section heading."
+    }
+   ]
+  },
+  "prose-0dbc011f277a": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Fixr",
+   "pages": [
+    "contractor-estimate#source.fixr-kit.short",
+    "roofing-estimate#source.fixr-roof.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Fixr' is only a source name."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name title, states no rule"
     }
    ]
   },
@@ -1523,30 +1621,6 @@
     }
    ]
   },
-  "prose-1038b79e1d29": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "JP-073",
-   "pages": [
-    "freelancer-invoice#form.sample.no"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "'JP-073' is a sample invoice number."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Form sample text"
-    }
-   ]
-  },
   "prose-1118011c0319": {
    "type": "advice",
    "kind": "prose",
@@ -1576,9 +1650,7 @@
    "kind": "prose",
    "claim": "Total",
    "pages": [
-    "consulting-invoice#example.total_label",
-    "freelance-writer-invoice#example.total_label",
-    "freelancer-invoice#example.total_label"
+    "data/law/en-US.json#ui.total_small"
    ],
    "checks": [
     {
@@ -1693,6 +1765,31 @@
     }
    ]
   },
+  "prose-118a1de59325": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Tidy",
+   "pages": [
+    "cleaning-estimate#source.tidy.short",
+    "cleaning-invoice#source.tidy.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Tidy' alone is a source name."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-11be8bfb2e76": {
    "type": "advice",
    "kind": "prose",
@@ -1714,6 +1811,79 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Instruction on drafting plant warranty terms."
+    }
+   ]
+  },
+  "prose-11cd18ad13d8": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Taskrabbit, handyman cost guide",
+   "pages": [
+    "handyman-invoice#source.tr-handy.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'handyman cost guide' is a title with no price."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
+  "prose-12cd1fce6cce": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "US Bureau of Labor Statistics, janitors and building cleaners",
+   "pages": [
+    "cleaning-estimate#source.bls-clean.name",
+    "cleaning-invoice#source.bls-clean.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'janitors and building cleaners' is an occupation named in a source title, no wage stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source title without rule"
+    }
+   ]
+  },
+  "prose-1303c06b0b01": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Type",
+   "pages": [
+    "data/law/en-US.json#ui.kind"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Type' is a bare field label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field"
     }
    ]
   },
@@ -1933,6 +2103,54 @@
     }
    ]
   },
+  "prose-1727748b9e7d": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Accepted by: ______________________ Date: ____________",
+   "pages": [
+    "data/law/en-US.json#ui.accept_line"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Accepted by' signature line is a form label, no legal claim."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form label"
+    }
+   ]
+  },
+  "prose-17555068adb2": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Estimate date",
+   "pages": [
+    "data/law/en-US.json#ui.est_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Estimate date' labels a date field."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field"
+    }
+   ]
+  },
   "prose-177429286e10": {
    "type": "advice",
    "kind": "prose",
@@ -1954,6 +2172,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Fictional sample scope of work."
+    }
+   ]
+  },
+  "prose-177c8da070b5": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Housecall Pro, roofing prices",
+   "pages": [
+    "roofing-estimate#source.hcp-roof.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'roofing prices' is a source title with no numbers."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
     }
    ]
   },
@@ -1979,6 +2221,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form sample text"
+    }
+   ]
+  },
+  "prose-18b20158a981": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "How much deposit should I ask for? Base it on your material cost. Check your state before you enter the percent.",
+   "pages": [
+    "electrical-estimate#faq[2]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Base it on your material cost' is an instruction; no amount or rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instructions on setting deposits"
     }
    ]
   },
@@ -2102,6 +2368,31 @@
     }
    ]
   },
+  "prose-1997ade11a57": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Homeyou, demolition cost",
+   "pages": [
+    "contractor-estimate#source.hy-demo.name",
+    "contractor-invoice#source.hy-demo.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'demolition cost' names a topic in a source title only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name title, states no rule"
+    }
+   ]
+  },
   "prose-19a63903ab0c": {
    "type": "advice",
    "kind": "prose",
@@ -2199,6 +2490,57 @@
     }
    ]
   },
+  "prose-1afa953b0605": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "US EPA, Renovation, Repair and Painting Program",
+   "pages": [
+    "painting-estimate#source.epa-rrp.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Renovation, Repair and Painting Program' is a program name, requirements not stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
+  "prose-1b0023b7175e": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "New Jersey N.J.A.C. 13:45A-16.2, home improvement practices",
+   "pages": [
+    "contractor-estimate#source.nj-16-2.name",
+    "contractor-invoice#source.nj-16-2.name",
+    "estimate-vs-invoice#source.nj-16-2.name",
+    "how-much-over-an-estimate#source.nj-16-2.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'home improvement practices' with a code cite is a title; it does not state the requirement."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name citation, states no rule"
+    }
+   ]
+  },
   "prose-1b09ef1d6243": {
    "type": "advice",
    "kind": "prose",
@@ -2220,30 +2562,6 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "section heading"
-    }
-   ]
-  },
-  "prose-1b8123753f19": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "If the price can change Say so in the wording Say so in the terms Issue a corrected invoice",
-   "pages": [
-    "estimate-vs-invoice#body[4]"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "'Say so in the wording' and 'Issue a corrected invoice' are instructions in a table row."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Instructions on actions to take if prices change."
     }
    ]
   },
@@ -2319,6 +2637,30 @@
     }
    ]
   },
+  "prose-1bb688caf244": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Homeyou, room addition cost",
+   "pages": [
+    "contractor-estimate#source.hy-room.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'room addition cost' is a source title without a figure."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name title, states no rule"
+    }
+   ]
+  },
   "prose-1bfc22bd42eb": {
    "type": "advice",
    "kind": "prose",
@@ -2391,30 +2733,6 @@
     }
    ]
   },
-  "prose-1d708bfd1911": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "MS-2026-41",
-   "pages": [
-    "freelance-writer-invoice#form.sample.no"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Sample invoice number 'MS-2026-41'."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Form sample text"
-    }
-   ]
-  },
   "prose-1da444b0e662": {
    "type": "advice",
    "kind": "prose",
@@ -2436,30 +2754,6 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Section heading."
-    }
-   ]
-  },
-  "prose-1e32b53db8a3": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "billing@example.com",
-   "pages": [
-    "consulting-invoice#form.sample.bizContact"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Form sample email 'billing@example.com'."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Fictional email address in form sample."
     }
    ]
   },
@@ -2535,6 +2829,31 @@
     }
    ]
   },
+  "prose-1ff2532d0e25": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "IRS 1099-NEC instructions",
+   "pages": [
+    "consulting-invoice#source.irs-1099.short",
+    "freelance-writer-invoice#source.irs-1099.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'1099-NEC instructions' is a cited document title with no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name title, states no rule"
+    }
+   ]
+  },
   "prose-202bbcf0277b": {
    "type": "advice",
    "kind": "prose",
@@ -2556,6 +2875,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Line item heading without rate amount"
+    }
+   ]
+  },
+  "prose-2044d04c0dba": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Parts and fees",
+   "pages": [
+    "data/law/en-US.json#ui.parts_total"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Parts and fees' is a field label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field"
     }
    ]
   },
@@ -2652,6 +2995,54 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Gives instructions on what to include and why."
+    }
+   ]
+  },
+  "prose-219682a7cce0": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "US Bureau of Labor Statistics, management analysts",
+   "pages": [
+    "consulting-invoice#source.bls-mgmt.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'US Bureau of Labor Statistics, management analysts' is a title, no rate."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source title without rule"
+    }
+   ]
+  },
+  "prose-21a096de5ac0": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "If the price can change Say so in the wording Say the price is fixed, or say what changes it Issue a corrected invoice",
+   "pages": [
+    "estimate-vs-invoice#body[4]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Say so in the wording' is an instruction for the reader."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instructions on invoice wording"
     }
    ]
   },
@@ -2778,6 +3169,104 @@
     }
    ]
   },
+  "prose-22ddbc0ca1d6": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "\"Fixed price for the scope above\" Add that a change of scope must be in writing.",
+   "pages": [
+    "how-much-over-an-estimate#body[2]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Add that a change of scope must be in writing' is an instruction on wording."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "drafting instruction to reader"
+    }
+   ]
+  },
+  "prose-22f8129a8582": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "US Bureau of Labor Statistics, roofers",
+   "pages": [
+    "roofing-estimate#source.bls-roof.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'roofers' is an occupation in a BLS title only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
+  "prose-234eade87541": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "The Pricer",
+   "pages": [
+    "contractor-estimate#source.pricer.short",
+    "contractor-invoice#source.pricer.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'The Pricer' is a bare source name."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name title, states no rule"
+    }
+   ]
+  },
+  "prose-235705f14345": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Texas Comptroller 94-116",
+   "pages": [
+    "hvac-invoice#source.tx-94116.short",
+    "plumbing-invoice#source.tx-94116.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Texas Comptroller 94-116' is a short label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "cited source title"
+    }
+   ]
+  },
   "prose-236b23866955": {
    "type": "advice",
    "kind": "prose",
@@ -2823,6 +3312,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "sample line item description"
+    }
+   ]
+  },
+  "prose-238b3136f260": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Already paid",
+   "pages": [
+    "data/law/en-US.json#ui.paid_line"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Already paid' names a field."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field"
     }
    ]
   },
@@ -2876,6 +3389,30 @@
    "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/what-kind-of-records-should-i-keep",
    "source_fetched": "2026-11-09",
    "source_sha256": "b05faf634719deb9df568c6d32e0f554af7fdc323d69e33cb39e82bdfab9519b"
+  },
+  "prose-244210e48437": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Project",
+   "pages": [
+    "data/law/en-US.json#ui.project"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label 'Project' just names a field."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form label"
+    }
+   ]
   },
   "prose-24714da8af8d": {
    "type": "advice",
@@ -3120,6 +3657,30 @@
     }
    ]
   },
+  "prose-26260ce89c99": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Texas Department of Agriculture",
+   "pages": [
+    "landscaping-estimate#source.tda.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Texas Department of Agriculture' is an agency name as source."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "cited source title"
+    }
+   ]
+  },
   "prose-262a0264328f": {
    "type": "advice",
    "kind": "prose",
@@ -3264,6 +3825,30 @@
     }
    ]
   },
+  "prose-274a27749ec2": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Deposit to start",
+   "pages": [
+    "data/law/en-US.json#ui.deposit_line"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Deposit to start' names a field, no rate given."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field"
+    }
+   ]
+  },
   "prose-278f9f693e3b": {
    "type": "advice",
    "kind": "prose",
@@ -3285,6 +3870,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form sample license number"
+    }
+   ]
+  },
+  "prose-279b8a60f444": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Added",
+   "pages": [
+    "data/law/en-US.json#ui.added"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label 'Added' names a column."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form label"
     }
    ]
   },
@@ -3504,6 +4113,78 @@
     }
    ]
   },
+  "prose-29bf28c717c1": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "US Bureau of Labor Statistics, construction managers",
+   "pages": [
+    "contractor-invoice#source.bls-mgr.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'construction managers' appears in a source title only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
+  "prose-29c5124012d2": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Remove this line",
+   "pages": [
+    "data/law/en-US.json#ui.remove"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Remove this line' is a button instruction."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form action label"
+    }
+   ]
+  },
+  "prose-2a801ebd2934": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "17 U.S.C. 204, execution of transfers of copyright ownership",
+   "pages": [
+    "freelance-writer-invoice#source.usc-204.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'execution of transfers of copyright ownership' is a statute heading, requirement not stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-2ab6cbba7516": {
    "type": "advice",
    "kind": "prose",
@@ -3675,6 +4356,55 @@
     }
    ]
   },
+  "prose-2be212dece61": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "California CSLB, C-27 Landscaping classification",
+   "pages": [
+    "landscaping-estimate#source.cslb-c27.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'C-27 Landscaping classification' is a title; license rules are not stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "cited source title"
+    }
+   ]
+  },
+  "prose-2c28aa88c851": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Texas Occupations Code 1301.351",
+   "pages": [
+    "plumbing-estimate#source.tsbpe.short",
+    "plumbing-invoice#source.tsbpe.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Occupations Code 1301.351' is a citation title only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-2c44f6aca810": {
    "type": "advice",
    "kind": "prose",
@@ -3795,6 +4525,30 @@
     }
    ]
   },
+  "prose-2ddd55670955": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Use \"estimate\" when hidden conditions can move the price, such as old pipe behind a wall. Use \"fixed price\" or \"quote\" when you have seen all the work and will hold the number. If a customer asks for a \"bid\", say in one sentence which of these your paper is.",
+   "pages": [
+    "estimate-vs-invoice#body[20]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Use \"estimate\"' gives wording instructions; no law or amount stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instructions on terminology for estimates and quotes"
+    }
+   ]
+  },
   "prose-2def5b02c8b9": {
    "type": "advice",
    "kind": "prose",
@@ -3816,6 +4570,80 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Sample item description"
+    }
+   ]
+  },
+  "prose-2e1466889f95": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Valid until",
+   "pages": [
+    "data/law/en-US.json#ui.valid_until"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Valid until' labels a date field, no period stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form field label"
+    }
+   ]
+  },
+  "prose-2e1fa3da37ec": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Total due",
+   "pages": [
+    "data/law/en-US.json#ui.gross"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Total due' is a field label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field"
+    }
+   ]
+  },
+  "prose-2e80c98c647b": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "16 CFR 429.0, FTC Cooling-Off Rule definitions",
+   "pages": [
+    "contractor-estimate#source.cfr-4290.name",
+    "plumbing-estimate#source.cfr-4290.name",
+    "roofing-estimate#source.cfr-4290.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'definitions' marks a regulation section title, no content stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name citation, states no rule"
     }
    ]
   },
@@ -3891,6 +4719,30 @@
     }
    ]
   },
+  "prose-2f83feb914c8": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Check this number: {value}",
+   "pages": [
+    "data/law/en-US.json#ui.bad_number"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Check this number' asks the reader to review a value; placeholder {value}."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label and instruction"
+    }
+   ]
+  },
   "prose-2f86a4bd4a1f": {
    "type": "advice",
    "kind": "prose",
@@ -3936,6 +4788,31 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Invented demo text in form sample."
+    }
+   ]
+  },
+  "prose-2fd6455dbd83": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "cubic yd",
+   "pages": [
+    "landscaping-estimate#form.sample.items[2].u",
+    "landscaping-estimate#line_items.items[3].unit"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form sample 'cubic yd' is a demo unit."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form sample text"
     }
    ]
   },
@@ -4180,30 +5057,6 @@
     }
    ]
   },
-  "prose-32023064c99b": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "jon@example.com",
-   "pages": [
-    "freelancer-invoice#form.sample.bizContact"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Placeholder email 'jon@example.com' is fiction."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Form sample text"
-    }
-   ]
-  },
   "prose-3204faa6eb18": {
    "type": "advice",
    "kind": "prose",
@@ -4233,7 +5086,7 @@
    "kind": "prose",
    "claim": "Labor",
    "pages": [
-    "estimate-generator#form.sample.items[0].d"
+    "data/law/en-US.json#ui.labor_total"
    ],
    "checks": [
     {
@@ -4249,6 +5102,31 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form sample item name."
+    }
+   ]
+  },
+  "prose-3284dd994d85": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Texas Comptroller, Publication 94-111, building cleaning",
+   "pages": [
+    "cleaning-estimate#source.tx-94111.name",
+    "cleaning-invoice#source.tx-94111.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Publication 94-111' is a document title; it does not state the tax rule."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source title without rule"
     }
    ]
   },
@@ -4297,6 +5175,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Instruction on when to send invoices."
+    }
+   ]
+  },
+  "prose-32e8369a9c4f": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Qty",
+   "pages": [
+    "data/law/en-US.json#ui.qty"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Qty' is a column label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form field label"
     }
    ]
   },
@@ -4373,30 +5275,6 @@
     }
    ]
   },
-  "prose-33cd8916347d": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "Freelancer",
-   "pages": [
-    "freelancer-invoice#crumb"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Single word 'Freelancer' is a label."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Role label"
-    }
-   ]
-  },
   "prose-33f15834a5fc": {
    "type": "advice",
    "kind": "prose",
@@ -4418,6 +5296,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "form sample text"
+    }
+   ]
+  },
+  "prose-341e46da0033": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "17 U.S.C. 101, definitions",
+   "pages": [
+    "freelance-writer-invoice#source.usc-101.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'definitions' is the heading of a statute section, no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
     }
    ]
   },
@@ -4648,6 +5550,30 @@
     }
    ]
   },
+  "prose-35ce64b616e4": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Sales tax",
+   "pages": [
+    "data/law/en-US.json#ui.taxLine"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Sales tax' is a field label, no rate stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form field label"
+    }
+   ]
+  },
   "prose-35de433a7906": {
    "type": "advice",
    "kind": "prose",
@@ -4694,31 +5620,6 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "heading describing what an estimate should include"
-    }
-   ]
-  },
-  "prose-3660315a9af3": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "Page",
-   "pages": [
-    "estimate-hub#table_headers[0]",
-    "invoice-hub#table_headers[0]"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Table column header 'Page'."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Table column header."
     }
    ]
   },
@@ -4797,12 +5698,21 @@
     }
    ]
   },
-  "prose-38e4289500bf": {
+  "prose-384c0b6dc96e": {
    "type": "advice",
    "kind": "prose",
-   "claim": "E-1001",
+   "claim": "IRS",
    "pages": [
-    "estimate-generator#form.sample.no"
+    "cleaning-invoice#source.irs-rec.short",
+    "freelancer-invoice#source.irs-rec.short",
+    "freelancer-invoice#source.irs-long.short",
+    "invoice-generator#source.irs-rec.short",
+    "invoice-hub#source.irs-rec.short",
+    "invoice-hub#source.irs-long.short",
+    "invoice-hub#source.irs-keep.short",
+    "plumbing-invoice#source.irs-rec.short",
+    "what-to-include-on-an-invoice#source.irs-rec.short",
+    "what-to-include-on-an-invoice#source.irs-long.short"
    ],
    "checks": [
     {
@@ -4810,14 +5720,63 @@
      "verdict": "advice",
      "date": "2026-11-09",
      "quote": "",
-     "note": "Sample number 'E-1001'."
+     "note": "'IRS' alone names a source."
     },
     {
      "checker": "gemini-sub/gemini-3.8-flash-high",
      "verdict": "advice",
      "date": "2026-11-09",
      "quote": "",
-     "note": "Form sample text"
+     "note": "source name"
+    }
+   ]
+  },
+  "prose-385cfdbc00ec": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Unit",
+   "pages": [
+    "data/law/en-US.json#ui.unit"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Unit' names a column."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form field label"
+    }
+   ]
+  },
+  "prose-38cbdaeb1062": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Florida Statutes 489.521",
+   "pages": [
+    "electrical-estimate#source.fl-489521.name",
+    "electrical-estimate#source.fl-489521.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Florida Statutes 489.521' is a citation title, no content stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
     }
    ]
   },
@@ -4938,30 +5897,6 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form sample text."
-    }
-   ]
-  },
-  "prose-3b5d82eb6dcb": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "Your paper says What the wording says",
-   "pages": [
-    "how-much-over-an-estimate#body[1]"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Table header 'Your paper says / What the wording says', no claim."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "table header"
     }
    ]
   },
@@ -5181,6 +6116,32 @@
     }
    ]
   },
+  "prose-3d2d548d87f4": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "IRS, how long should I keep records",
+   "pages": [
+    "freelancer-invoice#source.irs-long.name",
+    "invoice-hub#source.irs-long.name",
+    "what-to-include-on-an-invoice#source.irs-long.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'how long should I keep records' is a title; the answer is not given."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-3d7b3f03aeba": {
    "type": "advice",
    "kind": "prose",
@@ -5370,6 +6331,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form sample text"
+    }
+   ]
+  },
+  "prose-3f81bf10ac83": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "This Old House",
+   "pages": [
+    "contractor-estimate#source.toh-bath.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'This Old House' is a publisher name used as source."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name title, states no rule"
     }
    ]
   },
@@ -5589,6 +6574,30 @@
     }
    ]
   },
+  "prose-4192f62ab8a3": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "IRS estimated taxes",
+   "pages": [
+    "consulting-invoice#source.irs-est.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Short label 'IRS estimated taxes' points to a source."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name title, states no rule"
+    }
+   ]
+  },
   "prose-41d824baa7b9": {
    "type": "advice",
    "kind": "prose",
@@ -5610,30 +6619,6 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "fictional form sample payment line item"
-    }
-   ]
-  },
-  "prose-41e2774a0802": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "CCC000000",
-   "pages": [
-    "roofing-estimate#form.sample.bizId"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Sample 'CCC000000' is a placeholder license number."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Form sample text with placeholder license number."
     }
    ]
   },
@@ -5661,6 +6646,30 @@
     }
    ]
   },
+  "prose-42327701fe6c": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "BLS wage survey, interpreters and translators",
+   "pages": [
+    "freelancer-invoice#source.oes-tr.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'interpreters and translators' is a source title, no figure."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-426f7c5de78a": {
    "type": "advice",
    "kind": "prose",
@@ -5682,6 +6691,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Section heading describing page contents."
+    }
+   ]
+  },
+  "prose-427e96a79313": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "The PDF cannot print these letters: {chars}. Use the Word or Excel file for this text.",
+   "pages": [
+    "data/law/en-US.json#ui.pdf_lost"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Use the Word or Excel file' is an instruction about PDF limits, not a law."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form instruction and software limitation"
     }
    ]
   },
@@ -5730,6 +6763,31 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form sample text"
+    }
+   ]
+  },
+  "prose-433fa61c21e9": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Tidy, how much does house cleaning cost",
+   "pages": [
+    "cleaning-estimate#source.tidy.name",
+    "cleaning-invoice#source.tidy.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'how much does house cleaning cost' is a question-style source title, no answer given."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source title without rule"
     }
    ]
   },
@@ -5829,6 +6887,34 @@
     }
    ]
   },
+  "prose-448656a56d2a": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Homeyou",
+   "pages": [
+    "contractor-estimate#source.hy-room.short",
+    "contractor-estimate#source.hy-demo.short",
+    "contractor-invoice#source.hy-demo.short",
+    "hvac-invoice#source.hy-hvac.short",
+    "painting-estimate#source.hy-paint.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Homeyou' is just a source name."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name title, states no rule"
+    }
+   ]
+  },
   "prose-44bb99b32d0a": {
    "type": "advice",
    "kind": "prose",
@@ -5922,6 +7008,69 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Section heading or link label."
+    }
+   ]
+  },
+  "prose-45e1e1349bf4": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Fixr, kitchen remodel cost",
+   "pages": [
+    "contractor-estimate#source.fixr-kit.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'kitchen remodel cost' is a source title, no amount stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name title, states no rule"
+    }
+   ]
+  },
+  "prose-460c560f4303": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "sq ft",
+   "pages": [
+    "cleaning-invoice#line_items.items[7].unit",
+    "landscaping-estimate#form.sample.items[0].u",
+    "landscaping-estimate#form.sample.items[1].u",
+    "landscaping-estimate#line_items.items[4].unit",
+    "landscaping-estimate#line_items.items[5].unit",
+    "landscaping-estimate#line_items.items[6].unit",
+    "roofing-estimate#form.sample.items[1].u",
+    "roofing-estimate#form.sample.items[2].u",
+    "roofing-estimate#form.sample.items[3].u",
+    "roofing-estimate#example.items[3].u",
+    "roofing-estimate#line_items.items[0].unit",
+    "roofing-estimate#line_items.items[1].unit",
+    "roofing-estimate#line_items.items[2].unit",
+    "roofing-estimate#line_items.items[3].unit",
+    "roofing-estimate#line_items.items[5].unit",
+    "roofing-estimate#line_items.items[6].unit"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'sq ft' is a unit label, no claim."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "unit label on form"
     }
    ]
   },
@@ -6021,6 +7170,54 @@
     }
    ]
   },
+  "prose-47ac28416ffa": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "BLS wage survey, computer systems analysts",
+   "pages": [
+    "consulting-invoice#source.oes-sys.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'computer systems analysts' is a survey title, no rule."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source title without rule"
+    }
+   ]
+  },
+  "prose-4817ab21bded": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "CSLB Bulletin 24-07",
+   "pages": [
+    "handyman-invoice#source.cslb-2622.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'CSLB Bulletin 24-07' is a short source label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name citation"
+    }
+   ]
+  },
   "prose-489d84998ae0": {
    "type": "advice",
    "kind": "prose",
@@ -6117,12 +7314,13 @@
     }
    ]
   },
-  "prose-49e35840340f": {
+  "prose-4994fc6489ba": {
    "type": "advice",
    "kind": "prose",
-   "claim": "G-1502",
+   "claim": "Washington L&I, electrical permits, fees and inspections",
    "pages": [
-    "landscaping-estimate#form.sample.no"
+    "electrical-estimate#source.wa-lni.name",
+    "electrical-invoice#source.wa-lni.name"
    ],
    "checks": [
     {
@@ -6130,14 +7328,38 @@
      "verdict": "advice",
      "date": "2026-11-09",
      "quote": "",
-     "note": "'G-1502' is a sample estimate number."
+     "note": "'fees and inspections' names a page topic, no fee amount given."
     },
     {
      "checker": "gemini-sub/gemini-3.8-flash-high",
      "verdict": "advice",
      "date": "2026-11-09",
      "quote": "",
-     "note": "Form sample text"
+     "note": "source name"
+    }
+   ]
+  },
+  "prose-4997d25397b7": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Pay by",
+   "pages": [
+    "data/law/en-US.json#ui.pay_by"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Pay by' labels a date field, no deadline given."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field"
     }
    ]
   },
@@ -6162,6 +7384,31 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "template heading"
+    }
+   ]
+  },
+  "prose-4af1cf767746": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "The Pricer, building permit cost",
+   "pages": [
+    "contractor-estimate#source.pricer.name",
+    "contractor-invoice#source.pricer.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'building permit cost' is a title, no fee amount stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name title, states no rule"
     }
    ]
   },
@@ -6213,6 +7460,36 @@
     }
    ]
   },
+  "prose-4b4b56d1be8c": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Housecall Pro",
+   "pages": [
+    "cleaning-estimate#source.hcp-clean.short",
+    "cleaning-invoice#source.hcp-clean.short",
+    "electrical-estimate#source.hcp-elec.short",
+    "electrical-invoice#source.hcp-elec.short",
+    "handyman-invoice#source.hcp-handy.short",
+    "painting-estimate#source.hcp-paint.short",
+    "roofing-estimate#source.hcp-roof.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Housecall Pro' is only a company name used as a source title."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-4b6f5305bbdb": {
    "type": "advice",
    "kind": "prose",
@@ -6258,6 +7535,31 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Instructions for using sample prices."
+    }
+   ]
+  },
+  "prose-4c0e5dbfaf59": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Texas Comptroller 94-111",
+   "pages": [
+    "cleaning-estimate#source.tx-94111.short",
+    "cleaning-invoice#source.tx-94111.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Short label 'Texas Comptroller 94-111' only points to a publication."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
     }
    ]
   },
@@ -6309,6 +7611,54 @@
     }
    ]
   },
+  "prose-4c27777126c4": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "LawnLove",
+   "pages": [
+    "landscaping-estimate#source.ll-land.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'LawnLove' is only a source name."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "cited source title"
+    }
+   ]
+  },
+  "prose-4cd6aaee3a81": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "BLS wage survey, management analysts",
+   "pages": [
+    "consulting-invoice#source.oes-mgmt.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'management analysts' in a survey title, no wage figure given."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source title without rule"
+    }
+   ]
+  },
   "prose-4d0a45f3804c": {
    "type": "advice",
    "kind": "prose",
@@ -6330,6 +7680,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Page heading naming the template."
+    }
+   ]
+  },
+  "prose-4d606c8ccdce": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Taskrabbit, drywall repair cost guide",
+   "pages": [
+    "contractor-invoice#source.tr-dry.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'drywall repair cost guide' is a title with no price."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
     }
    ]
   },
@@ -6560,30 +7934,6 @@
     }
    ]
   },
-  "prose-4fa6b6f261a9": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "Q-1188",
-   "pages": [
-    "electrical-estimate#form.sample.no"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Sample quote number 'Q-1188'."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "form sample"
-    }
-   ]
-  },
   "prose-4fb00bf6848a": {
    "type": "advice",
    "kind": "prose",
@@ -6728,6 +8078,30 @@
     }
    ]
   },
+  "prose-52d6e3de4fa0": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "INVOICE",
+   "pages": [
+    "data/law/en-US.json#ui.title_invoice"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'INVOICE' is a document title heading."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "document type label"
+    }
+   ]
+  },
   "prose-53b478ccd053": {
    "type": "fact",
    "kind": "prose",
@@ -6776,31 +8150,6 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Advice on handling cleaning supply costs."
-    }
-   ]
-  },
-  "prose-53e6cdc30765": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "you@example.com",
-   "pages": [
-    "estimate-generator#form.sample.bizContact",
-    "invoice-generator#form.sample.bizContact"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Placeholder email 'you@example.com'."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Form sample text"
     }
    ]
   },
@@ -6873,30 +8222,6 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "describes sample template content"
-    }
-   ]
-  },
-  "prose-5489d116e06c": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "Use \"estimate\" when hidden conditions can move the price, such as old pipe behind a wall. Use \"fixed price\" or \"quote\" when you have seen all the work and will hold the number. Some customers ask for a \"bid\", which usually answers their own written scope. Say in one sentence which of these your paper is, because the customer will read the word as a promise.",
-   "pages": [
-    "estimate-vs-invoice#body[20]"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Instruction, page or form description; no rule stated."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Advice on choosing terminology."
     }
    ]
   },
@@ -6996,6 +8321,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "form sample text"
+    }
+   ]
+  },
+  "prose-55f05f32b4b0": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Live preview of your document",
+   "pages": [
+    "data/law/en-US.json#ui.preview"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Live preview of your document' describes the page area."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form interface description"
     }
    ]
   },
@@ -7387,6 +8736,54 @@
     }
    ]
   },
+  "prose-587864f78887": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "California SB 988, bill page",
+   "pages": [
+    "freelancer-invoice#source.ca-sb988.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'bill page' marks a title; it states no requirement."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name citation"
+    }
+   ]
+  },
+  "prose-59099da42875": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "New York General Business Law 1411",
+   "pages": [
+    "freelancer-invoice#source.ny-1411.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'General Business Law 1411' is a citation title only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name citation"
+    }
+   ]
+  },
   "prose-5926737a0d73": {
    "type": "advice",
    "kind": "prose",
@@ -7504,6 +8901,31 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Describes form button behavior and sample values."
+    }
+   ]
+  },
+  "prose-5c6ccd42787f": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "City of Kirkland",
+   "pages": [
+    "plumbing-estimate#source.kirkland.short",
+    "plumbing-invoice#source.kirkland.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'City of Kirkland' is a source name."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
     }
    ]
   },
@@ -7651,6 +9073,30 @@
     }
    ]
   },
+  "prose-5e162e849ded": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "LawnStarter",
+   "pages": [
+    "landscaping-estimate#source.ls-land.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'LawnStarter' is a bare source name."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "cited source title"
+    }
+   ]
+  },
   "prose-5e2475a769e8": {
    "type": "advice",
    "kind": "prose",
@@ -7696,30 +9142,6 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Describes download format."
-    }
-   ]
-  },
-  "prose-5ef5ef0364b6": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "all",
-   "pages": [
-    "estimate-generator#form.sample.taxOn"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Sample field value 'all'; no claim."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Form sample text."
     }
    ]
   },
@@ -7771,6 +9193,30 @@
     }
    ]
   },
+  "prose-5f4f50ce3f52": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "New York General Business Law 1410",
+   "pages": [
+    "freelancer-invoice#source.ny-1410.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'General Business Law 1410' is a citation title, content not stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name citation"
+    }
+   ]
+  },
   "prose-5f5612f23ac2": {
    "type": "advice",
    "kind": "prose",
@@ -7792,6 +9238,55 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Page title describing invoice template"
+    }
+   ]
+  },
+  "prose-5f5d03bac59b": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Texas Comptroller, Publication 94-116, real property repair and remodeling",
+   "pages": [
+    "hvac-invoice#source.tx-94116.name",
+    "plumbing-invoice#source.tx-94116.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'real property repair and remodeling' is a publication title, tax rule not stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "cited source title"
+    }
+   ]
+  },
+  "prose-5fc3b2074b57": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "CSLB C-27",
+   "pages": [
+    "landscaping-estimate#source.cslb-c27.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'CSLB C-27' is a short label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "cited source title"
     }
    ]
   },
@@ -7888,6 +9383,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form sample exclusions list"
+    }
+   ]
+  },
+  "prose-612236a4a6a4": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "FTC, how to avoid a home improvement scam",
+   "pages": [
+    "contractor-estimate#source.ftc-scam.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'how to avoid a home improvement scam' is a source title, not a claim."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name title, states no rule"
     }
    ]
   },
@@ -8034,30 +9553,6 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Sample estimate wording disclaimer and suggested text."
-    }
-   ]
-  },
-  "prose-6361fbd08f88": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "E-2204",
-   "pages": [
-    "plumbing-estimate#form.sample.no"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Sample number 'E-2204' is demo text."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Invented demo text in form sample."
     }
    ]
   },
@@ -8471,6 +9966,55 @@
     }
    ]
   },
+  "prose-67a13945d5f4": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Still missing",
+   "pages": [
+    "data/law/en-US.json#ui.missing"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Still missing' is a form status label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form interface status message"
+    }
+   ]
+  },
+  "prose-67ecb2fb0bc3": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Workiz, house cleaning cost guide",
+   "pages": [
+    "cleaning-estimate#source.workiz.name",
+    "cleaning-invoice#source.workiz.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'cost guide' is a source title; it gives no amount itself."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source title without rule"
+    }
+   ]
+  },
   "prose-6816f41482ce": {
    "type": "advice",
    "kind": "prose",
@@ -8660,6 +10204,54 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "heading on roofing questions"
+    }
+   ]
+  },
+  "prose-69844ef27bd8": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Not included",
+   "pages": [
+    "data/law/en-US.json#ui.exclusions"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Not included' labels an exclusions field."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field"
+    }
+   ]
+  },
+  "prose-69b9c83196c9": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Sample data is filled in. Change it to your job.",
+   "pages": [
+    "data/law/en-US.json#ui.sample_hint"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Change it to your job' instructs the reader about sample data."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instruction for using form"
     }
    ]
   },
@@ -8879,6 +10471,30 @@
     }
    ]
   },
+  "prose-6c288f472869": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "US EPA Section 608",
+   "pages": [
+    "hvac-invoice#source.epa-608.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'US EPA Section 608' is a short source label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "cited source title"
+    }
+   ]
+  },
   "prose-6ce29f0e9077": {
    "type": "advice",
    "kind": "prose",
@@ -8948,6 +10564,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Instructions for using the estimation tool."
+    }
+   ]
+  },
+  "prose-6d46ccd637c1": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Do customers need separate pricing for parts? Ask your state revenue office if you should show parts apart, and use the tax choice on the form.",
+   "pages": [
+    "electrical-estimate#faq[1]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Only instructs: 'Ask your state revenue office' and 'use the tax choice on the form'; states no rule or amount."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Poses a question and gives instructions to ask an office and use a form field."
     }
    ]
   },
@@ -9312,6 +10952,30 @@
     }
    ]
   },
+  "prose-705f0b7386a2": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "EFA",
+   "pages": [
+    "freelance-writer-invoice#source.efa.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'EFA' is an abbreviation of a source."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-70eda0c860d3": {
    "type": "advice",
    "kind": "prose",
@@ -9333,6 +10997,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Instructions for filling a field."
+    }
+   ]
+  },
+  "prose-71bdd372fc93": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Due date",
+   "pages": [
+    "data/law/en-US.json#ui.due_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Due date' names a date field, no deadline stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field"
     }
    ]
   },
@@ -9408,6 +11096,54 @@
     }
    ]
   },
+  "prose-734afefc32c7": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "California CSLB, C-33 Painting and Decorating classification",
+   "pages": [
+    "painting-estimate#source.cslb-c33.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'C-33 Painting and Decorating classification' is a title, no license rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
+  "prose-7354f1d390a4": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Federal Register, Doc 2026-10387",
+   "pages": [
+    "hvac-invoice#source.fr-2026.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Doc 2026-10387' is a document number only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "cited source title"
+    }
+   ]
+  },
   "prose-74157d5ee298": {
    "type": "advice",
    "kind": "prose",
@@ -9456,12 +11192,13 @@
     }
    ]
   },
-  "prose-74f551153f0a": {
+  "prose-74d9a8c485aa": {
    "type": "advice",
    "kind": "prose",
-   "claim": "How much deposit should I ask for? It depends on the state and your material cost. Check your state before you enter the percent.",
+   "claim": "Cost to Build a House",
    "pages": [
-    "electrical-estimate#faq[2]"
+    "contractor-estimate#source.ctbh.short",
+    "contractor-invoice#source.ctbh.short"
    ],
    "checks": [
     {
@@ -9469,14 +11206,14 @@
      "verdict": "advice",
      "date": "2026-11-09",
      "quote": "",
-     "note": "Tells reader to check state; no rule stated."
+     "note": "'Cost to Build a House' is the site name used as a source."
     },
     {
      "checker": "gemini-sub/gemini-3.8-flash-high",
      "verdict": "advice",
      "date": "2026-11-09",
      "quote": "",
-     "note": "Advises checking state rules before choosing a deposit percentage."
+     "note": "source name title, states no rule"
     }
    ]
   },
@@ -9525,6 +11262,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Instructions for using the form"
+    }
+   ]
+  },
+  "prose-75ad4ff3b032": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Invoice no.",
+   "pages": [
+    "data/law/en-US.json#ui.inv_no"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Invoice no.' labels the number field."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field"
     }
    ]
   },
@@ -9624,6 +11385,30 @@
     }
    ]
   },
+  "prose-76f9e37ca38a": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Service address",
+   "pages": [
+    "data/law/en-US.json#ui.service_at"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Service address' is a field name."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form field label"
+    }
+   ]
+  },
   "prose-773044b62816": {
    "type": "advice",
    "kind": "prose",
@@ -9648,6 +11433,30 @@
     }
    ]
   },
+  "prose-77342090cc3f": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "IRS, recordkeeping",
+   "pages": [
+    "invoice-hub#source.irs-keep.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'recordkeeping' names an IRS page topic only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "cited source title"
+    }
+   ]
+  },
   "prose-773baf230a35": {
    "type": "advice",
    "kind": "prose",
@@ -9669,6 +11478,54 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form label."
+    }
+   ]
+  },
+  "prose-77470569f797": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Do I need sales tax on a handyman invoice? Leave the rate empty when you do not charge it. Ask your state revenue office if you are not sure.",
+   "pages": [
+    "handyman-invoice#faq[2]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Leave the rate empty' and 'Ask your state revenue office' are instructions, no tax rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instructions on form usage and seeking state advice"
+    }
+   ]
+  },
+  "prose-77a794902493": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "LawnLove, lawn care cost",
+   "pages": [
+    "landscaping-estimate#source.ll-land.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'lawn care cost' is a title, no figure."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "cited source title"
     }
    ]
   },
@@ -9966,6 +11823,30 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "6d71d9f619a8adfb0b8c922377ff6701f2e95588a90e2d303e53bea6a70dcd88"
   },
+  "prose-79e1d925e79c": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "ESTIMATE",
+   "pages": [
+    "data/law/en-US.json#ui.title_estimate"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'ESTIMATE' is a document title heading."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "document type label"
+    }
+   ]
+  },
   "prose-7a08c68c3b22": {
    "type": "advice",
    "kind": "prose",
@@ -10110,12 +11991,12 @@
     }
    ]
   },
-  "prose-7ba60e7c03c8": {
+  "prose-7bd8d51e25f7": {
    "type": "advice",
    "kind": "prose",
-   "claim": "HB-204-2",
+   "claim": "Florida Statutes 489.103",
    "pages": [
-    "contractor-invoice#form.sample.no"
+    "handyman-invoice#source.fl-489103.name"
    ],
    "checks": [
     {
@@ -10123,14 +12004,14 @@
      "verdict": "advice",
      "date": "2026-11-09",
      "quote": "",
-     "note": "Sample invoice number 'HB-204-2' is a placeholder code."
+     "note": "'Florida Statutes 489.103' is a citation title only."
     },
     {
      "checker": "gemini-sub/gemini-3.8-flash-high",
      "verdict": "advice",
      "date": "2026-11-09",
      "quote": "",
-     "note": "fictional form sample invoice number"
+     "note": "source name citation"
     }
    ]
   },
@@ -10519,6 +12400,35 @@
     }
    ]
   },
+  "prose-814960d8d98f": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "IRS, what kind of records should I keep",
+   "pages": [
+    "cleaning-invoice#source.irs-rec.name",
+    "freelancer-invoice#source.irs-rec.name",
+    "invoice-generator#source.irs-rec.name",
+    "invoice-hub#source.irs-rec.name",
+    "plumbing-invoice#source.irs-rec.name",
+    "what-to-include-on-an-invoice#source.irs-rec.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'what kind of records should I keep' is the title of an IRS page, not a stated rule."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source title without rule"
+    }
+   ]
+  },
   "prose-81dd2c8affe8": {
    "type": "advice",
    "kind": "prose",
@@ -10543,12 +12453,12 @@
     }
    ]
   },
-  "prose-81e5011484b2": {
+  "prose-81f599531f7c": {
    "type": "advice",
    "kind": "prose",
-   "claim": "H-3381",
+   "claim": "NYC Consumer and Worker Protection, freelancer workers",
    "pages": [
-    "hvac-invoice#form.sample.no"
+    "freelancer-invoice#source.nyc-free.name"
    ],
    "checks": [
     {
@@ -10556,14 +12466,14 @@
      "verdict": "advice",
      "date": "2026-11-09",
      "quote": "",
-     "note": "'H-3381' is a sample invoice number."
+     "note": "'freelancer workers' is part of an agency page title, no rule."
     },
     {
      "checker": "gemini-sub/gemini-3.8-flash-high",
      "verdict": "advice",
      "date": "2026-11-09",
      "quote": "",
-     "note": "Sample invoice number"
+     "note": "source name"
     }
    ]
   },
@@ -10639,6 +12549,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form sample text"
+    }
+   ]
+  },
+  "prose-83c1834a54fa": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Parts / fee",
+   "pages": [
+    "data/law/en-US.json#ui.material"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Parts / fee' is a column label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field"
     }
    ]
   },
@@ -10861,30 +12795,6 @@
     }
    ]
   },
-  "prose-85441a43c7cb": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "Permit",
-   "pages": [
-    "contractor-estimate#form.sample.items[4].d"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Form sample line 'Permit'; no fee or rule."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Form sample line item"
-    }
-   ]
-  },
   "prose-8549609e717a": {
    "type": "advice",
    "kind": "prose",
@@ -11029,6 +12939,31 @@
     }
    ]
   },
+  "prose-874e23368e77": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Texas State Board of Plumbing Examiners, Plumbing License Law",
+   "pages": [
+    "plumbing-estimate#source.tsbpe.name",
+    "plumbing-invoice#source.tsbpe.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Plumbing License Law' is a title; it does not say what the law requires."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-875051eeb06a": {
    "type": "advice",
    "kind": "prose",
@@ -11050,6 +12985,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Gives instructions on when to enter a tax rate on the form."
+    }
+   ]
+  },
+  "prose-875803a0a8df": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "BLS wage survey, public relations specialists",
+   "pages": [
+    "consulting-invoice#source.oes-pr.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'public relations specialists' appears in a source title only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source title without rule"
     }
    ]
   },
@@ -11197,6 +13156,31 @@
     }
    ]
   },
+  "prose-88636a9e4cfd": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "IRS, instructions for Forms 1099-MISC and 1099-NEC",
+   "pages": [
+    "consulting-invoice#source.irs-1099.name",
+    "freelance-writer-invoice#source.irs-1099.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Forms 1099-MISC and 1099-NEC' is an instruction document title, not a stated rule."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source title without rule"
+    }
+   ]
+  },
   "prose-8895af7910d9": {
    "type": "advice",
    "kind": "prose",
@@ -11221,12 +13205,12 @@
     }
    ]
   },
-  "prose-889d33a89523": {
+  "prose-88b1fe38cf4e": {
    "type": "advice",
    "kind": "prose",
-   "claim": "Do customers need separate pricing for parts? Not always. A lot price is simple. Show parts apart when your state taxes them apart from labor, and use the tax choice on the form.",
+   "claim": "FTC",
    "pages": [
-    "electrical-estimate#faq[1]"
+    "contractor-estimate#source.ftc-scam.short"
    ],
    "checks": [
     {
@@ -11234,14 +13218,14 @@
      "verdict": "advice",
      "date": "2026-11-09",
      "quote": "",
-     "note": "Conditional instruction about form use."
+     "note": "'FTC' is only an abbreviated source name."
     },
     {
      "checker": "gemini-sub/gemini-3.8-flash-high",
      "verdict": "advice",
      "date": "2026-11-09",
      "quote": "",
-     "note": "Advises on parts pricing strategies and explains form tax options."
+     "note": "source name"
     }
    ]
   },
@@ -11290,6 +13274,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form sample text."
+    }
+   ]
+  },
+  "prose-89239eb3b0ed": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Estimate no.",
+   "pages": [
+    "data/law/en-US.json#ui.est_no"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Estimate no.' labels a number field."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field"
     }
    ]
   },
@@ -11437,6 +13445,30 @@
     }
    ]
   },
+  "prose-8b552c737bcf": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "BLS wage survey, web developers",
+   "pages": [
+    "freelancer-invoice#source.oes-web.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'web developers' in a survey title, no wage."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-8b6a70774d29": {
    "type": "advice",
    "kind": "prose",
@@ -11508,6 +13540,57 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Section heading."
+    }
+   ]
+  },
+  "prose-8c2113feafb1": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "California CSLB, Home Improvement Contracts consumer guide",
+   "pages": [
+    "contractor-estimate#source.cslb-guide.name",
+    "contractor-invoice#source.cslb-guide.name",
+    "how-much-over-an-estimate#source.cslb-guide.name",
+    "roofing-estimate#source.cslb-guide.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'consumer guide' is a title of a CSLB page, no rule quoted."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name title, states no rule"
+    }
+   ]
+  },
+  "prose-8c659fe8cb2e": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Rights",
+   "pages": [
+    "data/law/en-US.json#ui.rights"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Rights' names a field, states no copyright rule."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form field label"
     }
    ]
   },
@@ -11802,6 +13885,54 @@
     }
    ]
   },
+  "prose-901046e9033f": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "All the main fields are filled in.",
+   "pages": [
+    "data/law/en-US.json#ui.complete"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'All the main fields are filled in' is a status message about the form."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form interface status message"
+    }
+   ]
+  },
+  "prose-9052b88cbc2f": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Editorial Freelancers Association, 2026 rate chart",
+   "pages": [
+    "freelance-writer-invoice#source.efa.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'2026 rate chart' is a source title; no rate is quoted."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-9075472e3005": {
    "type": "advice",
    "kind": "prose",
@@ -11851,6 +13982,30 @@
     }
    ]
   },
+  "prose-90f8bbea99aa": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "California CSLB, Industry Bulletin 24-07 on AB 2622",
+   "pages": [
+    "handyman-invoice#source.cslb-2622.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Industry Bulletin 24-07 on AB 2622' is a document title, no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name citation"
+    }
+   ]
+  },
   "prose-91a672b0e413": {
    "type": "advice",
    "kind": "prose",
@@ -11897,6 +14052,33 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Describes when to use a specific template."
+    }
+   ]
+  },
+  "prose-928abcf9d1c0": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "N.J.A.C. 13:45A-16.2",
+   "pages": [
+    "contractor-estimate#source.nj-16-2.short",
+    "contractor-invoice#source.nj-16-2.short",
+    "estimate-vs-invoice#source.nj-16-2.short",
+    "how-much-over-an-estimate#source.nj-16-2.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'N.J.A.C. 13:45A-16.2' is only a citation label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name citation, states no rule"
     }
    ]
   },
@@ -11996,6 +14178,30 @@
     }
    ]
   },
+  "prose-93be45b69f9d": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "CSLB C-33",
+   "pages": [
+    "painting-estimate#source.cslb-c33.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'CSLB C-33' is a bare label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-93eb1a61cb91": {
    "type": "advice",
    "kind": "prose",
@@ -12065,30 +14271,6 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "section heading"
-    }
-   ]
-  },
-  "prose-943267732c80": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "P-908",
-   "pages": [
-    "painting-estimate#form.sample.no"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Sample estimate number 'P-908' is just demo text."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "form sample text"
     }
    ]
   },
@@ -12188,6 +14370,30 @@
     }
    ]
   },
+  "prose-96041ff3ff29": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "BLS wage survey, film and video editors",
+   "pages": [
+    "freelancer-invoice#source.oes-video.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'film and video editors' is a title without data."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-9612ddbfa0db": {
    "type": "advice",
    "kind": "prose",
@@ -12209,6 +14415,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Section heading."
+    }
+   ]
+  },
+  "prose-967c7fd5dc88": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "BILL TO",
+   "pages": [
+    "data/law/en-US.json#ui.bill_to"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'BILL TO' is a document heading label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field"
     }
    ]
   },
@@ -12305,6 +14535,31 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Line item heading without prices"
+    }
+   ]
+  },
+  "prose-98bea40514bc": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Texas TDLR, electrical compliance guide",
+   "pages": [
+    "electrical-estimate#source.tdlr.name",
+    "electrical-invoice#source.tdlr.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'electrical compliance guide' is a document title, not a rule statement."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
     }
    ]
   },
@@ -12548,6 +14803,54 @@
     }
    ]
   },
+  "prose-9b27354ccbf7": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Planned start",
+   "pages": [
+    "data/law/en-US.json#ui.start_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Planned start' labels a date field."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form field label"
+    }
+   ]
+  },
+  "prose-9b4615bfbc7b": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "LawnStarter, landscaping price guide",
+   "pages": [
+    "landscaping-estimate#source.ls-land.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'landscaping price guide' is a source title with no amount."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "cited source title"
+    }
+   ]
+  },
   "prose-9b6d058ec707": {
    "type": "advice",
    "kind": "prose",
@@ -12737,6 +15040,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Sample contact fields and explanation of why it matters."
+    }
+   ]
+  },
+  "prose-9d0b84ae5b21": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Is a plumbing estimate the same as a quote? Write \"estimate\" and state how the price can change, or write \"fixed price\" if it will not change.",
+   "pages": [
+    "plumbing-estimate#faq[0]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Write \"estimate\" and state how the price can change' is wording instruction only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instructions on how to write estimate details"
     }
    ]
   },
@@ -13515,12 +15842,12 @@
     }
    ]
   },
-  "prose-a458cf28da78": {
+  "prose-a45f92091e59": {
    "type": "advice",
    "kind": "prose",
-   "claim": "DP-1109",
+   "claim": "17 U.S.C. 101",
    "pages": [
-    "consulting-invoice#form.sample.no"
+    "freelance-writer-invoice#source.usc-101.short"
    ],
    "checks": [
     {
@@ -13528,14 +15855,14 @@
      "verdict": "advice",
      "date": "2026-11-09",
      "quote": "",
-     "note": "Form sample invoice number 'DP-1109'."
+     "note": "'17 U.S.C. 101' is a citation label only."
     },
     {
      "checker": "gemini-sub/gemini-3.8-flash-high",
      "verdict": "advice",
      "date": "2026-11-09",
      "quote": "",
-     "note": "Fictional invoice number in form sample."
+     "note": "source name citation"
     }
    ]
   },
@@ -13707,6 +16034,30 @@
     }
    ]
   },
+  "prose-a6a9cedeeea3": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "US EPA, Section 608 technician certification",
+   "pages": [
+    "hvac-invoice#source.epa-608.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'technician certification' is a page title; it states no requirement."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "cited source title"
+    }
+   ]
+  },
   "prose-a6ad7bdf1a22": {
    "type": "advice",
    "kind": "prose",
@@ -13728,6 +16079,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Describes sample content"
+    }
+   ]
+  },
+  "prose-a7600ab6edf7": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Your business",
+   "pages": [
+    "data/law/en-US.json#ui.your_biz"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Your business' labels the sender section."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form field label"
     }
    ]
   },
@@ -13755,12 +16130,12 @@
     }
    ]
   },
-  "prose-a813d5642c0c": {
+  "prose-a7a2df69cb8e": {
    "type": "advice",
    "kind": "prose",
-   "claim": "maya@example.com",
+   "claim": "California SB 988 bill page",
    "pages": [
-    "freelance-writer-invoice#form.sample.bizContact"
+    "freelancer-invoice#source.ca-sb988.short"
    ],
    "checks": [
     {
@@ -13768,14 +16143,64 @@
      "verdict": "advice",
      "date": "2026-11-09",
      "quote": "",
-     "note": "Placeholder email 'maya@example.com'."
+     "note": "'California SB 988 bill page' is a source label only."
     },
     {
      "checker": "gemini-sub/gemini-3.8-flash-high",
      "verdict": "advice",
      "date": "2026-11-09",
      "quote": "",
-     "note": "Form sample text"
+     "note": "source name citation"
+    }
+   ]
+  },
+  "prose-a827455763b2": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "linear ft",
+   "pages": [
+    "roofing-estimate#line_items.items[8].unit"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'linear ft' is a unit label only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "unit label fragment"
+    }
+   ]
+  },
+  "prose-a9271c2b1174": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "16 CFR 429.1, FTC Cooling-Off Rule",
+   "pages": [
+    "contractor-estimate#source.cfr-429.name",
+    "plumbing-estimate#source.cfr-429.name",
+    "roofing-estimate#source.cfr-429.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'FTC Cooling-Off Rule' appears as part of a title, not a stated rule."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name citation, states no rule"
     }
    ]
   },
@@ -13830,6 +16255,30 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "3e87ccabbe4cbbf8ff51681a007425d05d028bf82f2053f79fa4c186f72e5eed"
   },
+  "prose-a953b08e603b": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "US Bureau of Labor Statistics, general maintenance and repair workers",
+   "pages": [
+    "handyman-invoice#source.bls-handy.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'general maintenance and repair workers' is an occupation title, no wage."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-a96d397a929b": {
    "type": "advice",
    "kind": "prose",
@@ -13878,6 +16327,38 @@
     }
    ]
   },
+  "prose-a9e297340cec": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Taskrabbit",
+   "pages": [
+    "cleaning-invoice#source.tr-clean.short",
+    "contractor-invoice#source.tr-dry.short",
+    "electrical-estimate#source.tr-ev.short",
+    "electrical-invoice#source.tr-ev.short",
+    "handyman-invoice#source.tr-handy.short",
+    "landscaping-estimate#source.tr-land.short",
+    "painting-estimate#source.tr-paint.short",
+    "plumbing-estimate#source.tr-plumb.short",
+    "plumbing-invoice#source.tr-plumb.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Taskrabbit' is just a source name."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-aa83825b5160": {
    "type": "advice",
    "kind": "prose",
@@ -13923,6 +16404,31 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Recommendation for handling unforeseen damage in scope."
+    }
+   ]
+  },
+  "prose-aadc9b791dec": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Texas TDLR",
+   "pages": [
+    "electrical-estimate#source.tdlr.short",
+    "electrical-invoice#source.tdlr.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Texas TDLR' is a short source label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
     }
    ]
   },
@@ -14098,6 +16604,30 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "46c551f3bfbaeb5fb88e24b59cd7e34e3666191486a29f68819a3388fe8db3f9"
   },
+  "prose-ac8edc36c5cf": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Taskrabbit, house cleaning cost guide",
+   "pages": [
+    "cleaning-invoice#source.tr-clean.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Taskrabbit, house cleaning cost guide' is a title without any stated price."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source title without rule"
+    }
+   ]
+  },
   "prose-acaf07c12e9d": {
    "type": "advice",
    "kind": "prose",
@@ -14119,6 +16649,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Template title and format instructions"
+    }
+   ]
+  },
+  "prose-acb169653336": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Homeyou, HVAC cost guide",
+   "pages": [
+    "hvac-invoice#source.hy-hvac.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'HVAC cost guide' is a source title, no price."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "cited source title"
     }
    ]
   },
@@ -14170,6 +16724,30 @@
     }
    ]
   },
+  "prose-ad5c69152e66": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Service date",
+   "pages": [
+    "data/law/en-US.json#ui.service_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Service date' names a date field."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form field label"
+    }
+   ]
+  },
   "prose-ad6e2b2f95d0": {
    "type": "advice",
    "kind": "prose",
@@ -14215,6 +16793,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "section heading"
+    }
+   ]
+  },
+  "prose-adff06379d7b": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "NYC DCWP",
+   "pages": [
+    "freelancer-invoice#source.nyc-free.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'NYC DCWP' is an agency abbreviation as source."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
     }
    ]
   },
@@ -14314,31 +16916,6 @@
     }
    ]
   },
-  "prose-afba1a0ce1c8": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "Materials",
-   "pages": [
-    "estimate-generator#form.sample.items[1].d",
-    "invoice-generator#form.sample.items[1].d"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Sample line name 'Materials'."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Form sample item name."
-    }
-   ]
-  },
   "prose-afca6405c4a0": {
    "type": "advice",
    "kind": "prose",
@@ -14435,6 +17012,30 @@
     }
    ]
   },
+  "prose-b06e1e5f13e6": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "US Bureau of Labor Statistics, plumbers, pipefitters and steamfitters",
+   "pages": [
+    "plumbing-invoice#source.bls-plumb.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'plumbers, pipefitters and steamfitters' is a source title, no wage."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-b07abdfa3772": {
    "type": "advice",
    "kind": "prose",
@@ -14483,6 +17084,32 @@
     }
    ]
   },
+  "prose-b1055bc3bfce": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "16 CFR 429.0",
+   "pages": [
+    "contractor-estimate#source.cfr-4290.short",
+    "plumbing-estimate#source.cfr-4290.short",
+    "roofing-estimate#source.cfr-4290.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'16 CFR 429.0' is a citation label only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name citation, states no rule"
+    }
+   ]
+  },
   "prose-b1096f8c787e": {
    "type": "advice",
    "kind": "prose",
@@ -14504,6 +17131,55 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Gives quoting instructions and form usage guidance."
+    }
+   ]
+  },
+  "prose-b11cd08a71d7": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "17 U.S.C. 204",
+   "pages": [
+    "freelance-writer-invoice#source.usc-204.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'17 U.S.C. 204' is a bare citation."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
+  "prose-b1207cde5090": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "City of Kirkland, WA, water heater replacement permits",
+   "pages": [
+    "plumbing-estimate#source.kirkland.name",
+    "plumbing-invoice#source.kirkland.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'water heater replacement permits' is a city page title, no rule quoted."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
     }
    ]
   },
@@ -14555,6 +17231,30 @@
     }
    ]
   },
+  "prose-b17d0e62518d": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "BLS wage survey, accountants and auditors",
+   "pages": [
+    "consulting-invoice#source.oes-acc.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'accountants and auditors' names a wage survey page, no claim."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source title without rule"
+    }
+   ]
+  },
   "prose-b1ac172e35a7": {
    "type": "advice",
    "kind": "prose",
@@ -14576,6 +17276,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Section heading"
+    }
+   ]
+  },
+  "prose-b1cf53a02467": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "US Bureau of Labor Statistics, construction laborers and helpers",
+   "pages": [
+    "contractor-invoice#source.bls-cons.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'construction laborers and helpers' is an occupation in a source title, no wage."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
     }
    ]
   },
@@ -14624,30 +17348,6 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Business advice for estimating sight-unseen properties."
-    }
-   ]
-  },
-  "prose-b2b6afc730b1": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "Is a plumbing estimate the same as a quote? People use both words. A fixed price with a scope acts like a quote. Write \"estimate\" and state how the price can change, or write \"fixed price\" if it will not change.",
-   "pages": [
-    "plumbing-estimate#faq[0]"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Wording advice."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Guidance on drafting estimates versus fixed-price quotes."
     }
    ]
   },
@@ -14843,6 +17543,31 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "section heading"
+    }
+   ]
+  },
+  "prose-b5248cdcc1e6": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Housecall Pro, house cleaning prices",
+   "pages": [
+    "cleaning-estimate#source.hcp-clean.name",
+    "cleaning-invoice#source.hcp-clean.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Title of a cited source, 'house cleaning prices' names a topic and states no figure."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source title without rule"
     }
    ]
   },
@@ -15207,6 +17932,55 @@
     }
    ]
   },
+  "prose-b96935f63215": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Florida Statutes 489.147",
+   "pages": [
+    "roofing-estimate#source.fl-489147.name",
+    "roofing-estimate#source.fl-489147.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Florida Statutes 489.147' is a citation title, no content."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
+  "prose-b97789a24938": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Taxed",
+   "pages": [
+    "data/law/en-US.json#ui.taxed"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Taxed' labels a checkbox column."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form field label"
+    }
+   ]
+  },
   "prose-b9874e8577b0": {
    "type": "advice",
    "kind": "prose",
@@ -15454,6 +18228,30 @@
     }
    ]
   },
+  "prose-bc2810e41d24": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "NY GBL 1411",
+   "pages": [
+    "freelancer-invoice#source.ny-1411.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'NY GBL 1411' is a bare citation."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name citation"
+    }
+   ]
+  },
   "prose-bc6a38606add": {
    "type": "advice",
    "kind": "prose",
@@ -15475,6 +18273,33 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form sample text"
+    }
+   ]
+  },
+  "prose-bcb92201882a": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "IRS, about Form W-9",
+   "pages": [
+    "consulting-invoice#source.irs-w9.name",
+    "freelance-writer-invoice#source.irs-w9.name",
+    "freelancer-invoice#source.irs-w9.name",
+    "what-to-include-on-an-invoice#source.irs-w9.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'about Form W-9' is an IRS page title only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name title, states no rule"
     }
    ]
   },
@@ -15601,6 +18426,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form label naming a field."
+    }
+   ]
+  },
+  "prose-be5b4033f9ac": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Fixr, roof replacement cost",
+   "pages": [
+    "roofing-estimate#source.fixr-roof.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'roof replacement cost' is a title, no stated amount."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
     }
    ]
   },
@@ -16120,6 +18969,30 @@
     }
    ]
   },
+  "prose-c3ef8f8e96e8": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "BLS wage survey, human resources specialists",
+   "pages": [
+    "consulting-invoice#source.oes-hr.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'human resources specialists' is a source title only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source title without rule"
+    }
+   ]
+  },
   "prose-c4109c55738b": {
    "type": "advice",
    "kind": "prose",
@@ -16168,6 +19041,31 @@
     }
    ]
   },
+  "prose-c44671eaf40b": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Cost to Build a House, general contractor fee guide",
+   "pages": [
+    "contractor-estimate#source.ctbh.name",
+    "contractor-invoice#source.ctbh.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'general contractor fee guide' is a title and gives no rate."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name title, states no rule"
+    }
+   ]
+  },
   "prose-c4695b250f0b": {
    "type": "advice",
    "kind": "prose",
@@ -16189,6 +19087,40 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Section heading giving guidance."
+    }
+   ]
+  },
+  "prose-c4b0b5f65473": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "BLS",
+   "pages": [
+    "cleaning-estimate#source.bls-clean.short",
+    "cleaning-invoice#source.bls-clean.short",
+    "consulting-invoice#source.bls-mgmt.short",
+    "contractor-invoice#source.bls-cons.short",
+    "contractor-invoice#source.bls-mgr.short",
+    "electrical-invoice#source.bls-elec.short",
+    "freelance-writer-invoice#source.bls-writer.short",
+    "handyman-invoice#source.bls-handy.short",
+    "hvac-invoice#source.bls-hvac.short",
+    "plumbing-invoice#source.bls-plumb.short",
+    "roofing-estimate#source.bls-roof.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'BLS' is only an abbreviation of a source."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
     }
    ]
   },
@@ -16264,6 +19196,31 @@
     }
    ]
   },
+  "prose-c5f0a8c32100": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Taskrabbit, plumbing cost guide",
+   "pages": [
+    "plumbing-estimate#source.tr-plumb.name",
+    "plumbing-invoice#source.tr-plumb.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'plumbing cost guide' is a source title, no amount."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-c5f97907b2e1": {
    "type": "advice",
    "kind": "prose",
@@ -16312,6 +19269,30 @@
     }
    ]
   },
+  "prose-c62eff0887f1": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "PREPARED FOR",
+   "pages": [
+    "data/law/en-US.json#ui.prepared_for"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'PREPARED FOR' is a heading label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field"
+    }
+   ]
+  },
   "prose-c6617da79ae8": {
    "type": "advice",
    "kind": "prose",
@@ -16333,6 +19314,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Guidance on payment schedules and checking local limits"
+    }
+   ]
+  },
+  "prose-c6ef6a20591c": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Federal Register 2026-10387",
+   "pages": [
+    "hvac-invoice#source.fr-2026.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Federal Register 2026-10387' is a bare citation."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "cited source title"
     }
    ]
   },
@@ -16483,6 +19488,54 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "2eb647c177eb22cd7f87b8f99b379491536afe14bb74dde840958dfb7d8936c6"
   },
+  "prose-c8e30ee30227": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Invoice date",
+   "pages": [
+    "data/law/en-US.json#ui.inv_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Invoice date' names a field only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field"
+    }
+   ]
+  },
+  "prose-c9046f7a37ad": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Description",
+   "pages": [
+    "data/law/en-US.json#ui.desc"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Description' is a column label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field"
+    }
+   ]
+  },
   "prose-c90b89305126": {
    "type": "advice",
    "kind": "prose",
@@ -16555,6 +19608,54 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Page title or description."
+    }
+   ]
+  },
+  "prose-c91e1ec23070": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "percent of materials",
+   "pages": [
+    "handyman-invoice#line_items.items[2].unit"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'percent of materials' is a field-style label, no rate."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form option or field description"
+    }
+   ]
+  },
+  "prose-c96ee7214988": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Your paper says What to write",
+   "pages": [
+    "how-much-over-an-estimate#body[1]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'What to write' is a table heading guiding the reader."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "describes form/paper heading"
     }
    ]
   },
@@ -16723,6 +19824,31 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "guidance on lockout fees"
+    }
+   ]
+  },
+  "prose-cb2350415e16": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Workiz",
+   "pages": [
+    "cleaning-estimate#source.workiz.short",
+    "cleaning-invoice#source.workiz.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Workiz' is a bare source name with no rule."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
     }
    ]
   },
@@ -16942,6 +20068,30 @@
     }
    ]
   },
+  "prose-cc028aec8608": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "BLS wage survey, photographers",
+   "pages": [
+    "freelancer-invoice#source.oes-photo.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'photographers' in a wage survey title states nothing."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-cc4a504a92db": {
    "type": "advice",
    "kind": "prose",
@@ -17110,6 +20260,81 @@
     }
    ]
   },
+  "prose-cd335eacaaa0": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Late fee",
+   "pages": [
+    "data/law/en-US.json#ui.late_fee"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Late fee' names a field; no rate or rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field"
+    }
+   ]
+  },
+  "prose-cd33c10db1d5": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Texas Comptroller 94-112",
+   "pages": [
+    "landscaping-estimate#source.tx-94112.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Texas Comptroller 94-112' is a short source label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "cited source title"
+    }
+   ]
+  },
+  "prose-cd71506761c0": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "CSLB guide",
+   "pages": [
+    "contractor-estimate#source.cslb-guide.short",
+    "contractor-invoice#source.cslb-guide.short",
+    "how-much-over-an-estimate#source.cslb-guide.short",
+    "roofing-estimate#source.cslb-guide.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'CSLB guide' is a short source label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name title, states no rule"
+    }
+   ]
+  },
   "prose-cd87514c036e": {
    "type": "advice",
    "kind": "prose",
@@ -17206,30 +20431,6 @@
     }
    ]
   },
-  "prose-cecad97c25bf": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "R-4410",
-   "pages": [
-    "roofing-estimate#form.sample.no"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Sample number 'R-4410' is demo text."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Form sample text."
-    }
-   ]
-  },
   "prose-ceeb531829c7": {
    "type": "advice",
    "kind": "prose",
@@ -17299,6 +20500,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form sample text"
+    }
+   ]
+  },
+  "prose-cf38d95c9c6b": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Amount",
+   "pages": [
+    "data/law/en-US.json#ui.amount"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label 'Amount' names a field, states no sum."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form label"
     }
    ]
   },
@@ -17395,6 +20620,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "heading or fee type label"
+    }
+   ]
+  },
+  "prose-d0598a60bc3a": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "This Old House, bathroom remodel cost",
+   "pages": [
+    "contractor-estimate#source.toh-bath.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'bathroom remodel cost' is a title; no price in it."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name title, states no rule"
     }
    ]
   },
@@ -17572,6 +20821,31 @@
     }
    ]
   },
+  "prose-d20e45c096c5": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Washington L&I",
+   "pages": [
+    "electrical-estimate#source.wa-lni.short",
+    "electrical-invoice#source.wa-lni.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Washington L&I' is a source name only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-d27ce3452a10": {
    "type": "advice",
    "kind": "prose",
@@ -17695,6 +20969,30 @@
     }
    ]
   },
+  "prose-d45ac31410ea": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "US Bureau of Labor Statistics, electricians",
+   "pages": [
+    "electrical-invoice#source.bls-elec.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'electricians' in a BLS title gives no wage."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-d51424821eb2": {
    "type": "advice",
    "kind": "prose",
@@ -17743,12 +21041,12 @@
     }
    ]
   },
-  "prose-d65277769abd": {
+  "prose-d6577e95efba": {
    "type": "advice",
    "kind": "prose",
-   "claim": "EL-5120",
+   "claim": "Subtotal",
    "pages": [
-    "electrical-invoice#form.sample.no"
+    "data/law/en-US.json#ui.net"
    ],
    "checks": [
     {
@@ -17756,14 +21054,14 @@
      "verdict": "advice",
      "date": "2026-11-09",
      "quote": "",
-     "note": "Sample invoice code 'EL-5120'."
+     "note": "'Subtotal' labels a sum field, no amount."
     },
     {
      "checker": "gemini-sub/gemini-3.8-flash-high",
      "verdict": "advice",
      "date": "2026-11-09",
      "quote": "",
-     "note": "Fictional invoice number in form sample"
+     "note": "Form label naming a field"
     }
    ]
   },
@@ -17866,6 +21164,30 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "c4d00770f7dd58709fc22a4197adcb3f904fddfa3865c4bba2049c70952be150"
   },
+  "prose-d80ed9c45078": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Scope of work",
+   "pages": [
+    "data/law/en-US.json#ui.scope"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Scope of work' labels a field."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form field label"
+    }
+   ]
+  },
   "prose-d831050e1aed": {
    "type": "fact",
    "kind": "prose",
@@ -17892,30 +21214,6 @@
    "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/what-kind-of-records-should-i-keep",
    "source_fetched": "2026-11-09",
    "source_sha256": "b05faf634719deb9df568c6d32e0f554af7fdc323d69e33cb39e82bdfab9519b"
-  },
-  "prose-d859a706a3c5": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "Contingency",
-   "pages": [
-    "contractor-estimate#line_items.items[8].name"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Row label 'Contingency'."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Field label or heading."
-    }
-   ]
   },
   "prose-d872c4e5c376": {
    "type": "advice",
@@ -17946,9 +21244,7 @@
    "kind": "prose",
    "claim": "parts",
    "pages": [
-    "contractor-estimate#form.sample.taxOn",
-    "handyman-invoice#form.sample.taxOn",
-    "roofing-estimate#form.sample.taxOn"
+    "data/law/en-US.json#ui.parts_short"
    ],
    "checks": [
     {
@@ -18208,30 +21504,6 @@
     }
    ]
   },
-  "prose-dc99e7ad96d9": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "EC000000",
-   "pages": [
-    "electrical-estimate#form.sample.bizId"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Placeholder license number 'EC000000'."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "form sample"
-    }
-   ]
-  },
   "prose-dceddfc847a5": {
    "type": "advice",
    "kind": "prose",
@@ -18253,6 +21525,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Instruction on formatting diagnostic fees"
+    }
+   ]
+  },
+  "prose-dd2f0d9c6cce": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Taskrabbit, painting cost guide",
+   "pages": [
+    "painting-estimate#source.tr-paint.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Taskrabbit, painting cost guide' is a title without figures."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
     }
    ]
   },
@@ -18301,6 +21597,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Comparison table column headers."
+    }
+   ]
+  },
+  "prose-ddf02bda9a62": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Unit price",
+   "pages": [
+    "data/law/en-US.json#ui.price"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Unit price' names a column, no price stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field"
     }
    ]
   },
@@ -18449,14 +21769,36 @@
     }
    ]
   },
+  "prose-e0c36da7d01d": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "NY GBL 1410",
+   "pages": [
+    "freelancer-invoice#source.ny-1410.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'NY GBL 1410' is a short citation."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name citation"
+    }
+   ]
+  },
   "prose-e120f7fc93c3": {
    "type": "advice",
    "kind": "prose",
    "claim": "Estimated total",
    "pages": [
-    "contractor-estimate#example.total_label",
-    "painting-estimate#example.total_label",
-    "roofing-estimate#example.total_label"
+    "data/law/en-US.json#ui.estimate_total"
    ],
    "checks": [
     {
@@ -18520,6 +21862,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form sample with invented warranty terms."
+    }
+   ]
+  },
+  "prose-e14447ce8457": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Texas Department of Agriculture, pesticides on lawns, trees and ornamentals",
+   "pages": [
+    "landscaping-estimate#source.tda.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'pesticides on lawns, trees and ornamentals' is a page title, not a rule statement."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "cited source title"
     }
    ]
   },
@@ -18688,6 +22054,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form sample text."
+    }
+   ]
+  },
+  "prose-e30b888c7619": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Florida Statutes 489.103(9)",
+   "pages": [
+    "handyman-invoice#source.fl-489103.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'489.103(9)' is a statute subsection citation, no rule text."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "cited source title"
     }
    ]
   },
@@ -18911,6 +22301,31 @@
     }
    ]
   },
+  "prose-e686c5b68eed": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Taskrabbit, EV charger installation cost",
+   "pages": [
+    "electrical-estimate#source.tr-ev.name",
+    "electrical-invoice#source.tr-ev.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'EV charger installation cost' is a title with no price inside."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-e687a2238db8": {
    "type": "advice",
    "kind": "prose",
@@ -19082,6 +22497,30 @@
     }
    ]
   },
+  "prose-e8d4108d9bf4": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "US Bureau of Labor Statistics, writers and authors",
+   "pages": [
+    "freelance-writer-invoice#source.bls-writer.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'writers and authors' names an occupation in a source title only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-e8f1c6facf55": {
    "type": "advice",
    "kind": "prose",
@@ -19250,30 +22689,6 @@
     }
    ]
   },
-  "prose-eaffba560dcb": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "KR-77",
-   "pages": [
-    "contractor-estimate#form.sample.no"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Form sample estimate number 'KR-77'."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Form sample invoice number"
-    }
-   ]
-  },
   "prose-eb064af0f4a4": {
    "type": "advice",
    "kind": "prose",
@@ -19295,30 +22710,6 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Explains form capabilities and points to invoice guide."
-    }
-   ]
-  },
-  "prose-eb51db25cf95": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "BD-310",
-   "pages": [
-    "cleaning-estimate#form.sample.no"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Form sample estimate number 'BD-310'; placeholder."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Fictional sample document reference."
     }
    ]
   },
@@ -19567,6 +22958,54 @@
     }
    ]
   },
+  "prose-ed6423321e79": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "US EPA RRP",
+   "pages": [
+    "painting-estimate#source.epa-rrp.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'US EPA RRP' is a short source label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
+  "prose-eda9a702c9a8": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Taskrabbit, landscaping cost guide",
+   "pages": [
+    "landscaping-estimate#source.tr-land.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'landscaping cost guide' is a title without price."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "cited source title"
+    }
+   ]
+  },
   "prose-edc583cf2369": {
    "type": "advice",
    "kind": "prose",
@@ -19639,6 +23078,30 @@
     }
    ]
   },
+  "prose-ee6a907baf26": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Use the rate and rule of your state. Leave the rate empty if you charge no sales tax.",
+   "pages": [
+    "data/law/en-US.json#ui.tax_hint"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Use the rate and rule of your state' is an instruction; no actual rule given."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instruction on filling out the field"
+    }
+   ]
+  },
   "prose-ee846fc48139": {
    "type": "advice",
    "kind": "prose",
@@ -19660,6 +23123,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "form sample"
+    }
+   ]
+  },
+  "prose-eef322a41bdd": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Housecall Pro, how to price handyman jobs",
+   "pages": [
+    "handyman-invoice#source.hcp-handy.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'how to price handyman jobs' is a source title only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
     }
    ]
   },
@@ -19759,6 +23246,30 @@
     }
    ]
   },
+  "prose-ef70c5861e86": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Texas Comptroller, Publication 94-112, landscaping and lawn care",
+   "pages": [
+    "landscaping-estimate#source.tx-94112.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'landscaping and lawn care' is a publication title, no tax rule given."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "cited source title"
+    }
+   ]
+  },
   "prose-efbcac586ed2": {
    "type": "advice",
    "kind": "prose",
@@ -19807,6 +23318,30 @@
     }
    ]
   },
+  "prose-f0316a4c0939": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "BLS wage survey, graphic designers",
+   "pages": [
+    "freelancer-invoice#source.oes-gfx.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'graphic designers' is part of a source title only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-f03f21058c51": {
    "type": "advice",
    "kind": "prose",
@@ -19852,6 +23387,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "describes template features and gives instructions"
+    }
+   ]
+  },
+  "prose-f0e922f65363": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Homeyou, painting cost guide",
+   "pages": [
+    "painting-estimate#source.hy-paint.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'painting cost guide' names a source only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
     }
    ]
   },
@@ -20170,30 +23729,6 @@
     }
    ]
   },
-  "prose-f370deebefba": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "Dumpster",
-   "pages": [
-    "contractor-invoice#line_items.items[8].name"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Single item name 'Dumpster' in a list."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "heading naming item topic"
-    }
-   ]
-  },
   "prose-f3ba005fe247": {
    "type": "advice",
    "kind": "prose",
@@ -20287,30 +23822,6 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Explains why the permit number field is useful."
-    }
-   ]
-  },
-  "prose-f53402ec43c7": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "\"Fixed price for the scope above\" This wording says the price stays the same unless the scope changes in writing.",
-   "pages": [
-    "how-much-over-an-estimate#body[2]"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Instruction, page or form description; no rule stated."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Explains standard contract wording and purpose."
     }
    ]
   },
@@ -20530,6 +24041,57 @@
     }
    ]
   },
+  "prose-f763a9eaeb34": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "BLS wage survey, bookkeeping clerks",
+   "pages": [
+    "freelancer-invoice#source.oes-book.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'bookkeeping clerks' names an occupation in a source title."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
+  "prose-f7918a66e44b": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "IRS Form W-9",
+   "pages": [
+    "consulting-invoice#source.irs-w9.short",
+    "freelance-writer-invoice#source.irs-w9.short",
+    "freelancer-invoice#source.irs-w9.short",
+    "what-to-include-on-an-invoice#source.irs-w9.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'IRS Form W-9' names a form as a source."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name title, states no rule"
+    }
+   ]
+  },
   "prose-f82c293ae5f5": {
    "type": "advice",
    "kind": "prose",
@@ -20650,12 +24212,12 @@
     }
    ]
   },
-  "prose-f95d49021fbb": {
+  "prose-f978d0f2ad1b": {
    "type": "advice",
    "kind": "prose",
-   "claim": "Do I need sales tax on a handyman invoice? Ask your state revenue office. Leave the rate empty when you do not charge it. Ask your state revenue office if you are not sure.",
+   "claim": "IRS, estimated taxes",
    "pages": [
-    "handyman-invoice#faq[2]"
+    "consulting-invoice#source.irs-est.name"
    ],
    "checks": [
     {
@@ -20663,14 +24225,14 @@
      "verdict": "advice",
      "date": "2026-11-09",
      "quote": "",
-     "note": "'Ask your state revenue office' defers the tax question and states no rule or rate."
+     "note": "'estimated taxes' is the topic in a source title, no deadline given."
     },
     {
      "checker": "gemini-sub/gemini-3.8-flash-high",
      "verdict": "advice",
      "date": "2026-11-09",
      "quote": "",
-     "note": "form instruction directing user to ask revenue office"
+     "note": "source name title, states no rule"
     }
    ]
   },
@@ -20748,6 +24310,30 @@
    "source_url": "https://www.cslb.ca.gov/resources/GuidesAndPublications/HomeImprovementContractsConsumerGuide.pdf",
    "source_fetched": "2026-11-09",
    "source_sha256": "3e87ccabbe4cbbf8ff51681a007425d05d028bf82f2053f79fa4c186f72e5eed"
+  },
+  "prose-fa9530e07913": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Balance due",
+   "pages": [
+    "data/law/en-US.json#ui.balance_line"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Balance due' labels a field."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label naming a field"
+    }
+   ]
   },
   "prose-faec82413ae0": {
    "type": "advice",
@@ -20869,6 +24455,41 @@
     }
    ]
   },
+  "prose-fc32e22ae2e1": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "BLS 2023",
+   "pages": [
+    "consulting-invoice#source.oes-mgmt.short",
+    "consulting-invoice#source.oes-mkt.short",
+    "consulting-invoice#source.oes-hr.short",
+    "consulting-invoice#source.oes-sys.short",
+    "consulting-invoice#source.oes-acc.short",
+    "consulting-invoice#source.oes-pr.short",
+    "freelancer-invoice#source.oes-web.short",
+    "freelancer-invoice#source.oes-gfx.short",
+    "freelancer-invoice#source.oes-tr.short",
+    "freelancer-invoice#source.oes-book.short",
+    "freelancer-invoice#source.oes-video.short",
+    "freelancer-invoice#source.oes-photo.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'BLS 2023' is a short source label with a year only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-fccacd466427": {
    "type": "advice",
    "kind": "prose",
@@ -20890,30 +24511,6 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Instruction to itemize expenses on separate lines."
-    }
-   ]
-  },
-  "prose-fd27aedc2f88": {
-   "type": "advice",
-   "kind": "prose",
-   "claim": "SC-1132",
-   "pages": [
-    "cleaning-invoice#form.sample.no"
-   ],
-   "checks": [
-    {
-     "checker": "anthropic/claude-sonnet",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "Form sample invoice number 'SC-1132'."
-    },
-    {
-     "checker": "gemini-sub/gemini-3.8-flash-high",
-     "verdict": "advice",
-     "date": "2026-11-09",
-     "quote": "",
-     "note": "form sample invoice number"
     }
    ]
   },
@@ -21136,6 +24733,30 @@
     }
    ]
   },
+  "prose-fe5c3739eebe": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Housecall Pro, painting price guide",
+   "pages": [
+    "painting-estimate#source.hcp-paint.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'painting price guide' is a source title, no price."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-fecdb1a84d99": {
    "type": "advice",
    "kind": "prose",
@@ -21181,6 +24802,32 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Sample text with fictional permit and warranty."
+    }
+   ]
+  },
+  "prose-ff924e5f90ee": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "16 CFR 429.1",
+   "pages": [
+    "contractor-estimate#source.cfr-429.short",
+    "plumbing-estimate#source.cfr-429.short",
+    "roofing-estimate#source.cfr-429.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'16 CFR 429.1' is a bare citation."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name citation, states no rule"
     }
    ]
   },

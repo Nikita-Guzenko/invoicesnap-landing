@@ -313,10 +313,11 @@ def related_html(page: dict, ctx) -> str:
 
 
 def sources_html(page: dict, ctx, law: dict) -> str:
+    # used_for stays in the data and does not print: it held legal claims that no check covered (PR review, 9 Nov 2026).
     # Every source that a range or a rule cites stands in the list, also when the page data forgot it.
     cited = [i.get("src") for i in (page.get("line_items") or {}).get("items", [])] + [r.get("src") for r in (page.get("rules") or {}).get("items", [])]
     used = [i for i in dict.fromkeys(page.get("source_ids", []) + cited) if i in ctx.sources]
-    items = "".join(f'<li>{src_link(ctx, i)}{(", " + e(ctx.sources[i]["page_date"])) if ctx.sources[i].get("page_date") else ""}: {e(ctx.sources[i]["used_for"])} Checked {e(date(ctx.sources[i]["checked"], law))}.</li>' for i in used)
+    items = "".join(f'<li>{src_link(ctx, i)}{(", " + e(ctx.sources[i]["page_date"])) if ctx.sources[i].get("page_date") else ""}. Checked {e(date(ctx.sources[i]["checked"], law))}.</li>' for i in used)
     checked = date(page["checked"], law)
     # Nikita's order, 9 Nov 2026: never a human name, and an honest word on how the page was checked. gate.py enforces both.
     return (f'<section id="sources" class="prose"><h2>Sources and how this page was checked</h2><p data-shared>Published by 731labs, the maker of InvoiceSnap. Last checked {e(checked)}. '

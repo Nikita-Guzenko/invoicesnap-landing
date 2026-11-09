@@ -245,11 +245,11 @@
   },
   {
    "q": "Do customers need separate pricing for parts?",
-   "a": "Not always. A lot price is simple. Show parts apart when your state taxes them apart from labor, and use the tax choice on the form."
+   "a": "Ask your state revenue office if you should show parts apart, and use the tax choice on the form."
   },
   {
    "q": "How much deposit should I ask for?",
-   "a": "It depends on the state and your material cost. Check your state before you enter the percent."
+   "a": "Base it on your material cost. Check your state before you enter the percent."
   },
   {
    "q": "Should I call my price a bid or an estimate?",
