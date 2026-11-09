@@ -1425,6 +1425,30 @@
     }
    ]
   },
+  "prose-0da4aefaac31": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Limits of this page",
+   "pages": [
+    "invoicesnap-vs-jobber#body[18]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Heading."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "heading describing the page"
+    }
+   ]
+  },
   "prose-0dbc011f277a": {
    "type": "advice",
    "kind": "prose",
@@ -1910,6 +1934,30 @@
     }
    ]
   },
+  "prose-119c39aa8a77": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Can I move from the form to an app later? Yes. Keep the files that you downloaded. Enter your customers again in the app that you choose.",
+   "pages": [
+    "invoicesnap-vs-joist#faq[1]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instructions about files."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Explains form export capability and gives instructions."
+    }
+   ]
+  },
   "prose-11be8bfb2e76": {
    "type": "advice",
    "kind": "prose",
@@ -1955,6 +2003,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "source name"
+    }
+   ]
+  },
+  "prose-11fc1d879a1c": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Open a browser invoice form, enter the job, download the file, check it and send it yourself. You do not need to sign up.",
+   "pages": [
+    "create-an-invoice-without-an-account#lede"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instructions and form description."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instructions and form description"
     }
    ]
   },
@@ -2224,6 +2296,30 @@
     }
    ]
   },
+  "prose-16827c5fd7f5": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Joist, features page",
+   "pages": [
+    "invoicesnap-vs-joist#source.joist-features.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name title."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name title stating no rule."
+    }
+   ]
+  },
   "prose-16abf4b7aeb8": {
    "type": "advice",
    "kind": "prose",
@@ -2390,6 +2486,57 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form sample text"
+    }
+   ]
+  },
+  "prose-183e52add327": {
+   "type": "fact",
+   "kind": "prose",
+   "claim": "Joist captures receipts and expenses.",
+   "pages": [
+    "invoicesnap-vs-joist#body[8]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Capture receipts and expenses as you go, so you don’t miss important costs.",
+     "note": "Matches."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Capture receipts and expenses as you go, so you don’t miss important costs.",
+     "note": "Source confirms capturing receipts and expenses."
+    }
+   ],
+   "source_url": "https://www.joist.com/features/",
+   "source_fetched": "2026-11-09",
+   "source_sha256": "c9d0263152433e763401f82bcab1dc895aeb57befc10a52d911fb7f382507245"
+  },
+  "prose-186860fc06bd": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Where the InvoiceSnap form stops",
+   "pages": [
+    "invoicesnap-vs-jobber#body[10]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Heading."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "heading describing form limits"
     }
    ]
   },
@@ -2927,6 +3074,30 @@
     }
    ]
   },
+  "prose-1d7ac228e930": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "InvoiceSnap vs Jobber: Documents and Field Service",
+   "pages": [
+    "invoicesnap-vs-jobber#title"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Page title."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "comparison article title"
+    }
+   ]
+  },
   "prose-1da444b0e662": {
    "type": "advice",
    "kind": "prose",
@@ -2948,6 +3119,54 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Section heading."
+    }
+   ]
+  },
+  "prose-1e67c9613ad0": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Invoice without an account",
+   "pages": [
+    "create-an-invoice-without-an-account#crumb"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Heading."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "heading"
+    }
+   ]
+  },
+  "prose-1ecb64c6ae89": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Count the people who do the jobs. If your team needs dispatch, look at a system like Jobber.",
+   "pages": [
+    "invoicesnap-vs-jobber#body[14]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instruction to the reader"
     }
    ]
   },
@@ -3192,6 +3411,30 @@
     }
    ]
   },
+  "prose-2168b0fd3383": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "The InvoiceSnap browser form makes one invoice or estimate file that you download and send yourself.",
+   "pages": [
+    "invoicesnap-vs-joist#body[0]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes the form."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "describes the form"
+    }
+   ]
+  },
   "prose-219682a7cce0": {
    "type": "advice",
    "kind": "prose",
@@ -3261,6 +3504,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Instructions to print contract late fee and check state rules."
+    }
+   ]
+  },
+  "prose-223cc23982d3": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "How to decide",
+   "pages": [
+    "invoicesnap-vs-jobber#body[13]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Heading."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "section heading"
     }
    ]
   },
@@ -3408,6 +3675,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "source name"
+    }
+   ]
+  },
+  "prose-230e6f5bd460": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Can I make a quote with InvoiceSnap? Yes. Use the estimate form and download the file.",
+   "pages": [
+    "invoicesnap-vs-jobber#faq[1]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes the form; instruction."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instruction and form description"
     }
    ]
   },
@@ -4092,6 +4383,30 @@
     }
    ]
   },
+  "prose-275f5c9aa18a": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "What a downloaded file does not do",
+   "pages": [
+    "create-an-invoice-without-an-account#body[11]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Heading."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "section heading"
+    }
+   ]
+  },
   "prose-278f9f693e3b": {
    "type": "advice",
    "kind": "prose",
@@ -4629,6 +4944,33 @@
     }
    ]
   },
+  "prose-2bccd31ddfaf": {
+   "type": "fact",
+   "kind": "prose",
+   "claim": "Joist lets customers pay with multiple payment options.",
+   "pages": [
+    "invoicesnap-vs-joist#body[5]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Accept multiple payment options so customers can pay quickly",
+     "note": "Matches."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Accept multiple payment options so customers can pay quickly, meaning you get paid sooner.",
+     "note": "Source confirms accepting multiple payment options for customers."
+    }
+   ],
+   "source_url": "https://www.joist.com/features/",
+   "source_fetched": "2026-11-09",
+   "source_sha256": "c9d0263152433e763401f82bcab1dc895aeb57befc10a52d911fb7f382507245"
+  },
   "prose-2be212dece61": {
    "type": "advice",
    "kind": "prose",
@@ -4723,6 +5065,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "template heading"
+    }
+   ]
+  },
+  "prose-2ca3fa8eb539": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Features that Jobber names",
+   "pages": [
+    "invoicesnap-vs-jobber#body[1]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Heading."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "heading describing section content"
     }
    ]
   },
@@ -4965,6 +5331,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "service item label"
+    }
+   ]
+  },
+  "prose-2f3d4dcdb99f": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Enter each item with its quantity and your price. Set the tax rate that applies to you.",
+   "pages": [
+    "create-an-invoice-without-an-account#body[4]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instructions; no tax rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instruction to enter items and tax rate"
     }
    ]
   },
@@ -5377,6 +5767,33 @@
     }
    ]
   },
+  "prose-32511197bf6b": {
+   "type": "fact",
+   "kind": "prose",
+   "claim": "Jobber tracks your customer info in one place.",
+   "pages": [
+    "invoicesnap-vs-jobber#body[8]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Track all your customer info in one place",
+     "note": "Matches."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Track all your customer info in one place",
+     "note": "Jobber tracks all customer info in one place."
+    }
+   ],
+   "source_url": "https://www.getjobber.com/features/",
+   "source_fetched": "2026-11-09",
+   "source_sha256": "bfdbcdc46cfea75da5c549fbd6283c0a495e605b2e7248b57489670e8f72d121"
+  },
   "prose-3284dd994d85": {
    "type": "advice",
    "kind": "prose",
@@ -5570,6 +5987,33 @@
      "note": "form sample text"
     }
    ]
+  },
+  "prose-340eff682fe2": {
+   "type": "fact",
+   "kind": "prose",
+   "claim": "Jobber schedules work and tells your customers and crew about it.",
+   "pages": [
+    "invoicesnap-vs-jobber#body[3]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Scheduling work and communicating it to your customers and crew has never been easier.",
+     "note": "Matches."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Scheduling work and communicating it to your customers and crew has never been easier.",
+     "note": "Jobber confirms scheduling work and communicating it to customers and crew."
+    }
+   ],
+   "source_url": "https://www.getjobber.com/features/",
+   "source_fetched": "2026-11-09",
+   "source_sha256": "bfdbcdc46cfea75da5c549fbd6283c0a495e605b2e7248b57489670e8f72d121"
   },
   "prose-341e46da0033": {
    "type": "advice",
@@ -5976,6 +6420,7 @@
    "claim": "IRS",
    "pages": [
     "cleaning-invoice#source.irs-rec.short",
+    "create-an-invoice-without-an-account#source.irs-rec.short",
     "freelancer-invoice#source.irs-rec.short",
     "freelancer-invoice#source.irs-long.short",
     "invoice-generator#source.irs-rec.short",
@@ -6207,6 +6652,30 @@
     }
    ]
   },
+  "prose-3b575ca75c37": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "There is no sign-in, and the form keeps no customer list. If you close the tab, the entries are gone.",
+   "pages": [
+    "invoicesnap-vs-jobber#body[12]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes the form."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "describes how the form works"
+    }
+   ]
+  },
   "prose-3b7b449c305a": {
    "type": "advice",
    "kind": "prose",
@@ -6252,6 +6721,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Describes the form's capability to tax parts separately."
+    }
+   ]
+  },
+  "prose-3b8c7cff6f87": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Seven steps",
+   "pages": [
+    "create-an-invoice-without-an-account#body[0]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Heading."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "heading"
     }
    ]
   },
@@ -6713,6 +7206,33 @@
     }
    ]
   },
+  "prose-3fbc033a38a0": {
+   "type": "fact",
+   "kind": "prose",
+   "claim": "The IRS names invoices among the supporting documents for your books. Keep each sent copy with the job records. To check the fields, see what to include on an invoice .",
+   "pages": [
+    "create-an-invoice-without-an-account#body[15]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Supporting documents include sales slips, paid bills, invoices, receipts, deposit slips, and canceled checks.",
+     "note": "Source lists invoices among supporting documents that support the books."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Supporting documents include sales slips, paid bills, invoices, receipts, deposit slips, and canceled checks. These documents contain the information you need to record in your books.",
+     "note": "IRS lists invoices among supporting documents containing information needed to record in business books."
+    }
+   ],
+   "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/what-kind-of-records-should-i-keep",
+   "source_fetched": "2026-11-09",
+   "source_sha256": "b05faf634719deb9df568c6d32e0f554af7fdc323d69e33cb39e82bdfab9519b"
+  },
   "prose-3fd358cb5b37": {
    "type": "advice",
    "kind": "prose",
@@ -7121,6 +7641,30 @@
     }
    ]
   },
+  "prose-42cf1bb16d65": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Try one real job in each tool and look at the result on a phone.",
+   "pages": [
+    "invoicesnap-vs-jobber#body[16]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instruction to the reader"
+    }
+   ]
+  },
   "prose-433fa61c21e9": {
    "type": "advice",
    "kind": "prose",
@@ -7169,6 +7713,33 @@
      "note": "form sample text"
     }
    ]
+  },
+  "prose-43c70ded6c3d": {
+   "type": "fact",
+   "kind": "prose",
+   "claim": "Jobber can assign new work to the closest team member by GPS location.",
+   "pages": [
+    "invoicesnap-vs-jobber#body[4]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Assign new work to the closest team member based on their GPS location.",
+     "note": "Matches."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Assign new work to the closest team member based on their GPS location.",
+     "note": "Jobber can assign work to the closest team member using GPS location."
+    }
+   ],
+   "source_url": "https://www.getjobber.com/features/",
+   "source_fetched": "2026-11-09",
+   "source_sha256": "bfdbcdc46cfea75da5c549fbd6283c0a495e605b2e7248b57489670e8f72d121"
   },
   "prose-440c7ac974e7": {
    "type": "advice",
@@ -7363,6 +7934,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Section heading or link label."
+    }
+   ]
+  },
+  "prose-45c715df6237": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Download a PDF. Open it and check the names, amounts and dates.",
+   "pages": [
+    "create-an-invoice-without-an-account#body[6]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instruction to download and review"
     }
    ]
   },
@@ -7618,6 +8213,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form sample text."
+    }
+   ]
+  },
+  "prose-48f0a89d0e5c": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "This page does not compare prices, speed or support, and it gives no score. InvoiceSnap is our product, so read the Jobber page yourself before you choose.",
+   "pages": [
+    "invoicesnap-vs-jobber#body[19]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes the page scope and instructs the reader; no rule or amount."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes page contents and instructs reader to review Jobber directly."
     }
    ]
   },
@@ -7951,6 +8570,30 @@
     }
    ]
   },
+  "prose-4bb4f09ec790": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Joist",
+   "pages": [
+    "invoicesnap-vs-joist#source.joist-features.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name title."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name title stating no rule."
+    }
+   ]
+  },
   "prose-4c0e5dbfaf59": {
    "type": "advice",
    "kind": "prose",
@@ -8045,6 +8688,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "cited source title"
+    }
+   ]
+  },
+  "prose-4cc04dff3f15": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Send the file the usual way, and keep a copy.",
+   "pages": [
+    "create-an-invoice-without-an-account#body[7]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instruction to send file and keep copy"
     }
    ]
   },
@@ -8933,6 +9600,33 @@
     }
    ]
   },
+  "prose-57171ebbaa55": {
+   "type": "fact",
+   "kind": "prose",
+   "claim": "Jobber quotes are interactive: customers can add services and approve the new total.",
+   "pages": [
+    "invoicesnap-vs-jobber#body[5]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Quotes are professionally designed and interactive, allowing customers to add on services and approve the updated total.",
+     "note": "Matches."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Quotes are professionally designed and interactive, allowing customers to add on services and approve the updated total.",
+     "note": "Quotes are interactive, allowing customers to add services and approve the updated total."
+    }
+   ],
+   "source_url": "https://www.getjobber.com/features/",
+   "source_fetched": "2026-11-09",
+   "source_sha256": "bfdbcdc46cfea75da5c549fbd6283c0a495e605b2e7248b57489670e8f72d121"
+  },
   "prose-571daa07a175": {
    "type": "advice",
    "kind": "prose",
@@ -8954,6 +9648,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Instructions on how to bill a kill fee."
+    }
+   ]
+  },
+  "prose-571e574d94a4": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Jobber",
+   "pages": [
+    "invoicesnap-vs-jobber#source.jobber-features.short"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name title."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
     }
    ]
   },
@@ -9150,6 +9868,30 @@
     }
    ]
   },
+  "prose-57d5ff3d30ff": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Where is my invoice saved? On your device, in the folder where your browser saves downloads. The form keeps nothing after you close the page.",
+   "pages": [
+    "create-an-invoice-without-an-account#faq[0]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes where the form saves the file and that it keeps nothing."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes how the form and page handle file downloads."
+    }
+   ]
+  },
   "prose-57dd9ea553dd": {
    "type": "advice",
    "kind": "prose",
@@ -9219,6 +9961,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "source name citation"
+    }
+   ]
+  },
+  "prose-588da3b4ac9f": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Create an Invoice Without an Account: 7 Steps",
+   "pages": [
+    "create-an-invoice-without-an-account#title"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Page title."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "page heading"
     }
    ]
   },
@@ -9512,6 +10278,33 @@
     }
    ]
   },
+  "prose-5db06da7ce15": {
+   "type": "fact",
+   "kind": "prose",
+   "claim": "Joist is software for contractors, with tools to estimate jobs, send invoices and get paid.",
+   "pages": [
+    "invoicesnap-vs-joist#lede"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Joist is built specifically for contractors, with simple tools to estimate jobs, send invoices, and get paid",
+     "note": "Matches."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Joist is built specifically for contractors, with simple tools to estimate jobs, send invoices, and get paid",
+     "note": "Source confirms Joist is software for contractors to estimate, invoice, and get paid."
+    }
+   ],
+   "source_url": "https://www.joist.com/features/",
+   "source_fetched": "2026-11-09",
+   "source_sha256": "c9d0263152433e763401f82bcab1dc895aeb57befc10a52d911fb7f382507245"
+  },
   "prose-5dcd8b052076": {
    "type": "advice",
    "kind": "prose",
@@ -9777,6 +10570,30 @@
     }
    ]
   },
+  "prose-5f95e04e685e": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Jobber, features page",
+   "pages": [
+    "invoicesnap-vs-jobber#source.jobber-features.name"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name title."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "source name"
+    }
+   ]
+  },
   "prose-5fc3b2074b57": {
    "type": "advice",
    "kind": "prose",
@@ -9990,6 +10807,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Navigation advice and feature description."
+    }
+   ]
+  },
+  "prose-62c3b303b3c1": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Open the InvoiceSnap invoice generator .",
+   "pages": [
+    "create-an-invoice-without-an-account#body[1]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instruction to open the tool"
     }
    ]
   },
@@ -10550,6 +11391,30 @@
     }
    ]
   },
+  "prose-684ce4ae2196": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "What the InvoiceSnap browser form does",
+   "pages": [
+    "invoicesnap-vs-joist#body[11]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Heading."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "heading describing the form"
+    }
+   ]
+  },
   "prose-6853b204565a": {
    "type": "advice",
    "kind": "prose",
@@ -10910,6 +11775,30 @@
     }
    ]
   },
+  "prose-6b0841df8c19": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Check the total and the balance after any deposit.",
+   "pages": [
+    "create-an-invoice-without-an-account#body[5]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instruction to check totals"
+    }
+   ]
+  },
   "prose-6b7e0908e927": {
    "type": "advice",
    "kind": "prose",
@@ -11246,6 +12135,33 @@
     }
    ]
   },
+  "prose-6ee43bc8d556": {
+   "type": "fact",
+   "kind": "prose",
+   "claim": "Joist works together with QuickBooks.",
+   "pages": [
+    "invoicesnap-vs-joist#body[9]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Keep Joist and QuickBooks working together, without entering the same information twice.",
+     "note": "Matches."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Keep Joist and QuickBooks working together, without entering the same information twice.",
+     "note": "Source confirms Joist works together with QuickBooks."
+    }
+   ],
+   "source_url": "https://www.joist.com/features/",
+   "source_fetched": "2026-11-09",
+   "source_sha256": "c9d0263152433e763401f82bcab1dc895aeb57befc10a52d911fb7f382507245"
+  },
   "prose-6ee580d51c59": {
    "type": "advice",
    "kind": "prose",
@@ -11339,6 +12255,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Guidance on itemizing surfaces and rooms."
+    }
+   ]
+  },
+  "prose-6f1bfa0f059e": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "InvoiceSnap vs Jobber",
+   "pages": [
+    "invoicesnap-vs-jobber#h1"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Heading."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "heading"
     }
    ]
   },
@@ -12529,6 +13469,33 @@
     }
    ]
   },
+  "prose-7a70c8703412": {
+   "type": "fact",
+   "kind": "prose",
+   "claim": "Look at Joist if you also want visit scheduling and job history, not only documents.",
+   "pages": [
+    "invoicesnap-vs-joist#body[18]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Schedule visits, organize jobs, and see every related detail in one connected view.",
+     "note": "Visit scheduling stated; job history also stated under Manage Client Records."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Schedule visits, organize jobs, and see every related detail in one connected view. Manage Client Records Find customer details, estimates, invoices, and job history whenever you need them.",
+     "note": "Joist includes visit scheduling, job history, and document management."
+    }
+   ],
+   "source_url": "https://www.joist.com/features/",
+   "source_fetched": "2026-11-09",
+   "source_sha256": "c9d0263152433e763401f82bcab1dc895aeb57befc10a52d911fb7f382507245"
+  },
   "prose-7ac3a146f68b": {
    "type": "advice",
    "kind": "prose",
@@ -12598,6 +13565,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form sample text"
+    }
+   ]
+  },
+  "prose-7bb1817ea7b4": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "This page does not compare prices, speed or support, and it gives no score. InvoiceSnap is our product, so read the Joist page yourself before you choose.",
+   "pages": [
+    "invoicesnap-vs-joist#body[21]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes page scope; instruction."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes page scope, discloses product ownership, and instructs reader."
     }
    ]
   },
@@ -12865,6 +13856,33 @@
     }
    ]
   },
+  "prose-7e8f9da430ab": {
+   "type": "fact",
+   "kind": "prose",
+   "claim": "Jobber generates invoices from the job details, with payment options.",
+   "pages": [
+    "invoicesnap-vs-jobber#body[6]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Instantly generate a professional invoice complete with accurate job details and convenient payment options",
+     "note": "Matches."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Instantly generate a professional invoice complete with accurate job details and convenient payment options, ready to send to the customer.",
+     "note": "Jobber generates invoices complete with job details and payment options."
+    }
+   ],
+   "source_url": "https://www.getjobber.com/features/",
+   "source_fetched": "2026-11-09",
+   "source_sha256": "bfdbcdc46cfea75da5c549fbd6283c0a495e605b2e7248b57489670e8f72d121"
+  },
   "prose-7e9e5ac30f22": {
    "type": "advice",
    "kind": "prose",
@@ -13040,6 +14058,7 @@
    "claim": "IRS, what kind of records should I keep",
    "pages": [
     "cleaning-invoice#source.irs-rec.name",
+    "create-an-invoice-without-an-account#source.irs-rec.name",
     "freelancer-invoice#source.irs-rec.name",
     "invoice-generator#source.irs-rec.name",
     "invoice-hub#source.irs-rec.name",
@@ -14055,6 +15074,30 @@
     }
    ]
   },
+  "prose-89e8d0da4bf2": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "What Joist lists on its features page",
+   "pages": [
+    "invoicesnap-vs-joist#body[1]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Heading."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "heading describing section content"
+    }
+   ]
+  },
   "prose-8a3f80c40cbe": {
    "type": "advice",
    "kind": "prose",
@@ -14100,6 +15143,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Describes best practices for what details to include in an estimate."
+    }
+   ]
+  },
+  "prose-8aa4e3e5ab00": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "What the browser form does",
+   "pages": [
+    "create-an-invoice-without-an-account#body[9]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Heading."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "section heading"
     }
    ]
   },
@@ -14228,8 +15295,11 @@
    "kind": "prose",
    "claim": "Short answers",
    "pages": [
+    "create-an-invoice-without-an-account#faq_heading",
     "estimate-vs-invoice#faq_heading",
     "how-much-over-an-estimate#faq_heading",
+    "invoicesnap-vs-jobber#faq_heading",
+    "invoicesnap-vs-joist#faq_heading",
     "what-to-include-on-an-invoice#faq_heading"
    ],
    "checks": [
@@ -14785,6 +15855,30 @@
     }
    ]
   },
+  "prose-9212e6d2beb6": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Compare the InvoiceSnap browser invoice form with Jobber. See what each one does, from each company's own site, and how to pick.",
+   "pages": [
+    "invoicesnap-vs-jobber#description"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Page description."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instructions on comparing tools"
+    }
+   ]
+  },
   "prose-928abcf9d1c0": {
    "type": "advice",
    "kind": "prose",
@@ -15172,6 +16266,54 @@
     }
    ]
   },
+  "prose-9609446bf557": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Is the InvoiceSnap form a Jobber replacement? No. It makes documents only. It does not schedule, dispatch or take payments.",
+   "pages": [
+    "invoicesnap-vs-jobber#faq[0]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes the form."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "describes form functionality"
+    }
+   ]
+  },
+  "prose-960bab03af59": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "InvoiceSnap vs Joist",
+   "pages": [
+    "invoicesnap-vs-joist#h1"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Heading."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "heading"
+    }
+   ]
+  },
   "prose-9612ddbfa0db": {
    "type": "advice",
    "kind": "prose",
@@ -15534,6 +16676,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Instructs on details to include for painting jobs."
+    }
+   ]
+  },
+  "prose-9a3d25daeaea": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Create an invoice without an account",
+   "pages": [
+    "create-an-invoice-without-an-account#link_text"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Heading."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "heading"
     }
    ]
   },
@@ -16014,6 +17180,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Practical advice on including a cancellation policy."
+    }
+   ]
+  },
+  "prose-9e003134a2b0": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Replace the sample business and customer with your own details.",
+   "pages": [
+    "create-an-invoice-without-an-account#body[2]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instruction to fill details"
     }
    ]
   },
@@ -16913,6 +18103,30 @@
     }
    ]
   },
+  "prose-a5b192b46669": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "InvoiceSnap vs Joist: Documents and Job Tools",
+   "pages": [
+    "invoicesnap-vs-joist#title"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Page title."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "page title"
+    }
+   ]
+  },
   "prose-a5cf55e9d9f1": {
    "type": "advice",
    "kind": "prose",
@@ -17128,6 +18342,33 @@
      "note": "unit label fragment"
     }
    ]
+  },
+  "prose-a86d912f3a81": {
+   "type": "fact",
+   "kind": "prose",
+   "claim": "Joist keeps customer details, estimates, invoices and job history.",
+   "pages": [
+    "invoicesnap-vs-joist#body[7]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Find customer details, estimates, invoices, and job history whenever you need them.",
+     "note": "Matches."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Find customer details, estimates, invoices, and job history whenever you need them.",
+     "note": "Source confirms keeping customer details, estimates, invoices, and job history."
+    }
+   ],
+   "source_url": "https://www.joist.com/features/",
+   "source_fetched": "2026-11-09",
+   "source_sha256": "c9d0263152433e763401f82bcab1dc895aeb57befc10a52d911fb7f382507245"
   },
   "prose-a9271c2b1174": {
    "type": "advice",
@@ -18762,6 +20003,30 @@
     }
    ]
   },
+  "prose-b6b56c723a93": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "You download the document as a PDF, Word or Excel file and send it yourself.",
+   "pages": [
+    "invoicesnap-vs-joist#body[13]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes the form."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "describes the form workflow"
+    }
+   ]
+  },
   "prose-b6c45863875e": {
    "type": "advice",
    "kind": "prose",
@@ -19027,6 +20292,30 @@
     }
    ]
   },
+  "prose-b8fb24fa8a7c": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "The files are PDF, Word and Excel, not an e-invoice format. Ask your customer if they need a special format.",
+   "pages": [
+    "create-an-invoice-without-an-account#body[13]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes file formats; instruction to ask customer."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "describes file formats and gives instruction"
+    }
+   ]
+  },
   "prose-b96935f63215": {
    "type": "advice",
    "kind": "prose",
@@ -19148,6 +20437,33 @@
     }
    ]
   },
+  "prose-b9ddc04e8464": {
+   "type": "fact",
+   "kind": "prose",
+   "claim": "Joist turns approved estimates into invoices.",
+   "pages": [
+    "invoicesnap-vs-joist#body[4]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Turn approved estimates into invoices in a few taps",
+     "note": "Matches."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Turn approved estimates into invoices in a few taps and keep jobs tracking toward payment.",
+     "note": "Source confirms turning approved estimates into invoices."
+    }
+   ],
+   "source_url": "https://www.joist.com/features/",
+   "source_fetched": "2026-11-09",
+   "source_sha256": "c9d0263152433e763401f82bcab1dc895aeb57befc10a52d911fb7f382507245"
+  },
   "prose-b9fbb15a9439": {
    "type": "fact",
    "kind": "prose",
@@ -19174,6 +20490,30 @@
    "source_url": "https://www.irs.gov/businesses/small-businesses-self-employed/what-kind-of-records-should-i-keep",
    "source_fetched": "2026-11-09",
    "source_sha256": "b05faf634719deb9df568c6d32e0f554af7fdc323d69e33cb39e82bdfab9519b"
+  },
+  "prose-ba072b288734": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Compare the free InvoiceSnap browser invoice form with Joist. See what each one does, from each company's own site, and how to pick.",
+   "pages": [
+    "invoicesnap-vs-joist#description"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Page description."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instruction to the reader"
+    }
+   ]
   },
   "prose-ba5c9d57ef41": {
    "type": "advice",
@@ -19572,6 +20912,30 @@
     }
    ]
   },
+  "prose-bedeff6a5af2": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Set the invoice number, the invoice date, the service date and the due date.",
+   "pages": [
+    "create-an-invoice-without-an-account#body[3]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction about form fields."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instruction to set dates and numbers"
+    }
+   ]
+  },
   "prose-bf02f38e2287": {
    "type": "advice",
    "kind": "prose",
@@ -19713,6 +21077,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Instructions on when to add a kill fee."
+    }
+   ]
+  },
+  "prose-c0163879bdba": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "The form does not take payments, schedule visits or track expenses.",
+   "pages": [
+    "invoicesnap-vs-joist#body[14]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes the form."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes form capabilities and limitations."
     }
    ]
   },
@@ -20240,6 +21628,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "source name"
+    }
+   ]
+  },
+  "prose-c522583d3363": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Which one fits your job",
+   "pages": [
+    "invoicesnap-vs-joist#body[17]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Heading."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Heading guiding user choice."
     }
    ]
   },
@@ -21427,6 +22839,33 @@
     }
    ]
   },
+  "prose-ccebaa6fe718": {
+   "type": "fact",
+   "kind": "prose",
+   "claim": "Joist builds detailed estimates with clear pricing.",
+   "pages": [
+    "invoicesnap-vs-joist#body[3]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Build detailed estimates you can send from the driveway and win work with clear pricing.",
+     "note": "Matches."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Build detailed estimates you can send from the driveway and win work with clear pricing.",
+     "note": "Source confirms building detailed estimates with clear pricing."
+    }
+   ],
+   "source_url": "https://www.joist.com/features/",
+   "source_fetched": "2026-11-09",
+   "source_sha256": "c9d0263152433e763401f82bcab1dc895aeb57befc10a52d911fb7f382507245"
+  },
   "prose-cd17865dfd70": {
    "type": "advice",
    "kind": "prose",
@@ -22233,6 +23672,30 @@
     }
    ]
   },
+  "prose-d50b5235700b": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Use the InvoiceSnap form if you need one estimate or invoice now and you already have a way to get paid. Enter your own prices and check the file before you send it.",
+   "pages": [
+    "invoicesnap-vs-joist#body[19]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instructions."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Gives instructions on when and how to use the form."
+    }
+   ]
+  },
   "prose-d51424821eb2": {
    "type": "advice",
    "kind": "prose",
@@ -22254,6 +23717,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Best practice advice on invoice and estimate numbering."
+    }
+   ]
+  },
+  "prose-d51dff0710c4": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Does the InvoiceSnap form take card payments? No. It makes a document. Put your payment details on it, and record the payment when it arrives.",
+   "pages": [
+    "invoicesnap-vs-joist#faq[0]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes the form; instructions."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes form functionality and instructs reader on handling payments."
     }
    ]
   },
@@ -22353,6 +23840,30 @@
     }
    ]
   },
+  "prose-d71e572d3043": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "The form does not keep your customers for your next visit. Download the file before you close the page.",
+   "pages": [
+    "invoicesnap-vs-joist#body[15]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes the form; instruction."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes form behavior and gives instruction to download."
+    }
+   ]
+  },
   "prose-d7363c46c6c2": {
    "type": "advice",
    "kind": "prose",
@@ -22377,6 +23888,33 @@
     }
    ]
   },
+  "prose-d73e5bbb0a0d": {
+   "type": "fact",
+   "kind": "prose",
+   "claim": "Joist schedules visits and organizes jobs.",
+   "pages": [
+    "invoicesnap-vs-joist#body[6]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Schedule visits, organize jobs, and see every related detail in one connected view.",
+     "note": "Matches."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Schedule visits, organize jobs, and see every related detail in one connected view.",
+     "note": "Source confirms scheduling visits and organizing jobs."
+    }
+   ],
+   "source_url": "https://www.joist.com/features/",
+   "source_fetched": "2026-11-09",
+   "source_sha256": "c9d0263152433e763401f82bcab1dc895aeb57befc10a52d911fb7f382507245"
+  },
   "prose-d7a07320ba99": {
    "type": "advice",
    "kind": "prose",
@@ -22398,6 +23936,54 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Section heading"
+    }
+   ]
+  },
+  "prose-d7ae8f8ef8cf": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Ask Jobber which plan has each feature.",
+   "pages": [
+    "invoicesnap-vs-jobber#body[2]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction to the reader only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction directing the reader to contact Jobber."
+    }
+   ]
+  },
+  "prose-d7dffeba2fe1": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "The form makes PDF, Word and Excel files on your device. It has no sign-in. It does not keep a customer list for your next visit. If you close the page, your entries are gone, so download first.",
+   "pages": [
+    "create-an-invoice-without-an-account#body[10]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes the form's behavior."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "describes form functionality and gives instruction"
     }
    ]
   },
@@ -22526,6 +24112,33 @@
      "note": "Form label naming a field."
     }
    ]
+  },
+  "prose-d8845f2b1c13": {
+   "type": "fact",
+   "kind": "prose",
+   "claim": "Jobber calls itself the all-in-one solution for home service pros.",
+   "pages": [
+    "invoicesnap-vs-jobber#lede"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "The all-in-one solution for home service pros",
+     "note": "Page headline uses this phrase for Jobber."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "The all-in-one solution for home service pros",
+     "note": "Directly stated on the page."
+    }
+   ],
+   "source_url": "https://www.getjobber.com/features/",
+   "source_fetched": "2026-11-09",
+   "source_sha256": "bfdbcdc46cfea75da5c549fbd6283c0a495e605b2e7248b57489670e8f72d121"
   },
   "prose-d887db09649d": {
    "type": "advice",
@@ -22909,6 +24522,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form label naming a field"
+    }
+   ]
+  },
+  "prose-df26f57e840a": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "You fill in an invoice or an estimate in the browser, with no account.",
+   "pages": [
+    "invoicesnap-vs-joist#body[12]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes the form."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "describes the form"
     }
    ]
   },
@@ -23686,6 +25323,30 @@
     }
    ]
   },
+  "prose-e76159222cfd": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Keep a record",
+   "pages": [
+    "create-an-invoice-without-an-account#body[14]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Heading."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "heading and instruction"
+    }
+   ]
+  },
   "prose-e7640f62f56c": {
    "type": "advice",
    "kind": "prose",
@@ -24049,6 +25710,33 @@
     }
    ]
   },
+  "prose-eb5371554d86": {
+   "type": "fact",
+   "kind": "prose",
+   "claim": "Jobber offers customers online payment.",
+   "pages": [
+    "invoicesnap-vs-jobber#body[7]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Offer customers convenient online payment experiences",
+     "note": "Matches."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "confirmed",
+     "date": "2026-11-09",
+     "quote": "Offer customers convenient online payment experiences they’ve come to expect from businesses.",
+     "note": "Jobber offers convenient online payment experiences for customers."
+    }
+   ],
+   "source_url": "https://www.getjobber.com/features/",
+   "source_fetched": "2026-11-09",
+   "source_sha256": "bfdbcdc46cfea75da5c549fbd6283c0a495e605b2e7248b57489670e8f72d121"
+  },
   "prose-eb8322a2a7f4": {
    "type": "advice",
    "kind": "prose",
@@ -24266,6 +25954,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Section heading describing content."
+    }
+   ]
+  },
+  "prose-ed11e3e4665c": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "The InvoiceSnap browser form is a document tool: it makes an invoice or estimate file and nothing more.",
+   "pages": [
+    "invoicesnap-vs-jobber#body[0]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes the form."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "describes the form"
     }
    ]
   },
@@ -25065,6 +26777,30 @@
     }
    ]
   },
+  "prose-f3228217d3b7": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "How to create an invoice without an account",
+   "pages": [
+    "create-an-invoice-without-an-account#h1"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Heading."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "heading"
+    }
+   ]
+  },
   "prose-f333fa9bf5b3": {
    "type": "advice",
    "kind": "prose",
@@ -25086,6 +26822,54 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Instructions for using the form."
+    }
+   ]
+  },
+  "prose-f3661e2e509c": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Make an invoice in your browser with no sign-up: fill the form, download a PDF, Word or Excel file, check it and send it yourself.",
+   "pages": [
+    "create-an-invoice-without-an-account#description"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes the form and gives instructions."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instructions for using the form"
+    }
+   ]
+  },
+  "prose-f39bc0a8dcfc": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Can I edit the invoice later? Download the Word or Excel file if you want to change it later.",
+   "pages": [
+    "create-an-invoice-without-an-account#faq[1]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction about editing files."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "instruction and form file options"
     }
    ]
   },
@@ -25278,6 +27062,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Instructions for using template"
+    }
+   ]
+  },
+  "prose-f5f03e2c7ce7": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "A download does not send the invoice, take a payment or tell you that money arrived. Write the payment method that you agreed with the customer on the invoice. Record each payment yourself.",
+   "pages": [
+    "create-an-invoice-without-an-account#body[12]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes the file and gives instructions."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "describes downloaded file limits and gives instructions"
     }
    ]
   },
@@ -25621,6 +27429,30 @@
     }
    ]
   },
+  "prose-f90aa8db159b": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "What this page does not compare",
+   "pages": [
+    "invoicesnap-vs-joist#body[20]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Heading."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Heading describing page scope."
+    }
+   ]
+  },
   "prose-f978d0f2ad1b": {
    "type": "advice",
    "kind": "prose",
@@ -25768,6 +27600,30 @@
     }
    ]
   },
+  "prose-fac71ed1accc": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Count the invoices each week. If you send a few invoices, a document form can be enough.",
+   "pages": [
+    "invoicesnap-vs-jobber#body[15]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction to count invoices and a suggestion on form choice; no law, rule, amount or rate."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction and practical suggestion for handling invoices."
+    }
+   ]
+  },
   "prose-faec82413ae0": {
    "type": "advice",
    "kind": "prose",
@@ -25864,6 +27720,30 @@
     }
    ]
   },
+  "prose-fbafddea8ab0": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Ask Joist which plan has each feature.",
+   "pages": [
+    "invoicesnap-vs-joist#body[2]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction to the reader only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Instruction directing the reader to contact Joist."
+    }
+   ]
+  },
   "prose-fbea4d2dbe52": {
    "type": "advice",
    "kind": "prose",
@@ -25885,6 +27765,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Workflow instruction for sending an estimate."
+    }
+   ]
+  },
+  "prose-fc24bb449394": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "The form has no crew, no calendar and no map. It gives you a PDF, Word or Excel file of one invoice or estimate. You send that file by e-mail or text, and you collect the money your own way.",
+   "pages": [
+    "invoicesnap-vs-jobber#body[11]"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Describes the form."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "describes form and workflow"
     }
    ]
   },

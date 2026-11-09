@@ -1,0 +1,43 @@
+{
+ "id": "create-an-invoice-without-an-account",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "answer",
+ "slug": "guides/create-an-invoice-without-an-account",
+ "title": "Create an Invoice Without an Account: 7 Steps",
+ "description": "Make an invoice in your browser with no sign-up: fill the form, download a PDF, Word or Excel file, check it and send it yourself.",
+ "h1": "How to create an invoice without an account",
+ "crumb": "Invoice without an account",
+ "link_text": "Create an invoice without an account",
+ "lede_html": "Open a browser invoice form, enter the job, download the file, check it and send it yourself. You do not need to sign up.",
+ "demand": [
+  "free invoice generator no sign up",
+  "invoice generator no sign up",
+  "free invoice without signing in",
+  "create free invoices without registration",
+  "free invoice generator online without login"
+ ],
+ "parent": null,
+ "related": [
+  "invoice-generator",
+  "what-to-include-on-an-invoice",
+  "invoicesnap-vs-joist",
+  "invoicesnap-vs-jobber"
+ ],
+ "body_html": "<h2>Seven steps</h2><ol><li>Open the <a href=\"/invoice-generator/\">InvoiceSnap invoice generator</a>.</li><li>Replace the sample business and customer with your own details.</li><li>Set the invoice number, the invoice date, the service date and the due date.</li><li>Enter each item with its quantity and your price. Set the tax rate that applies to you.</li><li>Check the total and the balance after any deposit.</li><li>Download a PDF. Open it and check the names, amounts and dates.</li><li>Send the file the usual way, and keep a copy.</li></ol><h2>What the browser form does</h2><p>The form makes PDF, Word and Excel files on your device. It has no sign-in. It does not keep a customer list for your next visit. If you close the page, your entries are gone, so download first.</p><h2>What a downloaded file does not do</h2><p>A download does not send the invoice, take a payment or tell you that money arrived. Write the payment method that you agreed with the customer on the invoice. Record each payment yourself.</p><p>The files are PDF, Word and Excel, not an e-invoice format. Ask your customer if they need a special format.</p><h2>Keep a record</h2><p>The <a href=\"https://www.irs.gov/businesses/small-businesses-self-employed/what-kind-of-records-should-i-keep\" rel=\"noopener\">IRS</a> names invoices among the supporting documents for your books. Keep each sent copy with the job records. To check the fields, see <a href=\"/guides/what-to-include-on-an-invoice/\">what to include on an invoice</a>.</p>",
+ "faq": [
+  {
+   "q": "Where is my invoice saved?",
+   "a": "On your device, in the folder where your browser saves downloads. The form keeps nothing after you close the page."
+  },
+  {
+   "q": "Can I edit the invoice later?",
+   "a": "Download the Word or Excel file if you want to change it later."
+  }
+ ],
+ "faq_heading": "Short answers",
+ "source_ids": [
+  "irs-rec"
+ ]
+}
