@@ -1,0 +1,18 @@
+{
+ "locale": "de-DE", "country": "DE", "currency": "EUR", "dateFmt": "D.M.Y", "page": [595, 842], "dir": "ltr",
+ "fmt": {"symbol": "€", "after": true, "thousands": ".", "decimal": ","},
+ "tax_name": "Umsatzsteuer", "tax_rate": "19 %, ermäßigt 7 %", "required_fields": "§ 14 Abs. 4 UStG",
+ "exemption_text": "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.", "reverse_charge": "Steuerschuldnerschaft des Leistungsempfängers (§ 13b UStG).",
+ "retention": "§ 14b UStG", "paper_size": "A4",
+ "e_invoice": {"status": "Empfang seit 2025, Ausstellung ab 2027/28", "as_of": "2026-07-29", "source": "https://www.bundesfinanzministerium.de/Content/DE/FAQ/e-rechnung.html"},
+ "official_urls": ["https://www.gesetze-im-internet.de/ustg_1980/__14.html"],
+ "reviewer": "Test Reviewer, Steuerberater (fixture only, never live)",
+ "tax": {"type": "modes", "modes": {
+   "std": {"label": "Regelbesteuerung 19 %", "rate": 19},
+   "klein": {"label": "Kleinunternehmer § 19 UStG", "rate": 0, "note": "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet."},
+   "rc": {"label": "Bauleistung an Unternehmer § 13b UStG", "rate": 0, "note": "Steuerschuldnerschaft des Leistungsempfängers (§ 13b UStG)."}}},
+ "notes": [
+  {"when": {"kind": "privat"}, "text": "Darin enthaltene Arbeitskosten: {labor} (§ 35a EStG)."},
+  {"when": {"kind": "privat"}, "text": "Sie sind verpflichtet, diese Rechnung zwei Jahre aufzubewahren (§ 14b UStG)."}],
+ "ui_overrides": {"title_invoice": "RECHNUNG", "bill_to": "RECHNUNG AN", "desc": "Leistung", "qty": "Menge", "unit": "Einheit", "price": "Einzelpreis", "amount": "Gesamt", "net": "Netto", "taxLine": "Umsatzsteuer", "gross": "Gesamt", "inv_no": "Rechnungsnummer", "inv_date": "Rechnungsdatum", "service_date": "Leistungsdatum", "due_date": "Zahlbar bis", "labor": "Arbeit", "material": "Material", "labor_total": "Arbeit", "parts_total": "Material"}
+}

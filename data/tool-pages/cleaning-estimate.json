@@ -1,0 +1,270 @@
+{
+ "id": "cleaning-estimate",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "trade_estimate",
+ "slug": "estimate-template/cleaning",
+ "title": "Cleaning Estimate Template: House and Commercial, PDF, Word, Excel",
+ "description": "Quote house or office cleaning from your browser: frequency, scope, supplies, start date. No sign-up. PDF, Word and Excel, with US price ranges and sources.",
+ "h1": "Cleaning estimate template",
+ "crumb": "Cleaning",
+ "link_text": "Cleaning estimate",
+ "lede_html": "Quote a recurring or one-time clean in this form and download a PDF, Word or Excel file. No account. The sample is a small office. Enter your client and their rooms.",
+ "demand": [
+  "cleaning estimate template",
+  "house cleaning estimate template",
+  "free cleaning estimate template",
+  "commercial cleaning estimate template"
+ ],
+ "parent": "estimate-hub",
+ "related": [
+  "cleaning-invoice",
+  "landscaping-estimate",
+  "painting-estimate",
+  "estimate-generator",
+  "estimate-vs-invoice",
+  "estimate-hub"
+ ],
+ "form": {
+  "kind": "estimate",
+  "sample": {
+   "bizName": "BrightDesk Cleaning",
+   "bizAddr": "400 Commerce St, Dallas, TX 75201",
+   "bizId": "TX tax permit 0-00000-0000-0",
+   "bizContact": "(214) 555-0176",
+   "custName": "Halcyon Dental, attn. Office Manager",
+   "custAddr": "1550 Main St, Dallas, TX 75201",
+   "siteAddr": "",
+   "no": "BD-310",
+   "date": "2026-11-08",
+   "validDays": "30",
+   "start": "2026-12-01",
+   "depositPct": "",
+   "rate": "8.25",
+   "taxOn": "all",
+   "scope": "Clean a 2,400 sq ft office, 3 times per week after 6 pm: floors, restrooms, break room, trash, high-touch surfaces. Supplies included.",
+   "exclusions": "Window exteriors, carpet extraction, biohazard waste, medical instruments.",
+   "terms": "Monthly billing in advance. Either side may end with 30 days written notice.",
+   "items": [
+    {
+     "d": "Office clean, 13 visits per month",
+     "q": 13,
+     "u": "visit",
+     "r": 95,
+     "k": "L"
+    },
+    {
+     "d": "Restroom supplies, monthly",
+     "q": 1,
+     "u": "month",
+     "r": 85,
+     "k": "M"
+    },
+    {
+     "d": "Quarterly floor machine scrub",
+     "q": 1,
+     "u": "job",
+     "r": 240,
+     "k": "L"
+    }
+   ]
+  },
+  "labels": {
+   "bizId": "Business or tax permit no.",
+   "terms": "Terms: billing, notice period"
+  }
+ },
+ "must_show": {
+  "heading": "What a cleaning estimate should say",
+  "intro_html": "A cleaning estimate sets the rhythm of the service. It tells the client the rooms, the task list, how often you come and who supplies what.",
+  "why_label": "Why it matters before the first visit",
+  "rows": [
+   [
+    "Frequency and hours",
+    "Weekly, biweekly or nightly. After-hours access is a cost."
+   ],
+   [
+    "Task list per room",
+    "It prevents \"I thought that was included\"."
+   ],
+   [
+    "Supplies and equipment",
+    "Say who buys them, and who buys the paper goods."
+   ],
+   [
+    "First deep clean",
+    "The first visit often takes longer, so price it apart."
+   ],
+   [
+    "Access and keys",
+    "Who opens the door, and the alarm code process."
+   ],
+   [
+    "Notice period",
+    "How either side ends a recurring plan."
+   ]
+  ]
+ },
+ "example": {
+  "heading": "Filled example: first deep clean, then biweekly",
+  "intro_html": "A home client at sample prices.",
+  "items": [
+   {
+    "d": "First deep clean, 4 bed, 3 bath",
+    "q": 1,
+    "u": "job",
+    "r": 395,
+    "k": "L"
+   },
+   {
+    "d": "Biweekly standard clean, first month",
+    "q": 2,
+    "u": "visit",
+    "r": 205,
+    "k": "L"
+   },
+   {
+    "d": "Pet hair add-on",
+    "q": 2,
+    "u": "visit",
+    "r": 20,
+    "k": "M"
+   }
+  ],
+  "total_label": "Estimated first-month total"
+ },
+ "line_items": {
+  "heading": "Cleaning services and typical prices",
+  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row. The price that the button adds is a sample inside that range, not a price recommendation.",
+  "items": [
+   {
+    "name": "Standard house clean",
+    "unit": "visit",
+    "kind": "L",
+    "low": 140,
+    "high": 220,
+    "src": "hcp-clean",
+    "plus": false,
+    "sample": 175
+   },
+   {
+    "name": "Kitchen and bathroom deep clean",
+    "unit": "job",
+    "kind": "L",
+    "low": 125,
+    "high": 400,
+    "src": "hcp-clean",
+    "plus": false,
+    "sample": 240
+   },
+   {
+    "name": "Move-in or move-out deep clean",
+    "unit": "job",
+    "kind": "L",
+    "low": 220,
+    "high": 400,
+    "src": "hcp-clean",
+    "plus": false,
+    "sample": 310
+   },
+   {
+    "name": "Standard clean, typical home",
+    "unit": "visit",
+    "kind": "L",
+    "low": 90,
+    "high": 150,
+    "src": "workiz",
+    "plus": false,
+    "sample": 125
+   },
+   {
+    "name": "Deep clean, general",
+    "unit": "visit",
+    "kind": "L",
+    "low": 200,
+    "high": 400,
+    "src": "workiz",
+    "plus": false,
+    "sample": 290
+   },
+   {
+    "name": "Cleaner, per hour",
+    "unit": "hour",
+    "kind": "L",
+    "low": 25,
+    "high": 50,
+    "src": "workiz",
+    "plus": false,
+    "sample": 38,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Standard clean, 3 bedrooms",
+    "unit": "visit",
+    "kind": "L",
+    "low": 140,
+    "high": 230,
+    "src": "tidy",
+    "plus": false,
+    "sample": 185
+   },
+   {
+    "name": "Office clean, per visit",
+    "unit": "visit",
+    "kind": "L"
+   },
+   {
+    "name": "Paper goods and restroom supplies",
+    "unit": "month",
+    "kind": "M"
+   }
+  ]
+ },
+ "rules": {
+  "heading": "Rules to check before you send a cleaning estimate",
+  "items": [
+   {
+    "title": "Add tax in Texas",
+    "html": "A Texas client pays tax on building cleaning, in a home or an office, with an exception for a self-employed housekeeper employed by the household. Show the tax before signing.",
+    "src": "tx-94111"
+   },
+   {
+    "title": "Taxable for a business client too",
+    "html": "Texas names office, warehouse, garage and restaurant cleaning in the same rule, so a commercial estimate there carries the tax line as well.",
+    "src": "tx-94111"
+   },
+   {
+    "title": "Training claims",
+    "html": "BLS says that janitors and building cleaners do not need certification. Say \"certified\" on an estimate only when you can name the certificate.",
+    "src": "bls-clean"
+   }
+  ]
+ },
+ "faq_heading": "Cleaning estimate questions",
+ "faq": [
+  {
+   "q": "How do I price a house that I have not seen?",
+   "a": "Give a range by bedrooms and bathrooms, and confirm after a walk-through. Mark it clearly as an estimate."
+  },
+  {
+   "q": "How do I quote a commercial job?",
+   "a": "Price per visit, then multiply by visits per month. Set the deposit to empty when you bill monthly in advance."
+  },
+  {
+   "q": "Should I show a price per square foot?",
+   "a": "Use it for offices if your client compares bids that way. Homes usually compare by rooms."
+  },
+  {
+   "q": "What if the client wants supplies included?",
+   "a": "Add a supplies line, or write that you bring standard products. Say who pays for special products."
+  }
+ ],
+ "source_ids": [
+  "hcp-clean",
+  "workiz",
+  "tidy",
+  "tx-94111",
+  "bls-clean"
+ ]
+}

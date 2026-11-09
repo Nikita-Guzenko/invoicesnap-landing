@@ -1,0 +1,266 @@
+{
+ "id": "electrical-estimate",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "trade_estimate",
+ "slug": "estimate-template/electrical",
+ "title": "Electrical Estimate Template: Fill In, Download PDF, Word, Excel",
+ "description": "Price panel upgrades, EV chargers and new circuits in your browser. No sign-up. Estimate with scope, exclusions, validity and deposit, plus sourced US ranges.",
+ "h1": "Electrical estimate template",
+ "crumb": "Electrical",
+ "link_text": "Electrical estimate",
+ "lede_html": "This form writes an electrical estimate that you can send today as a PDF, Word or Excel file. It needs no account. The sample is a home EV charger. Change it to your job.",
+ "demand": [
+  "electrical estimate template",
+  "electrician estimate template",
+  "electrical contractor estimate template"
+ ],
+ "parent": "estimate-hub",
+ "related": [
+  "electrical-invoice",
+  "plumbing-estimate",
+  "contractor-estimate",
+  "estimate-generator",
+  "estimate-vs-invoice",
+  "estimate-hub"
+ ],
+ "form": {
+  "kind": "estimate",
+  "sample": {
+   "bizName": "Volt Ridge Electric",
+   "bizAddr": "18 Feeder Ct, Tampa, FL 33602",
+   "bizId": "EC000000",
+   "bizContact": "(813) 555-0133",
+   "custName": "Dana Kim",
+   "custAddr": "640 Bayview Ave, Tampa, FL 33606",
+   "siteAddr": "",
+   "no": "Q-1188",
+   "date": "2026-11-08",
+   "validDays": "21",
+   "start": "2026-11-24",
+   "depositPct": "20",
+   "rate": "7.5",
+   "taxOn": "parts",
+   "scope": "Add a 50 A, 240 V circuit from the main panel to the garage. Mount the owner-supplied Level 2 charger. Load calculation and permit included.",
+   "exclusions": "Panel upgrade if the load calculation fails. Charger hardware. Drywall patch and paint.",
+   "terms": "If the panel fails the load calculation, we send a written change order before any panel work.",
+   "items": [
+    {
+     "d": "Licensed electrician, circuit and charger",
+     "q": 6,
+     "u": "hour",
+     "r": 95,
+     "k": "L"
+    },
+    {
+     "d": "6 AWG cable, conduit, 50 A breaker",
+     "q": 1,
+     "u": "lot",
+     "r": 420,
+     "k": "M"
+    },
+    {
+     "d": "Permit and inspection",
+     "q": 1,
+     "u": "permit",
+     "r": 160,
+     "k": "M"
+    }
+   ]
+  },
+  "labels": {
+   "bizId": "License no. (Florida: print it on the offer)",
+   "terms": "Terms: load calculation, change orders"
+  }
+ },
+ "must_show": {
+  "heading": "What an electrical estimate should say",
+  "intro_html": "A clear electrical estimate names the load, the panel plan and the permit, and it says what happens if the existing panel cannot carry the new load.",
+  "why_label": "Why it matters before the job",
+  "rows": [
+   [
+    "Load calculation result",
+    "It decides whether the price holds."
+   ],
+   [
+    "Panel work in or out",
+    "A panel upgrade is the largest swing in a charger or addition job."
+   ],
+   [
+    "Who supplies the hardware",
+    "Name who buys the charger, fixtures or fan."
+   ],
+   [
+    "Permit and inspection",
+    "Say who pulls the permit and whether its fee is included."
+   ],
+   [
+    "Open wall work",
+    "Patch and paint are often excluded. Write that."
+   ],
+   [
+    "Valid until",
+    "Copper and breaker prices move, so set a date."
+   ]
+  ]
+ },
+ "example": {
+  "heading": "Filled example: 100 A to 200 A service upgrade",
+  "intro_html": "A different job at sample prices. Use your own.",
+  "items": [
+   {
+    "d": "Master electrician: new service, meter can, panel",
+    "q": 10,
+    "u": "hour",
+    "r": 105,
+    "k": "L"
+   },
+   {
+    "d": "200 A meter main and 40-circuit panel",
+    "q": 1,
+    "u": "each",
+    "r": 720,
+    "k": "M"
+   },
+   {
+    "d": "Service entrance cable, grounding",
+    "q": 1,
+    "u": "lot",
+    "r": 560,
+    "k": "M"
+   },
+   {
+    "d": "Utility coordination and permit",
+    "q": 1,
+    "u": "permit",
+    "r": 260,
+    "k": "M"
+   }
+  ],
+  "total_label": "Estimated total before tax"
+ },
+ "line_items": {
+  "heading": "Electrical projects and typical prices",
+  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row. The price that the button adds is a sample inside that range, not a price recommendation.",
+  "items": [
+   {
+    "name": "Panel upgrade, 20-circuit 100 A",
+    "unit": "job",
+    "kind": "L",
+    "low": 1200,
+    "high": 4219,
+    "src": "hcp-elec",
+    "plus": false,
+    "sample": 2400
+   },
+   {
+    "name": "Panel upgrade, 30-circuit 200 A",
+    "unit": "job",
+    "kind": "L",
+    "low": 2250,
+    "high": 5100,
+    "src": "hcp-elec",
+    "plus": false,
+    "sample": 3400
+   },
+   {
+    "name": "Outdoor panel, 40-circuit 200 A",
+    "unit": "job",
+    "kind": "L",
+    "low": 1675,
+    "high": 5280,
+    "src": "hcp-elec",
+    "plus": false,
+    "sample": 3300
+   },
+   {
+    "name": "Home EV charger installation",
+    "unit": "job",
+    "kind": "L",
+    "low": 1000,
+    "high": 2500,
+    "src": "tr-ev",
+    "plus": false,
+    "sample": 1600
+   },
+   {
+    "name": "EV charger installation permits",
+    "unit": "permit",
+    "kind": "M",
+    "low": 100,
+    "high": 300,
+    "src": "tr-ev",
+    "plus": false,
+    "sample": 175
+   },
+   {
+    "name": "Master electrician, by the hour",
+    "unit": "hour",
+    "kind": "L",
+    "low": 90,
+    "high": 120,
+    "src": "hcp-elec",
+    "plus": false,
+    "sample": 105,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Dedicated appliance circuit",
+    "unit": "job",
+    "kind": "L"
+   },
+   {
+    "name": "Load calculation",
+    "unit": "job",
+    "kind": "L"
+   }
+  ]
+ },
+ "rules": {
+  "heading": "Rules to check before you send an electrical estimate",
+  "items": [
+   {
+    "title": "Florida: number on each offer",
+    "html": "Florida Statutes 489.521 says that the registration or certification number must be stated in each offer of services, business proposal or advertisement. Check the section for your license type.",
+    "src": "fl-489521"
+   },
+   {
+    "title": "Permit first in Washington",
+    "html": "Washington L&amp;I says that electrical work requires a permit and inspection, with a few exceptions, so add the fee to the estimate.",
+    "src": "wa-lni"
+   },
+   {
+    "title": "Who does the work in Texas",
+    "html": "Texas requires an electrical license under Chapter 1305. Name the licensed person or company on the estimate.",
+    "src": "tdlr"
+   }
+  ]
+ },
+ "faq_heading": "Electrical estimate questions",
+ "faq": [
+  {
+   "q": "Should I quote a panel upgrade inside a charger estimate?",
+   "a": "Give it as a separate option. Then the customer can accept the charger, and the upgrade only if the load calculation needs it."
+  },
+  {
+   "q": "Do customers need separate pricing for parts?",
+   "a": "Not always. A lot price is simple. Show parts apart when your state taxes them apart from labor, and use the tax choice on the form."
+  },
+  {
+   "q": "How much deposit should I ask for?",
+   "a": "It depends on the state and your material cost. California limits the down payment on home improvement jobs. Check your state before you enter the percent."
+  },
+  {
+   "q": "What is the difference between an electrical bid and an estimate?",
+   "a": "A bid usually answers a request for a price on a defined scope. An estimate is your priced view of the job. Write the scope either way, and say if the price is fixed."
+  }
+ ],
+ "source_ids": [
+  "hcp-elec",
+  "tr-ev",
+  "fl-489521",
+  "wa-lni",
+  "tdlr"
+ ]
+}

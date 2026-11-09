@@ -1,0 +1,71 @@
+{
+ "id": "invoice-generator",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "tool",
+ "slug": "invoice-generator",
+ "title": "Free Invoice Generator: No Sign-Up, PDF, Word and Excel",
+ "description": "Make an invoice in your browser and download a PDF, Word or Excel file. Free, no sign-up, and your form values stay on your device.",
+ "h1": "Free invoice generator",
+ "crumb": "Invoice generator",
+ "link_text": "Invoice generator",
+ "lede_html": "Fill in the form and download the invoice. No account.",
+ "demand": [
+  "online invoice generator",
+  "invoice template generator",
+  "invoice template maker"
+ ],
+ "parent": null,
+ "related": [
+  "invoice-hub",
+  "estimate-generator",
+  "what-to-include-on-an-invoice",
+  "contractor-invoice",
+  "freelancer-invoice"
+ ],
+ "form": {
+  "kind": "invoice",
+  "sample": {
+   "bizName": "Your Business LLC",
+   "bizAddr": "100 Main St, Springfield, IL 62701",
+   "bizId": "EIN 00-0000000",
+   "bizContact": "you@example.com",
+   "pay": "Bank transfer or check",
+   "custName": "Sample Customer Inc.",
+   "custAddr": "200 Oak Ave, Springfield, IL 62704",
+   "siteAddr": "",
+   "no": "1001",
+   "date": "2026-11-08",
+   "svc": "2026-11-05",
+   "dueDays": "30",
+   "paid": "",
+   "rate": "",
+   "taxOn": "all",
+   "terms": "Thank you for your business.",
+   "items": [
+    {
+     "d": "Service or labor",
+     "q": 4,
+     "u": "hour",
+     "r": 60,
+     "k": "L"
+    },
+    {
+     "d": "Materials",
+     "q": 1,
+     "u": "lot",
+     "r": 85,
+     "k": "M"
+    }
+   ]
+  },
+  "labels": {
+   "bizId": "Tax or license no."
+  }
+ },
+ "body_html": "<h2>Who this form is for</h2><p>Small businesses and self-employed people who need one invoice now and do not want a new account. Trades that bill parts and labor can tax each part in their own way. People who bill only time can use the <a href=\"/invoice-template/freelancer/\">freelance invoice</a>, and trade workers can start from a page with real line items, such as <a href=\"/invoice-template/contractor/\">contractor</a> or <a href=\"/invoice-template/plumbing/\">plumbing</a>.</p><h2>What you get</h2><ul><li>A PDF on US Letter paper.</li><li>An editable Word file.</li><li>An Excel file with line totals and sales tax as formulas.</li><li>A blank PDF to print and fill in by hand.</li></ul><h2>What to check</h2><p>The form does the math and prints your text. It does not check tax rates or decide what a state asks for. Read <a href=\"/guides/what-to-include-on-an-invoice/\">what to include on an invoice</a> if this is your first one.</p>",
+ "source_ids": [
+  "irs-rec"
+ ]
+}

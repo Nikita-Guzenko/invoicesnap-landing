@@ -1,0 +1,284 @@
+{
+ "id": "contractor-invoice",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "trade_invoice",
+ "slug": "invoice-template/contractor",
+ "title": "Contractor Invoice Template: Construction Billing in PDF, Word, Excel",
+ "description": "Bill construction and remodeling work from your browser: progress payments, change orders, deposits. No sign-up. PDF, Word and Excel, with sourced US prices.",
+ "h1": "Contractor and construction invoice template",
+ "crumb": "Contractor",
+ "link_text": "Contractor invoice",
+ "lede_html": "Use this form for general contractor and construction jobs, then download a PDF, Word or Excel file. You need no account. The sample is a second progress bill on a kitchen. Replace it.",
+ "demand": [
+  "contractor invoice template",
+  "construction invoice template",
+  "free contractor invoice template",
+  "independent contractor invoice template"
+ ],
+ "parent": "invoice-hub",
+ "related": [
+  "contractor-estimate",
+  "handyman-invoice",
+  "electrical-invoice",
+  "invoice-generator",
+  "what-to-include-on-an-invoice",
+  "invoice-hub"
+ ],
+ "form": {
+  "kind": "invoice",
+  "sample": {
+   "bizName": "Hartley Build Co.",
+   "bizAddr": "210 Framing Ln, Sacramento, CA 95811",
+   "bizId": "CSLB Lic. 0000000",
+   "bizContact": "(916) 555-0102",
+   "pay": "Check or ACH to Hartley Build Co.",
+   "custName": "R. and J. Patel",
+   "custAddr": "18 Willow Ct, Sacramento, CA 95819",
+   "siteAddr": "",
+   "no": "HB-204-2",
+   "date": "2026-11-08",
+   "svc": "2026-11-07",
+   "dueDays": "10",
+   "paid": "4500",
+   "rate": "",
+   "taxOn": "parts",
+   "terms": "Progress payment 2 of 4: rough-in passed. Change order CO-1 signed 27 Oct.",
+   "items": [
+    {
+     "d": "Progress payment 2: demolition done, rough-in passed",
+     "q": 1,
+     "u": "stage",
+     "r": 14500,
+     "k": "L"
+    },
+    {
+     "d": "Change order CO-1: move sink wall",
+     "q": 1,
+     "u": "job",
+     "r": 1850,
+     "k": "L"
+    },
+    {
+     "d": "Building permit, at cost",
+     "q": 1,
+     "u": "permit",
+     "r": 780,
+     "k": "M"
+    }
+   ]
+  },
+  "labels": {
+   "bizId": "Contractor license no.",
+   "terms": "Notes: progress stage, change orders",
+   "paid": "Deposit and past payments"
+  }
+ },
+ "must_show": {
+  "heading": "What a contractor invoice must show",
+  "intro_html": "A construction invoice links the amount to the contract: which stage, which change order, what the customer already paid, and what remains. California asks that the contract list the license number, address and phone.",
+  "why_label": "Why it matters on a construction job",
+  "rows": [
+   [
+    "Contractor license number",
+    "Lets the owner check your license, and some states ask for it on the contract."
+   ],
+   [
+    "Contract or job reference",
+    "One job can have many bills, so give each one a reference."
+   ],
+   [
+    "Progress stage",
+    "Name the stage reached, for example rough-in passed."
+   ],
+   [
+    "Change orders",
+    "Each one gets its own line with its number and date."
+   ],
+   [
+    "Payments to date and balance",
+    "The form prints what the customer paid and the balance."
+   ],
+   [
+    "Lien notices and waivers",
+    "Your state may ask for a notice or a waiver at payment. Keep them with the invoice."
+   ]
+  ]
+ },
+ "example": {
+  "heading": "Filled example: small bathroom, final bill",
+  "intro_html": "A second job at sample prices. Use your contract amounts.",
+  "items": [
+   {
+    "d": "Final payment: tile, fixtures, paint complete",
+    "q": 1,
+    "u": "stage",
+    "r": 6200,
+    "k": "L"
+   },
+   {
+    "d": "Change order CO-2: niche in shower",
+    "q": 1,
+    "u": "job",
+    "r": 640,
+    "k": "L"
+   },
+   {
+    "d": "Dumpster, second pull",
+    "q": 1,
+    "u": "each",
+    "r": 420,
+    "k": "M"
+   }
+  ]
+ },
+ "line_items": {
+  "heading": "Construction line items and typical prices",
+  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row. The price that the button adds is a sample inside that range, not a price recommendation.",
+  "items": [
+   {
+    "name": "General contractor, small jobs",
+    "unit": "hour",
+    "kind": "L",
+    "low": 50,
+    "high": 150,
+    "src": "ctbh",
+    "plus": false,
+    "sample": 85,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Interior demolition",
+    "unit": "job",
+    "kind": "L",
+    "low": 1201,
+    "high": 5328,
+    "src": "hy-demo",
+    "plus": false,
+    "sample": 2400
+   },
+   {
+    "name": "Kitchen demolition",
+    "unit": "job",
+    "kind": "L",
+    "low": 397,
+    "high": 3012,
+    "src": "hy-demo",
+    "plus": false,
+    "sample": 1200
+   },
+   {
+    "name": "Demolition labor",
+    "unit": "hour",
+    "kind": "L",
+    "low": 22,
+    "high": 54,
+    "src": "hy-demo",
+    "plus": false,
+    "sample": 38,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Drywall repair, small holes",
+    "unit": "job",
+    "kind": "L",
+    "low": 100,
+    "high": 200,
+    "src": "tr-dry",
+    "plus": false,
+    "sample": 150
+   },
+   {
+    "name": "Drywall repair, holes of 12 in. or more",
+    "unit": "job",
+    "kind": "L",
+    "low": 200,
+    "high": 400,
+    "src": "tr-dry",
+    "plus": false,
+    "sample": 300
+   },
+   {
+    "name": "Drywall ceiling repair",
+    "unit": "job",
+    "kind": "L",
+    "low": 300,
+    "high": 1000,
+    "src": "tr-dry",
+    "plus": false,
+    "sample": 550
+   },
+   {
+    "name": "Building permit, residential",
+    "unit": "permit",
+    "kind": "M",
+    "low": 525,
+    "high": 3114,
+    "src": "pricer",
+    "plus": false,
+    "sample": 1200
+   },
+   {
+    "name": "Dumpster",
+    "unit": "each",
+    "kind": "M"
+   },
+   {
+    "name": "Change order",
+    "unit": "job",
+    "kind": "L"
+   }
+  ],
+  "after_html": "For scale: the median annual wage in May 2025 was $46,680 for construction laborers and helpers (<a href=\"https://www.bls.gov/ooh/construction-and-extraction/construction-laborers-and-helpers.htm\" rel=\"noopener\">BLS</a>). It was $114,990 for construction managers (<a href=\"https://www.bls.gov/ooh/management/construction-managers.htm\" rel=\"noopener\">BLS</a>)."
+ },
+ "rules": {
+  "heading": "Contractor rules that touch the invoice",
+  "items": [
+   {
+    "title": "Down payment cap in California",
+    "html": "On home improvement jobs, the down payment cannot pass the lesser of $1,000 or 10 percent, except for blanket-bond licensees. Later payments cannot exceed the value of work performed.",
+    "src": "cslb-guide"
+   },
+   {
+    "title": "Change orders in writing",
+    "html": "The <a href=\"https://www.cslb.ca.gov/resources/GuidesAndPublications/HomeImprovementContractsConsumerGuide.pdf\" rel=\"noopener\">California CSLB guide</a> says that a price change must be a written change order in the contract. New Jersey requires written changes to home improvement contracts over $500.",
+    "src": "nj-16-2"
+   },
+   {
+    "title": "Lien rights",
+    "html": "In California, suppliers and subcontractors give the owner a Preliminary Notice within 20 days of delivering material or starting work. Contractors give a Mechanics Lien Warning.",
+    "src": "cslb-guide"
+   }
+  ]
+ },
+ "faq_heading": "Contractor invoice questions",
+ "faq": [
+  {
+   "q": "How do I bill a progress payment?",
+   "a": "Enter one line per stage with quantity 1. Put the stage in the description, enter past payments in the form, and the file prints the balance due."
+  },
+  {
+   "q": "Is this form for a 1099 independent contractor?",
+   "a": "Yes. A self-employed person who bills a business can use it. Use the freelancer page if you bill by hours or by project with no parts."
+  },
+  {
+   "q": "Should each change order have its own invoice?",
+   "a": "It can. Most jobs add a line to the next progress bill with the change order number, so one document shows the running total."
+  },
+  {
+   "q": "Can I bill for material that is on site but not installed?",
+   "a": "Your contract decides this. In California, payments cannot exceed the value of the performed work, so check this before you bill material that is not installed."
+  }
+ ],
+ "source_ids": [
+  "ctbh",
+  "hy-demo",
+  "tr-dry",
+  "pricer",
+  "bls-cons",
+  "bls-mgr",
+  "cslb-guide",
+  "nj-16-2"
+ ]
+}

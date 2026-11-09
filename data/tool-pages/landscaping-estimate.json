@@ -1,0 +1,300 @@
+{
+ "id": "landscaping-estimate",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "trade_estimate",
+ "slug": "estimate-template/landscaping",
+ "title": "Landscaping Estimate Template: Fill In, Download PDF, Word, Excel",
+ "description": "Price sod, mulch, patios and lawn care in your browser. No sign-up. An estimate with scope, exclusions and deposit, plus US ranges and state rules, with sources.",
+ "h1": "Landscaping estimate template",
+ "crumb": "Landscaping",
+ "link_text": "Landscaping estimate",
+ "lede_html": "Write a landscaping or lawn care estimate in this form, then save it as a PDF, Word or Excel file. No account needed. The sample is a front-yard redo. Enter your own yard.",
+ "demand": [
+  "landscaping estimate template"
+ ],
+ "parent": "estimate-hub",
+ "related": [
+  "painting-estimate",
+  "cleaning-estimate",
+  "contractor-estimate",
+  "estimate-generator",
+  "estimate-vs-invoice",
+  "estimate-hub"
+ ],
+ "form": {
+  "kind": "estimate",
+  "sample": {
+   "bizName": "Greenline Yard Works",
+   "bizAddr": "2400 Mulch Rd, Plano, TX 75023",
+   "bizId": "TDA license 000000",
+   "bizContact": "(972) 555-0147",
+   "custName": "Oscar Medina",
+   "custAddr": "819 Cedar Bluff, Plano, TX 75074",
+   "siteAddr": "",
+   "no": "G-1502",
+   "date": "2026-11-08",
+   "validDays": "21",
+   "start": "2026-12-14",
+   "depositPct": "25",
+   "rate": "8.25",
+   "taxOn": "all",
+   "scope": "Strip old lawn in front yard, 1,200 sq ft. Grade, lay St. Augustine sod, add 4 yd of mulch to beds, trim 2 oaks. Haul away debris.",
+   "exclusions": "Irrigation repair, tree removal, gas or utility line relocation.",
+   "terms": "Plant material warranty: 30 days with watering as advised. Call 811 before digging.",
+   "items": [
+    {
+     "d": "Strip and grade",
+     "q": 1200,
+     "u": "sq ft",
+     "r": 0.55,
+     "k": "L"
+    },
+    {
+     "d": "Sod, supplied and laid",
+     "q": 1200,
+     "u": "sq ft",
+     "r": 1.3,
+     "k": "M"
+    },
+    {
+     "d": "Mulch, delivered and spread",
+     "q": 4,
+     "u": "cubic yd",
+     "r": 85,
+     "k": "M"
+    },
+    {
+     "d": "Tree trim, medium oak",
+     "q": 2,
+     "u": "tree",
+     "r": 540,
+     "k": "L"
+    }
+   ]
+  },
+  "labels": {
+   "bizId": "License no. (pesticide, landscape)",
+   "terms": "Terms: plant warranty, watering"
+  }
+ },
+ "must_show": {
+  "heading": "What a landscaping estimate should say",
+  "intro_html": "A landscaping estimate states the area, the materials by name, what you haul away and whether the plants carry a warranty. The customer can then match bids.",
+  "why_label": "Why it matters in a yard",
+  "rows": [
+   [
+    "Area measured",
+    "Square feet or cubic yards let the customer compare two bids."
+   ],
+   [
+    "Plant and material names",
+    "Sod type, mulch type and size of each plant."
+   ],
+   [
+    "Prep work",
+    "Grading, stripping and soil are often the largest hidden cost."
+   ],
+   [
+    "Haul-away",
+    "Say if debris leaves the site."
+   ],
+   [
+    "Watering and care",
+    "A plant warranty usually depends on watering. Say what you expect."
+   ],
+   [
+    "Tax treatment",
+    "Some states tax landscaping labor, so state the tax line."
+   ]
+  ]
+ },
+ "example": {
+  "heading": "Filled example: 12-visit mowing season",
+  "intro_html": "A recurring job at sample prices.",
+  "items": [
+   {
+    "d": "Mowing, edging, blowing, per visit",
+    "q": 12,
+    "u": "visit",
+    "r": 55,
+    "k": "L"
+   },
+   {
+    "d": "Fertilization, 3 rounds",
+    "q": 3,
+    "u": "job",
+    "r": 140,
+    "k": "L"
+   },
+   {
+    "d": "Core aeration, once",
+    "q": 1,
+    "u": "job",
+    "r": 160,
+    "k": "L"
+   }
+  ],
+  "total_label": "Estimated season total",
+  "after_html": "The visit price sits inside the $42–$68 range from <a href=\"https://www.lawnstarter.com/blog/cost/landscaping-price/\" rel=\"noopener\">LawnStarter</a>."
+ },
+ "line_items": {
+  "heading": "Landscaping line items and typical prices",
+  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row. The price that the button adds is a sample inside that range, not a price recommendation.",
+  "items": [
+   {
+    "name": "Lawn mowing",
+    "unit": "visit",
+    "kind": "L",
+    "low": 42,
+    "high": 68,
+    "src": "ls-land",
+    "plus": false,
+    "sample": 55
+   },
+   {
+    "name": "Lawn fertilization",
+    "unit": "job",
+    "kind": "L",
+    "low": 67,
+    "high": 405,
+    "src": "ls-land",
+    "plus": false,
+    "sample": 140
+   },
+   {
+    "name": "Tree trimming",
+    "unit": "tree",
+    "kind": "L",
+    "low": 430,
+    "high": 640,
+    "src": "ls-land",
+    "plus": false,
+    "sample": 540
+   },
+   {
+    "name": "Mulch, per cubic yard",
+    "unit": "cubic yd",
+    "kind": "M",
+    "low": 77,
+    "high": 94,
+    "src": "ls-land",
+    "plus": false,
+    "sample": 85,
+    "range_unit": "cubic yd"
+   },
+   {
+    "name": "Sod, per sq ft",
+    "unit": "sq ft",
+    "kind": "M",
+    "low": 0.6,
+    "high": 1.65,
+    "src": "ls-land",
+    "plus": false,
+    "sample": 1.2,
+    "range_unit": "sq ft"
+   },
+   {
+    "name": "Patio",
+    "unit": "sq ft",
+    "kind": "L",
+    "low": 8,
+    "high": 24,
+    "src": "ls-land",
+    "plus": false,
+    "sample": 16,
+    "range_unit": "sq ft"
+   },
+   {
+    "name": "Walkway",
+    "unit": "sq ft",
+    "kind": "L",
+    "low": 9,
+    "high": 20,
+    "src": "ls-land",
+    "plus": false,
+    "sample": 14,
+    "range_unit": "sq ft"
+   },
+   {
+    "name": "Lawn aeration",
+    "unit": "job",
+    "kind": "L",
+    "low": 82,
+    "high": 251,
+    "src": "ll-land",
+    "plus": false,
+    "sample": 160
+   },
+   {
+    "name": "Landscaping labor up to landscape architect",
+    "unit": "hour",
+    "kind": "L",
+    "low": 50,
+    "high": 250,
+    "src": "tr-land",
+    "plus": false,
+    "sample": 85,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Patio installation",
+    "unit": "project",
+    "kind": "L",
+    "low": 2000,
+    "high": 5800,
+    "src": "tr-land",
+    "plus": false,
+    "sample": 3600
+   }
+  ]
+ },
+ "rules": {
+  "heading": "Rules to check before you send a landscaping estimate",
+  "items": [
+   {
+    "title": "Texas sales tax",
+    "html": "Texas lists planting, mowing, trimming and edging grass, and tree care, as taxable. Add state and local rate, unless you work alone with yearly receipts of $5,000 or less.",
+    "src": "tx-94112"
+   },
+   {
+    "title": "Pesticide license in Texas",
+    "html": "A person who applies any pesticide to ornamental plants, trees, lawns or weeds for hire needs a Texas Department of Agriculture license. A person who applies only fertilizer does not.",
+    "src": "tda"
+   },
+   {
+    "title": "California C-27 class",
+    "html": "The C-27 landscape contractor constructs, maintains, repairs and installs landscape systems and facilities. Print the number on the estimate when you hold it.",
+    "src": "cslb-c27"
+   }
+  ]
+ },
+ "faq_heading": "Landscaping estimate questions",
+ "faq": [
+  {
+   "q": "Should I price a mowing contract as one estimate?",
+   "a": "Yes. Enter visits as the quantity and the visit price as the unit price. The total shows the full season."
+  },
+  {
+   "q": "How do I handle soil that is worse than expected?",
+   "a": "Exclude it, or give a unit price per cubic yard for added soil. Then you can bill it without a dispute."
+  },
+  {
+   "q": "Do I need a separate line for delivery?",
+   "a": "Add one when the material price does not include it. Bulk delivery costs differ by distance."
+  },
+  {
+   "q": "Can I ask for a deposit on a landscape job?",
+   "a": "Many companies do, for plants and sod that they must buy first. Check your state limit if the work counts as home improvement."
+  }
+ ],
+ "source_ids": [
+  "ls-land",
+  "ll-land",
+  "tr-land",
+  "tx-94112",
+  "tda",
+  "cslb-c27"
+ ]
+}

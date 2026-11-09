@@ -1,0 +1,70 @@
+{
+ "id": "estimate-generator",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "tool",
+ "slug": "estimate-generator",
+ "title": "Free Estimate Maker: No Sign-Up, PDF, Word and Excel",
+ "description": "Write a job estimate in your browser with scope, exclusions, valid-until date and deposit. Free, no sign-up. Download PDF, Word or Excel.",
+ "h1": "Free estimate maker",
+ "crumb": "Estimate maker",
+ "link_text": "Estimate maker",
+ "lede_html": "Describe the job, price it and download the estimate. No account.",
+ "demand": [
+  "estimate template",
+  "free estimate template",
+  "estimate template word free"
+ ],
+ "parent": null,
+ "related": [
+  "estimate-hub",
+  "invoice-generator",
+  "estimate-vs-invoice",
+  "contractor-estimate",
+  "roofing-estimate"
+ ],
+ "form": {
+  "kind": "estimate",
+  "sample": {
+   "bizName": "Your Business LLC",
+   "bizAddr": "100 Main St, Springfield, IL 62701",
+   "bizId": "License no. 00000",
+   "bizContact": "you@example.com",
+   "custName": "Sample Customer",
+   "custAddr": "200 Oak Ave, Springfield, IL 62704",
+   "siteAddr": "",
+   "no": "E-1001",
+   "date": "2026-11-08",
+   "validDays": "30",
+   "start": "2026-12-01",
+   "depositPct": "10",
+   "rate": "",
+   "taxOn": "all",
+   "scope": "Describe the work here, room by room or step by step.",
+   "exclusions": "List what the price does not cover.",
+   "terms": "Changes to the scope need written approval before the work.",
+   "items": [
+    {
+     "d": "Labor",
+     "q": 16,
+     "u": "hour",
+     "r": 65,
+     "k": "L"
+    },
+    {
+     "d": "Materials",
+     "q": 1,
+     "u": "lot",
+     "r": 420,
+     "k": "M"
+    }
+   ]
+  },
+  "labels": {
+   "bizId": "License or tax no."
+  }
+ },
+ "body_html": "<h2>Who this form is for</h2><p>Anyone who has to give a written price before a job starts. It adds what an invoice does not have: scope, what is not included, how long the price holds, and a deposit. The file ends with a line for the customer to sign. The trade pages add line items and prices for <a href=\"/estimate-template/contractor/\">contractor</a>, <a href=\"/estimate-template/roofing/\">roofing</a>, <a href=\"/estimate-template/painting/\">painting</a> and more.</p><h2>What you get</h2><ul><li>A PDF that is ready to send.</li><li>A Word file that you can change for each customer.</li><li>An Excel file that recalculates when you change a price.</li></ul><h2>After the customer says yes</h2><p>Copy the same lines into the <a href=\"/invoice-generator/\">invoice generator</a> when the work is done. <a href=\"/guides/estimate-vs-invoice/\">Estimate or invoice</a> explains when you send each one.</p>",
+ "source_ids": []
+}

@@ -1,0 +1,306 @@
+{
+ "id": "painting-estimate",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "trade_estimate",
+ "slug": "estimate-template/painting",
+ "title": "Painting Estimate Template: Fill In, Download PDF, Word, Excel",
+ "description": "Price interior or exterior painting in your browser: rooms, sq ft, coats, prep, lead-safe notes. No sign-up. PDF, Word, Excel, with US ranges and sources.",
+ "h1": "Painting estimate template",
+ "crumb": "Painting",
+ "link_text": "Painting estimate",
+ "lede_html": "Use this form to price a paint job and download a PDF, Word or Excel estimate. There is no account. The sample is three rooms in an older home. Enter your rooms.",
+ "demand": [
+  "painting estimate template",
+  "painting estimate template word",
+  "painter estimate template",
+  "template for painting contractor estimate"
+ ],
+ "parent": "estimate-hub",
+ "related": [
+  "roofing-estimate",
+  "landscaping-estimate",
+  "contractor-estimate",
+  "estimate-generator",
+  "estimate-vs-invoice",
+  "estimate-hub"
+ ],
+ "form": {
+  "kind": "estimate",
+  "sample": {
+   "bizName": "Fresh Coat Painters",
+   "bizAddr": "66 Brush Ave, Portland, OR 97205",
+   "bizId": "CCB 000000 / EPA Lead-Safe firm",
+   "bizContact": "(503) 555-0185",
+   "custName": "Grace Liu",
+   "custAddr": "431 NE Alder St, Portland, OR 97232",
+   "siteAddr": "",
+   "no": "P-908",
+   "date": "2026-11-08",
+   "validDays": "30",
+   "start": "2026-12-02",
+   "depositPct": "15",
+   "rate": "",
+   "taxOn": "parts",
+   "scope": "Paint walls, ceilings and trim in 2 bedrooms and hall. Two coats. Patch nail holes and small cracks. Move and cover furniture. Home built 1962: lead-safe work practices.",
+   "exclusions": "Wallpaper removal, plaster repair over 1 sq ft, closets, doors.",
+   "terms": "Paint: owner color choice, mid-grade washable. Color change after start is a change order.",
+   "items": [
+    {
+     "d": "Bedroom 1, 10 x 12",
+     "q": 1,
+     "u": "room",
+     "r": 640,
+     "k": "L"
+    },
+    {
+     "d": "Bedroom 2, 11 x 13",
+     "q": 1,
+     "u": "room",
+     "r": 720,
+     "k": "L"
+    },
+    {
+     "d": "Hall, walls and trim",
+     "q": 1,
+     "u": "room",
+     "r": 380,
+     "k": "L"
+    },
+    {
+     "d": "Lead-safe setup, containment, cleanup",
+     "q": 1,
+     "u": "job",
+     "r": 420,
+     "k": "M"
+    }
+   ]
+  },
+  "labels": {
+   "bizId": "License and lead-safe no.",
+   "terms": "Terms: paint grade, color changes"
+  }
+ },
+ "must_show": {
+  "heading": "What a painting estimate should say",
+  "intro_html": "A paint estimate says which surfaces, how many coats, how much prep and which paint. Most price gaps between two painters come from prep, so write it down.",
+  "why_label": "Why it matters on a paint job",
+  "rows": [
+   [
+    "Surfaces and rooms",
+    "Walls, ceilings, trim and doors are separate decisions."
+   ],
+   [
+    "Coats and paint grade",
+    "Name the coats and the product line, or who buys the paint."
+   ],
+   [
+    "Prep work",
+    "Patching, sanding, caulk and primer. Say how much is included."
+   ],
+   [
+    "Home age",
+    "A home from before 1978 can bring the EPA lead rule."
+   ],
+   [
+    "Moving and protection",
+    "Say who moves furniture and how you cover floors."
+   ],
+   [
+    "Color changes",
+    "A new color after the start can need another coat."
+   ]
+  ]
+ },
+ "example": {
+  "heading": "Filled example: exterior repaint, 1,800 sq ft",
+  "intro_html": "A second job at sample prices, priced per square foot.",
+  "items": [
+   {
+    "d": "Pressure wash, scrape, spot prime",
+    "q": 1,
+    "u": "job",
+    "r": 850,
+    "k": "L"
+   },
+   {
+    "d": "Body, 2 coats",
+    "q": 1800,
+    "u": "sq ft",
+    "r": 2.25,
+    "k": "L"
+   },
+   {
+    "d": "Trim and fascia",
+    "q": 1,
+    "u": "job",
+    "r": 780,
+    "k": "L"
+   },
+   {
+    "d": "Exterior paint, 22 gal",
+    "q": 22,
+    "u": "gal",
+    "r": 58,
+    "k": "M"
+   }
+  ],
+  "total_label": "Estimated total"
+ },
+ "line_items": {
+  "heading": "Painting line items and typical prices",
+  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row. The price that the button adds is a sample inside that range, not a price recommendation.",
+  "items": [
+   {
+    "name": "Interior painting",
+    "unit": "sq ft",
+    "kind": "L",
+    "low": 2,
+    "high": 6,
+    "src": "hcp-paint",
+    "plus": false,
+    "sample": 3.5,
+    "range_unit": "sq ft"
+   },
+   {
+    "name": "Exterior painting",
+    "unit": "sq ft",
+    "kind": "L",
+    "low": 1.5,
+    "high": 4,
+    "src": "hcp-paint",
+    "plus": false,
+    "sample": 2.75,
+    "range_unit": "sq ft"
+   },
+   {
+    "name": "Bedroom, 10 x 12",
+    "unit": "room",
+    "kind": "L",
+    "low": 400,
+    "high": 800,
+    "src": "hcp-paint",
+    "plus": false,
+    "sample": 600
+   },
+   {
+    "name": "Kitchen",
+    "unit": "room",
+    "kind": "L",
+    "low": 500,
+    "high": 1200,
+    "src": "hcp-paint",
+    "plus": false,
+    "sample": 800
+   },
+   {
+    "name": "Whole-home interior, 1,500–2,000 sq ft",
+    "unit": "house",
+    "kind": "L",
+    "low": 3000,
+    "high": 8000,
+    "src": "hcp-paint",
+    "plus": false,
+    "sample": 5200
+   },
+   {
+    "name": "Cabinet painting",
+    "unit": "job",
+    "kind": "L",
+    "low": 3000,
+    "high": 10000,
+    "src": "hcp-paint",
+    "plus": false,
+    "sample": 5500
+   },
+   {
+    "name": "Accent wall",
+    "unit": "wall",
+    "kind": "L",
+    "low": 349,
+    "high": 2950,
+    "src": "hy-paint",
+    "plus": false,
+    "sample": 650
+   },
+   {
+    "name": "Painting labor",
+    "unit": "hour",
+    "kind": "L",
+    "low": 28,
+    "high": 79,
+    "src": "hy-paint",
+    "plus": false,
+    "sample": 50,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Bathroom",
+    "unit": "room",
+    "kind": "L",
+    "low": 150,
+    "high": 300,
+    "src": "tr-paint",
+    "plus": false,
+    "sample": 225
+   },
+   {
+    "name": "Doors",
+    "unit": "door",
+    "kind": "L",
+    "low": 40,
+    "high": 100,
+    "src": "tr-paint",
+    "plus": false,
+    "sample": 70
+   }
+  ]
+ },
+ "rules": {
+  "heading": "Rules to check before you send a painting estimate",
+  "items": [
+   {
+    "title": "Lead-safe work in older homes",
+    "html": "Under the EPA rule, paid work that disturbs painted surfaces in homes, childcare facilities and preschools built before 1978 falls under the Renovation, Repair and Painting Program. Lead-safe certified firms do the work. Name your certification on the estimate.",
+    "src": "epa-rrp"
+   },
+   {
+    "title": "Trained staff",
+    "html": "EPA says that workers must be trained, either as a certified renovator or on the job by a certified renovator. Keep the training record with the job file.",
+    "src": "epa-rrp"
+   },
+   {
+    "title": "State license class",
+    "html": "California has a C-33 Painting and Decorating class that covers preparing a surface and applying paints and similar materials. Other states set their own limits. Print the number your state gave you.",
+    "src": "cslb-c33"
+   }
+  ]
+ },
+ "faq_heading": "Painting estimate questions",
+ "faq": [
+  {
+   "q": "Should I price by the room or by the square foot?",
+   "a": "Rooms are easy for customers. Square feet suit exterior work and big interiors. The form has a unit for each line, so use both on one estimate if you want."
+  },
+  {
+   "q": "Do I include paint in the price?",
+   "a": "Say so either way. Add paint as a parts line if you buy it, or write in the exclusions that the owner buys it."
+  },
+  {
+   "q": "How do I handle damage found under old wallpaper?",
+   "a": "Exclude it in the scope and set a unit price for skim coat or repair, so that no one argues later."
+  },
+  {
+   "q": "Should the estimate give a finish date?",
+   "a": "Give a planned start and a duration in the scope. Weather can move exterior work, so say that in the terms."
+  }
+ ],
+ "source_ids": [
+  "hcp-paint",
+  "hy-paint",
+  "tr-paint",
+  "epa-rrp",
+  "cslb-c33"
+ ]
+}

@@ -23,6 +23,8 @@ Add a page: write data/pages/<id>.json, one file for one page in all its languag
   A locale other than en needs a "ui" block in data/locales.json; the build stops and says so.
   "source" instead of the body fields: the page is a whole HTML file under src/pages/ (see data/pages/home.json).
   Static files (images, tool scripts) go under src/static/ and are copied as they are.
+  Free tool pages (form, trade, hub and answer pages) live in data/tool-pages/<id>.json instead: see tool_pages.py.
+  A tool page that fails gate.py is built with noindex and stays out of the sitemap, the hubs and related links.
 
 Facts that are not obvious:
 - Sitemaps stay at the site root: a sitemap may list only URLs at or below its own folder, so
@@ -48,7 +50,12 @@ from pathlib import Path
 from string import Template
 from xml.sax.saxutils import escape as xml_escape
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import gate  # noqa: E402
+import tool_pages  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent
+APP_REPO = Path.home() / "firstmate-invoicesnap" / "projects" / "invoicesnap-expo"  # Read only: gate 9 reads claim lines there.
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
 TITLE_MAX, DESCRIPTION_MAX = 70, 170  # Longer text is cut in search results: a warning, not an error.
 
@@ -240,6 +247,83 @@ class Site:
             seo_block=self.seo_links(alternates) + "\n  " + json_ld(graph), body=entry["body_html"], faq=faq_html,
             languages=languages, **{f"ui_{k}": html.escape(v) for k, v in ui.items()})
 
+    def strip_blocked_links(self, text: str, own_id: str = "") -> str:
+        """Keep the words, drop the link to a blocked tool page. A home footer link goes whole: a dead word there looks broken (9 Nov 2026)."""
+        ctx = self.tools
+        for other in ctx.pages:
+            if other["id"] in ctx.blocked and other["id"] != own_id:
+                pattern = rf'<a [^>]*href="{re.escape(self.url_path(other.get("locale", "en"), other["slug"]))}"[^>]*>(.*?)</a>'
+                text = re.sub(pattern, lambda m: "" if "footer-link" in m.group(0) else m.group(1), text, flags=re.S)
+        return text
+
+    def render_tool(self, page: dict, url: str, noindex: bool) -> str:
+        ctx = self.tools
+        law = ctx.laws.get(page.get("law", self.tool_default_law))
+        if not law:
+            raise BuildError(f"page {page['id']}: no law record {page.get('law')}. Add data/law/{page.get('law')}.json (gate 5)")
+        tag = page.get("locale", "en")
+        ui = self.locales[tag].get("ui")
+        if not ui:
+            raise BuildError(f"page {page['id']} {tag}: add a \"ui\" block for {tag} in data/locales.json")
+        body, after, trail = tool_pages.render_body(page, ctx, law)
+        # Prose may link a page that the gate blocked. Keep the words, drop the link: the crawl rejects a link to a page outside the sitemap.
+        body = self.strip_blocked_links(body, page["id"])
+        node = self.web_page_node(url, tag, page["title"], page["description"])
+        node["dateModified"] = "__DATE_MODIFIED__"
+        node["publisher"] = {"@type": "Organization", "name": "731labs", "url": f"{self.origin}/"}
+        graph = [node] + tool_pages.schema_graph(page, url, self.origin, trail, law)
+        if page.get("faq"):
+            graph.append({"@type": "FAQPage", "@id": f"{url}#faq", "mainEntity": [
+                {"@type": "Question", "name": q["q"], "acceptedAnswer": {"@type": "Answer", "text": q["a"]}} for q in page["faq"]]})
+        if "tool" not in self.templates:
+            self.templates["tool"] = Template((ROOT / "templates" / "tool.html").read_text(encoding="utf-8"))
+        return self.templates["tool"].substitute(
+            lang=tag, dir=law["dir"], title=html.escape(page["title"]), description=html.escape(page["description"]),
+            canonical=html.escape(url), robots='<meta name="robots" content="noindex">' if noindex else "",
+            seo_block=self.seo_links({tag: url, "x-default": url}) + "\n  " + json_ld(graph), body=body, after_wrap=after,
+            **{f"ui_{k}": html.escape(v) for k, v in ui.items()})
+
+    def gate_tools(self) -> None:
+        """Fill self.tools.blocked: page id -> problems. Two passes, because a blocked page must leave the links of the others."""
+        ctx = self.tools = tool_pages.Context(self.data_dir)
+        self.tool_default_law = "en-US"
+        self.tool_rendered: dict[str, str] = {}
+        for page in ctx.pages:
+            problems = gate.data_problems(page, ctx.sources, ctx.demand, ctx.laws, self.tool_default_law, self.today)
+            if problems:
+                ctx.blocked[page["id"]] = problems
+        for page_id, problems in gate.filled_job_problems(ctx.pages).items():
+            ctx.blocked[page_id] = sorted(set(ctx.blocked.get(page_id, []) + problems))
+        for _ in range(2):
+            texts = {}
+            for page in ctx.pages:
+                url = self.origin + self.url_path(page.get("locale", "en"), page["slug"])
+                raw = self.render_tool(page, url, page["id"] in ctx.blocked)
+                self.tool_rendered[page["id"]] = raw
+                problems = gate.html_problems(page, raw, ctx.claims)
+                if problems:
+                    ctx.blocked.setdefault(page["id"], [])
+                    ctx.blocked[page["id"]] = sorted(set(ctx.blocked[page["id"]] + problems))
+                if page["id"] not in ctx.blocked:
+                    texts[page["id"]] = " ".join(gate.parse(raw).unique)
+            for page_id, problems in gate.overlap_problems(texts).items():
+                ctx.blocked[page_id] = sorted(set(ctx.blocked.get(page_id, []) + problems))
+        if ctx.pages:
+            unknown = gate.claims_problems(ctx.claims, APP_REPO)
+            for line in unknown:
+                if line.startswith("unknown"):
+                    self.warnings.append(line)
+                else:
+                    for page in ctx.pages:
+                        ctx.blocked.setdefault(page["id"], []).append(line)
+            for page_id, problems in sorted(ctx.blocked.items()):
+                for line in problems:
+                    print(f"BLOCKED {page_id}: {line}", file=sys.stderr)
+            for tag, law in ctx.laws.items():
+                if law.get("reviewer_waiver"):
+                    print(f"gate 5 waiver in force for {tag}: {law['reviewer_waiver']['ticket']}", file=sys.stderr)
+            print(f"tool pages: {len(ctx.pages) - len(ctx.blocked)} live, {len(ctx.blocked)} blocked (noindex)")
+
     def lastmod(self, path: str, rendered: str, stale: list[str]) -> str:
         parsed = parse(rendered)
         digest = hashlib.sha256("\n".join((parsed.title.strip(), parsed.description.strip(), parsed.main_text())).encode()).hexdigest()
@@ -275,13 +359,40 @@ class Site:
         stale: list[str] = []
         titles: dict[tuple[str, str], str] = {}
         live_paths = set()
+        self.gate_tools()
+        for page in self.tools.pages:
+            tag, url_path = page.get("locale", "en"), self.url_path(page.get("locale", "en"), page["slug"])
+            if url_path in {self.url_path(t, e["slug"]) for p in pages for t, e in p["locales"].items()}:
+                raise BuildError(f"{url_path}: used by a data/pages file and by tool page {page['id']}")
+            rendered = self.render_tool(page, self.origin + url_path, page["id"] in self.tools.blocked)
+            target = self.out / url_path.lstrip("/") / "index.html"
+            if target.exists():
+                raise BuildError(f"{url_path}: used twice")
+            target.parent.mkdir(parents=True, exist_ok=True)
+            if page["id"] in self.tools.blocked:
+                target.write_text(rendered.replace("__DATE_MODIFIED__", self.today), encoding="utf-8")
+                continue
+            parsed = parse(rendered)
+            for label, value in (("title", parsed.title.strip()), ("description", parsed.description.strip())):
+                other = titles.setdefault((tag, label + value), url_path)
+                if other != url_path:
+                    raise BuildError(f"{url_path} and {other} have the same {label} in {tag}: {value[:60]!r}")
+            if len(parsed.title.strip()) > TITLE_MAX:
+                self.warnings.append(f"{url_path}: title has {len(parsed.title.strip())} characters, keep it under {TITLE_MAX}")
+            if len(parsed.description.strip()) > DESCRIPTION_MAX:
+                self.warnings.append(f"{url_path}: description has {len(parsed.description.strip())} characters, keep it under {DESCRIPTION_MAX}")
+            # dateModified sits outside <main>, so writing it cannot change the hash that sets it.
+            modified = self.lastmod(url_path, rendered, stale)
+            target.write_text(rendered.replace("__DATE_MODIFIED__", modified), encoding="utf-8")
+            by_locale.setdefault(tag, []).append((url_path, modified))
+            live_paths.add(url_path)
         for page in pages:
             alternates = self.alternates(page)
             for tag, entry in page["locales"].items():
                 path = self.url_path(tag, entry["slug"])
                 url = self.origin + path
                 render = self.render_source if "source" in entry else self.render_template
-                rendered = render(page, tag, entry, url, alternates)
+                rendered = self.strip_blocked_links(render(page, tag, entry, url, alternates))
                 parsed = parse(rendered)
                 for label, value in (("title", parsed.title.strip()), ("description", parsed.description.strip())):
                     other = titles.setdefault((tag, label + value), path)

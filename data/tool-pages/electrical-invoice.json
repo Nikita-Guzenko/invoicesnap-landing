@@ -1,0 +1,316 @@
+{
+ "id": "electrical-invoice",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "trade_invoice",
+ "slug": "invoice-template/electrical",
+ "title": "Electrical Invoice Template: Fill In, Download PDF, Word, Excel",
+ "description": "Bill an electrical job from your browser: labor by license level, panel work, permits. No sign-up. PDF, Word and Excel, with US price ranges and sources.",
+ "h1": "Electrical invoice template",
+ "crumb": "Electrical",
+ "link_text": "Electrical invoice",
+ "lede_html": "Enter the job in the form and download an electrical invoice as a PDF, Word or Excel file. There is no account. The sample is a GFCI and circuit job. Overwrite it.",
+ "demand": [
+  "electrical invoice template",
+  "electrician invoice app",
+  "electrical contractor invoice template"
+ ],
+ "parent": "invoice-hub",
+ "related": [
+  "electrical-estimate",
+  "hvac-invoice",
+  "handyman-invoice",
+  "invoice-generator",
+  "what-to-include-on-an-invoice",
+  "invoice-hub"
+ ],
+ "form": {
+  "kind": "invoice",
+  "sample": {
+   "bizName": "Brightline Electric LLC",
+   "bizAddr": "41 Conduit Rd, Austin, TX 78702",
+   "bizId": "TECL 00000",
+   "bizContact": "(512) 555-0190",
+   "pay": "Bank transfer or check to Brightline Electric",
+   "custName": "Marcus Webb",
+   "custAddr": "905 Oak Bend, Austin, TX 78704",
+   "siteAddr": "",
+   "no": "EL-5120",
+   "date": "2026-11-08",
+   "svc": "2026-11-05",
+   "dueDays": "15",
+   "paid": "",
+   "rate": "8.25",
+   "taxOn": "all",
+   "terms": "City permit EP-00000 closed after inspection. Labor warranty: 1 year.",
+   "items": [
+    {
+     "d": "Service call",
+     "q": 1,
+     "u": "visit",
+     "r": 125,
+     "k": "M"
+    },
+    {
+     "d": "Journeyman: add 20 A kitchen circuit",
+     "q": 3.5,
+     "u": "hour",
+     "r": 85,
+     "k": "L"
+    },
+    {
+     "d": "12/2 NM cable and boxes",
+     "q": 1,
+     "u": "lot",
+     "r": 96,
+     "k": "M"
+    },
+    {
+     "d": "20 A breaker",
+     "q": 1,
+     "u": "each",
+     "r": 18,
+     "k": "M"
+    },
+    {
+     "d": "Replace 3 receptacles with GFCI",
+     "q": 1.5,
+     "u": "hour",
+     "r": 85,
+     "k": "L"
+    },
+    {
+     "d": "GFCI receptacles",
+     "q": 3,
+     "u": "each",
+     "r": 26,
+     "k": "M"
+    }
+   ]
+  },
+  "labels": {
+   "bizId": "Electrical license no.",
+   "terms": "Notes: permit no., panel, warranty"
+  }
+ },
+ "must_show": {
+  "heading": "What an electrical invoice must show",
+  "intro_html": "An electrical invoice shows who did the work under which license, what changed in the panel or circuit, and which permit covers it. No federal rule sets the list.",
+  "why_label": "Why it matters on electrical work",
+  "rows": [
+   [
+    "License number of the contractor",
+    "Most states license electricians, and a home buyer or insurer may ask later."
+   ],
+   [
+    "Permit number and inspection result",
+    "Local authorities inspect. The number lets the owner find the record."
+   ],
+   [
+    "Labor by license level",
+    "Apprentice, journeyman and master rates differ, so each gets a line."
+   ],
+   [
+    "Circuit and panel detail",
+    "Amps, breaker and room make the later service call shorter."
+   ],
+   [
+    "Materials, apart from labor",
+    "One state can tax these differently."
+   ],
+   [
+    "Warranty period",
+    "Say how long your labor warranty runs."
+   ]
+  ]
+ },
+ "example": {
+  "heading": "Filled example: 200 A panel replacement",
+  "intro_html": "Second job, sample prices only.",
+  "items": [
+   {
+    "d": "Master electrician: replace service panel",
+    "q": 8,
+    "u": "hour",
+    "r": 110,
+    "k": "L"
+   },
+   {
+    "d": "Apprentice: labels, cleanup",
+    "q": 4,
+    "u": "hour",
+    "r": 50,
+    "k": "L"
+   },
+   {
+    "d": "200 A, 30-circuit load center",
+    "q": 1,
+    "u": "each",
+    "r": 380,
+    "k": "M"
+   },
+   {
+    "d": "Breakers, grounding, conductors",
+    "q": 1,
+    "u": "lot",
+    "r": 640,
+    "k": "M"
+   },
+   {
+    "d": "Electrical permit",
+    "q": 1,
+    "u": "permit",
+    "r": 150,
+    "k": "M"
+   }
+  ],
+  "after_html": "<a href=\"https://www.housecallpro.com/resources/how-to-price-electrical-work/\" rel=\"noopener\">Housecall Pro</a> lists $2,250–$5,100 for a 30-circuit, 200-amp load center job."
+ },
+ "line_items": {
+  "heading": "Electrical line items and typical prices",
+  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row. The price that the button adds is a sample inside that range, not a price recommendation.",
+  "items": [
+   {
+    "name": "Service call fee",
+    "unit": "visit",
+    "kind": "M",
+    "low": 100,
+    "high": 200,
+    "src": "hcp-elec",
+    "plus": false,
+    "sample": 125
+   },
+   {
+    "name": "Apprentice electrician",
+    "unit": "hour",
+    "kind": "L",
+    "low": 40,
+    "high": 60,
+    "src": "hcp-elec",
+    "plus": false,
+    "sample": 50,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Journeyman electrician",
+    "unit": "hour",
+    "kind": "L",
+    "low": 60,
+    "high": 90,
+    "src": "hcp-elec",
+    "plus": false,
+    "sample": 75,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Master electrician",
+    "unit": "hour",
+    "kind": "L",
+    "low": 90,
+    "high": 120,
+    "src": "hcp-elec",
+    "plus": false,
+    "sample": 105,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Replace a 15 or 20 A receptacle",
+    "unit": "job",
+    "kind": "L",
+    "low": 180,
+    "high": 930,
+    "src": "hcp-elec",
+    "plus": false,
+    "sample": 240
+   },
+   {
+    "name": "Replace an indoor receptacle with GFCI",
+    "unit": "job",
+    "kind": "L",
+    "low": 199,
+    "high": 848,
+    "src": "hcp-elec",
+    "plus": false,
+    "sample": 265
+   },
+   {
+    "name": "Outdoor GFCI with cover",
+    "unit": "job",
+    "kind": "L",
+    "low": 195,
+    "high": 720,
+    "src": "hcp-elec",
+    "plus": false,
+    "sample": 275
+   },
+   {
+    "name": "Microwave outlet with dedicated 20 A circuit",
+    "unit": "job",
+    "kind": "L",
+    "low": 459,
+    "high": 1388,
+    "src": "hcp-elec",
+    "plus": false,
+    "sample": 640
+   },
+   {
+    "name": "EV charger permit",
+    "unit": "permit",
+    "kind": "M",
+    "low": 100,
+    "high": 300,
+    "src": "tr-ev",
+    "plus": false,
+    "sample": 175
+   }
+  ],
+  "after_html": "For scale: the median pay of US electricians was $30.38 per hour in May 2025 (<a href=\"https://www.bls.gov/ooh/construction-and-extraction/electricians.htm\" rel=\"noopener\">BLS</a>). That is wage, not the rate you bill."
+ },
+ "rules": {
+  "heading": "Electrical rules that touch the invoice",
+  "items": [
+   {
+    "title": "Texas license",
+    "html": "Texas generally requires a Chapter 1305 license for electrical work. Licensed plumbers may disconnect or reconnect plumbing fixtures and appliances on existing circuits, but may do no other electrical work.",
+    "src": "tdlr"
+   },
+   {
+    "title": "Washington permits",
+    "html": "Electrical work there needs a permit and an inspection, with a few exceptions. Put the permit number in the notes field.",
+    "src": "wa-lni"
+   },
+   {
+    "title": "Local inspection",
+    "html": "Texas TDLR does not inspect for local permits. The local authority does, so your invoice should name the city or county.",
+    "src": "tdlr"
+   }
+  ]
+ },
+ "faq_heading": "Electrical invoice questions",
+ "faq": [
+  {
+   "q": "Should I bill a flat rate or hourly?",
+   "a": "Both work on this form. Enter one job line with quantity 1 for a flat rate, or enter hours and an hourly rate per license level."
+  },
+  {
+   "q": "Do I list the breaker and wire on the invoice?",
+   "a": "List them when the customer or inspector will ask. A single materials line is fine for a small repair."
+  },
+  {
+   "q": "What if a permit fee changes after the estimate?",
+   "a": "Bill the real fee on its own line and keep the receipt from the city."
+  },
+  {
+   "q": "Can I show an apprentice and a journeyman on one job?",
+   "a": "Yes. Give each person a line with hours and rate, so the customer can see why the rates differ."
+  }
+ ],
+ "source_ids": [
+  "hcp-elec",
+  "tr-ev",
+  "bls-elec",
+  "tdlr",
+  "wa-lni"
+ ]
+}

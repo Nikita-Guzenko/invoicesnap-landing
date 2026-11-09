@@ -1,0 +1,79 @@
+{
+ "id": "invoice-hub",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "hub",
+ "slug": "invoice-template",
+ "title": "Invoice Templates by Trade and Freelance Work",
+ "description": "Pick an invoice template with a working form for your trade or freelance job. Each page has its own line items, US price ranges, rules and sources.",
+ "h1": "Invoice templates",
+ "crumb": "Invoice templates",
+ "link_text": "All invoice templates",
+ "lede_html": "Pick your trade. Each page has a form, a live paper and PDF, Word and Excel downloads, plus line items and rules for that work.",
+ "demand": [
+  "invoice template",
+  "invoice template free",
+  "invoice template word",
+  "invoice template pdf",
+  "free invoice template pdf"
+ ],
+ "parent": null,
+ "related": [
+  "invoice-generator",
+  "estimate-hub",
+  "what-to-include-on-an-invoice"
+ ],
+ "table_heading": "Pages by type of work",
+ "table_headers": [
+  "Page",
+  "Use it when"
+ ],
+ "rows": [
+  {
+   "page": "contractor-invoice",
+   "html": "You bill construction or remodel stages, with change orders and past payments."
+  },
+  {
+   "page": "plumbing-invoice",
+   "html": "You bill a service call, parts and labor, with a trip fee."
+  },
+  {
+   "page": "electrical-invoice",
+   "html": "You bill by license level and need a permit number on the paper."
+  },
+  {
+   "page": "hvac-invoice",
+   "html": "You bill a repair or tune-up with refrigerant by the pound and a serial number."
+  },
+  {
+   "page": "handyman-invoice",
+   "html": "You list small tasks, a minimum charge and materials."
+  },
+  {
+   "page": "cleaning-invoice",
+   "html": "You bill recurring visits, or a one-time deep clean."
+  },
+  {
+   "page": "freelancer-invoice",
+   "html": "You bill design, code, video or other solo work, with a rights line."
+  },
+  {
+   "page": "freelance-writer-invoice",
+   "html": "You bill per word, with a word count and a PO number."
+  },
+  {
+   "page": "consulting-invoice",
+   "html": "You bill a retainer, hours or milestones against a statement of work."
+  },
+  {
+   "page": "invoice-generator",
+   "html": "Your work is not listed, or you only need a plain invoice."
+  }
+ ],
+ "body_html": "<h2>US rules that apply to each page</h2><p>The US has no federal list of invoice fields. The IRS names invoices among the records that support your income, and generally asks you to keep records for 3 years. Sales tax and license rules come from the states. Each trade page links the state examples that it uses. <a href=\"/guides/what-to-include-on-an-invoice/\">What to include on an invoice</a> has the general field list.</p><h2>How to choose</h2><p>Pick the page for the work that you bill most often, because its sample lines and rules are closest to your job. If you do two trades, use one page and change the lines: every form takes any text.</p>",
+ "source_ids": [
+  "irs-rec",
+  "irs-long"
+ ]
+}
