@@ -1,0 +1,17 @@
+{
+  "_doc": "Product claims that pages may make (blueprint gate 9). Each claim maps to a line in the app repo at the pinned commit. gate.py checks that the file line holds the proof when the app repo is on this machine. Reason for no prices: offerings.ts holds only the offering id; amounts live in RevenueCat, so pages say 'Plans and prices are in the app'.",
+  "app_repo_commit": "12deafb8",
+  "app_note": [
+    {"text": "The InvoiceSnap app saves customers and past invoices.", "file": "src/db/schema.ts", "line": 84, "proof": "export const clients"},
+    {"text": "It records payments that you get outside the app.", "file": "src/features/invoices/recordPayment.ts", "line": 16, "proof": "export function recordPayment"},
+    {"text": "It drafts estimate lines from a job description with optional online AI, and you review each draft.", "file": "src/features/invoices/aiEstimate.ts", "line": 65, "proof": "export interface AiPreviewItem"},
+    {"text": "The free plan has 3 invoices and 3 estimates in total, not per month.", "file": "src/features/paywall/featureGate.ts", "line": 126, "proof": "FREE_INVOICE_LIMIT = 3", "also": [{"file": "src/features/paywall/featureGate.ts", "line": 136, "proof": "FREE_ESTIMATE_LIMIT = 3"}]},
+    {"text": "The app has 19 invoice designs.", "dir": "src/templates/html", "count": 19},
+    {"text": "Plans and prices are in the app.", "file": "src/features/paywall/offerings.ts", "line": 25, "proof": "MAIN_OFFERING_ID = 'v2'"},
+    {"text": "The form on this page has fields that the app does not have, such as a service date.", "only_if_field": "svc", "absent_in": "src/db/schema.ts", "absent": "service_date"}
+  ],
+  "tool_facts": [
+    {"text": "The form runs in your browser and makes the files on your device.", "proof": "src/static/assets/tool.js and the gate_browser.py network check"},
+    {"text": "The files are PDF, Word and Excel, not an e-invoice format.", "proof": "src/static/assets/tool.js functions pdf, docx, xlsx"}
+  ]
+}

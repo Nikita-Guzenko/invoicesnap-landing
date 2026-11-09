@@ -1,0 +1,279 @@
+{
+ "id": "freelancer-invoice",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "freelancer_invoice",
+ "slug": "invoice-template/freelancer",
+ "title": "Freelance Invoice Template: Fill In, Download PDF, Word, Excel",
+ "description": "Create a freelance invoice for any kind of work in your browser. No sign-up. Rights, late fee, PDF, Word and Excel. State freelance laws and 1099 notes.",
+ "h1": "Freelance invoice template",
+ "crumb": "Freelancer",
+ "link_text": "Freelance invoice",
+ "lede_html": "Use this form for design, code, video, translation or any other freelance work, and download a PDF, Word or Excel file. No account. The sample is a logo and site job. Replace it.",
+ "demand": [
+  "freelance invoice template",
+  "invoice template for freelance work",
+  "how to write an invoice for freelance work"
+ ],
+ "parent": "invoice-hub",
+ "related": [
+  "freelance-writer-invoice",
+  "consulting-invoice",
+  "invoice-generator",
+  "what-to-include-on-an-invoice",
+  "invoice-hub"
+ ],
+ "form": {
+  "kind": "freelance",
+  "sample": {
+   "bizName": "Jon Park Design",
+   "bizAddr": "9 Studio Row, Brooklyn, NY 11201",
+   "bizId": "SSN or EIN on W-9",
+   "bizContact": "jon@example.com",
+   "pay": "Zelle or ACH to Jon Park",
+   "custName": "Corner Bakery Group",
+   "custAddr": "71 Grand St, Brooklyn, NY 11211",
+   "no": "JP-073",
+   "date": "2026-11-08",
+   "project": "Brand refresh, contract of 2 Oct",
+   "dueDays": "30",
+   "paid": "800",
+   "rate": "",
+   "rights": "Final logo files transfer to the client on full payment. Source files stay with the designer.",
+   "lateFee": "Interest applies after the due date as our contract states.",
+   "terms": "Deposit of $800 received 3 Oct.",
+   "items": [
+    {
+     "d": "Logo design, 3 concepts, 2 rounds",
+     "q": 1,
+     "u": "project",
+     "r": 1600,
+     "k": "L"
+    },
+    {
+     "d": "Five-page website build",
+     "q": 32,
+     "u": "hour",
+     "r": 65,
+     "k": "L"
+    },
+    {
+     "d": "Stock images, licensed for client",
+     "q": 4,
+     "u": "each",
+     "r": 15,
+     "k": "L"
+    }
+   ]
+  },
+  "labels": {
+   "bizId": "Tax ID, if the client needs it",
+   "project": "Project or PO",
+   "rights": "Rights or ownership",
+   "custName": "Client name",
+   "pay": "How the client pays",
+   "paid": "Deposit received"
+  },
+  "tax_hint": "Many freelance services carry no sales tax, but some states tax some services. Leave the rate empty unless your state says otherwise."
+ },
+ "must_show": {
+  "heading": "What a freelance invoice must show",
+  "intro_html": "A freelance invoice says who you are, what you delivered, what is left to pay, by when, and how. It also says what the client owns. The IRS names invoices among the records that you should keep.",
+  "why_label": "Why it matters when you work alone",
+  "rows": [
+   [
+    "Your legal name or business name",
+    "It must match your W-9, or finance teams hold the payment."
+   ],
+   [
+    "What you delivered",
+    "Name files, pages or hours, not only \"services\"."
+   ],
+   [
+    "Deposit and balance",
+    "Show what the client already paid."
+   ],
+   [
+    "Due date",
+    "New York law sets a default of 30 days when the contract sets no date."
+   ],
+   [
+    "Rights",
+    "State what transfers, and when."
+   ],
+   [
+    "Late fee",
+    "Print only what your contract allows."
+   ]
+  ]
+ },
+ "example": {
+  "heading": "Filled example: video edit",
+  "intro_html": "Another job at sample prices.",
+  "items": [
+   {
+    "d": "Edit 2 customer stories, 90 seconds each",
+    "q": 2,
+    "u": "video",
+    "r": 640,
+    "k": "L"
+   },
+   {
+    "d": "Color and sound pass",
+    "q": 3,
+    "u": "hour",
+    "r": 70,
+    "k": "L"
+   },
+   {
+    "d": "Rush delivery, 48 hours",
+    "q": 1,
+    "u": "job",
+    "r": 150,
+    "k": "L"
+   }
+  ],
+  "total_label": "Total"
+ },
+ "line_items": {
+  "heading": "Common freelance jobs and US wage ranges",
+  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row, and the button adds a sample inside it. <b>These are wages of employees, not freelance rates.</b> Set your own rate: you also pay your own taxes, insurance and unpaid time.",
+  "items": [
+   {
+    "name": "Web development",
+    "unit": "hour",
+    "kind": "L",
+    "low": 22.53,
+    "high": 75.61,
+    "src": "oes-web",
+    "plus": false,
+    "sample": 65,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Graphic design",
+    "unit": "hour",
+    "kind": "L",
+    "low": 17.51,
+    "high": 48.29,
+    "src": "oes-gfx",
+    "plus": false,
+    "sample": 45,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Translation",
+    "unit": "hour",
+    "kind": "L",
+    "low": 17.03,
+    "high": 46.68,
+    "src": "oes-tr",
+    "plus": false,
+    "sample": 40,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Bookkeeping",
+    "unit": "hour",
+    "kind": "L",
+    "low": 15.61,
+    "high": 33.11,
+    "src": "oes-book",
+    "plus": false,
+    "sample": 30,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Video editing",
+    "unit": "hour",
+    "kind": "L",
+    "low": 18.74,
+    "high": 74.27,
+    "src": "oes-video",
+    "plus": false,
+    "sample": 60,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Photography",
+    "unit": "hour",
+    "kind": "L",
+    "low": 13.71,
+    "high": 46.03,
+    "src": "oes-photo",
+    "plus": false,
+    "sample": 45,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Fixed-price project",
+    "unit": "project",
+    "kind": "L"
+   },
+   {
+    "name": "Rush fee",
+    "unit": "job",
+    "kind": "L"
+   },
+   {
+    "name": "Revision round",
+    "unit": "hour",
+    "kind": "L"
+   }
+  ],
+  "range_label": "Employee wage range, May 2023 (10th to 90th percentile)"
+ },
+ "rules": {
+  "heading": "Freelance rules that touch the invoice",
+  "items": [
+   {
+    "title": "New York State",
+    "html": "With no payment date in the contract, payment is due within 30 days after you finish (<a href=\"https://www.nysenate.gov/legislation/laws/GBS/1411\" rel=\"noopener\">section 1411</a>). Section 1410 sets an $800 floor, over 120 days, and excludes construction contractors.",
+    "src": "ny-1410"
+   },
+   {
+    "title": "New York City",
+    "html": "The city says that contracts worth $800 or more must be in writing, with the work, the pay and the payment date. It says that a worker may collect double the unpaid amount for late payment.",
+    "src": "nyc-free"
+   },
+   {
+    "title": "California",
+    "html": "SB 988 requires a written contract for professional services of $250 or more, with payment due within 30 days after completion if the contract sets no date.",
+    "src": "ca-sb988"
+   }
+  ]
+ },
+ "faq_heading": "Freelance invoice questions",
+ "faq": [
+  {
+   "q": "What should I do when a client asks for a W-9?",
+   "a": "Send it. The client needs your tax number for an information return. Send it through a secure channel, not plain e-mail."
+  },
+  {
+   "q": "How do I show a deposit that I already got?",
+   "a": "Enter it in the deposit field. The total, the amount paid and the balance due then print on the file."
+  },
+  {
+   "q": "Can I charge a late fee?",
+   "a": "If your contract allows it. Print the same rate on the invoice. Some states limit interest, so check the rule for your state."
+  },
+  {
+   "q": "Do I keep a copy of each invoice?",
+   "a": "Yes. The IRS names invoices among the records that support your income, and it generally asks you to keep records for 3 years."
+  }
+ ],
+ "source_ids": [
+  "oes-web",
+  "oes-gfx",
+  "oes-tr",
+  "oes-book",
+  "oes-video",
+  "oes-photo",
+  "ny-1410",
+  "nyc-free",
+  "ca-sb988",
+  "irs-rec",
+  "irs-long"
+ ]
+}

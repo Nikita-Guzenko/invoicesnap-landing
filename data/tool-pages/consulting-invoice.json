@@ -1,0 +1,276 @@
+{
+ "id": "consulting-invoice",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "freelancer_invoice",
+ "slug": "invoice-template/consulting",
+ "title": "Consulting Invoice Template: Hourly, Retainer or Project",
+ "description": "Bill consulting by hour, retainer or milestone from your browser. No sign-up. PDF, Word, Excel, with BLS wage data, 1099 and estimated tax notes.",
+ "h1": "Consulting invoice template",
+ "crumb": "Consulting",
+ "link_text": "Consulting invoice",
+ "lede_html": "Bill a consulting job with this form and download a PDF, Word or Excel file. You need no account. The sample is an advisory retainer. Enter your own client and hours.",
+ "demand": [
+  "consulting invoice template"
+ ],
+ "parent": "invoice-hub",
+ "related": [
+  "freelancer-invoice",
+  "freelance-writer-invoice",
+  "invoice-generator",
+  "what-to-include-on-an-invoice",
+  "invoice-hub"
+ ],
+ "form": {
+  "kind": "freelance",
+  "sample": {
+   "bizName": "Delta Point Advisory LLC",
+   "bizAddr": "80 Harbor Dr, Boston, MA 02110",
+   "bizId": "EIN 00-0000000",
+   "bizContact": "billing@example.com",
+   "pay": "ACH to Delta Point Advisory LLC",
+   "custName": "Fennel Foods Inc.",
+   "custAddr": "12 Dock Sq, Boston, MA 02109",
+   "no": "DP-1109",
+   "date": "2026-11-08",
+   "project": "Pricing review, SOW 3",
+   "dueDays": "30",
+   "paid": "",
+   "rate": "",
+   "rights": "Deliverables transfer to the client on full payment. We keep our methods and templates.",
+   "lateFee": "",
+   "terms": "Hours log attached. Travel at cost, no markup.",
+   "items": [
+    {
+     "d": "Advisory retainer, October",
+     "q": 1,
+     "u": "month",
+     "r": 4500,
+     "k": "L"
+    },
+    {
+     "d": "Workshop facilitation",
+     "q": 8,
+     "u": "hour",
+     "r": 175,
+     "k": "L"
+    },
+    {
+     "d": "Travel, receipts attached",
+     "q": 1,
+     "u": "lot",
+     "r": 386,
+     "k": "M"
+    }
+   ]
+  },
+  "labels": {
+   "bizId": "EIN or tax ID",
+   "project": "Project or SOW",
+   "rights": "Ownership of deliverables",
+   "custName": "Client name",
+   "pay": "How the client pays"
+  },
+  "tax_hint": "Consulting is often free of sales tax, but some states tax some services. Leave the rate empty unless your state says otherwise."
+ },
+ "must_show": {
+  "heading": "What a consulting invoice must show",
+  "intro_html": "The invoice links the amount to the agreement: the statement of work, the period and what you delivered. A client finance team often pays against the reference, not the text.",
+  "why_label": "Why it matters on advisory work",
+  "rows": [
+   [
+    "SOW or contract reference",
+    "Ties the bill to an approved budget."
+   ],
+   [
+    "Billing period",
+    "A retainer covers a month, so write the month."
+   ],
+   [
+    "Hours or milestone",
+    "Say which one this bill uses."
+   ],
+   [
+    "Expenses, apart from fees",
+    "Most agreements treat them differently."
+   ],
+   [
+    "Ownership of deliverables",
+    "Say what the client owns after payment."
+   ],
+   [
+    "Tax details",
+    "The client may need your Form W-9 before the first payment."
+   ]
+  ]
+ },
+ "example": {
+  "heading": "Filled example: milestone project",
+  "intro_html": "A project billed by milestone at sample amounts.",
+  "items": [
+   {
+    "d": "Milestone 1: market scan delivered",
+    "q": 1,
+    "u": "milestone",
+    "r": 7500,
+    "k": "L"
+   },
+   {
+    "d": "Milestone 2: pricing model delivered",
+    "q": 1,
+    "u": "milestone",
+    "r": 9500,
+    "k": "L"
+   },
+   {
+    "d": "Extra interviews, agreed by e-mail",
+    "q": 6,
+    "u": "hour",
+    "r": 190,
+    "k": "L"
+   }
+  ],
+  "total_label": "Total"
+ },
+ "line_items": {
+  "heading": "Consulting work and US wage ranges",
+  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row, and the button adds a sample inside it. <b>These are wages of employees, not freelance rates.</b> Set your own rate: you also pay your own taxes, insurance and unpaid time.",
+  "items": [
+   {
+    "name": "Management consulting",
+    "unit": "hour",
+    "kind": "L",
+    "low": 27.81,
+    "high": 82.83,
+    "src": "oes-mgmt",
+    "plus": false,
+    "sample": 80,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Market research",
+    "unit": "hour",
+    "kind": "L",
+    "low": 19.25,
+    "high": 65.89,
+    "src": "oes-mkt",
+    "plus": false,
+    "sample": 60,
+    "range_unit": "hour"
+   },
+   {
+    "name": "HR advisory",
+    "unit": "hour",
+    "kind": "L",
+    "low": 20.62,
+    "high": 58.56,
+    "src": "oes-hr",
+    "plus": false,
+    "sample": 55,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Systems analysis",
+    "unit": "hour",
+    "kind": "L",
+    "low": 30.4,
+    "high": 79.66,
+    "src": "oes-sys",
+    "plus": false,
+    "sample": 75,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Accounting advisory",
+    "unit": "hour",
+    "kind": "L",
+    "low": 24.25,
+    "high": 66,
+    "src": "oes-acc",
+    "plus": false,
+    "sample": 60,
+    "range_unit": "hour"
+   },
+   {
+    "name": "PR consulting",
+    "unit": "hour",
+    "kind": "L",
+    "low": 18.55,
+    "high": 60.68,
+    "src": "oes-pr",
+    "plus": false,
+    "sample": 55,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Monthly retainer",
+    "unit": "month",
+    "kind": "L"
+   },
+   {
+    "name": "Project milestone",
+    "unit": "milestone",
+    "kind": "L"
+   },
+   {
+    "name": "Travel at cost",
+    "unit": "lot",
+    "kind": "M"
+   }
+  ],
+  "after_html": "BLS adds that self-employed management analysts are paid by the hour or by the project (<a href=\"https://www.bls.gov/ooh/business-and-financial/management-analysts.htm\" rel=\"noopener\">BLS</a>).",
+  "range_label": "Employee wage range, May 2023 (10th to 90th percentile)"
+ },
+ "rules": {
+  "heading": "Tax and contract rules for consultants",
+  "items": [
+   {
+    "title": "How clients report you",
+    "html": "The IRS instructions tell a business to report nonemployee compensation of $2,000 or more on Form 1099-NEC. Your invoices are the record that you check the form against.",
+    "src": "irs-1099"
+   },
+   {
+    "title": "Form W-9",
+    "html": "The IRS says that you give Form W-9 so that the person who files the information return has your correct taxpayer number. Expect the request before the first payment.",
+    "src": "irs-w9"
+   },
+   {
+    "title": "Estimated tax",
+    "html": "Sole proprietors and others who expect to owe $1,000 or more at filing generally pay estimated tax. A retainer does not hold tax back for you, so set money aside per invoice.",
+    "src": "irs-est"
+   }
+  ]
+ },
+ "faq_heading": "Consulting invoice questions",
+ "faq": [
+  {
+   "q": "Should I bill a retainer in advance?",
+   "a": "Do what your agreement says. Write the period on the line, for example November advisory, so that the client can book it to the right month."
+  },
+  {
+   "q": "How much detail goes on an hourly bill?",
+   "a": "Enough for the client to approve it. Show date ranges and topic, or attach a time log and name it in the notes."
+  },
+  {
+   "q": "Do I add expenses with a markup?",
+   "a": "Follow your agreement. Many consultants bill travel at cost with receipts and say so in the notes."
+  },
+  {
+   "q": "Do I need a separate invoice for each statement of work?",
+   "a": "It helps the client route the payment. Use one invoice per SOW unless the client asks for one bill per month."
+  }
+ ],
+ "source_ids": [
+  "oes-mgmt",
+  "oes-mkt",
+  "oes-hr",
+  "oes-sys",
+  "oes-acc",
+  "oes-pr",
+  "bls-mgmt",
+  "irs-1099",
+  "irs-w9",
+  "irs-est"
+ ]
+}

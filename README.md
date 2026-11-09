@@ -23,6 +23,7 @@ Production repository for the official marketing and conversion landing page of 
 
 ## Add a page or deploy
 The site is generated from `data/` by `build.py` (no dependencies). `python3 build.py --help` says how to add a page.
+Free tool pages (form, live paper, PDF, Word, Excel): one JSON per page in `data/tool-pages/`, sources in `data/sources.json`, country facts in `data/law/`. `python3 verify_sources.py` opens each source; `gate.py` and `gate_browser.py` hold the go-live gate. Tests: `python3 tests/test_tool_gate.py`.
 Deploy with `python3 publish.py`: it runs the checks, pushes `dist/` to branch `gh-pages`, crawls production and tells IndexNow. A push to `main` does not deploy.
 
 ## Product artwork

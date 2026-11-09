@@ -44,6 +44,10 @@ def make_data(folder: Path) -> Path:
     for value in locales.values():
         value["ui"] = ui
     (data / "locales.json").write_text(json.dumps(locales, ensure_ascii=False), encoding="utf-8")
+    # The real en-US record has no reviewer, so its pages are noindex. Here the count of pages must include them.
+    law = json.loads((data / "law" / "en-US.json").read_text(encoding="utf-8"))
+    law["reviewer"] = "Test Reviewer (fixture only)"
+    (data / "law" / "en-US.json").write_text(json.dumps(law, ensure_ascii=False), encoding="utf-8")
     for n in range(PAGES):
         page = {"id": f"fixture-{n}", "page_type": "guide", "locales": {}}
         for tag in locales:
@@ -61,7 +65,8 @@ def build(data: Path, out: Path, *extra: str) -> subprocess.CompletedProcess:
 
 
 def crawl(data: Path, out: Path) -> subprocess.CompletedProcess:
-    return run(str(ROOT / "check_site.py"), "--dir", str(out), "--data", str(data))
+    # The browser part of the gate is slow and covered by tests/test_tool_gate.py and the real-data crawl below.
+    return run(str(ROOT / "check_site.py"), "--dir", str(out), "--data", str(data), "--no-browser")
 
 
 def lastmods(out: Path) -> dict[str, str]:
@@ -102,7 +107,7 @@ def mutations(out: Path) -> list[tuple[str, str, object]]:
         ("WebPage name differs", "WebPage name", lambda: sub(de, '"name": "Fixture 0 de"', '"name": "Other"')),
         ("duplicate title", "same title", lambda: sub(de, "<title>Fixture 0 de</title>", "<title>Fixture 1 de</title>")),
         ("URL missing from sitemap", "not in a sitemap", lambda: sub(out / "sitemap-de.xml", "/de/fixture-0/", "/de/fixture-0-nope/")),
-        ("URL in wrong sitemap", "is listed in", lambda: sub(out / "sitemap-fr.xml", "/fr/fixture-1/", "/de/fixture-1/") or sub(out / "sitemap-de.xml", "  <url><loc>https://invoicesnap.work/de/fixture-1/</loc><lastmod>2026-11-08</lastmod></url>\n", "")),
+        ("URL in wrong sitemap", "is listed in", lambda: sub(out / "sitemap-fr.xml", "/fr/fixture-1/", "/de/fixture-1/") or sub(out / "sitemap-de.xml", "  <url><loc>https://invoicesnap.work/de/fixture-1/</loc><lastmod>2026-11-09</lastmod></url>\n", "")),
         ("sitemap is not an index", "not a sitemap index", lambda: shutil.copy(out / "sitemap-en.xml", out / "sitemap.xml")),
         ("internal link with query", "query string", lambda: sub(de, 'href="/privacy/"', 'href="/privacy/?utm_source=x"')),
         ("broken internal link", "HTTP 404", lambda: sub(de, 'href="/privacy/"', 'href="/nope/"')),
@@ -122,13 +127,13 @@ def main() -> int:
         data, out = make_data(tmp_path), tmp_path / "dist"
         # 1. full scale
         started = time.time()
-        result = build(data, out, "--today", "2026-11-08")
+        result = build(data, out, "--today", "2026-11-09")
         expect("fixture builds", result.returncode == 0, result.stderr)
         built = time.time() - started
         started = time.time()
         result = crawl(data, out)
         expect("fixture crawl is clean", result.returncode == 0, result.stdout[-1500:])
-        total = PAGES * LOCALES + 4
+        total = PAGES * LOCALES + 4 + len(list((data / "tool-pages").glob("*.json")))
         expect(f"crawl saw {total} pages in {LOCALES} language sitemaps", f"checked {total} pages in {LOCALES} language sitemaps" in result.stdout, result.stdout[-300:])
         print(f"     build {built:.1f} s, crawl {time.time() - started:.1f} s")
         index = (out / "sitemap.xml").read_text(encoding="utf-8")
@@ -153,7 +158,7 @@ def main() -> int:
         moved = {u for u, m in lastmods(out).items() if first.get(u) != m}
         expect("only the changed page moves", moved == {"https://invoicesnap.work/de/fixture-3/"}, str(sorted(moved))[:300])
         page_file.write_text(original, encoding="utf-8")
-        build(data, out, "--today", "2026-11-08")
+        build(data, out, "--today", "2026-11-09")
         one = json.loads(original)
         sibling_lang = one["locales"].pop("vi")
         page_file.write_text(json.dumps(one), encoding="utf-8")
@@ -162,7 +167,7 @@ def main() -> int:
         moved = {u for u, m in lastmods(out).items() if before_removal.get(u) != m}
         expect("a language list change moves no sibling date", not moved and sibling_lang, str(sorted(moved))[:300])
         page_file.write_text(original, encoding="utf-8")
-        build(data, out, "--today", "2026-11-08")
+        build(data, out, "--today", "2026-11-09")
 
         # 3. each check can fail
         pristine = tmp_path / "pristine"

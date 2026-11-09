@@ -1,0 +1,302 @@
+{
+ "id": "contractor-estimate",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "trade_estimate",
+ "slug": "estimate-template/contractor",
+ "title": "Contractor Estimate Template: Fill In, Download PDF, Word, Excel",
+ "description": "Write a construction or remodel estimate online with scope, allowances, exclusions and deposit. No sign-up. US project price ranges, with sources.",
+ "h1": "Contractor estimate template",
+ "crumb": "Contractor",
+ "link_text": "Contractor estimate",
+ "lede_html": "Write a remodel or construction estimate here and download it as a PDF, Word or Excel file. No account is needed. The sample is a kitchen. Enter your own job.",
+ "demand": [
+  "contractor estimate template",
+  "free contractor estimate template",
+  "general contractor estimate",
+  "estimate samples for contractor",
+  "sample construction estimate template",
+  "free contractor estimate template word"
+ ],
+ "parent": "estimate-hub",
+ "related": [
+  "contractor-invoice",
+  "roofing-estimate",
+  "painting-estimate",
+  "estimate-generator",
+  "how-much-over-an-estimate",
+  "estimate-hub"
+ ],
+ "form": {
+  "kind": "estimate",
+  "sample": {
+   "bizName": "Keystone Remodeling",
+   "bizAddr": "8 Mason St, Newark, NJ 07102",
+   "bizId": "NJ HIC 13VH00000000",
+   "bizContact": "(973) 555-0126",
+   "custName": "Lena Moore",
+   "custAddr": "52 Elm Ter, Montclair, NJ 07042",
+   "siteAddr": "",
+   "no": "KR-77",
+   "date": "2026-11-08",
+   "validDays": "30",
+   "start": "2027-01-11",
+   "depositPct": "10",
+   "rate": "",
+   "taxOn": "parts",
+   "scope": "Remodel a 160 sq ft kitchen: demolition, new cabinets and quartz top, under-cabinet lights, tile backsplash, LVP floor, paint.",
+   "exclusions": "Appliances, moving gas or main drain lines, asbestos or mold work, repairs to hidden structural damage.",
+   "terms": "Allowances are shown per line. Changes need a signed change order before the work.",
+   "items": [
+    {
+     "d": "Demolition and haul-off",
+     "q": 1,
+     "u": "job",
+     "r": 2400,
+     "k": "L"
+    },
+    {
+     "d": "Cabinets and top, allowance",
+     "q": 1,
+     "u": "allowance",
+     "r": 14500,
+     "k": "M"
+    },
+    {
+     "d": "Electrical and plumbing rough-in by licensed subs",
+     "q": 1,
+     "u": "job",
+     "r": 4300,
+     "k": "L"
+    },
+    {
+     "d": "Install, tile, floor, paint",
+     "q": 1,
+     "u": "job",
+     "r": 8600,
+     "k": "L"
+    },
+    {
+     "d": "Permit",
+     "q": 1,
+     "u": "permit",
+     "r": 650,
+     "k": "M"
+    }
+   ]
+  },
+  "labels": {
+   "bizId": "License or registration no.",
+   "terms": "Terms: allowances, change orders"
+  }
+ },
+ "must_show": {
+  "heading": "What a contractor estimate should say",
+  "intro_html": "A remodel estimate has to be specific enough that two contractors could price the same work. It names the scope, allowances, exclusions, schedule and payment steps.",
+  "why_label": "Why it matters on a remodel",
+  "rows": [
+   [
+    "Scope by trade or room",
+    "The customer sees what the number buys."
+   ],
+   [
+    "Allowances",
+    "Say the amount and who pays when the choice costs more."
+   ],
+   [
+    "Exclusions",
+    "List what a homeowner might assume, such as appliances or hidden damage."
+   ],
+   [
+    "Schedule",
+    "A start date and a duration. <a href=\"https://www.nysenate.gov/legislation/laws/GBS/771\" rel=\"noopener\">New York</a> asks for approximate dates in the contract."
+   ],
+   [
+    "Payment schedule",
+    "Tie payments to stages. Check the deposit limit of your state."
+   ],
+   [
+    "License and insurance",
+    "The <a href=\"https://consumer.ftc.gov/articles/how-avoid-home-improvement-scam\" rel=\"noopener\">FTC</a> tells customers to choose licensed and insured contractors, so print the number."
+   ]
+  ]
+ },
+ "example": {
+  "heading": "Filled example: 12 x 14 room addition",
+  "intro_html": "A different job with sample amounts. Price your own numbers.",
+  "items": [
+   {
+    "d": "Foundation and framing",
+    "q": 1,
+    "u": "stage",
+    "r": 31000,
+    "k": "L"
+   },
+   {
+    "d": "Roof tie-in, windows, siding",
+    "q": 1,
+    "u": "stage",
+    "r": 18500,
+    "k": "L"
+   },
+   {
+    "d": "Mechanical, electrical, plumbing subs",
+    "q": 1,
+    "u": "stage",
+    "r": 14200,
+    "k": "L"
+   },
+   {
+    "d": "Insulation, drywall, floor, paint",
+    "q": 1,
+    "u": "stage",
+    "r": 12800,
+    "k": "L"
+   },
+   {
+    "d": "Plans and permits",
+    "q": 1,
+    "u": "lot",
+    "r": 3100,
+    "k": "M"
+   }
+  ],
+  "total_label": "Estimated total",
+  "after_html": "The total sits inside the $37,549–$97,843 range from <a href=\"https://www.homeyou.com/room-addition-cost\" rel=\"noopener\">Homeyou</a>."
+ },
+ "line_items": {
+  "heading": "Contractor projects and typical prices",
+  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row. The price that the button adds is a sample inside that range, not a price recommendation.",
+  "items": [
+   {
+    "name": "Kitchen remodel",
+    "unit": "project",
+    "kind": "L",
+    "low": 10500,
+    "high": 30000,
+    "src": "fixr-kit",
+    "plus": false,
+    "sample": 18500
+   },
+   {
+    "name": "Bathroom remodel",
+    "unit": "project",
+    "kind": "L",
+    "low": 6456,
+    "high": 24715,
+    "src": "toh-bath",
+    "plus": false,
+    "sample": 12500
+   },
+   {
+    "name": "Room addition",
+    "unit": "project",
+    "kind": "L",
+    "low": 37549,
+    "high": 97843,
+    "src": "hy-room",
+    "plus": false,
+    "sample": 62000
+   },
+   {
+    "name": "Demolition, whole project",
+    "unit": "job",
+    "kind": "L",
+    "low": 6193,
+    "high": 26687,
+    "src": "hy-demo",
+    "plus": false,
+    "sample": 9500
+   },
+   {
+    "name": "Building permit, kitchen remodel",
+    "unit": "permit",
+    "kind": "M",
+    "low": 500,
+    "high": 1500,
+    "src": "pricer",
+    "plus": false,
+    "sample": 800
+   },
+   {
+    "name": "Building permit, bathroom remodel",
+    "unit": "permit",
+    "kind": "M",
+    "low": 200,
+    "high": 800,
+    "src": "pricer",
+    "plus": false,
+    "sample": 450
+   },
+   {
+    "name": "General contractor fee",
+    "unit": "percent",
+    "kind": "M"
+   },
+   {
+    "name": "Allowance, finishes",
+    "unit": "allowance",
+    "kind": "M"
+   },
+   {
+    "name": "Contingency",
+    "unit": "percent",
+    "kind": "M"
+   }
+  ],
+  "after_html": "<a href=\"https://www.costtobuildhouse.com/how-much-does-a-general-contractor-charge\" rel=\"noopener\">Cost to Build a House</a> puts a general contractor fee at 10–20% of the total project."
+ },
+ "rules": {
+  "heading": "Rules to check before you send a contractor estimate",
+  "items": [
+   {
+    "title": "A signed estimate may become the contract",
+    "html": "New Jersey requires a written contract for home improvement sales over $500, and all changes must also be in writing. Check whether your signed estimate meets the contract rules of your state.",
+    "src": "nj-16-2"
+   },
+   {
+    "title": "Cancel period at the home",
+    "html": "A buyer may cancel a sale made at the home until midnight of the third business day after the sale, under the FTC rule. It has limits, so read it if you sign at the kitchen table.",
+    "src": "cfr-429"
+   },
+   {
+    "title": "Deposit limit in California",
+    "html": "The down payment on a home improvement job there is capped at the lesser of $1,000 or 10 percent, except for blanket-bond licensees. The sample deposit is only an example.",
+    "src": "cslb-guide"
+   }
+  ]
+ },
+ "faq_heading": "Contractor estimate questions",
+ "faq": [
+  {
+   "q": "What is a good contingency line?",
+   "a": "It depends on your scope and the age of the home. Show it on its own line and say how you will use it. Bring unused amounts back to the customer."
+  },
+  {
+   "q": "Should I show my markup?",
+   "a": "You do not have to. If you bill cost plus a fee, the fee has its own line. On a fixed price, one number per stage is fine."
+  },
+  {
+   "q": "How do I handle allowances?",
+   "a": "Enter a line with the unit set to allowance. In the terms, say that the customer pays the difference when the choice costs more, and gets a credit when it costs less."
+  },
+  {
+   "q": "Do I need a separate contract as well?",
+   "a": "Often yes for home improvement work. An estimate gives the price, while your state may ask for contract terms that this form does not include. Ask a local lawyer."
+  }
+ ],
+ "source_ids": [
+  "fixr-kit",
+  "toh-bath",
+  "hy-room",
+  "hy-demo",
+  "pricer",
+  "ctbh",
+  "nj-16-2",
+  "cfr-429",
+  "cslb-guide",
+  "ny-771",
+  "ftc-scam"
+ ]
+}

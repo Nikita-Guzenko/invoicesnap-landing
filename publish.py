@@ -176,6 +176,7 @@ def main() -> int:
         run(sys.executable, "build.py", "--check")
         print(run(sys.executable, "check_site.py", "--dir", "dist"))
         print(run(sys.executable, "tests/test_site.py").splitlines()[-1])
+        print(run(sys.executable, "tests/test_tool_gate.py").splitlines()[-1])
         commit = commit_dist(source)
         set_source()
         wait_for_build(commit)

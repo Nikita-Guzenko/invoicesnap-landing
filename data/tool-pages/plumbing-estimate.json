@@ -1,0 +1,298 @@
+{
+ "id": "plumbing-estimate",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "trade_estimate",
+ "slug": "estimate-template/plumbing",
+ "title": "Plumbing Estimate Template: Fill In, Download PDF, Word, Excel",
+ "description": "Write a plumbing estimate in your browser with scope, exclusions, valid-until date and deposit. No sign-up. US price ranges for bigger plumbing jobs, with sources.",
+ "h1": "Plumbing estimate template",
+ "crumb": "Plumbing",
+ "link_text": "Plumbing estimate",
+ "lede_html": "Fill in the form to price a plumbing job before you start, then download it as a PDF, Word or Excel file. No account. The sample is a bathroom rough-in. Replace it with your job.",
+ "demand": [
+  "plumbing estimate template",
+  "plumber estimate template"
+ ],
+ "parent": "estimate-hub",
+ "related": [
+  "plumbing-invoice",
+  "electrical-estimate",
+  "contractor-estimate",
+  "estimate-generator",
+  "estimate-vs-invoice",
+  "estimate-hub"
+ ],
+ "form": {
+  "kind": "estimate",
+  "sample": {
+   "bizName": "Clearwater Plumbing Co.",
+   "bizAddr": "77 Pipe Way, Tucson, AZ 85701",
+   "bizId": "ROC 000000",
+   "bizContact": "(520) 555-0118",
+   "custName": "Sam Ortega",
+   "custAddr": "310 Mesa Dr, Tucson, AZ 85705",
+   "siteAddr": "310 Mesa Dr, Tucson, AZ 85705",
+   "no": "E-2204",
+   "date": "2026-11-08",
+   "validDays": "30",
+   "start": "2026-12-01",
+   "depositPct": "10",
+   "rate": "8.7",
+   "taxOn": "parts",
+   "scope": "Move drain and supply lines for a new vanity and shower. Pressure test. Patch access holes to rough drywall.",
+   "exclusions": "Tile, paint, fixtures chosen by the owner, and repair of hidden damage found after opening the wall.",
+   "terms": "Any change in scope needs a written change order before the work.",
+   "items": [
+    {
+     "d": "Rough-in labor, 2 plumbers",
+     "q": 16,
+     "u": "hour",
+     "r": 115,
+     "k": "L"
+    },
+    {
+     "d": "PEX, fittings, valves, drain pipe",
+     "q": 1,
+     "u": "lot",
+     "r": 640,
+     "k": "M"
+    },
+    {
+     "d": "Shower valve body",
+     "q": 1,
+     "u": "each",
+     "r": 185,
+     "k": "M"
+    },
+    {
+     "d": "City plumbing permit",
+     "q": 1,
+     "u": "permit",
+     "r": 145,
+     "k": "M"
+    },
+    {
+     "d": "Final connections and test",
+     "q": 4,
+     "u": "hour",
+     "r": 115,
+     "k": "L"
+    }
+   ]
+  },
+  "labels": {
+   "terms": "Terms: change orders, hidden damage"
+  }
+ },
+ "must_show": {
+  "heading": "What a plumbing estimate should say",
+  "intro_html": "The estimate tells the customer what you will do, what you will not do, the price, and how long the price holds. Hidden pipe work is the usual source of a price dispute, so say how you treat it.",
+  "why_label": "Why it matters before the wall is open",
+  "rows": [
+   [
+    "Scope, room by room",
+    "The customer can compare your price with another bid on the same work."
+   ],
+   [
+    "Exclusions",
+    "Tile, drywall finish and fixtures are common items that a customer assumes are in the price."
+   ],
+   [
+    "Hidden conditions",
+    "Say what happens when you find corroded pipe or a bad vent behind the wall."
+   ],
+   [
+    "Fixture allowance",
+    "Name the model, or give an allowance and say who pays the difference."
+   ],
+   [
+    "Permit and inspection",
+    "Say who pulls the permit and whether the fee is in the price."
+   ],
+   [
+    "Valid-until date",
+    "Copper and water heater prices move. A date protects your margin."
+   ],
+   [
+    "Deposit and payment steps",
+    "Link payments to steps such as rough-in passed and final connection."
+   ]
+  ]
+ },
+ "example": {
+  "heading": "Filled example: tank to tankless swap",
+  "intro_html": "A second job with sample prices, to show how a replacement estimate reads. These are not price advice.",
+  "items": [
+   {
+    "d": "Remove the 40 gal tank, cap old lines",
+    "q": 3,
+    "u": "hour",
+    "r": 120,
+    "k": "L"
+   },
+   {
+    "d": "Tankless gas unit, 199k BTU",
+    "q": 1,
+    "u": "each",
+    "r": 1450,
+    "k": "M"
+   },
+   {
+    "d": "Gas line upsize, venting kit",
+    "q": 1,
+    "u": "lot",
+    "r": 380,
+    "k": "M"
+   },
+   {
+    "d": "Install, commission, flush",
+    "q": 6,
+    "u": "hour",
+    "r": 120,
+    "k": "L"
+   },
+   {
+    "d": "Mechanical permit",
+    "q": 1,
+    "u": "permit",
+    "r": 110,
+    "k": "M"
+   }
+  ],
+  "total_label": "Estimated total before tax"
+ },
+ "line_items": {
+  "heading": "Larger plumbing jobs and typical prices",
+  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row. The price that the button adds is a sample inside that range, not a price recommendation.",
+  "items": [
+   {
+    "name": "Water heater repair",
+    "unit": "job",
+    "kind": "L",
+    "low": 150,
+    "high": 600,
+    "src": "tr-plumb",
+    "plus": false,
+    "sample": 295
+   },
+   {
+    "name": "Sink installation or replacement",
+    "unit": "job",
+    "kind": "L",
+    "low": 250,
+    "high": 1400,
+    "src": "tr-plumb",
+    "plus": false,
+    "sample": 650
+   },
+   {
+    "name": "Toilet replacement or installation",
+    "unit": "job",
+    "kind": "L",
+    "low": 300,
+    "high": 900,
+    "src": "tr-plumb",
+    "plus": false,
+    "sample": 525
+   },
+   {
+    "name": "Water softener installation",
+    "unit": "job",
+    "kind": "L",
+    "low": 500,
+    "high": 3000,
+    "src": "tr-plumb",
+    "plus": false,
+    "sample": 1400
+   },
+   {
+    "name": "Sump pump repair or installation",
+    "unit": "job",
+    "kind": "L",
+    "low": 550,
+    "high": 1600,
+    "src": "tr-plumb",
+    "plus": false,
+    "sample": 950
+   },
+   {
+    "name": "Plumbing permit fees",
+    "unit": "permit",
+    "kind": "M",
+    "low": 50,
+    "high": 500,
+    "src": "tr-plumb",
+    "plus": false,
+    "sample": 175
+   },
+   {
+    "name": "Journeyman plumber, by the hour",
+    "unit": "hour",
+    "kind": "L",
+    "low": 65,
+    "high": 125,
+    "src": "tr-plumb",
+    "plus": false,
+    "sample": 100,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Bathroom rough-in, your scope",
+    "unit": "job",
+    "kind": "L"
+   },
+   {
+    "name": "Fixture allowance",
+    "unit": "each",
+    "kind": "M"
+   }
+  ]
+ },
+ "rules": {
+  "heading": "Rules to check before you send a plumbing estimate",
+  "items": [
+   {
+    "title": "Who may do the work",
+    "html": "In Texas, anyone except a responsible master plumber needs the proper license, registration or endorsement, and licensed supervision. Put your number on the estimate when your state asks.",
+    "src": "tsbpe"
+   },
+   {
+    "title": "Permit rules are local",
+    "html": "Permit rules are local. Kirkland, Washington, asks for a mechanical permit on a gas water heater swap and a plumbing permit when you move water piping, so check each city.",
+    "src": "kirkland"
+   },
+   {
+    "title": "Estimates signed at the customer home",
+    "html": "A buyer may cancel a home sale until midnight of the third business day under the FTC Cooling-Off Rule. Limits apply, including some emergencies, so ask counsel.",
+    "src": "cfr-429"
+   }
+  ]
+ },
+ "faq_heading": "Plumbing estimate questions",
+ "faq": [
+  {
+   "q": "Is a plumbing estimate the same as a quote?",
+   "a": "People use both words. A fixed price with a scope acts like a quote. Write \"estimate\" and state how the price can change, or write \"fixed price\" if it will not change."
+  },
+  {
+   "q": "Should I itemize parts on an estimate?",
+   "a": "Itemize when the customer compares bids. Show one lot price when your supplier cost changes often. Keep labor apart either way, because sales tax rules can treat the two differently."
+  },
+  {
+   "q": "How long should a plumbing estimate stay valid?",
+   "a": "Choose a date that matches how fast your supplier prices change. Thirty days is common in the samples on this page. The form prints the date from the number of days you enter."
+  },
+  {
+   "q": "Can I charge for writing an estimate?",
+   "a": "Say so before the visit. A paid diagnostic visit is a separate charge from a free written price. Credit it to the job if you promised that."
+  }
+ ],
+ "source_ids": [
+  "tr-plumb",
+  "tsbpe",
+  "kirkland",
+  "cfr-429"
+ ]
+}

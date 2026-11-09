@@ -1,0 +1,281 @@
+{
+ "id": "handyman-invoice",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "trade_invoice",
+ "slug": "invoice-template/handyman",
+ "title": "Handyman Invoice Template: Fill In, Download PDF, Word, Excel",
+ "description": "Bill small jobs from your browser: hourly labor, minimum charge, materials markup. No sign-up. PDF, Word and Excel files, with US prices and license limits.",
+ "h1": "Handyman invoice template",
+ "crumb": "Handyman",
+ "link_text": "Handyman invoice",
+ "lede_html": "List each small job in the form and get a handyman invoice as a PDF, Word or Excel file. You do not sign up. The sample is a half-day punch list. Change it to your work.",
+ "demand": [
+  "handyman invoice template"
+ ],
+ "parent": "invoice-hub",
+ "related": [
+  "plumbing-invoice",
+  "electrical-invoice",
+  "contractor-invoice",
+  "invoice-generator",
+  "what-to-include-on-an-invoice",
+  "invoice-hub"
+ ],
+ "form": {
+  "kind": "invoice",
+  "sample": {
+   "bizName": "Reliable Repairs by Tom",
+   "bizAddr": "5 Workbench Rd, Sacramento, CA 95814",
+   "bizId": "Not a licensed contractor; jobs under $1,000",
+   "bizContact": "(916) 555-0164",
+   "pay": "Zelle or check to Tom Reyes",
+   "custName": "Alicia Grant",
+   "custAddr": "73 Poplar St, Sacramento, CA 95816",
+   "siteAddr": "",
+   "no": "267",
+   "date": "2026-11-08",
+   "svc": "2026-11-08",
+   "dueDays": "7",
+   "paid": "",
+   "rate": "",
+   "taxOn": "parts",
+   "terms": "Materials at cost plus 15%. Receipts on request.",
+   "items": [
+    {
+     "d": "Punch list: door hinge, towel bar, fence board, 2 smoke detectors",
+     "q": 4,
+     "u": "hour",
+     "r": 75,
+     "k": "L"
+    },
+    {
+     "d": "Hinges, anchors, fence board, 9 V batteries",
+     "q": 1,
+     "u": "lot",
+     "r": 58,
+     "k": "M"
+    },
+    {
+     "d": "Mount 55 in. TV on stud wall",
+     "q": 1,
+     "u": "job",
+     "r": 140,
+     "k": "L"
+    }
+   ]
+  },
+  "labels": {
+   "bizId": "License no., or your exemption",
+   "terms": "Notes: materials markup, receipts"
+  }
+ },
+ "must_show": {
+  "heading": "What a handyman invoice must show",
+  "intro_html": "A handyman invoice lists small tasks clearly, shows how you bill time and material, and states your license status where a state asks. No federal list exists.",
+  "why_label": "Why it matters on small jobs",
+  "rows": [
+   [
+    "One line per task",
+    "A customer pays faster when each small job has its own line."
+   ],
+   [
+    "Minimum charge",
+    "Show it on its own line when the job was shorter than your minimum."
+   ],
+   [
+    "Materials and markup",
+    "Say if you add a markup, so the receipt does not surprise the customer."
+   ],
+   [
+    "License status",
+    "In some states, the job size decides whether you need a license."
+   ],
+   [
+    "Photos or job notes",
+    "A short note on what you fixed answers later questions."
+   ],
+   [
+    "Payment method",
+    "Name Zelle, check or card. Small jobs are often paid on the day."
+   ]
+  ]
+ },
+ "example": {
+  "heading": "Filled example: rental turnover",
+  "intro_html": "A second, different job with sample prices.",
+  "items": [
+   {
+    "d": "Minimum service charge, first hour",
+    "q": 1,
+    "u": "job",
+    "r": 150,
+    "k": "M"
+   },
+   {
+    "d": "Interior door repair, 2 doors",
+    "q": 1,
+    "u": "job",
+    "r": 150,
+    "k": "L"
+   },
+   {
+    "d": "Doorbell repair",
+    "q": 1,
+    "u": "job",
+    "r": 95,
+    "k": "L"
+   },
+   {
+    "d": "Ceiling fan installation, owner-supplied fan",
+    "q": 1,
+    "u": "job",
+    "r": 225,
+    "k": "L"
+   },
+   {
+    "d": "Wire nuts, screws, door strike",
+    "q": 1,
+    "u": "lot",
+    "r": 24,
+    "k": "M"
+   }
+  ],
+  "after_html": "Prices are samples inside the ranges from <a href=\"https://www.housecallpro.com/resources/how-to-price-handyman-jobs/\" rel=\"noopener\">Housecall Pro</a>."
+ },
+ "line_items": {
+  "heading": "Handyman line items and typical prices",
+  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row. The price that the button adds is a sample inside that range, not a price recommendation.",
+  "items": [
+   {
+    "name": "Handyman, by the hour",
+    "unit": "hour",
+    "kind": "L",
+    "low": 50,
+    "high": 125,
+    "src": "tr-handy",
+    "plus": false,
+    "sample": 75,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Minimum service charge",
+    "unit": "job",
+    "kind": "M",
+    "low": 125,
+    "high": 200,
+    "src": "hcp-handy",
+    "plus": false,
+    "sample": 150
+   },
+   {
+    "name": "Materials markup",
+    "unit": "percent of materials",
+    "kind": "M"
+   },
+   {
+    "name": "Doorbell repair",
+    "unit": "job",
+    "kind": "L",
+    "low": 65,
+    "high": 151,
+    "src": "hcp-handy",
+    "plus": false,
+    "sample": 95
+   },
+   {
+    "name": "Interior door repair",
+    "unit": "job",
+    "kind": "L",
+    "low": 75,
+    "high": 225,
+    "src": "hcp-handy",
+    "plus": false,
+    "sample": 140
+   },
+   {
+    "name": "Ceiling fan installation",
+    "unit": "job",
+    "kind": "L",
+    "low": 150,
+    "high": 300,
+    "src": "hcp-handy",
+    "plus": false,
+    "sample": 225
+   },
+   {
+    "name": "Minor plumbing repair",
+    "unit": "job",
+    "kind": "L",
+    "low": 125,
+    "high": 800,
+    "src": "hcp-handy",
+    "plus": true,
+    "sample": 240
+   },
+   {
+    "name": "TV mounting",
+    "unit": "job",
+    "kind": "L"
+   },
+   {
+    "name": "Furniture assembly",
+    "unit": "job",
+    "kind": "L"
+   },
+   {
+    "name": "Drywall patch",
+    "unit": "job",
+    "kind": "L"
+   }
+  ],
+  "after_html": "For scale: general maintenance and repair workers had median pay of $23.84 per hour in May 2025 (<a href=\"https://www.bls.gov/ooh/installation-maintenance-and-repair/general-maintenance-and-repair-workers.htm\" rel=\"noopener\">BLS</a>). Self-employed rates also cover your tools, van and insurance."
+ },
+ "rules": {
+  "heading": "Handyman rules that touch the invoice",
+  "items": [
+   {
+    "title": "California: the $1,000 line",
+    "html": "Since 1 January 2025, California exempts minor work up to $1,000 from a contractor license. The work cannot need a permit, and the unlicensed person cannot employ anyone on the project.",
+    "src": "cslb-2622"
+   },
+   {
+    "title": "California: say so in ads",
+    "html": "An unlicensed person there may advertise for work up to $1,000 only if the ad says the person is not licensed. You can print the same line on the invoice.",
+    "src": "cslb-2622"
+   },
+   {
+    "title": "Florida: casual, minor work",
+    "html": "Florida exempts casual, minor or inconsequential work under $2,500 total from 489.103's contractor licensing part. Larger jobs, split contracts and anyone who advertises as a contractor do not qualify.",
+    "src": "fl-489103"
+   }
+  ]
+ },
+ "faq_heading": "Handyman invoice questions",
+ "faq": [
+  {
+   "q": "Should I charge by the hour or by the job?",
+   "a": "Use the hour for mixed lists and the job for tasks that you know well. The form takes both: set the unit field to hour or job."
+  },
+  {
+   "q": "How do I show a minimum charge?",
+   "a": "Add a line named Minimum service charge. Then the customer sees why a 20-minute visit costs more than 20 minutes of your rate."
+  },
+  {
+   "q": "Do I need sales tax on a handyman invoice?",
+   "a": "It depends on the state and the job. Leave the rate empty when you do not charge it. Ask your state revenue office if you are not sure."
+  },
+  {
+   "q": "What goes in the license field when I do not have one?",
+   "a": "Do not write a number that you do not hold. Write your exemption, or leave the field empty if your state does not ask for one."
+  }
+ ],
+ "source_ids": [
+  "tr-handy",
+  "hcp-handy",
+  "bls-handy",
+  "cslb-2622",
+  "fl-489103"
+ ]
+}

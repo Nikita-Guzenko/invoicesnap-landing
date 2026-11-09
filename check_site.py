@@ -15,10 +15,14 @@ It starts at /sitemap.xml and checks (playbook rules in brackets):
 - JSON-LD parses, exists on each page, and WebPage, FAQPage values appear on the page [R12]
 - internal <a> links return 200, have no query string, and every linked page is in a sitemap [R03, R31]
 - robots.txt allows the six search robots and names the sitemap; the IndexNow key file answers [R36, R03]
+- go-live gate on the free tool pages (data/tool-pages), on the bytes this crawl fetched: unique h1, gates 4 to 9 of
+  gate.py, gates 2 and 3 of gate_browser.py in a real browser (--no-browser skips those two, for fixtures only).
+  A page that the build blocked must answer with noindex and stay out of the sitemap. A failed page exits 1: publish stops.
 """
 from __future__ import annotations
 
 import argparse
+import datetime
 import functools
 import http.client
 import http.server
@@ -36,7 +40,13 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT))
+import gate  # noqa: E402
+import gate_browser  # noqa: E402
+import tool_pages  # noqa: E402
+
 ROBOTS = ("Googlebot", "Bingbot", "YandexBot", "OAI-SearchBot", "PerplexityBot", "Claude-SearchBot")  # R36 list
+APP_REPO = Path.home() / "firstmate-invoicesnap" / "projects" / "invoicesnap-expo"  # Read only: gate 9 reads claim lines there.
 MIN_TEXT = 200  # Below this a page is an empty shell: it shows that the text is not rendered by the server.
 HREFLANG = re.compile(r"^(x-default|[a-z]{2,3}(-[A-Z][a-z]{3})?(-[A-Z]{2})?)$")
 NS = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
@@ -135,8 +145,9 @@ def norm(text: str) -> str:
 
 
 class Crawl:
-    def __init__(self, base: str, origin: str, key: str) -> None:
+    def __init__(self, base: str, origin: str, key: str, data_dir: Path = ROOT / "data", browser: bool = True) -> None:
         self.base, self.origin, self.key = base.rstrip("/"), origin.rstrip("/"), key
+        self.data_dir, self.browser = data_dir, browser
         self.errors: list[str] = []
         self.lock = threading.Lock()
 
@@ -305,6 +316,7 @@ class Crawl:
                     self.error(path, f"hreflang set differs on {target_path}: the pair is not reciprocal")
         self.check_links(results)
         self.check_robots(list(pages))
+        self.check_tool_gate(results)
         status, text, _ = self.fetch(f"/{self.key}.txt")
         if status != 200 or text.strip() != self.key:
             self.error(f"/{self.key}.txt", f"IndexNow key file: HTTP {status}")
@@ -312,6 +324,55 @@ class Crawl:
             print(f"FAIL {line}")
         print(f"checked {len(results)} pages in {len(set(pages.values()))} language sitemaps: {len(self.errors)} problem(s)")
         return 1 if self.errors else 0
+
+    def check_tool_gate(self, results: dict) -> None:
+        ctx = tool_pages.Context(self.data_dir)
+        if not ctx.pages:
+            return
+        today = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
+        fetched, gated, texts, h1s = {}, [], {}, {}
+        jobs = gate.filled_job_problems(ctx.pages)
+        path_of = lambda p: ("" if p.get("locale", "en") == "en" else f"/{p['locale']}") + "/" + p["slug"].strip("/") + "/"  # noqa: E731
+        for page in ctx.pages:
+            path = path_of(page)
+            status, raw, _ = self.fetch(path)
+            problems = gate.data_problems(page, ctx.sources, ctx.demand, ctx.laws, "en-US", today) + jobs.get(page["id"], [])
+            if path not in results:
+                # Gate says fail = noindex or no build. A page outside the sitemap must really carry noindex.
+                if status == 200 and "noindex" not in gate.parse(raw).robots:
+                    self.error(path, "gate: the page is outside the sitemap but has no noindex")
+                print(f"gate: {path} is blocked, noindex: {'; '.join(problems)[:200]}")
+                # Held back only by gate 5 (a reviewer is a person, not a page fault): every other gate still runs,
+                # so the page is ready on the day a reviewer signs.
+                if not problems or any(not line.startswith("gate 5") for line in problems):
+                    continue
+                problems = []
+            if status != 200:
+                continue
+            gated.append(path)
+            fetched[path] = raw
+            problems += gate.html_problems(page, raw, ctx.claims)
+            parsed = gate.parse(raw)
+            texts[path] = " ".join(parsed.unique)
+            other = h1s.setdefault(gate.norm(parsed.h1), path)
+            if other != path:
+                problems.append(f"gate 1: same h1 as {other}")
+            for line in problems:
+                self.error(path, line)
+        for path, problems in gate.overlap_problems(texts).items():
+            for line in problems:
+                self.error(path, line)
+        share, a, b = gate.max_overlap(texts)
+        print(f"gate 6: highest 5-word overlap {share:.2f} ({a} / {b})")
+        for line in gate.claims_problems(ctx.claims, APP_REPO):
+            self.error("/claims", line)  # "unknown" (no app repo here) also stops a release: a failed look is not a pass.
+        if self.browser:
+            forms = [path_of(p) for p in ctx.pages if p["type"] in tool_pages.FORM_TYPES]
+            forms = [p for p in forms if p in gated]
+            for path, problems in gate_browser.run(self.base, forms).items():
+                for line in problems:
+                    self.error(path, line)
+            print(f"gate 2, 3: browser checked {len(forms)} form pages")
 
     def check_links(self, results: dict) -> None:
         internal: dict[str, str] = {}
@@ -350,6 +411,7 @@ def main() -> int:
     source.add_argument("--dir", type=Path, help="serve this folder locally and crawl it")
     source.add_argument("--base", help="crawl this live base URL")
     parser.add_argument("--data", type=Path, default=ROOT / "data", help="data folder with site.json")
+    parser.add_argument("--no-browser", action="store_true", help="skip gates 2 and 3 (test fixtures only; publish.py never passes it)")
     args = parser.parse_args()
     config = json.loads((args.data / "site.json").read_text(encoding="utf-8"))
     server = None
@@ -357,7 +419,7 @@ def main() -> int:
     if args.dir:
         server, base = serve(args.dir)
     try:
-        return Crawl(base, config["origin"], config["indexnow_key"]).run()
+        return Crawl(base, config["origin"], config["indexnow_key"], args.data, not args.no_browser).run()
     finally:
         if server:
             server.shutdown()

@@ -1,0 +1,318 @@
+{
+ "id": "roofing-estimate",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "trade_estimate",
+ "slug": "estimate-template/roofing",
+ "title": "Roofing Estimate Template: Fill In, Download PDF, Word, Excel",
+ "description": "Write a roofing estimate in your browser: squares, tear-off, flashing, decking allowance, deposit. No sign-up. US price ranges and insurance rules, with sources.",
+ "h1": "Roofing estimate template",
+ "crumb": "Roofing",
+ "link_text": "Roofing estimate",
+ "lede_html": "Enter the roof in this form and get an estimate as a PDF, Word or Excel file. No account. The sample is a 24-square shingle replacement. Replace it with your measurements.",
+ "demand": [
+  "roofing estimate template",
+  "roofing contractor estimate template"
+ ],
+ "parent": "estimate-hub",
+ "related": [
+  "contractor-estimate",
+  "painting-estimate",
+  "contractor-invoice",
+  "estimate-generator",
+  "how-much-over-an-estimate",
+  "estimate-hub"
+ ],
+ "form": {
+  "kind": "estimate",
+  "sample": {
+   "bizName": "High Pitch Roofing",
+   "bizAddr": "300 Ridge Rd, Orlando, FL 32801",
+   "bizId": "CCC000000",
+   "bizContact": "(407) 555-0151",
+   "custName": "Evan Brooks",
+   "custAddr": "1120 Lakeview Dr, Orlando, FL 32803",
+   "siteAddr": "",
+   "no": "R-4410",
+   "date": "2026-11-08",
+   "validDays": "14",
+   "start": "2026-12-07",
+   "depositPct": "10",
+   "rate": "",
+   "taxOn": "parts",
+   "scope": "Tear off 1 layer, install underlayment, drip edge, architectural shingles on 24 squares. Replace pipe boots. Clean up with magnet sweep.",
+   "exclusions": "Rotten decking beyond the allowance, gutters, skylights, attic ventilation changes.",
+   "terms": "Decking is priced per sheet after tear-off. Your insurance deductible is yours to pay.",
+   "items": [
+    {
+     "d": "Tear-off and disposal",
+     "q": 24,
+     "u": "square",
+     "r": 95,
+     "k": "L"
+    },
+    {
+     "d": "Architectural shingles, installed",
+     "q": 2400,
+     "u": "sq ft",
+     "r": 5.75,
+     "k": "L"
+    },
+    {
+     "d": "Ice and water shield at valleys",
+     "q": 300,
+     "u": "sq ft",
+     "r": 2.5,
+     "k": "M"
+    },
+    {
+     "d": "Decking allowance",
+     "q": 64,
+     "u": "sq ft",
+     "r": 6,
+     "k": "M"
+    },
+    {
+     "d": "Flashing and pipe boots",
+     "q": 1,
+     "u": "item",
+     "r": 650,
+     "k": "L"
+    }
+   ]
+  },
+  "labels": {
+   "bizId": "Roofing license no.",
+   "terms": "Terms: decking, insurance, weather"
+  }
+ },
+ "must_show": {
+  "heading": "What a roofing estimate should say",
+  "intro_html": "A roofing estimate is mostly measurements. Give the roof size in squares, the layers to remove, the materials by name, and how you will price the decking that you cannot see yet.",
+  "why_label": "Why it matters on a roof",
+  "rows": [
+   [
+    "Roof size in squares",
+    "One square is 100 sq ft. The customer can compare bids on the same size."
+   ],
+   [
+    "Layers to tear off",
+    "Each added layer costs more to remove and dispose of."
+   ],
+   [
+    "Shingle maker and grade",
+    "A plain word such as \"shingles\" invites disputes."
+   ],
+   [
+    "Decking price per sheet",
+    "The damage is unknown until tear-off, so agree on a unit price now."
+   ],
+   [
+    "Workmanship warranty",
+    "Keep it apart from the maker warranty on the material."
+   ],
+   [
+    "Insurance wording",
+    "Say that the owner pays the deductible. Florida prohibits offers to waive one."
+   ]
+  ]
+ },
+ "example": {
+  "heading": "Filled example: leak and flashing repair",
+  "intro_html": "A smaller job on another home, with sample prices.",
+  "items": [
+   {
+    "d": "Inspection and leak trace",
+    "q": 1,
+    "u": "job",
+    "r": 175,
+    "k": "L"
+   },
+   {
+    "d": "Replace step flashing at chimney",
+    "q": 1,
+    "u": "item",
+    "r": 780,
+    "k": "L"
+   },
+   {
+    "d": "Replace damaged shingles, moderate repair",
+    "q": 1,
+    "u": "job",
+    "r": 950,
+    "k": "L"
+   },
+   {
+    "d": "Ice and water shield",
+    "q": 48,
+    "u": "sq ft",
+    "r": 3,
+    "k": "M"
+   }
+  ],
+  "total_label": "Estimated total"
+ },
+ "line_items": {
+  "heading": "Roofing line items and typical prices",
+  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row. The price that the button adds is a sample inside that range, not a price recommendation.",
+  "items": [
+   {
+    "name": "Asphalt shingle roofing",
+    "unit": "sq ft",
+    "kind": "L",
+    "low": 4.5,
+    "high": 9,
+    "src": "hcp-roof",
+    "plus": false,
+    "sample": 6.5,
+    "range_unit": "sq ft"
+   },
+   {
+    "name": "Metal roofing",
+    "unit": "sq ft",
+    "kind": "L",
+    "low": 8,
+    "high": 15,
+    "src": "hcp-roof",
+    "plus": false,
+    "sample": 11,
+    "range_unit": "sq ft"
+   },
+   {
+    "name": "Tile or slate roofing",
+    "unit": "sq ft",
+    "kind": "L",
+    "low": 12,
+    "high": 25,
+    "src": "hcp-roof",
+    "plus": true,
+    "sample": 18,
+    "range_unit": "sq ft"
+   },
+   {
+    "name": "Tear-off, each added layer",
+    "unit": "sq ft",
+    "kind": "L",
+    "low": 1,
+    "high": 3,
+    "src": "hcp-roof",
+    "plus": false,
+    "sample": 2,
+    "range_unit": "sq ft"
+   },
+   {
+    "name": "Tear-off and disposal",
+    "unit": "square",
+    "kind": "L",
+    "low": 50,
+    "high": 150,
+    "src": "fixr-roof",
+    "plus": false,
+    "sample": 95,
+    "range_unit": "square"
+   },
+   {
+    "name": "Decking repair or replacement",
+    "unit": "sq ft",
+    "kind": "M",
+    "low": 4,
+    "high": 8,
+    "src": "hcp-roof",
+    "plus": false,
+    "sample": 6,
+    "range_unit": "sq ft"
+   },
+   {
+    "name": "Ice and water shield",
+    "unit": "sq ft",
+    "kind": "M",
+    "low": 1.5,
+    "high": 3.5,
+    "src": "hcp-roof",
+    "plus": false,
+    "sample": 2.5,
+    "range_unit": "sq ft"
+   },
+   {
+    "name": "Chimney, skylight or flashing replacement",
+    "unit": "item",
+    "kind": "L",
+    "low": 300,
+    "high": 1200,
+    "src": "hcp-roof",
+    "plus": false,
+    "sample": 650
+   },
+   {
+    "name": "Gutter replacement",
+    "unit": "linear ft",
+    "kind": "M",
+    "low": 6,
+    "high": 15,
+    "src": "hcp-roof",
+    "plus": false,
+    "sample": 10,
+    "range_unit": "linear ft"
+   },
+   {
+    "name": "Minor roof repair",
+    "unit": "job",
+    "kind": "L",
+    "low": 200,
+    "high": 800,
+    "src": "hcp-roof",
+    "plus": false,
+    "sample": 450
+   }
+  ],
+  "after_html": "For scale: US roofers had a median wage of $55,440 per year in May 2025 (<a href=\"https://www.bls.gov/ooh/construction-and-extraction/roofers.htm\" rel=\"noopener\">BLS</a>)."
+ },
+ "rules": {
+  "heading": "Rules to check before you send a roofing estimate",
+  "items": [
+   {
+    "title": "Florida: no waived deductible",
+    "html": "Florida Statutes 489.147 lists as prohibited an offer to a residential owner of a rebate, gift, cash or waiver of an insurance deductible for allowing a roof inspection or making a claim.",
+    "src": "fl-489147"
+   },
+   {
+    "title": "California: down payment",
+    "html": "The cap on a home improvement job is the lesser of $1,000 or 10 percent, except for blanket-bond licensees, so a large roof deposit may be far below 10 percent.",
+    "src": "cslb-guide"
+   },
+   {
+    "title": "Door-to-door roof sales",
+    "html": "After a sale at the home, a buyer may cancel until midnight of the third business day, under the FTC Cooling-Off Rule. Add the notice when you sign after a door-knock.",
+    "src": "cfr-429"
+   }
+  ]
+ },
+ "faq_heading": "Roofing estimate questions",
+ "faq": [
+  {
+   "q": "Should I show insurance estimate amounts on my estimate?",
+   "a": "Show your own price for your own scope. If the customer shares the adjuster paperwork, answer it in a separate document and do not offer to absorb the deductible."
+  },
+  {
+   "q": "How do I price decking that I cannot see?",
+   "a": "Give a unit price per sheet or per square foot and an allowance. Bill what you replace after tear-off, and take a photo of each sheet."
+  },
+  {
+   "q": "Do I measure in squares or square feet?",
+   "a": "Use what your crew and supplier use, and say which unit. The form has a unit field for each line."
+  },
+  {
+   "q": "How long should a roofing estimate be valid?",
+   "a": "Many shops use a short period because shingle prices move. The sample uses 14 days, and you can change it in the form."
+  }
+ ],
+ "source_ids": [
+  "hcp-roof",
+  "fixr-roof",
+  "bls-roof",
+  "fl-489147",
+  "cslb-guide",
+  "cfr-429"
+ ]
+}

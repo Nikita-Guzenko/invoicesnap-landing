@@ -1,0 +1,650 @@
+{
+ "tr-plumb": {
+  "name": "Taskrabbit, plumbing cost guide",
+  "short": "Taskrabbit",
+  "url": "https://www.taskrabbit.com/cost-guides/plumbing",
+  "page_date": "updated 1 Nov 2026",
+  "checked": "2026-11-09",
+  "used_for": "job prices, hourly rates, service fee, permit fees."
+ },
+ "bls-plumb": {
+  "name": "US Bureau of Labor Statistics, plumbers, pipefitters and steamfitters",
+  "short": "BLS",
+  "url": "https://www.bls.gov/ooh/construction-and-extraction/plumbers-pipefitters-and-steamfitters.htm",
+  "page_date": "May 2025 data",
+  "checked": "2026-11-09",
+  "used_for": "median wage, licensing."
+ },
+ "tsbpe": {
+  "name": "Texas State Board of Plumbing Examiners, Plumbing License Law",
+  "short": "Texas Occupations Code 1301.351",
+  "url": "https://tsbpe.texas.gov/wp-content/uploads/documents/TSBPE_PlumbingLicenseLaw(PlainView)_June2023.pdf",
+  "page_date": "June 2023",
+  "checked": "2026-11-09",
+  "used_for": "Occupations Code 1301.351."
+ },
+ "kirkland": {
+  "name": "City of Kirkland, WA, water heater replacement permits",
+  "short": "City of Kirkland",
+  "url": "https://www.kirklandwa.gov/Government/Departments/Development-Services-Center/Do-you-need-a-permit/Water-Heater-Replacement",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "an example of a city permit rule."
+ },
+ "tx-94116": {
+  "name": "Texas Comptroller, Publication 94-116, real property repair and remodeling",
+  "short": "Texas Comptroller 94-116",
+  "url": "https://comptroller.texas.gov/taxes/publications/94-116.php",
+  "page_date": "dated March 2007",
+  "checked": "2026-11-09",
+  "used_for": "sales tax on repair labor in Texas."
+ },
+ "tr-handy": {
+  "name": "Taskrabbit, handyman cost guide",
+  "short": "Taskrabbit",
+  "url": "https://www.taskrabbit.com/cost-guides/general-handyman",
+  "page_date": "updated 1 Nov 2026",
+  "checked": "2026-11-09",
+  "used_for": "hourly rate, materials markup."
+ },
+ "hcp-handy": {
+  "name": "Housecall Pro, how to price handyman jobs",
+  "short": "Housecall Pro",
+  "url": "https://www.housecallpro.com/resources/how-to-price-handyman-jobs/",
+  "page_date": "21 Oct 2026",
+  "checked": "2026-11-09",
+  "used_for": "hourly rates, minimum charge, job prices."
+ },
+ "bls-handy": {
+  "name": "US Bureau of Labor Statistics, general maintenance and repair workers",
+  "short": "BLS",
+  "url": "https://www.bls.gov/ooh/installation-maintenance-and-repair/general-maintenance-and-repair-workers.htm",
+  "page_date": "May 2025 data",
+  "checked": "2026-11-09",
+  "used_for": "median wage."
+ },
+ "cslb-2622": {
+  "name": "California CSLB, Industry Bulletin 24-07 on AB 2622",
+  "short": "CSLB Bulletin 24-07",
+  "url": "https://www.cslb.ca.gov/Resources/IndustryBulletins/2024/AB%202622%20Implementation.FINAL.pdf",
+  "page_date": "31 Dec 2024",
+  "checked": "2026-11-09",
+  "used_for": "the $1,000 minor work exemption."
+ },
+ "fl-489103": {
+  "name": "Florida Statutes 489.103",
+  "short": "Florida Statutes 489.103(9)",
+  "url": "https://www.flsenate.gov/Laws/Statutes/2025/489.103",
+  "page_date": "2025 statutes",
+  "checked": "2026-11-09",
+  "used_for": "the casual, minor work exemption."
+ },
+ "hcp-elec": {
+  "name": "Housecall Pro, how to price electrical work",
+  "short": "Housecall Pro",
+  "url": "https://www.housecallpro.com/resources/how-to-price-electrical-work/",
+  "page_date": "27 Oct 2026",
+  "checked": "2026-11-09",
+  "used_for": "outlet, panel and service call prices, hourly rates by license level."
+ },
+ "tr-ev": {
+  "name": "Taskrabbit, EV charger installation cost",
+  "short": "Taskrabbit",
+  "url": "https://www.taskrabbit.com/blog/ev-charger-installation-cost/",
+  "page_date": "27 Jul 2026",
+  "checked": "2026-11-09",
+  "used_for": "EV charger and permit prices."
+ },
+ "bls-elec": {
+  "name": "US Bureau of Labor Statistics, electricians",
+  "short": "BLS",
+  "url": "https://www.bls.gov/ooh/construction-and-extraction/electricians.htm",
+  "page_date": "May 2025 data",
+  "checked": "2026-11-09",
+  "used_for": "median wage, licensing."
+ },
+ "wa-lni": {
+  "name": "Washington L&I, electrical permits, fees and inspections",
+  "short": "Washington L&I",
+  "url": "https://lni.wa.gov/licensing-permits/electrical/electrical-permits-fees-and-inspections/index",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "the Washington permit rule."
+ },
+ "tdlr": {
+  "name": "Texas TDLR, electrical compliance guide",
+  "short": "Texas TDLR",
+  "url": "https://www.tdlr.texas.gov/electricians/compliance-guide.htm",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "the Texas license rule and who inspects local permits."
+ },
+ "fl-489521": {
+  "name": "Florida Statutes 489.521",
+  "short": "Florida Statutes 489.521",
+  "url": "https://www.flsenate.gov/Laws/Statutes/2025/489.521",
+  "page_date": "2025 statutes",
+  "checked": "2026-11-09",
+  "used_for": "number on each offer of services."
+ },
+ "hy-hvac": {
+  "name": "Homeyou, HVAC cost guide",
+  "short": "Homeyou",
+  "url": "https://www.homeyou.com/hvac-cost",
+  "page_date": "23 Jul 2026",
+  "checked": "2026-11-09",
+  "used_for": "labor rate, repair and install prices."
+ },
+ "bls-hvac": {
+  "name": "US Bureau of Labor Statistics, HVAC mechanics and installers",
+  "short": "BLS",
+  "url": "https://www.bls.gov/ooh/installation-maintenance-and-repair/heating-air-conditioning-and-refrigeration-mechanics-and-installers.htm",
+  "page_date": "May 2025 data",
+  "checked": "2026-11-09",
+  "used_for": "median wage."
+ },
+ "epa-608": {
+  "name": "US EPA, Section 608 technician certification",
+  "short": "US EPA Section 608",
+  "url": "https://www.epa.gov/section608/section-608-technician-certification-requirements",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "the refrigerant certification rule."
+ },
+ "fr-2026": {
+  "name": "Federal Register, Doc 2026-10387",
+  "short": "Federal Register 2026-10387",
+  "url": "https://www.govinfo.gov/content/pkg/FR-2026-05-26/html/2026-10387.htm",
+  "page_date": "26 May 2026",
+  "checked": "2026-11-09",
+  "used_for": "the refrigerant installation deadline rule."
+ },
+ "hcp-clean": {
+  "name": "Housecall Pro, house cleaning prices",
+  "short": "Housecall Pro",
+  "url": "https://www.housecallpro.com/resources/house-cleaning-prices/",
+  "page_date": "27 Oct 2026",
+  "checked": "2026-11-09",
+  "used_for": "visit prices, hourly rate."
+ },
+ "tidy": {
+  "name": "Tidy, how much does house cleaning cost",
+  "short": "Tidy",
+  "url": "https://www.tidy.com/blog/how-much-does-house-cleaning-cost",
+  "page_date": "7 Apr 2026",
+  "checked": "2026-11-09",
+  "used_for": "visit prices and add-ons."
+ },
+ "workiz": {
+  "name": "Workiz, house cleaning cost guide",
+  "short": "Workiz",
+  "url": "https://www.workiz.com/blog/tips-tricks/house-cleaning-cost-pricing-guide/",
+  "page_date": "17 Jul 2026",
+  "checked": "2026-11-09",
+  "used_for": "per visit, per hour and per square foot prices."
+ },
+ "tr-clean": {
+  "name": "Taskrabbit, house cleaning cost guide",
+  "short": "Taskrabbit",
+  "url": "https://www.taskrabbit.com/cost-guides/house-cleaning",
+  "page_date": "updated 1 Nov 2026",
+  "checked": "2026-11-09",
+  "used_for": "prices by home size."
+ },
+ "bls-clean": {
+  "name": "US Bureau of Labor Statistics, janitors and building cleaners",
+  "short": "BLS",
+  "url": "https://www.bls.gov/ooh/building-and-grounds-cleaning/janitors-and-building-cleaners.htm",
+  "page_date": "May 2025 data",
+  "checked": "2026-11-09",
+  "used_for": "median wage."
+ },
+ "tx-94111": {
+  "name": "Texas Comptroller, Publication 94-111, building cleaning",
+  "short": "Texas Comptroller 94-111",
+  "url": "https://comptroller.texas.gov/taxes/publications/94-111.php",
+  "page_date": "dated Oct 2006",
+  "checked": "2026-11-09",
+  "used_for": "sales tax on building cleaning in Texas."
+ },
+ "hcp-paint": {
+  "name": "Housecall Pro, painting price guide",
+  "short": "Housecall Pro",
+  "url": "https://www.housecallpro.com/resources/painting-price-guide/",
+  "page_date": "6 Mar 2026",
+  "checked": "2026-11-09",
+  "used_for": "per square foot and per room prices."
+ },
+ "hy-paint": {
+  "name": "Homeyou, painting cost guide",
+  "short": "Homeyou",
+  "url": "https://www.homeyou.com/painting-cost",
+  "page_date": "31 Jul 2026",
+  "checked": "2026-11-09",
+  "used_for": "project, accent wall and labor prices."
+ },
+ "tr-paint": {
+  "name": "Taskrabbit, painting cost guide",
+  "short": "Taskrabbit",
+  "url": "https://www.taskrabbit.com/cost-guides/painting",
+  "page_date": "updated 1 Nov 2026",
+  "checked": "2026-11-09",
+  "used_for": "bathroom and door prices."
+ },
+ "epa-rrp": {
+  "name": "US EPA, Renovation, Repair and Painting Program",
+  "short": "US EPA RRP",
+  "url": "https://www.epa.gov/lead/renovation-repair-and-painting-program",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "the lead-safe rule for homes from before 1978."
+ },
+ "cslb-c33": {
+  "name": "California CSLB, C-33 Painting and Decorating classification",
+  "short": "CSLB C-33",
+  "url": "https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C-33",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "what a C-33 license covers."
+ },
+ "ls-land": {
+  "name": "LawnStarter, landscaping price guide",
+  "short": "LawnStarter",
+  "url": "https://www.lawnstarter.com/blog/cost/landscaping-price/",
+  "page_date": "5 Oct 2026",
+  "checked": "2026-11-09",
+  "used_for": "mowing, trimming, sod, mulch and patio prices."
+ },
+ "ll-land": {
+  "name": "LawnLove, lawn care cost",
+  "short": "LawnLove",
+  "url": "https://lawnlove.com/blog/lawn-care-cost/",
+  "page_date": "23 Apr 2026",
+  "checked": "2026-11-09",
+  "used_for": "mowing, aeration and sod prices."
+ },
+ "tr-land": {
+  "name": "Taskrabbit, landscaping cost guide",
+  "short": "Taskrabbit",
+  "url": "https://www.taskrabbit.com/cost-guides/landscaping",
+  "page_date": "updated 1 Nov 2026",
+  "checked": "2026-11-09",
+  "used_for": "labor, patio and maintenance prices."
+ },
+ "tx-94112": {
+  "name": "Texas Comptroller, Publication 94-112, landscaping and lawn care",
+  "short": "Texas Comptroller 94-112",
+  "url": "https://comptroller.texas.gov/taxes/publications/94-112.php",
+  "page_date": "dated March 2022",
+  "checked": "2026-11-09",
+  "used_for": "sales tax on landscaping in Texas."
+ },
+ "tda": {
+  "name": "Texas Department of Agriculture, pesticides on lawns, trees and ornamentals",
+  "short": "Texas Department of Agriculture",
+  "url": "https://texasagriculture.gov/Regulatory-Programs/Pesticides/Agricultural-Applicators/Applying-Pesticides-to-Lawns-Trees-Ornamentals",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "the pesticide license rule."
+ },
+ "cslb-c27": {
+  "name": "California CSLB, C-27 Landscaping classification",
+  "short": "CSLB C-27",
+  "url": "https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C-27",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "what a C-27 license covers."
+ },
+ "irs-rec": {
+  "name": "IRS, what kind of records should I keep",
+  "short": "IRS",
+  "url": "https://www.irs.gov/businesses/small-businesses-self-employed/what-kind-of-records-should-i-keep",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "invoices as business records."
+ },
+ "irs-long": {
+  "name": "IRS, how long should I keep records",
+  "short": "IRS",
+  "url": "https://www.irs.gov/businesses/small-businesses-self-employed/how-long-should-i-keep-records",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "how long to keep records."
+ },
+ "hcp-roof": {
+  "name": "Housecall Pro, roofing prices",
+  "short": "Housecall Pro",
+  "url": "https://www.housecallpro.com/resources/roofing-prices/",
+  "page_date": "12 Feb 2026",
+  "checked": "2026-11-09",
+  "used_for": "repair, replacement and per square foot prices."
+ },
+ "fixr-roof": {
+  "name": "Fixr, roof replacement cost",
+  "short": "Fixr",
+  "url": "https://www.fixr.com/costs/roof-replacement",
+  "page_date": "4 Feb 2026",
+  "checked": "2026-11-09",
+  "used_for": "tear-off and replacement prices."
+ },
+ "bls-roof": {
+  "name": "US Bureau of Labor Statistics, roofers",
+  "short": "BLS",
+  "url": "https://www.bls.gov/ooh/construction-and-extraction/roofers.htm",
+  "page_date": "May 2025 data",
+  "checked": "2026-11-09",
+  "used_for": "median wage, safety certification."
+ },
+ "fl-489147": {
+  "name": "Florida Statutes 489.147",
+  "short": "Florida Statutes 489.147",
+  "url": "https://www.flsenate.gov/Laws/Statutes/2026/489.147",
+  "page_date": "2026 statutes",
+  "checked": "2026-11-09",
+  "used_for": "prohibited roofing offers on insurance deductibles."
+ },
+ "cslb-guide": {
+  "name": "California CSLB, Home Improvement Contracts consumer guide",
+  "short": "CSLB guide",
+  "url": "https://www.cslb.ca.gov/resources/GuidesAndPublications/HomeImprovementContractsConsumerGuide.pdf",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "down payment cap, change orders, license number, lien notices."
+ },
+ "cfr-429": {
+  "name": "16 CFR 429.1, FTC Cooling-Off Rule",
+  "short": "16 CFR 429.1",
+  "url": "https://www.law.cornell.edu/cfr/text/16/429.1",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "the three-day right to cancel a sale at the home."
+ },
+ "nj-16-2": {
+  "name": "New Jersey N.J.A.C. 13:45A-16.2, home improvement practices",
+  "short": "N.J.A.C. 13:45A-16.2",
+  "url": "https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-13-45A-16-2",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "written contracts and written changes."
+ },
+ "ctbh": {
+  "name": "Cost to Build a House, general contractor fee guide",
+  "short": "Cost to Build a House",
+  "url": "https://www.costtobuildhouse.com/how-much-does-a-general-contractor-charge",
+  "page_date": "2026",
+  "checked": "2026-11-09",
+  "used_for": "contractor fee and hourly rate."
+ },
+ "fixr-kit": {
+  "name": "Fixr, kitchen remodel cost",
+  "short": "Fixr",
+  "url": "https://www.fixr.com/kitchen/remodeling-costs",
+  "page_date": "Nov 2026",
+  "checked": "2026-11-09",
+  "used_for": "kitchen remodel price."
+ },
+ "toh-bath": {
+  "name": "This Old House, bathroom remodel cost",
+  "short": "This Old House",
+  "url": "https://www.thisoldhouse.com/bathrooms/bathroom-remodel-cost",
+  "page_date": "2 Jul 2026",
+  "checked": "2026-11-09",
+  "used_for": "bathroom remodel price."
+ },
+ "hy-room": {
+  "name": "Homeyou, room addition cost",
+  "short": "Homeyou",
+  "url": "https://www.homeyou.com/room-addition-cost",
+  "page_date": "23 Jul 2026",
+  "checked": "2026-11-09",
+  "used_for": "room addition price."
+ },
+ "hy-demo": {
+  "name": "Homeyou, demolition cost",
+  "short": "Homeyou",
+  "url": "https://www.homeyou.com/demolition-cost",
+  "page_date": "23 Jul 2026",
+  "checked": "2026-11-09",
+  "used_for": "demolition prices and labor."
+ },
+ "tr-dry": {
+  "name": "Taskrabbit, drywall repair cost guide",
+  "short": "Taskrabbit",
+  "url": "https://www.taskrabbit.com/cost-guides/drywall-repair",
+  "page_date": "updated 1 Nov 2026",
+  "checked": "2026-11-09",
+  "used_for": "drywall repair prices."
+ },
+ "pricer": {
+  "name": "The Pricer, building permit cost",
+  "short": "The Pricer",
+  "url": "https://www.thepricer.org/how-much-does-a-building-permit-cost/",
+  "page_date": "8 Nov 2026",
+  "checked": "2026-11-09",
+  "used_for": "building permit prices."
+ },
+ "bls-cons": {
+  "name": "US Bureau of Labor Statistics, construction laborers and helpers",
+  "short": "BLS",
+  "url": "https://www.bls.gov/ooh/construction-and-extraction/construction-laborers-and-helpers.htm",
+  "page_date": "May 2025 data",
+  "checked": "2026-11-09",
+  "used_for": "median wage."
+ },
+ "bls-mgr": {
+  "name": "US Bureau of Labor Statistics, construction managers",
+  "short": "BLS",
+  "url": "https://www.bls.gov/ooh/management/construction-managers.htm",
+  "page_date": "May 2025 data",
+  "checked": "2026-11-09",
+  "used_for": "median wage, license note."
+ },
+ "efa": {
+  "name": "Editorial Freelancers Association, 2026 rate chart",
+  "short": "EFA",
+  "url": "https://www.the-efa.org/rates/",
+  "page_date": "2026 chart",
+  "checked": "2026-11-09",
+  "used_for": "median rate ranges per word and per hour from a member survey."
+ },
+ "bls-writer": {
+  "name": "US Bureau of Labor Statistics, writers and authors",
+  "short": "BLS",
+  "url": "https://www.bls.gov/ooh/media-and-communication/writers-and-authors.htm",
+  "page_date": "May 2025 data",
+  "checked": "2026-11-09",
+  "used_for": "self-employment note."
+ },
+ "bls-mgmt": {
+  "name": "US Bureau of Labor Statistics, management analysts",
+  "short": "BLS",
+  "url": "https://www.bls.gov/ooh/business-and-financial/management-analysts.htm",
+  "page_date": "May 2025 data",
+  "checked": "2026-11-09",
+  "used_for": "how self-employed analysts are paid."
+ },
+ "oes-mgmt": {
+  "name": "BLS wage survey, management analysts",
+  "short": "BLS 2023",
+  "url": "https://www.bls.gov/oes/2023/may/oes131111.htm",
+  "page_date": "May 2023 data",
+  "checked": "2026-11-09",
+  "used_for": "hourly wage, 10th to 90th percentile."
+ },
+ "oes-mkt": {
+  "name": "BLS wage survey, market research analysts",
+  "short": "BLS 2023",
+  "url": "https://www.bls.gov/oes/2023/may/oes131161.htm",
+  "page_date": "May 2023 data",
+  "checked": "2026-11-09",
+  "used_for": "hourly wage, 10th to 90th percentile."
+ },
+ "oes-hr": {
+  "name": "BLS wage survey, human resources specialists",
+  "short": "BLS 2023",
+  "url": "https://www.bls.gov/oes/2023/may/oes131071.htm",
+  "page_date": "May 2023 data",
+  "checked": "2026-11-09",
+  "used_for": "hourly wage, 10th to 90th percentile."
+ },
+ "oes-sys": {
+  "name": "BLS wage survey, computer systems analysts",
+  "short": "BLS 2023",
+  "url": "https://www.bls.gov/oes/2023/may/oes151211.htm",
+  "page_date": "May 2023 data",
+  "checked": "2026-11-09",
+  "used_for": "hourly wage, 10th to 90th percentile."
+ },
+ "oes-acc": {
+  "name": "BLS wage survey, accountants and auditors",
+  "short": "BLS 2023",
+  "url": "https://www.bls.gov/oes/2023/may/oes132011.htm",
+  "page_date": "May 2023 data",
+  "checked": "2026-11-09",
+  "used_for": "hourly wage, 10th to 90th percentile."
+ },
+ "oes-pr": {
+  "name": "BLS wage survey, public relations specialists",
+  "short": "BLS 2023",
+  "url": "https://www.bls.gov/oes/2023/may/oes273031.htm",
+  "page_date": "May 2023 data",
+  "checked": "2026-11-09",
+  "used_for": "hourly wage, 10th to 90th percentile."
+ },
+ "oes-web": {
+  "name": "BLS wage survey, web developers",
+  "short": "BLS 2023",
+  "url": "https://www.bls.gov/oes/2023/may/oes151254.htm",
+  "page_date": "May 2023 data",
+  "checked": "2026-11-09",
+  "used_for": "hourly wage, 10th to 90th percentile."
+ },
+ "oes-gfx": {
+  "name": "BLS wage survey, graphic designers",
+  "short": "BLS 2023",
+  "url": "https://www.bls.gov/oes/2023/may/oes271024.htm",
+  "page_date": "May 2023 data",
+  "checked": "2026-11-09",
+  "used_for": "hourly wage, 10th to 90th percentile."
+ },
+ "oes-tr": {
+  "name": "BLS wage survey, interpreters and translators",
+  "short": "BLS 2023",
+  "url": "https://www.bls.gov/oes/2023/may/oes273091.htm",
+  "page_date": "May 2023 data",
+  "checked": "2026-11-09",
+  "used_for": "hourly wage, 10th to 90th percentile."
+ },
+ "oes-book": {
+  "name": "BLS wage survey, bookkeeping clerks",
+  "short": "BLS 2023",
+  "url": "https://www.bls.gov/oes/2023/may/oes433031.htm",
+  "page_date": "May 2023 data",
+  "checked": "2026-11-09",
+  "used_for": "hourly wage, 10th to 90th percentile."
+ },
+ "oes-video": {
+  "name": "BLS wage survey, film and video editors",
+  "short": "BLS 2023",
+  "url": "https://www.bls.gov/oes/2023/may/oes274032.htm",
+  "page_date": "May 2023 data",
+  "checked": "2026-11-09",
+  "used_for": "hourly wage, 10th to 90th percentile."
+ },
+ "oes-photo": {
+  "name": "BLS wage survey, photographers",
+  "short": "BLS 2023",
+  "url": "https://www.bls.gov/oes/2023/may/oes274021.htm",
+  "page_date": "May 2023 data",
+  "checked": "2026-11-09",
+  "used_for": "hourly wage, 10th to 90th percentile."
+ },
+ "irs-1099": {
+  "name": "IRS, instructions for Forms 1099-MISC and 1099-NEC",
+  "short": "IRS 1099-NEC instructions",
+  "url": "https://www.irs.gov/instructions/i1099mec",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "the reporting amount for nonemployee compensation."
+ },
+ "irs-w9": {
+  "name": "IRS, about Form W-9",
+  "short": "IRS Form W-9",
+  "url": "https://www.irs.gov/forms-pubs/about-form-w-9",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "why a client asks for your tax number."
+ },
+ "irs-est": {
+  "name": "IRS, estimated taxes",
+  "short": "IRS estimated taxes",
+  "url": "https://www.irs.gov/businesses/small-businesses-self-employed/estimated-taxes",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "estimated tax for self-employed people."
+ },
+ "usc-204": {
+  "name": "17 U.S.C. 204, execution of transfers of copyright ownership",
+  "short": "17 U.S.C. 204",
+  "url": "https://www.law.cornell.edu/uscode/text/17/204",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "a transfer must be in writing and signed."
+ },
+ "usc-101": {
+  "name": "17 U.S.C. 101, definitions",
+  "short": "17 U.S.C. 101",
+  "url": "https://www.law.cornell.edu/uscode/text/17/101",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "the meaning of work made for hire."
+ },
+ "ny-1411": {
+  "name": "New York General Business Law 1411",
+  "short": "NY GBL 1411",
+  "url": "https://www.nysenate.gov/legislation/laws/GBS/1411",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "payment date under the state freelance law."
+ },
+ "nyc-free": {
+  "name": "NYC Consumer and Worker Protection, freelancer workers",
+  "short": "NYC DCWP",
+  "url": "https://www.nyc.gov/site/dca/workers/workersrights/freelancer-workers.page",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "written contracts and late payment in New York City."
+ },
+ "ca-sb988": {
+  "name": "California SB 988, bill page",
+  "short": "California SB 988 bill page",
+  "url": "https://calmatters.digitaldemocracy.org/bills/ca_202320240sb988",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "the state freelance law."
+ },
+ "ny-771": {
+  "name": "New York General Business Law 771",
+  "short": "NY GBL 771",
+  "url": "https://www.nysenate.gov/legislation/laws/GBS/771",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "home improvement contract contents."
+ },
+ "ftc-scam": {
+  "name": "FTC, how to avoid a home improvement scam",
+  "short": "FTC",
+  "url": "https://consumer.ftc.gov/articles/how-avoid-home-improvement-scam",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "advice on licensed and insured contractors."
+ },
+ "ny-1410": {
+  "name": "New York General Business Law 1410",
+  "short": "NY GBL 1410",
+  "url": "https://www.nysenate.gov/legislation/laws/GBS/1410",
+  "page_date": null,
+  "checked": "2026-11-09",
+  "used_for": "the definition of a freelance worker and the $800 line."
+ }
+}

@@ -1,0 +1,280 @@
+{
+ "id": "cleaning-invoice",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "trade_invoice",
+ "slug": "invoice-template/cleaning",
+ "title": "Cleaning Invoice Template: Fill In, Download PDF, Word, Excel",
+ "description": "Bill house or office cleaning from your browser: per visit, hourly or per square foot. No sign-up. PDF, Word and Excel, with US price ranges and tax rules.",
+ "h1": "Cleaning invoice template",
+ "crumb": "Cleaning",
+ "link_text": "Cleaning invoice",
+ "lede_html": "Enter your visits and download a cleaning invoice as a PDF, Word or Excel file. No sign-up. The sample is one month of recurring house cleaning. Replace it with your client.",
+ "demand": [
+  "cleaning invoice template"
+ ],
+ "parent": "invoice-hub",
+ "related": [
+  "cleaning-estimate",
+  "handyman-invoice",
+  "hvac-invoice",
+  "invoice-generator",
+  "what-to-include-on-an-invoice",
+  "invoice-hub"
+ ],
+ "form": {
+  "kind": "invoice",
+  "sample": {
+   "bizName": "Spotless Home Care",
+   "bizAddr": "14 Linen St, Houston, TX 77002",
+   "bizId": "TX tax permit 0-00000-0000-0",
+   "bizContact": "(713) 555-0129",
+   "pay": "Card, Zelle or check to Spotless Home Care",
+   "custName": "Nina Alvarez",
+   "custAddr": "2208 Bayou Trl, Houston, TX 77006",
+   "siteAddr": "",
+   "no": "SC-1132",
+   "date": "2026-11-08",
+   "svc": "2026-11-07",
+   "dueDays": "7",
+   "paid": "",
+   "rate": "8.25",
+   "taxOn": "all",
+   "terms": "Visits on 10, 17, 24 Oct and 7 Nov. Cancel with 24 hours notice, or a $40 lockout fee applies.",
+   "items": [
+    {
+     "d": "Biweekly standard clean, 3 bed, 2 bath",
+     "q": 4,
+     "u": "visit",
+     "r": 165,
+     "k": "L"
+    },
+    {
+     "d": "Add-on: inside oven",
+     "q": 1,
+     "u": "visit",
+     "r": 45,
+     "k": "L"
+    },
+    {
+     "d": "Add-on: extra bathroom",
+     "q": 1,
+     "u": "visit",
+     "r": 30,
+     "k": "M"
+    }
+   ]
+  },
+  "labels": {
+   "bizId": "Business or tax permit no.",
+   "terms": "Notes: visit dates, cancel policy"
+  }
+ },
+ "must_show": {
+  "heading": "What a cleaning invoice must show",
+  "intro_html": "A cleaning invoice lists the visit dates and what each one covered. No federal form exists, but dates and add-ons answer most client questions, and the IRS treats the invoice as a record of income.",
+  "why_label": "Why it matters on a cleaning job",
+  "rows": [
+   [
+    "Visit dates",
+    "On a recurring plan, one invoice covers several dates. List them."
+   ],
+   [
+    "Service type",
+    "Standard, deep and move-out cleans have different prices."
+   ],
+   [
+    "Home or office size",
+    "It explains the price."
+   ],
+   [
+    "Add-ons",
+    "Oven, fridge and windows get their own lines."
+   ],
+   [
+    "Sales tax line",
+    "Some states tax cleaning and others do not."
+   ],
+   [
+    "Cancel or lockout policy",
+    "Print it, so that a lockout fee is no surprise."
+   ]
+  ]
+ },
+ "example": {
+  "heading": "Filled example: move-out deep clean",
+  "intro_html": "A one-time job at sample prices.",
+  "items": [
+   {
+    "d": "Move-out clean, 2 bed apartment",
+    "q": 1,
+    "u": "job",
+    "r": 340,
+    "k": "L"
+   },
+   {
+    "d": "Inside fridge and oven",
+    "q": 2,
+    "u": "each",
+    "r": 40,
+    "k": "L"
+   },
+   {
+    "d": "Interior windows, 8",
+    "q": 8,
+    "u": "each",
+    "r": 9,
+    "k": "L"
+   }
+  ],
+  "after_html": "The clean price sits inside the $250–$550 range from <a href=\"https://www.tidy.com/blog/how-much-does-house-cleaning-cost\" rel=\"noopener\">Tidy</a>."
+ },
+ "line_items": {
+  "heading": "Cleaning line items and typical prices",
+  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row. The price that the button adds is a sample inside that range, not a price recommendation.",
+  "items": [
+   {
+    "name": "Standard clean",
+    "unit": "visit",
+    "kind": "L",
+    "low": 100,
+    "high": 300,
+    "src": "tidy",
+    "plus": false,
+    "sample": 165
+   },
+   {
+    "name": "Deep clean",
+    "unit": "visit",
+    "kind": "L",
+    "low": 200,
+    "high": 450,
+    "src": "tidy",
+    "plus": false,
+    "sample": 320
+   },
+   {
+    "name": "Move-in or move-out clean",
+    "unit": "visit",
+    "kind": "L",
+    "low": 250,
+    "high": 550,
+    "src": "tidy",
+    "plus": false,
+    "sample": 380
+   },
+   {
+    "name": "Extra bathroom",
+    "unit": "bathroom",
+    "kind": "L",
+    "low": 20,
+    "high": 40,
+    "src": "tidy",
+    "plus": false,
+    "sample": 30
+   },
+   {
+    "name": "Cleaner, by the hour",
+    "unit": "hour",
+    "kind": "L",
+    "low": 30,
+    "high": 80,
+    "src": "hcp-clean",
+    "plus": false,
+    "sample": 50,
+    "range_unit": "hour"
+   },
+   {
+    "name": "House clean, 2 bedrooms",
+    "unit": "visit",
+    "kind": "L",
+    "low": 100,
+    "high": 200,
+    "src": "tr-clean",
+    "plus": false,
+    "sample": 150
+   },
+   {
+    "name": "House clean, 3 bedrooms",
+    "unit": "visit",
+    "kind": "L",
+    "low": 130,
+    "high": 300,
+    "src": "tr-clean",
+    "plus": false,
+    "sample": 190
+   },
+   {
+    "name": "Standard clean, per sq ft",
+    "unit": "sq ft",
+    "kind": "L",
+    "low": 0.1,
+    "high": 0.3,
+    "src": "workiz",
+    "plus": false,
+    "sample": 0.18,
+    "range_unit": "sq ft"
+   },
+   {
+    "name": "Inside fridge or oven",
+    "unit": "each",
+    "kind": "L"
+   },
+   {
+    "name": "Lockout fee",
+    "unit": "visit",
+    "kind": "M"
+   }
+  ],
+  "after_html": "For scale: janitors and building cleaners had a median wage of $17.71 per hour in May 2025 (<a href=\"https://www.bls.gov/ooh/building-and-grounds-cleaning/janitors-and-building-cleaners.htm\" rel=\"noopener\">BLS</a>). A rate billed to a client also covers supplies, travel and insurance."
+ },
+ "rules": {
+  "heading": "Cleaning rules that touch the invoice",
+  "items": [
+   {
+    "title": "Tax on cleaning in Texas",
+    "html": "The Texas Comptroller says tax is due on cleaning any building. A self-employed housekeeper employed by the household is exempt. Enter the combined rate on the form.",
+    "src": "tx-94111"
+   },
+   {
+    "title": "Collect, then remit",
+    "html": "Texas also says that maid, janitorial and custodial operators should generally collect sales and use tax. Other states differ, so ask your own revenue office.",
+    "src": "tx-94111"
+   },
+   {
+    "title": "Certification not required",
+    "html": "BLS says that janitors and building cleaners typically need no formal education and no certification. Print a bond or insurance line only if you hold one.",
+    "src": "bls-clean"
+   }
+  ]
+ },
+ "faq_heading": "Cleaning invoice questions",
+ "faq": [
+  {
+   "q": "Do I send one invoice per visit or one per month?",
+   "a": "Either works. A monthly invoice with the dates in the notes means less paper for a recurring client."
+  },
+  {
+   "q": "How do I bill tips?",
+   "a": "Tips are not part of your price. Leave them off the invoice unless the client asks you to add one."
+  },
+  {
+   "q": "Should I charge when a client locks me out?",
+   "a": "If your policy says so and the client saw it. Add a lockout line, and keep the message that shows that you came."
+  },
+  {
+   "q": "Do I need the square footage on the invoice?",
+   "a": "Only if you price by it. For a visit price, write the bedrooms and bathrooms instead."
+  }
+ ],
+ "source_ids": [
+  "tidy",
+  "hcp-clean",
+  "tr-clean",
+  "workiz",
+  "bls-clean",
+  "tx-94111",
+  "irs-rec"
+ ]
+}

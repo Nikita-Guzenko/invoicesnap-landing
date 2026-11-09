@@ -1,0 +1,42 @@
+{
+ "id": "what-to-include-on-an-invoice",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "answer",
+ "slug": "guides/what-to-include-on-an-invoice",
+ "title": "What to Include on an Invoice: US Field List",
+ "description": "An invoice needs who, to whom, a number, a date, what was sold, the amount and how to pay. The US has no federal field list. See the field table.",
+ "h1": "What to include on an invoice",
+ "crumb": "What to include on an invoice",
+ "link_text": "What to include on an invoice",
+ "lede_html": "A US invoice should show who is billing, who pays, a unique number, the date, what you sold, the amount with any tax, the due date and how to pay.",
+ "demand": [
+  "what to include on an invoice",
+  "what should be on an invoice",
+  "what does an invoice need to include"
+ ],
+ "parent": null,
+ "related": [
+  "invoice-generator",
+  "invoice-hub",
+  "estimate-vs-invoice"
+ ],
+ "body_html": "<h2>The field list</h2><p>US federal law has no list of required invoice fields. The list below is common practice. The <a href=\"https://www.irs.gov/businesses/small-businesses-self-employed/what-kind-of-records-should-i-keep\" rel=\"noopener\">IRS</a> names invoices among the supporting documents for your books, which is why a clear number and date matter.</p><div class=\"scroll\"><table class=\"data\"><tr><th>Field</th><th>Example</th><th>Reason</th></tr><tr><td>Your name, address, contact</td><td>Rivera Tile LLC, 10 Grout St</td><td>The payer must know who bills.</td></tr><tr><td>Customer name and address</td><td>Ann Cole, 5 Pine Rd</td><td>It shows who owes the money.</td></tr><tr><td>Invoice number</td><td>1047</td><td>Each number is unique, so you can find it later.</td></tr><tr><td>Invoice date and service date</td><td>11/08/2026, 11/06/2026</td><td>It places the income in time.</td></tr><tr><td>Description, quantity, price</td><td>Tile labor, 6 hours, $70</td><td>The customer can check each line.</td></tr><tr><td>Subtotal, tax, total</td><td>$420, $0, $420</td><td>Sales tax rules come from the state.</td></tr><tr><td>Due date, payment method</td><td>Net 14, check</td><td>It removes the first question that a customer asks.</td></tr></table></div><h2>Fields that some jobs add</h2><ul><li>A license number, where a state asks. <a href=\"/invoice-template/contractor/\">Contractor</a> and <a href=\"/invoice-template/electrical/\">electrical</a> pages show examples.</li><li>A PO number for large clients.</li><li>A rights line for <a href=\"/invoice-template/freelance-writer/\">writing</a> and <a href=\"/invoice-template/freelancer/\">creative work</a>.</li><li>A deposit paid and a balance due.</li></ul><h2>How long to keep it</h2><p>The <a href=\"https://www.irs.gov/businesses/small-businesses-self-employed/how-long-should-i-keep-records\" rel=\"noopener\">IRS</a> says to keep records for 3 years in most cases, and longer in some named cases. Keep a copy of each invoice.</p><h2>Invoice or receipt</h2><p>An invoice asks for money that is due. A receipt shows money that was paid. If the customer pays on the spot, one paper can do both when you print the amount paid and a zero balance. The form has a field for what the customer already paid.</p><h2>Mistakes that slow payment</h2><ul><li>Two invoices with the same number. Your books and the customer records then disagree.</li><li>\"Services\" as the only description. A finance team cannot match that to an order.</li><li>No due date. The customer then decides when to pay.</li><li>A sales tax line with no rate. The customer cannot check the amount.</li><li>A business name that differs from the name on your Form W-9.</li></ul><p><a class=\"btn pri\" href=\"/invoice-generator/\">Fill in an invoice now</a></p>",
+ "faq": [
+  {
+   "q": "Does an invoice need a signature?",
+   "a": "No US federal rule asks for one. Your contract or your customer can ask for one."
+  },
+  {
+   "q": "Does an invoice need a tax ID?",
+   "a": "No federal rule asks for one on the invoice. A business client may ask for a Form W-9 instead."
+  }
+ ],
+ "faq_heading": "Short answers",
+ "source_ids": [
+  "irs-rec",
+  "irs-long",
+  "irs-w9"
+ ]
+}

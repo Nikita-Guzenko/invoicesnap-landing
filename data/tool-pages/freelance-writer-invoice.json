@@ -1,0 +1,287 @@
+{
+ "id": "freelance-writer-invoice",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "freelancer_invoice",
+ "slug": "invoice-template/freelance-writer",
+ "title": "Freelance Writer Invoice Template: Per Word, Hour or Project",
+ "description": "Bill writing work per word, per hour or per project from your browser. No sign-up. PDF, Word, Excel, with 2026 EFA rate ranges and rights wording.",
+ "h1": "Freelance writer invoice template",
+ "crumb": "Freelance writer",
+ "link_text": "Freelance writer invoice",
+ "lede_html": "Fill in the form to bill an article, a blog series or an hourly job, and download a PDF, Word or Excel file. No account. The sample is two articles per word. Change it to your work.",
+ "demand": [
+  "freelance writer invoice template"
+ ],
+ "parent": "invoice-hub",
+ "related": [
+  "freelancer-invoice",
+  "consulting-invoice",
+  "invoice-generator",
+  "what-to-include-on-an-invoice",
+  "invoice-hub"
+ ],
+ "form": {
+  "kind": "freelance",
+  "sample": {
+   "bizName": "Maya Stone, Writer",
+   "bizAddr": "22 Quill Ct, Chicago, IL 60614",
+   "bizId": "EIN on request (W-9 sent)",
+   "bizContact": "maya@example.com",
+   "pay": "ACH or PayPal to Maya Stone",
+   "custName": "Northwind Media, Accounts Payable",
+   "custAddr": "500 Market St, Chicago, IL 60606",
+   "no": "MS-2026-41",
+   "date": "2026-11-08",
+   "project": "Q4 buyer guides, PO 88213",
+   "dueDays": "30",
+   "paid": "",
+   "rate": "",
+   "rights": "All rights in the listed articles transfer to the client when this invoice is paid in full.",
+   "lateFee": "1.5% per month on any balance after the due date, as agreed in our contract.",
+   "terms": "Article 1 delivered 28 Oct. Article 2 delivered 4 Nov.",
+   "items": [
+    {
+     "d": "Article: choosing a heat pump, 1,800 words",
+     "q": 1800,
+     "u": "word",
+     "r": 0.25,
+     "k": "L"
+    },
+    {
+     "d": "Article: tankless vs tank, 1,400 words",
+     "q": 1400,
+     "u": "word",
+     "r": 0.25,
+     "k": "L"
+    },
+    {
+     "d": "Revision round beyond the agreed one",
+     "q": 1.5,
+     "u": "hour",
+     "r": 80,
+     "k": "L"
+    }
+   ]
+  },
+  "labels": {
+   "bizId": "Tax ID, if the client needs it",
+   "project": "Project or PO",
+   "rights": "Rights transfer wording",
+   "pay": "How the client pays",
+   "custName": "Client name"
+  },
+  "tax_hint": "Most writing work needs no sales tax. Leave the rate empty unless your state says otherwise."
+ },
+ "must_show": {
+  "heading": "What a freelance writing invoice must show",
+  "intro_html": "The invoice shows the work by word count or hours, the rights that pass, the due date and how to pay. Accounts payable often needs a PO number before it pays.",
+  "why_label": "Why it matters on writing work",
+  "rows": [
+   [
+    "Title and word count",
+    "Editors check the count against the brief."
+   ],
+   [
+    "PO or assignment number",
+    "Large clients block unpaid invoices that have none."
+   ],
+   [
+    "Rights statement",
+    "A copyright transfer has to be in a signed writing. The invoice is a useful reminder of the deal."
+   ],
+   [
+    "Kill fee",
+    "If the piece was stopped, bill the agreed fee on its own line."
+   ],
+   [
+    "Revisions",
+    "Show extra rounds apart from the fee."
+   ],
+   [
+    "Your tax details",
+    "The client may need a W-9 before paying you."
+   ]
+  ]
+ },
+ "example": {
+  "heading": "Filled example: monthly retainer",
+  "intro_html": "A second writer job at sample prices.",
+  "items": [
+   {
+    "d": "Blog posts, 4 per month, retainer",
+    "q": 4,
+    "u": "post",
+    "r": 375,
+    "k": "L"
+   },
+   {
+    "d": "Ghostwritten LinkedIn posts",
+    "q": 6,
+    "u": "post",
+    "r": 75,
+    "k": "L"
+   },
+   {
+    "d": "Editorial calendar and calls",
+    "q": 2,
+    "u": "hour",
+    "r": 90,
+    "k": "L"
+   }
+  ],
+  "total_label": "Total"
+ },
+ "line_items": {
+  "heading": "Writing rates from the 2026 EFA chart",
+  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row, and the button adds a sample inside it. The Editorial Freelancers Association chart shows median rate ranges from a survey of its members.",
+  "items": [
+   {
+    "name": "Ghostwriting, blog posts, per word",
+    "unit": "word",
+    "kind": "L",
+    "low": 0.25,
+    "high": 0.4,
+    "src": "efa",
+    "plus": false,
+    "sample": 0.3,
+    "range_unit": "word"
+   },
+   {
+    "name": "Ghostwriting, blog posts, per hour",
+    "unit": "hour",
+    "kind": "L",
+    "low": 75,
+    "high": 100,
+    "src": "efa",
+    "plus": false,
+    "sample": 85,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Ghostwriting, articles and essays",
+    "unit": "word",
+    "kind": "L",
+    "low": 0.15,
+    "high": 0.3,
+    "src": "efa",
+    "plus": false,
+    "sample": 0.22,
+    "range_unit": "word"
+   },
+   {
+    "name": "Ghostwriting, business and marketing",
+    "unit": "word",
+    "kind": "L",
+    "low": 0.5,
+    "high": 1,
+    "src": "efa",
+    "plus": false,
+    "sample": 0.75,
+    "range_unit": "word"
+   },
+   {
+    "name": "Work-for-hire, blog posts",
+    "unit": "word",
+    "kind": "L",
+    "low": 0.25,
+    "high": 0.45,
+    "src": "efa",
+    "plus": false,
+    "sample": 0.32,
+    "range_unit": "word"
+   },
+   {
+    "name": "Work-for-hire, business and marketing",
+    "unit": "word",
+    "kind": "L",
+    "low": 0.32,
+    "high": 0.875,
+    "src": "efa",
+    "plus": false,
+    "sample": 0.5,
+    "range_unit": "word"
+   },
+   {
+    "name": "Work-for-hire, journalism",
+    "unit": "word",
+    "kind": "L",
+    "low": 0.4,
+    "high": 0.5,
+    "src": "efa",
+    "plus": false,
+    "sample": 0.45,
+    "range_unit": "word"
+   },
+   {
+    "name": "Copyediting, business and marketing",
+    "unit": "hour",
+    "kind": "L",
+    "low": 50,
+    "high": 60,
+    "src": "efa",
+    "plus": false,
+    "sample": 55,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Kill fee",
+    "unit": "project",
+    "kind": "L"
+   },
+   {
+    "name": "Extra revision round",
+    "unit": "hour",
+    "kind": "L"
+   }
+  ],
+  "range_label": "Median range (EFA, 2026)"
+ },
+ "rules": {
+  "heading": "Rights and tax rules for writers",
+  "items": [
+   {
+    "title": "Copyright transfer",
+    "html": "Under 17 U.S.C. 204, a transfer of copyright is not valid unless it is in writing and signed by the owner or the owner's agent. An invoice that you sign can be evidence, but your contract should hold the transfer.",
+    "src": "usc-204"
+   },
+   {
+    "title": "Work made for hire",
+    "html": "17 U.S.C. 101 limits this to employees and to commissioned works in listed categories with a signed written agreement. A blog post from a freelancer does not become work for hire because the invoice says so.",
+    "src": "usc-101"
+   },
+   {
+    "title": "Form 1099-NEC",
+    "html": "The IRS instructions call for reporting nonemployee compensation of $2,000 or more. Check the instructions for the tax year. Keep your own invoices for every client below that amount, too.",
+    "src": "irs-1099"
+   }
+  ]
+ },
+ "faq_heading": "Freelance writer invoice questions",
+ "faq": [
+  {
+   "q": "Do I bill the word count I wrote or the published count?",
+   "a": "Use the count in your contract. If it says nothing, use the delivered count and state it on the line."
+  },
+  {
+   "q": "How do I write a per-word rate on the form?",
+   "a": "Enter the word count as the quantity, word as the unit and the rate in dollars, such as 0.25. The total calculates by itself."
+  },
+  {
+   "q": "When do I add a kill fee?",
+   "a": "When the client stops a piece after you started and your contract has a kill fee. Add it as its own line with the article title."
+  },
+  {
+   "q": "Can I bill for research time?",
+   "a": "If you agreed to it. Show research hours on a separate line, or include them in your per-word or project price."
+  }
+ ],
+ "source_ids": [
+  "efa",
+  "bls-writer",
+  "usc-204",
+  "usc-101",
+  "irs-1099"
+ ]
+}

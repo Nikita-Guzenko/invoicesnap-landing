@@ -1,0 +1,269 @@
+{
+ "id": "hvac-invoice",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "trade_invoice",
+ "slug": "invoice-template/hvac",
+ "title": "HVAC Invoice Template: Fill In, Download PDF, Word, Excel",
+ "description": "Make an HVAC invoice in your browser for repair, tune-up or install. No sign-up. PDF, Word and Excel files, with US price ranges and refrigerant rules.",
+ "h1": "HVAC invoice template",
+ "crumb": "HVAC",
+ "link_text": "HVAC invoice",
+ "lede_html": "Use the form to bill a heating or cooling job, then download a PDF, Word or Excel file. No account. The sample is a capacitor and refrigerant call. Type over it.",
+ "demand": [
+  "hvac invoice template",
+  "hvac invoice app"
+ ],
+ "parent": "invoice-hub",
+ "related": [
+  "plumbing-invoice",
+  "electrical-invoice",
+  "handyman-invoice",
+  "invoice-generator",
+  "what-to-include-on-an-invoice",
+  "invoice-hub"
+ ],
+ "form": {
+  "kind": "invoice",
+  "sample": {
+   "bizName": "Summit Air Service",
+   "bizAddr": "9 Blower St, Phoenix, AZ 85004",
+   "bizId": "ROC 000000 / EPA 608 Type II",
+   "bizContact": "(602) 555-0177",
+   "pay": "Card or check to Summit Air Service",
+   "custName": "Priya Nair",
+   "custAddr": "2201 Palm Ln, Phoenix, AZ 85016",
+   "siteAddr": "",
+   "no": "H-3381",
+   "date": "2026-11-08",
+   "svc": "2026-11-07",
+   "dueDays": "10",
+   "paid": "",
+   "rate": "8.6",
+   "taxOn": "parts",
+   "terms": "Parts warranty is from the maker. Labor warranty is 90 days. Refrigerant added: 2 lb R-410A.",
+   "items": [
+    {
+     "d": "After-hours diagnostic visit",
+     "q": 1,
+     "u": "visit",
+     "r": 129,
+     "k": "M"
+    },
+    {
+     "d": "Replace dual run capacitor, clean contactor",
+     "q": 1.5,
+     "u": "hour",
+     "r": 135,
+     "k": "L"
+    },
+    {
+     "d": "45/5 MFD capacitor",
+     "q": 1,
+     "u": "each",
+     "r": 42,
+     "k": "M"
+    },
+    {
+     "d": "Refrigerant R-410A",
+     "q": 2,
+     "u": "lb",
+     "r": 78,
+     "k": "M"
+    },
+    {
+     "d": "Leak search, electronic",
+     "q": 1,
+     "u": "hour",
+     "r": 135,
+     "k": "L"
+    }
+   ]
+  },
+  "labels": {
+   "bizId": "License and EPA 608 no.",
+   "terms": "Notes: warranty, refrigerant, serial no."
+  }
+ },
+ "must_show": {
+  "heading": "What an HVAC invoice must show",
+  "intro_html": "An HVAC invoice ties the charge to one piece of equipment. No federal rule lists the fields. The parts below stop most warranty and refrigerant questions later.",
+  "why_label": "Why it matters on HVAC work",
+  "rows": [
+   [
+    "Equipment make, model and serial number",
+    "Warranty claims and the next technician need them. Write them in the notes."
+   ],
+   [
+    "Refrigerant type and amount",
+    "Customers ask why the bill has a pound charge. Records also help you show that a certified person did the work."
+   ],
+   [
+    "Technician certification",
+    "EPA Section 608 applies to work that could release refrigerant."
+   ],
+   [
+    "Diagnostic fee and repair, apart",
+    "Say if the fee is credited to the repair."
+   ],
+   [
+    "Parts warranty and labor warranty, apart",
+    "A maker warranty and your labor warranty end on different dates."
+   ],
+   [
+    "Maintenance plan credit",
+    "Show the plan discount on its own line, so the customer sees it."
+   ]
+  ]
+ },
+ "example": {
+  "heading": "Filled example: spring tune-up with a blower repair",
+  "intro_html": "A second job at sample prices. Replace them with your own.",
+  "items": [
+   {
+    "d": "Seasonal tune-up, one system",
+    "q": 1,
+    "u": "visit",
+    "r": 145,
+    "k": "M"
+   },
+   {
+    "d": "Replace blower motor",
+    "q": 2,
+    "u": "hour",
+    "r": 125,
+    "k": "L"
+   },
+   {
+    "d": "Blower motor, 1/2 HP",
+    "q": 1,
+    "u": "each",
+    "r": 310,
+    "k": "M"
+   },
+   {
+    "d": "Filter, 16 x 25 x 1",
+    "q": 2,
+    "u": "each",
+    "r": 14,
+    "k": "M"
+   }
+  ],
+  "after_html": "The tune-up price sits inside the $84–$288 maintenance range from <a href=\"https://www.homeyou.com/hvac-cost\" rel=\"noopener\">Homeyou</a>."
+ },
+ "line_items": {
+  "heading": "HVAC line items and typical prices",
+  "intro_html": "Tap <b>Add</b> to put a line on the form. The range comes from the source in the same row. The price that the button adds is a sample inside that range, not a price recommendation.",
+  "items": [
+   {
+    "name": "HVAC service labor",
+    "unit": "hour",
+    "kind": "L",
+    "low": 71,
+    "high": 157,
+    "src": "hy-hvac",
+    "plus": false,
+    "sample": 115,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Routine maintenance visit",
+    "unit": "visit",
+    "kind": "L",
+    "low": 84,
+    "high": 288,
+    "src": "hy-hvac",
+    "plus": false,
+    "sample": 165
+   },
+   {
+    "name": "Central AC repair",
+    "unit": "job",
+    "kind": "L",
+    "low": 171,
+    "high": 650,
+    "src": "hy-hvac",
+    "plus": false,
+    "sample": 395
+   },
+   {
+    "name": "Furnace repair",
+    "unit": "job",
+    "kind": "L",
+    "low": 146,
+    "high": 499,
+    "src": "hy-hvac",
+    "plus": false,
+    "sample": 295
+   },
+   {
+    "name": "Refrigerant, per pound",
+    "unit": "lb",
+    "kind": "M"
+   },
+   {
+    "name": "Capacitor or contactor",
+    "unit": "each",
+    "kind": "M"
+   },
+   {
+    "name": "Diagnostic fee",
+    "unit": "visit",
+    "kind": "M"
+   },
+   {
+    "name": "Thermostat, installed",
+    "unit": "each",
+    "kind": "M"
+   }
+  ],
+  "after_html": "For scale: the median pay of HVAC mechanics and installers was $29.33 per hour in 2025 (<a href=\"https://www.bls.gov/ooh/installation-maintenance-and-repair/heating-air-conditioning-and-refrigeration-mechanics-and-installers.htm\" rel=\"noopener\">BLS</a>). A billed rate also pays for the truck, tools and insurance."
+ },
+ "rules": {
+  "heading": "HVAC rules that touch the invoice",
+  "items": [
+   {
+    "title": "Refrigerant certification",
+    "html": "EPA says technicians who maintain, service, repair or dispose of equipment that could release refrigerant must pass a test for Section 608 certification. You can print it on the invoice.",
+    "src": "epa-608"
+   },
+   {
+    "title": "Equipment made before 2025",
+    "html": "A rule effective 27 July 2026 ends the install deadline for residential and light commercial AC and heat pump systems if all specified parts were made or imported before 2025. Write the manufacture date in the notes when you install older stock.",
+    "src": "fr-2026"
+   },
+   {
+    "title": "Sales tax in one example state",
+    "html": "In Texas, labor to repair residential real property is not taxable. The publication is from 2007 and does not name HVAC, so confirm with the state before you apply it.",
+    "src": "tx-94116"
+   }
+  ]
+ },
+ "faq_heading": "HVAC invoice questions",
+ "faq": [
+  {
+   "q": "Do I charge the diagnostic fee when the customer declines the repair?",
+   "a": "Yes, if you told the customer the fee before the visit. Bill it alone and note that the customer declined the repair."
+  },
+  {
+   "q": "How do I bill refrigerant?",
+   "a": "Bill by the pound on its own line, with the type. The form has a unit field, so type lb and the amount you added."
+  },
+  {
+   "q": "Should a maintenance visit have a different invoice?",
+   "a": "The fields are the same. Name the plan and the visit number in the notes, so the customer can track what the plan covers."
+  },
+  {
+   "q": "Where do I put the model and serial number?",
+   "a": "Use the notes field. They print under the totals on the PDF and in the Word file."
+  }
+ ],
+ "source_ids": [
+  "hy-hvac",
+  "bls-hvac",
+  "epa-608",
+  "fr-2026",
+  "tx-94116"
+ ]
+}

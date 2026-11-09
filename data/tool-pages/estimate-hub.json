@@ -1,0 +1,68 @@
+{
+ "id": "estimate-hub",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "hub",
+ "slug": "estimate-template",
+ "title": "Estimate Templates by Trade: Form, PDF, Word, Excel",
+ "description": "Pick an estimate template with a working form for your trade. Each page has scope, exclusions, valid-until date, deposit, US price ranges and sources.",
+ "h1": "Estimate templates",
+ "crumb": "Estimate templates",
+ "link_text": "All estimate templates",
+ "lede_html": "Choose a trade to price a job before you start. Each page adds scope, exclusions, a valid-until date and a deposit to the form.",
+ "demand": [
+  "estimate template",
+  "free estimate template",
+  "estimate template word free",
+  "estimate contract template"
+ ],
+ "parent": null,
+ "related": [
+  "estimate-generator",
+  "invoice-hub",
+  "estimate-vs-invoice",
+  "how-much-over-an-estimate"
+ ],
+ "table_heading": "Pages by type of work",
+ "table_headers": [
+  "Page",
+  "Use it when"
+ ],
+ "rows": [
+  {
+   "page": "contractor-estimate",
+   "html": "A remodel or building job, with allowances and stages."
+  },
+  {
+   "page": "roofing-estimate",
+   "html": "A roof priced by squares, with tear-off and a decking allowance."
+  },
+  {
+   "page": "painting-estimate",
+   "html": "Rooms or square feet, coats, prep and lead-safe notes."
+  },
+  {
+   "page": "landscaping-estimate",
+   "html": "Sod, mulch, patios, or a mowing season."
+  },
+  {
+   "page": "cleaning-estimate",
+   "html": "A recurring plan for a home or office, or a first deep clean."
+  },
+  {
+   "page": "plumbing-estimate",
+   "html": "Rough-ins and fixture swaps, with hidden pipe terms."
+  },
+  {
+   "page": "electrical-estimate",
+   "html": "Panels, EV chargers and new circuits, with a load calculation."
+  },
+  {
+   "page": "estimate-generator",
+   "html": "Any other job."
+  }
+ ],
+ "body_html": "<h2>US rules that apply to each page</h2><p>Words such as estimate, quote and bid have no single legal meaning across the US. What binds you depends on the wording and the state. <a href=\"/guides/how-much-over-an-estimate-can-a-contractor-go/\">How much over an estimate can a contractor go</a> shows two state examples.</p><h2>How to choose</h2><p>Start from the trade closest to the job, because its sample lines, exclusions and rules are already filled in. When the customer says yes, the <a href=\"/invoice-template/\">invoice pages</a> take the same lines. <a href=\"/guides/estimate-vs-invoice/\">Estimate vs invoice</a> explains when to send each paper.</p>",
+ "source_ids": []
+}

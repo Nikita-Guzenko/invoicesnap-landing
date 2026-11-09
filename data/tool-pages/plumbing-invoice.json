@@ -1,0 +1,352 @@
+{
+ "id": "plumbing-invoice",
+ "checked": "2026-11-09",
+ "locale": "en",
+ "law": "en-US",
+ "type": "trade_invoice",
+ "slug": "invoice-template/plumbing",
+ "title": "Plumbing Invoice Template: Fill In, Download PDF, Word, Excel",
+ "description": "Fill in a plumbing invoice in your browser and download a PDF, Word or Excel file. No sign-up. Plumbing line items with US price ranges and sources.",
+ "h1": "Plumbing invoice template",
+ "crumb": "Plumbing",
+ "link_text": "Plumbing invoice",
+ "lede_html": "Fill in the form and download the invoice as a PDF, Word or Excel file. You do not need an account. The sample below is a water heater job. Change it to your job.",
+ "demand": [
+  "plumbing invoice template",
+  "plumbing invoice template free",
+  "plumbing invoice app"
+ ],
+ "parent": "invoice-hub",
+ "related": [
+  "plumbing-estimate",
+  "hvac-invoice",
+  "handyman-invoice",
+  "invoice-generator",
+  "what-to-include-on-an-invoice",
+  "invoice-hub"
+ ],
+ "form": {
+  "kind": "invoice",
+  "sample": {
+   "bizName": "Northside Plumbing LLC",
+   "bizAddr": "120 Example Ave, Denver, CO 80202",
+   "bizId": "License no. 00000",
+   "bizContact": "(303) 555-0142",
+   "pay": "Check or bank transfer to Northside Plumbing LLC",
+   "custName": "Jordan Lee",
+   "custAddr": "48 Sample St, Denver, CO 80205",
+   "siteAddr": "48 Sample St, Denver, CO 80205",
+   "no": "1047",
+   "date": "2026-11-08",
+   "svc": "2026-11-06",
+   "dueDays": "14",
+   "paid": "",
+   "rate": "8.81",
+   "taxOn": "parts",
+   "terms": "Trip fee is credited to the repair. Parts carry the maker warranty. Labor warranty: 1 year.",
+   "items": [
+    {
+     "d": "Service call, credited to repair",
+     "q": 1,
+     "u": "call",
+     "r": 0,
+     "k": "M"
+    },
+    {
+     "d": "Labor: replace water heater, re-pipe under kitchen sink",
+     "q": 5.5,
+     "u": "hour",
+     "r": 110,
+     "k": "L"
+    },
+    {
+     "d": "50 gal gas water heater",
+     "q": 1,
+     "u": "each",
+     "r": 1150,
+     "k": "M"
+    },
+    {
+     "d": "Quarter-turn shutoff valves",
+     "q": 2,
+     "u": "each",
+     "r": 18,
+     "k": "M"
+    },
+    {
+     "d": "PEX pipe and fittings",
+     "q": 1,
+     "u": "lot",
+     "r": 64,
+     "k": "M"
+    },
+    {
+     "d": "Haul away old water heater",
+     "q": 1,
+     "u": "job",
+     "r": 60,
+     "k": "M"
+    }
+   ]
+  },
+  "labels": {
+   "terms": "Notes: warranty, trip fee credit, permit"
+  }
+ },
+ "must_show": {
+  "heading": "What a plumbing invoice must show",
+  "intro_html": "A plumbing invoice shows who did the work, where and when, each part and each labor charge, the tax, the amount due and how to pay. The US has no single federal list of invoice fields. The IRS names invoices as records that support your gross receipts (<a href=\"https://www.irs.gov/businesses/small-businesses-self-employed/what-kind-of-records-should-i-keep\" rel=\"noopener\">IRS</a>), so keep each one.",
+  "why_label": "Why it matters on a plumbing job",
+  "rows": [
+   [
+    "Your business name, address, phone",
+    "The customer and your bank can identify you."
+   ],
+   [
+    "Contractor license number",
+    "Most states and some localities license plumbers (<a href=\"https://www.bls.gov/ooh/construction-and-extraction/plumbers-pipefitters-and-steamfitters.htm\" rel=\"noopener\">BLS</a>). Ask your state board what must print on paper."
+   ],
+   [
+    "Service address",
+    "The job address is often not the billing address, for example with a landlord."
+   ],
+   [
+    "Invoice number, invoice date, service date",
+    "Each number is unique. The service date starts any warranty on the work."
+   ],
+   [
+    "Labor lines and parts lines, apart",
+    "Sales tax can apply to parts and labor differently, by state."
+   ],
+   [
+    "Trip fee, after-hours charge, permit fee",
+    "A separate line prevents a dispute at the door. Say if the trip fee is credited to the repair."
+   ],
+   [
+    "Deposit paid, balance due, due date, how to pay",
+    "The customer sees one clear amount and one clear date."
+   ],
+   [
+    "Warranty on parts and labor",
+    "State the period, or state that there is none."
+   ]
+  ]
+ },
+ "example": {
+  "heading": "Filled example: emergency burst pipe",
+  "intro_html": "This example uses sample prices. Change every price to your own.",
+  "items": [
+   {
+    "d": "Emergency service call, Saturday 7:40 pm",
+    "q": 1,
+    "u": "call",
+    "r": 150,
+    "k": "M"
+   },
+   {
+    "d": "Labor: shut off water, cut out burst section, replace, test",
+    "q": 2.5,
+    "u": "hour",
+    "r": 145,
+    "k": "L"
+   },
+   {
+    "d": "3/4 in. copper pipe, type L",
+    "q": 6,
+    "u": "ft",
+    "r": 9.5,
+    "k": "M"
+   },
+   {
+    "d": "3/4 in. push-fit couplings",
+    "q": 2,
+    "u": "each",
+    "r": 14,
+    "k": "M"
+   },
+   {
+    "d": "Quarter-turn shutoff valve, 3/4 in.",
+    "q": 1,
+    "u": "each",
+    "r": 32,
+    "k": "M"
+   }
+  ],
+  "after_html": "The total sits inside the $400–$1,500+ range that <a href=\"https://www.taskrabbit.com/cost-guides/plumbing\" rel=\"noopener\">Taskrabbit</a> lists for a burst pipe repair."
+ },
+ "line_items": {
+  "heading": "Plumbing line items and typical prices",
+  "intro_html": "Tap <b>Add</b> to put a line on the form. The range is what US customers typically pay, from the source in the same row. The price that the button adds is a sample inside that range. It is not a price recommendation.",
+  "items": [
+   {
+    "name": "Service call (trip fee)",
+    "unit": "call",
+    "kind": "M",
+    "low": 50,
+    "high": 250,
+    "src": "tr-plumb",
+    "plus": false,
+    "sample": 95
+   },
+   {
+    "name": "Labor, journeyman plumber",
+    "unit": "hour",
+    "kind": "L",
+    "low": 65,
+    "high": 125,
+    "src": "tr-plumb",
+    "plus": false,
+    "sample": 95,
+    "range_unit": "hour"
+   },
+   {
+    "name": "Leaking faucet repair",
+    "unit": "job",
+    "kind": "L",
+    "low": 100,
+    "high": 250,
+    "src": "tr-plumb",
+    "plus": false,
+    "sample": 165
+   },
+   {
+    "name": "Toilet repair",
+    "unit": "job",
+    "kind": "L",
+    "low": 125,
+    "high": 250,
+    "src": "tr-plumb",
+    "plus": false,
+    "sample": 185
+   },
+   {
+    "name": "Unclog a drain",
+    "unit": "job",
+    "kind": "L",
+    "low": 125,
+    "high": 300,
+    "src": "tr-plumb",
+    "plus": false,
+    "sample": 195
+   },
+   {
+    "name": "Leaking pipe repair",
+    "unit": "job",
+    "kind": "L",
+    "low": 150,
+    "high": 450,
+    "src": "tr-plumb",
+    "plus": false,
+    "sample": 285
+   },
+   {
+    "name": "Burst pipe repair",
+    "unit": "job",
+    "kind": "L",
+    "low": 400,
+    "high": 1500,
+    "src": "tr-plumb",
+    "plus": true,
+    "sample": 850
+   },
+   {
+    "name": "Sewer line clearing",
+    "unit": "job",
+    "kind": "L",
+    "low": 150,
+    "high": 500,
+    "src": "tr-plumb",
+    "plus": false,
+    "sample": 295
+   },
+   {
+    "name": "New faucet installation",
+    "unit": "job",
+    "kind": "L",
+    "low": 200,
+    "high": 700,
+    "src": "tr-plumb",
+    "plus": false,
+    "sample": 395
+   },
+   {
+    "name": "Garbage disposal repair or replacement",
+    "unit": "job",
+    "kind": "L",
+    "low": 230,
+    "high": 750,
+    "src": "tr-plumb",
+    "plus": false,
+    "sample": 445
+   },
+   {
+    "name": "Water heater replacement",
+    "unit": "job",
+    "kind": "L",
+    "low": 900,
+    "high": 2500,
+    "src": "tr-plumb",
+    "plus": true,
+    "sample": 1650
+   },
+   {
+    "name": "Plumbing permit fee",
+    "unit": "permit",
+    "kind": "M",
+    "low": 50,
+    "high": 500,
+    "src": "tr-plumb",
+    "plus": false,
+    "sample": 150
+   }
+  ],
+  "after_html": "For scale: the median wage of a US plumber was $30.67 per hour in May 2025 (<a href=\"https://www.bls.gov/ooh/construction-and-extraction/plumbers-pipefitters-and-steamfitters.htm\" rel=\"noopener\">BLS</a>). That is pay to the worker, not the billed rate. The billed rate also covers the van, insurance, tools and overhead."
+ },
+ "rules": {
+  "heading": "Plumbing rules that touch the invoice",
+  "items": [
+   {
+    "title": "License",
+    "html": "Most states and some localities license plumbers, so the number on your paper depends on the state. In Texas, a person other than a responsible master plumber may not do plumbing without the required license, registration or endorsement, and needs supervision by a licensed person.",
+    "src": "tsbpe"
+   },
+   {
+    "title": "Permit on a water heater",
+    "html": "Permit rules are local. In Kirkland, Washington, replacing a gas water heater needs a mechanical permit, and moving water piping needs a plumbing permit. When you pull a permit, put the fee on its own line.",
+    "src": "kirkland"
+   },
+   {
+    "title": "Sales tax on repair labor",
+    "html": "One state can treat homes and businesses differently. In Texas, labor to repair residential real property is not taxable, but the total charge for a nonresidential repair is. The form lets you tax parts only or the full amount.",
+    "src": "tx-94116"
+   }
+  ]
+ },
+ "faq_heading": "Plumbing invoice questions",
+ "faq": [
+  {
+   "q": "Can I charge a trip fee and hourly labor on one invoice?",
+   "a": "Yes, if you told the customer before the visit. Write the trip fee on its own line. If you credit it against the repair, write that in the notes."
+  },
+  {
+   "q": "Do I show my cost for parts or my price?",
+   "a": "Show your price to the customer. Your markup does not need its own line. Keep the supplier receipts for your records."
+  },
+  {
+   "q": "Should the invoice list the permit number?",
+   "a": "Write the permit number in the notes when the job had a permit. It gives the customer a record for a later sale of the home."
+  },
+  {
+   "q": "What do I do when a customer disputes the after-hours rate?",
+   "a": "Point to the line on your signed estimate or the rate you gave on the phone. Keep the after-hours charge on its own line, so that the customer can see it apart from the labor."
+  }
+ ],
+ "source_ids": [
+  "tr-plumb",
+  "bls-plumb",
+  "tsbpe",
+  "kirkland",
+  "tx-94116",
+  "irs-rec"
+ ]
+}
