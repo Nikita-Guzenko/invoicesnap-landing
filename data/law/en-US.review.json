@@ -235,6 +235,54 @@
     }
    ]
   },
+  "prose-00e13ed7af55": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Work",
+   "pages": [
+    "data/law/en-US.json#ui.fieldsets.lines_plain"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Work' is a bare form label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form label"
+    }
+   ]
+  },
+  "prose-01300c15bee8": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Parts and labor",
+   "pages": [
+    "data/law/en-US.json#ui.fieldsets.lines"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Parts and labor' is a option label, no rule or amount."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form label"
+    }
+   ]
+  },
   "prose-01330d11370f": {
    "type": "advice",
    "kind": "prose",
@@ -737,6 +785,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Describes web tool features and formats."
+    }
+   ]
+  },
+  "prose-0637f3e89e96": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Service address, if different",
+   "pages": [
+    "data/law/en-US.json#ui.fields.siteAddr"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Service address, if different' is a field label with no rule."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
     }
    ]
   },
@@ -1405,6 +1477,30 @@
    "source_fetched": "2026-11-09",
    "source_sha256": "4791b71cde428cfdca192e6190b3e55bca85d540294e53b0d011f96c10232661"
   },
+  "prose-0e87632cd46b": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Date",
+   "pages": [
+    "data/law/en-US.json#ui.fields.date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Date' labels a date field, nothing more."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
+    }
+   ]
+  },
   "prose-0ea0971888cd": {
    "type": "advice",
    "kind": "prose",
@@ -1618,6 +1714,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Section heading for FAQ"
+    }
+   ]
+  },
+  "prose-105c62ce8e1f": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "12 Feb 2026",
+   "pages": [
+    "roofing-estimate#source.hcp-roof.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source title '12 Feb 2026' is a date only; no rule."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name without rule"
     }
    ]
   },
@@ -1838,6 +1958,30 @@
     }
    ]
   },
+  "prose-12886f9d0005": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "number",
+   "pages": [
+    "data/law/en-US.json#ui.required.no"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Lowercase 'number' labels an invoice number field."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
+    }
+   ]
+  },
   "prose-12cd1fce6cce": {
    "type": "advice",
    "kind": "prose",
@@ -2004,6 +2148,31 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "section heading"
+    }
+   ]
+  },
+  "prose-158a323a7ba4": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "2026",
+   "pages": [
+    "contractor-estimate#source.ctbh.page_date",
+    "contractor-invoice#source.ctbh.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Just the year '2026' as a source label; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
     }
    ]
   },
@@ -2365,6 +2534,31 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "call to action"
+    }
+   ]
+  },
+  "prose-199196388b10": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "June 2023",
+   "pages": [
+    "plumbing-estimate#source.tsbpe.page_date",
+    "plumbing-invoice#source.tsbpe.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'June 2023' is a source date label, no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
     }
    ]
   },
@@ -3393,9 +3587,9 @@
   "prose-244210e48437": {
    "type": "advice",
    "kind": "prose",
-   "claim": "Project",
+   "claim": "project",
    "pages": [
-    "data/law/en-US.json#ui.project"
+    "data/law/en-US.json#ui.required.project"
    ],
    "checks": [
     {
@@ -3729,6 +3923,30 @@
     }
    ]
   },
+  "prose-26eadb91ea6f": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "23 Apr 2026",
+   "pages": [
+    "landscaping-estimate#source.ll-land.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'23 Apr 2026' is a source date label; no law or amount."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
+    }
+   ]
+  },
   "prose-27063ca13bb7": {
    "type": "advice",
    "kind": "prose",
@@ -3750,6 +3968,31 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form sample line item"
+    }
+   ]
+  },
+  "prose-270c600bfedc": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "dated Oct 2006",
+   "pages": [
+    "cleaning-estimate#source.tx-94111.page_date",
+    "cleaning-invoice#source.tx-94111.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'dated Oct 2006' marks the age of a cited source, states no rule."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
     }
    ]
   },
@@ -4158,6 +4401,36 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "form action label"
+    }
+   ]
+  },
+  "prose-2a3de2ae754f": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "updated 1 Nov 2026",
+   "pages": [
+    "cleaning-invoice#source.tr-clean.page_date",
+    "contractor-invoice#source.tr-dry.page_date",
+    "handyman-invoice#source.tr-handy.page_date",
+    "landscaping-estimate#source.tr-land.page_date",
+    "painting-estimate#source.tr-paint.page_date",
+    "plumbing-estimate#source.tr-plumb.page_date",
+    "plumbing-invoice#source.tr-plumb.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'updated 1 Nov 2026' only tells when the source changed; no rule."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
     }
    ]
   },
@@ -5013,8 +5286,7 @@
    "kind": "prose",
    "claim": "Project or PO",
    "pages": [
-    "freelance-writer-invoice#form.labels.project",
-    "freelancer-invoice#form.labels.project"
+    "data/law/en-US.json#ui.fields.project"
    ],
    "checks": [
     {
@@ -5828,6 +6100,41 @@
     }
    ]
   },
+  "prose-3a2d9adf99d9": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "May 2023 data",
+   "pages": [
+    "consulting-invoice#source.oes-mgmt.page_date",
+    "consulting-invoice#source.oes-mkt.page_date",
+    "consulting-invoice#source.oes-hr.page_date",
+    "consulting-invoice#source.oes-sys.page_date",
+    "consulting-invoice#source.oes-acc.page_date",
+    "consulting-invoice#source.oes-pr.page_date",
+    "freelancer-invoice#source.oes-web.page_date",
+    "freelancer-invoice#source.oes-gfx.page_date",
+    "freelancer-invoice#source.oes-tr.page_date",
+    "freelancer-invoice#source.oes-book.page_date",
+    "freelancer-invoice#source.oes-video.page_date",
+    "freelancer-invoice#source.oes-photo.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'May 2023 data' is a source title date note, no rule or rate."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
+    }
+   ]
+  },
   "prose-3a8fd55628b4": {
    "type": "advice",
    "kind": "prose",
@@ -6142,6 +6449,30 @@
     }
    ]
   },
+  "prose-3d653ad7203b": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "2026 statutes",
+   "pages": [
+    "roofing-estimate#source.fl-489147.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'2026 statutes' only names a cited source; it states no requirement itself."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name without rule"
+    }
+   ]
+  },
   "prose-3d7b3f03aeba": {
    "type": "advice",
    "kind": "prose",
@@ -6307,6 +6638,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Page title and download description"
+    }
+   ]
+  },
+  "prose-3f0a21499aeb": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "a line item",
+   "pages": [
+    "data/law/en-US.json#ui.required.items"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'a line item' names a form element; no fact about the world."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form label"
     }
    ]
   },
@@ -6723,7 +7078,7 @@
    "kind": "prose",
    "claim": "License or tax no.",
    "pages": [
-    "estimate-generator#form.labels.bizId"
+    "data/law/en-US.json#ui.fields.bizId"
    ],
    "checks": [
     {
@@ -7122,6 +7477,30 @@
     }
    ]
   },
+  "prose-46b63c43b563": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "4 Feb 2026",
+   "pages": [
+    "roofing-estimate#source.fixr-roof.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'4 Feb 2026' is a source date label with no claim."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name without rule"
+    }
+   ]
+  },
   "prose-46cf22d41094": {
    "type": "advice",
    "kind": "prose",
@@ -7487,6 +7866,40 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "source name"
+    }
+   ]
+  },
+  "prose-4b571aa27cdf": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "May 2025 data",
+   "pages": [
+    "cleaning-estimate#source.bls-clean.page_date",
+    "cleaning-invoice#source.bls-clean.page_date",
+    "consulting-invoice#source.bls-mgmt.page_date",
+    "contractor-invoice#source.bls-cons.page_date",
+    "contractor-invoice#source.bls-mgr.page_date",
+    "electrical-invoice#source.bls-elec.page_date",
+    "freelance-writer-invoice#source.bls-writer.page_date",
+    "handyman-invoice#source.bls-handy.page_date",
+    "hvac-invoice#source.bls-hvac.page_date",
+    "plumbing-invoice#source.bls-plumb.page_date",
+    "roofing-estimate#source.bls-roof.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'May 2025 data' labels a source's data vintage; no claim about rules or amounts."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
     }
    ]
   },
@@ -7958,6 +8371,31 @@
     }
    ]
   },
+  "prose-5052bd5aace0": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "dated March 2007",
+   "pages": [
+    "hvac-invoice#source.tx-94116.page_date",
+    "plumbing-invoice#source.tx-94116.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'dated March 2007' tells source age only, states no rule."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
+    }
+   ]
+  },
   "prose-50870eb00b63": {
    "type": "advice",
    "kind": "prose",
@@ -8003,6 +8441,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Fictional company name in form sample"
+    }
+   ]
+  },
+  "prose-51d2361f4fae": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Terms",
+   "pages": [
+    "data/law/en-US.json#ui.fieldsets.terms"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Terms' names a field; states no actual terms or law."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form label"
     }
    ]
   },
@@ -8977,6 +9439,31 @@
     }
    ]
   },
+  "prose-5d3796ebe858": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "7 Apr 2026",
+   "pages": [
+    "cleaning-estimate#source.tidy.page_date",
+    "cleaning-invoice#source.tidy.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'7 Apr 2026' is just a source's date label, no law or amount."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
+    }
+   ]
+  },
   "prose-5d3b1267d868": {
    "type": "advice",
    "kind": "prose",
@@ -9142,6 +9629,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Describes download format."
+    }
+   ]
+  },
+  "prose-5ef5ef0364b6": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "All",
+   "pages": [
+    "data/law/en-US.json#ui.fields.taxOn_all"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Sample field value 'all'; no claim."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form sample text."
     }
    ]
   },
@@ -10212,7 +10723,7 @@
    "kind": "prose",
    "claim": "Not included",
    "pages": [
-    "data/law/en-US.json#ui.exclusions"
+    "data/law/en-US.json#ui.fields.exclusions"
    ],
    "checks": [
     {
@@ -10516,6 +11027,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "section heading"
+    }
+   ]
+  },
+  "prose-6cf45be081a3": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Billing address",
+   "pages": [
+    "data/law/en-US.json#ui.fields.custAddr"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Billing address' names a field; no authority requirement stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
     }
    ]
   },
@@ -10879,6 +11414,30 @@
     }
    ]
   },
+  "prose-6f9f51ab196a": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Deposit in %",
+   "pages": [
+    "data/law/en-US.json#ui.fields.depositPct"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Deposit in %' names a field; gives no actual rate."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
+    }
+   ]
+  },
   "prose-6fbc8709e71b": {
    "type": "advice",
    "kind": "prose",
@@ -10900,6 +11459,33 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Invented demo text in form sample."
+    }
+   ]
+  },
+  "prose-701c3fcb205e": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "23 Jul 2026",
+   "pages": [
+    "contractor-estimate#source.hy-room.page_date",
+    "contractor-estimate#source.hy-demo.page_date",
+    "contractor-invoice#source.hy-demo.page_date",
+    "hvac-invoice#source.hy-hvac.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'23 Jul 2026' names a source date; no law, deadline or money amount."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
     }
    ]
   },
@@ -11574,6 +12160,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Instruction on terminology and defining scope."
+    }
+   ]
+  },
+  "prose-77fb6b8e00a2": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "your business name",
+   "pages": [
+    "data/law/en-US.json#ui.required.bizName"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'your business name' is a prompt for a field, no claim."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form label"
     }
    ]
   },
@@ -12255,6 +12865,30 @@
     }
    ]
   },
+  "prose-7e9e5ac30f22": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Add",
+   "pages": [
+    "data/law/en-US.json#ui.buttons.add_item"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Add' is a button name in the form."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
+    }
+   ]
+  },
   "prose-7efaf26083a4": {
    "type": "advice",
    "kind": "prose",
@@ -12501,6 +13135,30 @@
     }
    ]
   },
+  "prose-82a3537ff0db": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Name",
+   "pages": [
+    "data/law/en-US.json#ui.fields.custName"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Name' is a bare field label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
+    }
+   ]
+  },
   "prose-82d56cf161be": {
    "type": "fact",
    "kind": "prose",
@@ -12720,6 +13378,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Fictional client address in form sample."
+    }
+   ]
+  },
+  "prose-84e49d5c91d1": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "2026 chart",
+   "pages": [
+    "freelance-writer-invoice#source.efa.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'2026 chart' is a source title with no stated rule or rate."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name, states no rule"
     }
    ]
   },
@@ -13325,6 +14007,30 @@
     }
    ]
   },
+  "prose-897805df42d5": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "31 Dec 2024",
+   "pages": [
+    "handyman-invoice#source.cslb-2622.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'31 Dec 2024' is a source date, not a deadline for the reader."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
+    }
+   ]
+  },
   "prose-89a0ce852a25": {
    "type": "advice",
    "kind": "prose",
@@ -13740,6 +14446,30 @@
    "source_url": "https://www.irs.gov/forms-pubs/about-form-w-9",
    "source_fetched": "2026-11-09",
    "source_sha256": "e27cf89c9fd3a25fdc6e683c94aef3acba500dfcc058eecb73e5fca63b9ada7e"
+  },
+  "prose-8dbf27917ba3": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Rate in %",
+   "pages": [
+    "data/law/en-US.json#ui.fields.rate"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Rate in %' names an input; it states no actual rate."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
+    }
+   ]
   },
   "prose-8e8f1169ac5b": {
    "type": "advice",
@@ -14274,6 +15004,30 @@
     }
    ]
   },
+  "prose-9431f20ee0ea": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Days to pay",
+   "pages": [
+    "data/law/en-US.json#ui.fields.dueDays"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Days to pay' is a field name, no stated deadline."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
+    }
+   ]
+  },
   "prose-943b0c7423f1": {
    "type": "advice",
    "kind": "prose",
@@ -14295,6 +15049,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "heading describing template"
+    }
+   ]
+  },
+  "prose-948fe603f61d": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Client",
+   "pages": [
+    "data/law/en-US.json#ui.fieldsets.client"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Client' is a plain field label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form label"
     }
    ]
   },
@@ -14442,6 +15220,31 @@
     }
    ]
   },
+  "prose-96b1d09b8ecd": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "27 Jul 2026",
+   "pages": [
+    "electrical-estimate#source.tr-ev.page_date",
+    "electrical-invoice#source.tr-ev.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'27 Jul 2026' is a source date, states nothing about the world."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
+    }
+   ]
+  },
   "prose-96de706b355c": {
    "type": "advice",
    "kind": "prose",
@@ -14563,6 +15366,30 @@
     }
    ]
   },
+  "prose-98c1eb4ee934": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Word",
+   "pages": [
+    "data/law/en-US.json#ui.buttons.docx"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Word' names a file format option in the form."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
+    }
+   ]
+  },
   "prose-98f793d6139b": {
    "type": "advice",
    "kind": "prose",
@@ -14659,6 +15486,33 @@
     }
    ]
   },
+  "prose-99a2e09f68a7": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "27 Oct 2026",
+   "pages": [
+    "cleaning-estimate#source.hcp-clean.page_date",
+    "cleaning-invoice#source.hcp-clean.page_date",
+    "electrical-estimate#source.hcp-elec.page_date",
+    "electrical-invoice#source.hcp-elec.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source title giving only the date '27 Oct 2026'; states no rule."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
+    }
+   ]
+  },
   "prose-9a1c081afa30": {
    "type": "advice",
    "kind": "prose",
@@ -14728,6 +15582,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "form sample"
+    }
+   ]
+  },
+  "prose-9a93999ace44": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "2 Jul 2026",
+   "pages": [
+    "contractor-estimate#source.toh-bath.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source title '2 Jul 2026' is a date only, no requirement stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
     }
    ]
   },
@@ -15088,6 +15966,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Describes form behavior and output."
+    }
+   ]
+  },
+  "prose-9d28b9204442": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "21 Oct 2026",
+   "pages": [
+    "handyman-invoice#source.hcp-handy.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'21 Oct 2026' is only a source date label."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
     }
    ]
   },
@@ -15698,6 +16600,31 @@
     }
    ]
   },
+  "prose-a34c52c19d9a": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "8 Nov 2026",
+   "pages": [
+    "contractor-estimate#source.pricer.page_date",
+    "contractor-invoice#source.pricer.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'8 Nov 2026' is a citation date label, not a rule."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
+    }
+   ]
+  },
   "prose-a370c37e34fa": {
    "type": "advice",
    "kind": "prose",
@@ -15743,6 +16670,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "form sample text"
+    }
+   ]
+  },
+  "prose-a3a77d941fd5": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "6 Mar 2026",
+   "pages": [
+    "painting-estimate#source.hcp-paint.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'6 Mar 2026' is a citation date, with no stated requirement."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
     }
    ]
   },
@@ -16359,6 +17310,30 @@
     }
    ]
   },
+  "prose-aa788ecdc7fe": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "customer name",
+   "pages": [
+    "data/law/en-US.json#ui.required.custName"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'customer name' labels a field only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form label"
+    }
+   ]
+  },
   "prose-aa83825b5160": {
    "type": "advice",
    "kind": "prose",
@@ -16525,6 +17500,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Section heading describing page contents."
+    }
+   ]
+  },
+  "prose-ab5aa97074c4": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Notes",
+   "pages": [
+    "data/law/en-US.json#ui.fields.terms"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Notes' is a free text field name."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
     }
    ]
   },
@@ -17423,6 +18422,30 @@
     }
    ]
   },
+  "prose-b3e117447182": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "26 May 2026",
+   "pages": [
+    "hvac-invoice#source.fr-2026.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'26 May 2026' labels a source's date; no rule."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
+    }
+   ]
+  },
   "prose-b431e9581e1b": {
    "type": "fact",
    "kind": "prose",
@@ -17546,6 +18569,30 @@
     }
    ]
   },
+  "prose-b4be0b2ddfe7": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Download PDF",
+   "pages": [
+    "data/law/en-US.json#ui.buttons.pdf"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Download PDF' is a button instruction; states no law."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
+    }
+   ]
+  },
   "prose-b5248cdcc1e6": {
    "type": "advice",
    "kind": "prose",
@@ -17592,6 +18639,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Page title describing available estimate templates."
+    }
+   ]
+  },
+  "prose-b57a798f067f": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "5 Oct 2026",
+   "pages": [
+    "landscaping-estimate#source.ls-land.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'5 Oct 2026' is a plain date in a source title."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
     }
    ]
   },
@@ -17688,6 +18759,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Instructions on filling the form"
+    }
+   ]
+  },
+  "prose-b6c45863875e": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Customer",
+   "pages": [
+    "data/law/en-US.json#ui.fieldsets.customer"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Customer' only labels a form section."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form label"
     }
    ]
   },
@@ -17954,6 +19049,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "source name"
+    }
+   ]
+  },
+  "prose-b96b8b7e93fd": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Blank PDF",
+   "pages": [
+    "data/law/en-US.json#ui.buttons.blank"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Blank PDF' names a download option, no rule or amount."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
     }
    ]
   },
@@ -19124,6 +20243,30 @@
     }
    ]
   },
+  "prose-c5b666d28d1b": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Applies to",
+   "pages": [
+    "data/law/en-US.json#ui.fields.taxOn"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Applies to' labels a field, no fact."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
+    }
+   ]
+  },
   "prose-c5b8724b23ab": {
    "type": "advice",
    "kind": "prose",
@@ -19218,6 +20361,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "source name"
+    }
+   ]
+  },
+  "prose-c5f8ae8ac3ec": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "31 Jul 2026",
+   "pages": [
+    "painting-estimate#source.hy-paint.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'31 Jul 2026' is only a source's date; not a deadline claim."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name stating no rule."
     }
    ]
   },
@@ -19487,6 +20654,54 @@
    "source_url": "https://www.taskrabbit.com/cost-guides/plumbing",
    "source_fetched": "2026-11-09",
    "source_sha256": "2eb647c177eb22cd7f87b8f99b379491536afe14bb74dde840958dfb7d8936c6"
+  },
+  "prose-c85faf693f34": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Business name",
+   "pages": [
+    "data/law/en-US.json#ui.fields.bizName"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Business name' is a field label only."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
+    }
+   ]
+  },
+  "prose-c88890414dda": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Phone or email",
+   "pages": [
+    "data/law/en-US.json#ui.fields.bizContact"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Phone or email' names a contact field, no rule."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
+    }
+   ]
   },
   "prose-c8e30ee30227": {
    "type": "advice",
@@ -20383,6 +21598,31 @@
     }
    ]
   },
+  "prose-cdf505dd2fcf": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "17 Jul 2026",
+   "pages": [
+    "cleaning-estimate#source.workiz.page_date",
+    "cleaning-invoice#source.workiz.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source title with the date '17 Jul 2026' only; no rule stated."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
+    }
+   ]
+  },
   "prose-ce141ca0463e": {
    "type": "advice",
    "kind": "prose",
@@ -21113,6 +22353,30 @@
     }
    ]
   },
+  "prose-d7363c46c6c2": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Valid for (days)",
+   "pages": [
+    "data/law/en-US.json#ui.fields.validDays"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Valid for (days)' names a field; gives no actual number of days."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "form label"
+    }
+   ]
+  },
   "prose-d7a07320ba99": {
    "type": "advice",
    "kind": "prose",
@@ -21163,6 +22427,30 @@
    "source_url": "https://www.bls.gov/ooh/construction-and-extraction/plumbers-pipefitters-and-steamfitters.htm",
    "source_fetched": "2026-11-09",
    "source_sha256": "c4d00770f7dd58709fc22a4197adcb3f904fddfa3865c4bba2049c70952be150"
+  },
+  "prose-d80c9bf910f1": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Address",
+   "pages": [
+    "data/law/en-US.json#ui.fields.bizAddr"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Address' is a plain field name."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
+    }
+   ]
   },
   "prose-d80ed9c45078": {
    "type": "advice",
@@ -21389,7 +22677,7 @@
    "kind": "prose",
    "claim": "Rights or ownership",
    "pages": [
-    "freelancer-invoice#form.labels.rights"
+    "data/law/en-US.json#ui.fields.rights"
    ],
    "checks": [
     {
@@ -21766,6 +23054,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Describes downloaded file feature"
+    }
+   ]
+  },
+  "prose-e079b141493c": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Add a line",
+   "pages": [
+    "data/law/en-US.json#ui.buttons.add"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Button label 'Add a line' is a form action, not a claim."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
     }
    ]
   },
@@ -22545,6 +23857,30 @@
     }
    ]
   },
+  "prose-e9567429225a": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Parts only",
+   "pages": [
+    "data/law/en-US.json#ui.fields.taxOn_parts"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Parts only' is a choice label in the form."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
+    }
+   ]
+  },
   "prose-e9c8d670859c": {
    "type": "advice",
    "kind": "prose",
@@ -22710,6 +24046,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Explains form capabilities and points to invoice guide."
+    }
+   ]
+  },
+  "prose-eb8322a2a7f4": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Clear the form",
+   "pages": [
+    "data/law/en-US.json#ui.buttons.clear"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Clear the form' is an instruction for the form, no fact."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
     }
    ]
   },
@@ -24017,6 +25377,30 @@
     }
    ]
   },
+  "prose-f69d02bf17ad": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Nov 2026",
+   "pages": [
+    "contractor-estimate#source.fixr-kit.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Bare 'Nov 2026' month label for a source; nothing a reader relies on."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
+    }
+   ]
+  },
   "prose-f6c9c2a57242": {
    "type": "advice",
    "kind": "prose",
@@ -24089,6 +25473,31 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "source name title, states no rule"
+    }
+   ]
+  },
+  "prose-f800089a3875": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "2025 statutes",
+   "pages": [
+    "electrical-estimate#source.fl-489521.page_date",
+    "handyman-invoice#source.fl-489103.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'2025 statutes' names a cited source; it does not state what any statute requires."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name, states no rule"
     }
    ]
   },
@@ -24332,6 +25741,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "Form label naming a field"
+    }
+   ]
+  },
+  "prose-faba1e00af8e": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "Excel",
+   "pages": [
+    "data/law/en-US.json#ui.buttons.xlsx"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'Excel' labels an export format, nothing factual about the world."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
     }
    ]
   },
@@ -24685,6 +26118,30 @@
     }
    ]
   },
+  "prose-fe0255beabaa": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "dated March 2022",
+   "pages": [
+    "landscaping-estimate#source.tx-94112.page_date"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'dated March 2022' marks a source's date, nothing relied on as fact."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Source name with date, states no rule"
+    }
+   ]
+  },
   "prose-fe16c60b7329": {
    "type": "advice",
    "kind": "prose",
@@ -24852,6 +26309,30 @@
      "date": "2026-11-09",
      "quote": "",
      "note": "form sample text"
+    }
+   ]
+  },
+  "prose-ffc677bc32db": {
+   "type": "advice",
+   "kind": "prose",
+   "claim": "How the customer pays",
+   "pages": [
+    "data/law/en-US.json#ui.fields.pay"
+   ],
+   "checks": [
+    {
+     "checker": "anthropic/claude-sonnet",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "'How the customer pays' is a field label, not a claim about customers."
+    },
+    {
+     "checker": "gemini-sub/gemini-3.8-flash-high",
+     "verdict": "advice",
+     "date": "2026-11-09",
+     "quote": "",
+     "note": "Form label"
     }
    ]
   },

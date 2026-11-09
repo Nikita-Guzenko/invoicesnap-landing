@@ -256,6 +256,12 @@ def main() -> int:
         cited_source = plumbing["source_ids"][0]
         bad("a claim in a source short name", "gate 5: not checked: prose-", "sources.json", lambda v: v[cited_source].update(short="Ohio law lets you deduct all mileage"))
         bad("a claim in a unit", "gate 5: not checked: prose-", page, lambda v: v["form"]["sample"]["items"][0].update(u="Ohio law lets you deduct it"))
+        bad("a claim in a source date", "gate 5: not checked: prose-", "sources.json", lambda v: v[cited_source].update(page_date="Ohio law lets you deduct all mileage"))
+        bad("a claim in a unit with other spaces", "gate 5: not checked: prose-", page, lambda v: v["form"]["sample"]["items"][0].update(u="Ohio\u00a0law\u00a0lets\u00a0you\u00a0deduct\u00a0it"))
+        def plant_in_nested_form_word(v):
+            group = next(g for g in v["ui"].values() if isinstance(g, dict) and any(isinstance(x, str) for x in g.values()))
+            group[next(k for k, x in group.items() if isinstance(x, str))] = "Ohio law requires each of these"
+        bad("a claim in a nested form word", "gate 5: not checked: prose-", "law/en-US.json", plant_in_nested_form_word)
         bad("a claim in the form words", "gate 5: not checked: prose-", "law/en-US.json", lambda v: v["ui"].update(missing="Ohio law requires each of these"))
         bad("a legal claim in the title", "gate 5: not checked: prose-", page, lambda v: v.update(title="Ohio law requires this invoice"))
         bad("a legal claim in a form label", "gate 5: not checked: prose-", page, lambda v: v["form"]["labels"].update(bizId="License no. (Ohio law requires it)"))

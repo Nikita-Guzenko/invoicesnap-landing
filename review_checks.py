@@ -176,7 +176,7 @@ STATEMENTS:
 
 def form_mark(st: dict) -> str:
     place = st["pages"][0]
-    if ".name" in place.partition("#")[2] and "#source." in place or "#source." in place and place.endswith(".short"):
+    if "#source." in place:
         return " [source name]"
     return " [form label]" if "#form.labels." in place or "#ui." in place else " [form sample]" if "#form.sample." in place or "#example.items" in place else ""
 
