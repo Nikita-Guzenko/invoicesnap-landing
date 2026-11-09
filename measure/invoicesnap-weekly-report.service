@@ -6,3 +6,5 @@ Type=oneshot
 WorkingDirectory=%h/.cache/invoicesnap-landing
 ExecStart=/bin/bash -c 'export PATH="$HOME/.npm-global/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin"; source "$HOME/.config/vault/load.sh"; exec python3 measure/weekly_report.py invoicesnap --post'
 TimeoutStartSec=600
+Restart=on-failure
+RestartSec=300

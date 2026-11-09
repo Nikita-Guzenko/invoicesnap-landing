@@ -47,10 +47,12 @@ def visits(start, end, offline):
             'metrics': [{'name': 'sessions'}],
             'dimensionFilter': {'filter': {'fieldName': 'hostName',
                 'stringFilter': {'matchType': 'EXACT', 'value': 'invoicesnap.work'}}}}, token)
-        # A successful empty response can mean zero. An API error or malformed response cannot.
+        # With no rows, tag coverage cannot be distinguished from zero traffic; keep it unknown.
         if not isinstance(data.get('metadata'), dict):
             raise ValueError('missing report metadata')
         rows = data.get('rows', [])
+        if not rows:
+            raise ValueError('no observed rows')
         value = sum(int(row['metricValues'][0]['value']) for row in rows)
         if value < 0:
             raise ValueError('negative sessions')
@@ -71,7 +73,7 @@ def indexed(offline):
         # Any failed page keeps the count unknown: partial inspections cannot become a complete count.
         if data.get('state') not in ('hold', 'pass') or data.get('unknown') != 0:
             raise ValueError('incomplete inspection')
-        if data['checked'] != data['pages'] or not 0 <= data['indexed'] <= data['checked']:
+        if data['pages'] <= 0 or data['checked'] != data['pages'] or not 0 <= data['indexed'] <= data['checked']:
             raise ValueError('incomplete sitemap coverage')
         return dict(result, status='measured', value=data['indexed'], pages=data['pages'], at=data['at'])
     except Exception as error:
