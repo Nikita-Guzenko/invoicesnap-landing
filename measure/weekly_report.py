@@ -178,6 +178,31 @@ def money(start, end, offline):
         return dict(result, reason='read failed: ' + type(error).__name__)
 
 
+def web_purchases(start, end, offline):
+    """New paid web subscriptions (RevenueCat Web Billing, store rc_billing), production only (NIK-552)."""
+    source = f'RevenueCat chart actives_new, filter store=rc_billing; project {RC_PROJECT}'
+    result = {'status': 'unknown', 'source': source}
+    if offline:
+        return dict(result, reason='offline check')
+    try:
+        # revenuecat-axi chart has no filter flag, so call the same Charts API v2 with the store filter.
+        # Sandbox test purchases are excluded: the API returns production data unless sandbox_mode=true.
+        query = urllib.parse.urlencode({
+            'start_date': str(start), 'end_date': str(end), 'resolution': '0',
+            'filters': json.dumps([{'name': 'store', 'values': ['rc_billing']}])})
+        request = urllib.request.Request(
+            f'https://api.revenuecat.com/v2/projects/{RC_PROJECT}/charts/actives_new?{query}',
+            headers={'Authorization': 'Bearer ' + os.environ['REVENUECAT_API_KEY']})
+        with urllib.request.urlopen(request, timeout=120) as response:
+            chart = json.load(response)
+        total = chart['summary']['total']
+        # Product changes are existing payers moving plans, not new purchases.
+        value = total['Total Paid Subscriptions'] - total['Product Changes']
+        return dict(result, status='measured', value=f'{value:.0f} new web subscriptions', note='UTC')
+    except Exception as error:
+        return dict(result, reason='read failed: ' + type(error).__name__)
+
+
 def indexed(offline):
     result = {'status': 'unknown', 'source': 'Google URL Inspection; live invoicesnap.work sitemap'}
     if offline:
@@ -218,10 +243,12 @@ def main():
                         'reason': 'no complete weekly measurement; paid API collection disabled'},
         'indexed_pages': indexed(args.offline),
         'money': money(start, end, args.offline),
+        'web_purchases': web_purchases(start, end, args.offline),
     }
     lines = []
     for label, key in [('Visits', 'visits'), ('Downloads', 'downloads'), ('AI mentions', 'ai_mentions'),
-                       ('Indexed pages', 'indexed_pages'), ('Money', 'money')]:
+                       ('Indexed pages', 'indexed_pages'), ('Money', 'money'),
+                       ('Web purchases', 'web_purchases')]:
         metric = metrics[key]
         period = window
         if metric['status'] == 'measured':
