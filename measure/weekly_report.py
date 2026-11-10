@@ -195,10 +195,18 @@ def web_purchases(start, end, offline):
             headers={'Authorization': 'Bearer ' + os.environ['REVENUECAT_API_KEY']})
         with urllib.request.urlopen(request, timeout=120) as response:
             chart = json.load(response)
+        # An ignored filter would count the whole app as "web": fail instead (Claude review, 10 Nov 2026).
+        if 'filters' in (chart.get('unsupported_params') or []):
+            raise ValueError('store filter not applied')
+        days = {row['cohort'] for row in chart['values']}
+        if len(days) != (end - start).days + 1:
+            raise ValueError('chart does not cover every day')
+        incomplete = any(row.get('incomplete') for row in chart['values'])
         total = chart['summary']['total']
         # Product changes are existing payers moving plans, not new purchases.
         value = total['Total Paid Subscriptions'] - total['Product Changes']
-        return dict(result, status='measured', value=f'{value:.0f} new web subscriptions', note='UTC')
+        return dict(result, status='measured', value=f'{value:.0f} new web subscriptions',
+                    note='UTC' + ('; preliminary' if incomplete else ''))
     except Exception as error:
         return dict(result, reason='read failed: ' + type(error).__name__)
 
