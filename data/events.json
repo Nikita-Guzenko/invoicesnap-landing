@@ -1,0 +1,17 @@
+{
+  "_doc": "The one list of analytics events on invoicesnap.work (NIK-634, 12 Nov 2026). tests/test_events.py fails when the code sends an event that is not here, or this list names a sent event the code no longer sends. GA4 property 516575048 (G-X4TCVJMVEP); PostHog US project shared with the app. All load only after consent: src/static/assets/ga.js. Never put a form value in a property.",
+  "sent": {
+    "tool_used": {"where": "ga.js trackToolUsed; called by tool.js (first edit, add row, download) and the homepage calculator (src/pages/index.html)", "properties": ["tool_action", "tool_page", "file_format"], "key_event": true},
+    "tool_download": {"where": "tool.js dl(): every PDF, Word and Excel download, also the blank form", "properties": ["file_format", "blank", "tool_page"]},
+    "preview_pdf_modal": {"where": "src/pages/index.html, the Preview Sample Invoice button", "properties": ["event_category", "event_label"]},
+    "click_web_app": {"where": "ga.js, any link to app.invoicesnap.work on any page", "properties": ["event_category", "tool_page"]},
+    "click_app_store": {"where": "ga.js, any link to apps.apple.com on any page", "properties": ["event_category", "tool_page"]},
+    "click_outbound": {"where": "ga.js, any link to another domain (not the app, not the App Store)", "properties": ["link_domain", "tool_page"]},
+    "scroll_depth": {"where": "ga.js, 25 / 50 / 75 / 90 % of the page, once each per page view", "properties": ["percent_scrolled", "tool_page"]},
+    "web_vital": {"where": "ga.js with assets/web-vitals.iife.js: LCP, INP, CLS (x1000), FCP, TTFB of real visits", "properties": ["metric_name", "metric_value", "metric_rating", "tool_page"]}
+  },
+  "automatic": {
+    "ga4": ["page_view", "session_start", "first_visit", "user_engagement", "scroll", "file_download", "form_start", "form_submit", "video_start", "video_progress", "video_complete"],
+    "posthog": ["$pageview", "$pageleave", "$autocapture", "$web_vitals", "$snapshot (session replay)", "$$heatmap"]
+  }
+}
