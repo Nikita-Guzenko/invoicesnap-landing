@@ -3,15 +3,7 @@
 <head>
   <!-- Google tag (gtag.js) GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X4TCVJMVEP"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-X4TCVJMVEP', {
-      'send_page_view': true,
-      'cookie_flags': 'SameSite=None;Secure'
-    });
-  </script>
+  <script src="/assets/ga.js"></script>
 
   <meta name="google-site-verification" content="rs92M-x7UmH0YQ6M5D2_y7qIeueO0KHaqVRNvXdkTt0" />
   <meta charset="UTF-8" />
@@ -1806,7 +1798,7 @@
         </div>
 
         <div class="calc-actions">
-          <button class="btn-secondary" onclick="openInvoiceModal()">📄 Preview Sample Invoice</button>
+          <button id="preview-pdf-btn" class="btn-secondary" onclick="openInvoiceModal()">📄 Preview Sample Invoice</button>
           <a href="https://app.invoicesnap.work/sign-in?destination=invoices" data-app-destination="invoices" class="btn-primary">Generate in App ↗</a>
         </div>
       </div>
@@ -2154,6 +2146,19 @@
           });
         });
       });
+
+      // click_web_app is sent by /assets/ga.js on every page (NIK-634).
+
+      // tool_used (NIK-634): the first preset, currency, tax or preview action with the demo
+      // calculator on this page view. ga.js sends it once; no calculator value goes to GA4.
+      const calc = document.getElementById('calculator');
+      if (calc && typeof window.trackToolUsed === 'function') {
+        ['click', 'change'].forEach(type => calc.addEventListener(type, event => {
+          const target = event.target.closest('button, select, input');
+          if (!target) return;
+          window.trackToolUsed(target.id === 'preview-pdf-btn' ? 'preview' : 'edit');
+        }, true));
+      }
 
       // Track PDF Preview opens
       const pdfBtn = document.getElementById('preview-pdf-btn');
