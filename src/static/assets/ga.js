@@ -7,6 +7,7 @@
    one year, read by both hosts); ?internal=0 clears it. Marked hits carry traffic_type=internal, and
    the GA4 data filter "Internal Traffic" drops them.
    tool_used: once per page view, on the first real action with a free tool (key event in GA4).
+   click_web_app: every click on a link into app.invoicesnap.work, on every page.
    Never send a form value to GA4: only the action, the page path and the file type. */
 (function () {
   var ID = 'G-X4TCVJMVEP';
@@ -20,6 +21,11 @@
     if (fileFormat) p.file_format = fileFormat;
     window.gtag('event', 'tool_used', p);
   };
+  // click_web_app on every page (home, tools, guides, compare): the site -> web app step (NIK-634).
+  document.addEventListener('click', function (event) {
+    var link = event.target && event.target.closest && event.target.closest('a[href*="app.invoicesnap.work"]');
+    if (link) window.gtag('event', 'click_web_app', { event_category: 'conversion', tool_page: location.pathname });
+  }, true);
   if (location.hostname !== 'invoicesnap.work') return;
   var internal = false;
   try {

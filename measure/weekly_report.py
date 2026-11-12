@@ -72,6 +72,8 @@ def visits(start, end, offline, host=SITE_HOST):
     if host == APP_HOST and end < FUNNEL_SINCE:
         return dict(result, reason=f'web app not tagged before {FUNNEL_SINCE}')
     try:
+        if host == APP_HOST and not live_since(end)['app']:
+            return dict(result, reason=f'no hit from the web app tag since {FUNNEL_SINCE}')
         # This property also serves 731labs.net. A host filter prevents a false traffic count (9 Nov 2026).
         data = ga_report({
             'dateRanges': [{'startDate': str(start), 'endDate': str(end)}],
@@ -88,10 +90,31 @@ def visits(start, end, offline, host=SITE_HOST):
         value = sum(int(row['metricValues'][0]['value']) for row in rows)
         if value < 0:
             raise ValueError('negative sessions')
-        return dict(result, status='measured', value=value, count=value,
-                    timezone=data['metadata'].get('timeZone', 'property timezone'), preliminary=True)
+        out = dict(result, status='measured', value=value, count=value,
+                   timezone=data['metadata'].get('timeZone', 'property timezone'), preliminary=True)
+        if host == APP_HOST and start < FUNNEL_SINCE:
+            out['note'] = out['timezone'] + f'; preliminary; app tag starts {FUNNEL_SINCE}'
+        return out
     except Exception as error:
         return dict(result, reason='read failed: ' + type(error).__name__)
+
+
+def live_since(end):
+    """Which NIK-634 tags have sent anything since FUNNEL_SINCE: {'app': bool, 'tool_used': bool}.
+
+    A count of 0 is true only after its tag is live. Before the first hit (deploy day, ad blockers,
+    a broken tag) the line says unknown (review, 12 Nov 2026).
+    """
+    data = ga_report({
+        'dateRanges': [{'startDate': str(FUNNEL_SINCE), 'endDate': str(end)}],
+        'dimensions': [{'name': 'hostName'}, {'name': 'eventName'}],
+        'metrics': [{'name': 'eventCount'}],
+        'dimensionFilter': {'filter': {'fieldName': 'hostName', 'inListFilter': {'values': [SITE_HOST, APP_HOST]}}}})
+    if not isinstance(data.get('metadata'), dict):
+        raise ValueError('missing report metadata')
+    seen = {(r['dimensionValues'][0]['value'], r['dimensionValues'][1]['value']) for r in data.get('rows', [])}
+    return {'app': any(host == APP_HOST for host, _ in seen),
+            'tool_used': any(event == 'tool_used' for _, event in seen)}
 
 
 FUNNEL_EVENTS = {  # GA4 key events (NIK-634) -> report key
@@ -118,14 +141,22 @@ def funnel(start, end, offline):
                 {'filter': {'fieldName': 'eventName', 'inListFilter': {'values': list(FUNNEL_EVENTS)}}}]}}})
         if not isinstance(data.get('metadata'), dict):
             raise ValueError('missing report metadata')
-        # The tags are verified in a real browser (NIK-634), so a missing row here is a measured 0.
         counts = {row['dimensionValues'][0]['value']: int(row['metricValues'][0]['value'])
                   for row in data.get('rows', [])}
+        live = live_since(end)
         note = data['metadata'].get('timeZone', 'property timezone') + '; preliminary'
         if start < FUNNEL_SINCE:
             note += f'; events start {FUNNEL_SINCE}'
-        return {key: dict(out[key], status='measured', value=counts.get(event, 0), count=counts.get(event, 0),
-                          note=note) for event, key in FUNNEL_EVENTS.items()}
+        result = {}
+        for event, key in FUNNEL_EVENTS.items():
+            # A missing row is a measured 0 only once its tag has sent a hit (see live_since).
+            if event not in counts and not live['tool_used' if event == 'tool_used' else 'app']:
+                where = 'invoicesnap.work tool_used' if event == 'tool_used' else 'web app tag'
+                result[key] = dict(out[key], reason=f'no hit from the {where} since {FUNNEL_SINCE}')
+            else:
+                result[key] = dict(out[key], status='measured', value=counts.get(event, 0),
+                                   count=counts.get(event, 0), note=note)
+        return result
     except Exception as error:
         return {key: dict(m, reason='read failed: ' + type(error).__name__) for key, m in out.items()}
 
@@ -145,11 +176,14 @@ def search(start, end, offline):
                     {'startDate': str(start), 'endDate': str(end), 'dimensions': ['date'], 'dataState': 'all'},
                     token)
         rows = data.get('rows', [])
+        if not rows:
+            # No row for any day: Google has no data for this window yet (lag), not 0 searches.
+            return dict(result, reason='no rows yet (Search Console data lag)')
         clicks = sum(int(r['clicks']) for r in rows)
         impressions = sum(int(r['impressions']) for r in rows)
         last = max((r['keys'][0] for r in rows), default=None)
-        note = f'data through {last}' if last else 'no rows yet'
-        if not last or last < str(end):
+        note = f'data through {last}'
+        if last < str(end):
             note += '; preliminary'
         return dict(result, status='measured', value=f'{clicks} clicks, {impressions} impressions',
                     clicks=clicks, impressions=impressions, note=note)
@@ -332,7 +366,8 @@ def gws(*args, body=None):
     command = [str(HOME / '.local/bin/gws'), *args]
     if body is not None:
         command += ['--json', json.dumps(body)]
-    run = subprocess.run(command, capture_output=True, text=True, timeout=120, check=True)
+    # 30 s per call, 3 calls: the Sheet cannot eat the unit's TimeoutStartSec=900 budget (review, 12 Nov 2026).
+    run = subprocess.run(command, capture_output=True, text=True, timeout=30, check=True)
     return json.loads(run.stdout[run.stdout.index('{'):])
 
 
@@ -346,7 +381,10 @@ def write_sheet(week, start, end, metrics, generated):
                                              if m['status'] != 'measured')}[name])
         else:
             metric = metrics[ref[0]]
-            row.append(metric.get(ref[1], '') if metric['status'] == 'measured' else '')
+            if metric.get('reason', '').startswith('backfill'):
+                row.append(None)  # a snapshot column on a backfill: keep what the Sheet holds
+            else:
+                row.append(metric.get(ref[1], '') if metric['status'] == 'measured' else '')
     header = [name for name, _ in SHEET_COLUMNS]
     gws('sheets', 'spreadsheets', 'values', 'update', '--params', json.dumps(
         {'spreadsheetId': SHEET_ID, 'range': 'weekly!A1', 'valueInputOption': 'RAW'}), body={'values': [header]})
@@ -426,8 +464,9 @@ def main():
             write_sheet(week, start, end, metrics, generated)
         except Exception as error:
             sheet_error = type(error).__name__
-    lines.append(f'Dashboard: {DASHBOARD} (funnel, weekly trend, top pages, search queries, App Store and '
-                 f'RevenueCat); data sheet https://docs.google.com/spreadsheets/d/{SHEET_ID}'
+    dashboard = '' if 'LOOKER_REPORT_ID' in DASHBOARD else (
+        f'{DASHBOARD} (funnel, weekly trend, top pages, search queries, App Store and RevenueCat); ')
+    lines.append(f'Dashboard: {dashboard}data sheet https://docs.google.com/spreadsheets/d/{SHEET_ID}'
                  + (f' — this week NOT written ({sheet_error})' if sheet_error else '') + '.')
     report = '\n'.join(lines) + '\n'
     args.output.mkdir(parents=True, exist_ok=True)

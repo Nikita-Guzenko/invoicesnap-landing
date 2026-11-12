@@ -2147,12 +2147,7 @@
         });
       });
 
-      // Web app CTAs: the site -> web app step of the funnel (NIK-634).
-      document.querySelectorAll('a[href*="app.invoicesnap.work"], a[data-app-destination]').forEach(link => {
-        link.addEventListener('click', () => {
-          trackEvent('click_web_app', { 'event_category': 'conversion', 'tool_page': location.pathname });
-        });
-      });
+      // click_web_app is sent by /assets/ga.js on every page (NIK-634).
 
       // tool_used (NIK-634): the first preset, currency, tax or preview action with the demo
       // calculator on this page view. ga.js sends it once; no calculator value goes to GA4.
