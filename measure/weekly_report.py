@@ -40,7 +40,7 @@ SITE_HOST, APP_HOST = 'invoicesnap.work', 'app.invoicesnap.work'
 # An earlier week has no such events because they did not exist, so it says unknown, not 0.
 FUNNEL_SINCE = dt.date(2026, 11, 12)
 SHEET_ID = '1G1ijIEeZqvGLY3CUa4qd65HD7-d2dfXdD1qiAgvdY1Y'
-DASHBOARD = 'https://lookerstudio.google.com/reporting/LOOKER_REPORT_ID'
+DASHBOARD = 'https://lookerstudio.google.com/reporting/80fe415d-f48f-449d-ab52-9b3ffb5516dc'
 
 
 def post(url, data, token=None):
