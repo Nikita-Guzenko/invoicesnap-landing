@@ -20,7 +20,8 @@
    - PostHog session replay masks every input, the tool form, the live paper, the homepage calculator
      and the invoice preview (MASK); those elements also get ph-no-capture, so autocapture skips them.
    - Never send a form value: only actions, page paths, file types, link domains. Tests: GA4 drops the
-     HeadlessChrome user agent as a bot, so a Playwright check needs a normal user agent. */
+     HeadlessChrome user agent as a bot, so a Playwright check needs a normal user agent; PostHog drops
+     browsers with navigator.webdriver (Playwright sets it), so the test must hide that flag. */
 (function () {
   var ID = 'G-X4TCVJMVEP';
   // PostHog project key: public, ingest-only, the same project as the iOS app (EAS EXPO_PUBLIC_POSTHOG_KEY).
@@ -34,7 +35,9 @@
   var live = location.hostname === 'invoicesnap.work';
 
   window.dataLayer = window.dataLayer || [];
-  window.gtag = function () { window.dataLayer.push(arguments); };
+  // After "Decline" no event of ours enters the queue (gtag ignores ga-disable after config).
+  var declined = false;
+  window.gtag = function () { if (declined && arguments[0] === 'event') return; window.dataLayer.push(arguments); };
 
   // tool_used: once per page view, on the first real action with a free tool (key event in GA4).
   var used = false;
@@ -96,6 +99,7 @@
   var choice = '';
   try { choice = readCookie('isnap_consent'); } catch (e) { /* cookies off */ }
   if (choice !== 'granted' && choice !== 'denied') choice = '';
+  declined = choice === 'denied';
 
   var denied = { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' };
   window.gtag('consent', 'default', Object.assign({ region: REGIONS }, denied));
@@ -141,17 +145,17 @@
       var hidden = document.querySelectorAll(MASK);
       for (var i = 0; i < hidden.length; i++) hidden[i].classList.add('ph-no-capture');
       addScript('https://us-assets.i.posthog.com/static/array.js', function () {
-      if (!window.posthog || !window.posthog.init) return;
-      window.posthog.init(PH_KEY, {
-        api_host: PH_HOST, ui_host: 'https://us.posthog.com', person_profiles: 'identified_only',
-        autocapture: true, capture_pageview: true, capture_pageleave: true, enable_heatmaps: true,
-        capture_performance: { web_vitals: true }, mask_all_element_attributes: true,
-        cross_subdomain_cookie: true,
-        // The project records console logs by default; console text can hold page data, so keep it off.
-        enable_recording_console_log: false,
-        session_recording: { maskAllInputs: true, maskTextSelector: MASK },
-        loaded: function (ph) { if (internal) ph.register({ traffic_type: 'internal' }); }
-      });
+        if (!window.posthog || !window.posthog.init) return;
+        window.posthog.init(PH_KEY, {
+          api_host: PH_HOST, ui_host: 'https://us.posthog.com', person_profiles: 'identified_only',
+          autocapture: true, capture_pageview: true, capture_pageleave: true, enable_heatmaps: true,
+          capture_performance: { web_vitals: true }, mask_all_element_attributes: true,
+          cross_subdomain_cookie: true,
+          // The project records console logs by default; console text can hold page data, so keep it off.
+          enable_recording_console_log: false,
+          session_recording: { maskAllInputs: true, maskTextSelector: MASK },
+          loaded: function (ph) { if (internal) ph.register({ traffic_type: 'internal' }); }
+        });
       });
     });
   }
@@ -205,8 +209,11 @@
     choice = value;
     window.gtag('consent', 'update', { analytics_storage: value });
     if (banner) { banner.remove(); banner = null; }
+    declined = value === 'denied';
     if (value === 'granted') start();
     else if (window.posthog && window.posthog.opt_out_capturing) window.posthog.opt_out_capturing();
+    // A tracker that already runs (a US visitor who declines later) keeps only gtag's own cookieless
+    // denied-mode pings for the rest of this page; the next page loads nothing.
   }
   function showBanner() {
     if (banner) return;
