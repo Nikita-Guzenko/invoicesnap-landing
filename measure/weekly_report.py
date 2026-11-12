@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 """InvoiceSnap's five-line web report (NIK-551, 9 Nov 2026).
 
-Usage: python3 measure/weekly_report.py invoicesnap [--post] [--offline]
+Usage: python3 measure/weekly_report.py invoicesnap [--post] [--offline] [--start YYYY-MM-DD] [--no-sheet]
 Dry run (no Linear comment): omit --post. Load the vault first (source ~/.config/vault/load.sh).
+--start reports the week that starts on that Monday (backfill; cannot --post).
+Each run also writes the week's numbers to the Google Sheet SHEET_ID, tab "weekly" (NIK-634), through
+`gws` (logged in as kazakdstr@gmail.com). The Looker Studio dashboard DASHBOARD reads that Sheet plus
+the GA4 and Search Console connectors. A blank cell means unknown, never 0. --no-sheet skips the write.
 Writes ~/.local/share/invoicesnap-reports/YYYY-Www.{md,json}. Mondays report
 last Monday–Sunday; indexing is a separately dated current snapshot. --post
 adds the report to NIK-551 through the full-path Linear AXI. No email or AI API.
 --offline exercises unavailable sources without credentials or network access.
-Exit 3: a live source (GA4, URL Inspection, App Store Connect `asc`, RevenueCat
-`revenuecat-axi chart`, NIK-594) was unreachable; its line says unknown.
+Exit 3: a live source (GA4, Search Console, URL Inspection, App Store Connect `asc`, RevenueCat
+`revenuecat-axi chart`, NIK-594) was unreachable, or the Sheet write failed; its line says unknown.
 Indexing runs ~/firstmate-invoicesnap/data/nik-542/index-gate.py (outside this repo).
 The timer loads the vault; credentials never enter an artifact or an error.
 """
@@ -30,6 +34,13 @@ INDEX = HOME / 'firstmate-invoicesnap/data/nik-542/index-gate.py'
 OUTPUT = HOME / '.local/share/invoicesnap-reports'
 APP_ID = '6759242022'
 RC_PROJECT = 'proj852d4bba'
+GA_PROPERTY = '516575048'
+SITE_HOST, APP_HOST = 'invoicesnap.work', 'app.invoicesnap.work'
+# GA4 funnel events start on 12 Nov 2026 (NIK-634): tool_used on the site, every web app event.
+# An earlier week has no such events because they did not exist, so it says unknown, not 0.
+FUNNEL_SINCE = dt.date(2026, 11, 12)
+SHEET_ID = '1G1ijIEeZqvGLY3CUa4qd65HD7-d2dfXdD1qiAgvdY1Y'
+DASHBOARD = 'https://lookerstudio.google.com/reporting/LOOKER_REPORT_ID'
 
 
 def post(url, data, token=None):
@@ -39,24 +50,34 @@ def post(url, data, token=None):
         return json.load(response)
 
 
-def visits(start, end, offline):
-    source = 'GA4 property 516575048; hostName=invoicesnap.work; property timezone'
+def google_token(prefix):
+    """An access token from a vault OAuth refresh token (GOOGLE_ANALYTICS_DATA_, GOOGLE_SEARCH_CONSOLE_)."""
+    return post('https://oauth2.googleapis.com/token', {
+        'client_id': os.environ[prefix + 'CLIENT_ID'],
+        'client_secret': os.environ[prefix + 'CLIENT_SECRET'],
+        'refresh_token': os.environ[prefix + 'REFRESH_TOKEN'],
+        'grant_type': 'refresh_token'})['access_token']
+
+
+def ga_report(body):
+    token = google_token('GOOGLE_ANALYTICS_DATA_')
+    return post(f'https://analyticsdata.googleapis.com/v1beta/properties/{GA_PROPERTY}:runReport', body, token)
+
+
+def visits(start, end, offline, host=SITE_HOST):
+    source = f'GA4 property {GA_PROPERTY}; hostName={host}; property timezone'
     result = {'status': 'unknown', 'source': source}
     if offline:
         return dict(result, reason='offline check')
+    if host == APP_HOST and end < FUNNEL_SINCE:
+        return dict(result, reason=f'web app not tagged before {FUNNEL_SINCE}')
     try:
-        prefix = 'GOOGLE_ANALYTICS_DATA_'
-        token = post('https://oauth2.googleapis.com/token', {
-            'client_id': os.environ[prefix + 'CLIENT_ID'],
-            'client_secret': os.environ[prefix + 'CLIENT_SECRET'],
-            'refresh_token': os.environ[prefix + 'REFRESH_TOKEN'],
-            'grant_type': 'refresh_token'})['access_token']
         # This property also serves 731labs.net. A host filter prevents a false traffic count (9 Nov 2026).
-        data = post('https://analyticsdata.googleapis.com/v1beta/properties/516575048:runReport', {
+        data = ga_report({
             'dateRanges': [{'startDate': str(start), 'endDate': str(end)}],
             'metrics': [{'name': 'sessions'}],
             'dimensionFilter': {'filter': {'fieldName': 'hostName',
-                'stringFilter': {'matchType': 'EXACT', 'value': 'invoicesnap.work'}}}}, token)
+                'stringFilter': {'matchType': 'EXACT', 'value': host}}}})
         # With no rows, tag coverage cannot be distinguished from zero traffic; keep it unknown.
         if not isinstance(data.get('metadata'), dict):
             raise ValueError('missing report metadata')
@@ -67,8 +88,71 @@ def visits(start, end, offline):
         value = sum(int(row['metricValues'][0]['value']) for row in rows)
         if value < 0:
             raise ValueError('negative sessions')
-        return dict(result, status='measured', value=value,
+        return dict(result, status='measured', value=value, count=value,
                     timezone=data['metadata'].get('timeZone', 'property timezone'), preliminary=True)
+    except Exception as error:
+        return dict(result, reason='read failed: ' + type(error).__name__)
+
+
+FUNNEL_EVENTS = {  # GA4 key events (NIK-634) -> report key
+    'tool_used': 'tool_used', 'sign_up': 'web_signups', 'paywall_view': 'paywall_views',
+    'checkout_start': 'checkout_starts'}
+
+
+def funnel(start, end, offline):
+    """GA4 funnel key events on both InvoiceSnap hosts, one metric per event."""
+    source = (f'GA4 property {GA_PROPERTY} key event %s; hostName={SITE_HOST} or {APP_HOST}; '
+              'property timezone')
+    out = {key: {'status': 'unknown', 'source': source % event} for event, key in FUNNEL_EVENTS.items()}
+    if offline:
+        return {key: dict(m, reason='offline check') for key, m in out.items()}
+    if end < FUNNEL_SINCE:
+        return {key: dict(m, reason=f'event not sent before {FUNNEL_SINCE}') for key, m in out.items()}
+    try:
+        data = ga_report({
+            'dateRanges': [{'startDate': str(start), 'endDate': str(end)}],
+            'dimensions': [{'name': 'eventName'}],
+            'metrics': [{'name': 'eventCount'}],
+            'dimensionFilter': {'andGroup': {'expressions': [
+                {'filter': {'fieldName': 'hostName', 'inListFilter': {'values': [SITE_HOST, APP_HOST]}}},
+                {'filter': {'fieldName': 'eventName', 'inListFilter': {'values': list(FUNNEL_EVENTS)}}}]}}})
+        if not isinstance(data.get('metadata'), dict):
+            raise ValueError('missing report metadata')
+        # The tags are verified in a real browser (NIK-634), so a missing row here is a measured 0.
+        counts = {row['dimensionValues'][0]['value']: int(row['metricValues'][0]['value'])
+                  for row in data.get('rows', [])}
+        note = data['metadata'].get('timeZone', 'property timezone') + '; preliminary'
+        if start < FUNNEL_SINCE:
+            note += f'; events start {FUNNEL_SINCE}'
+        return {key: dict(out[key], status='measured', value=counts.get(event, 0), count=counts.get(event, 0),
+                          note=note) for event, key in FUNNEL_EVENTS.items()}
+    except Exception as error:
+        return {key: dict(m, reason='read failed: ' + type(error).__name__) for key, m in out.items()}
+
+
+def search(start, end, offline):
+    """Google Search clicks and impressions for the whole domain property (data lags 2-3 days)."""
+    site = 'sc-domain:invoicesnap.work'
+    result = {'status': 'unknown', 'source': f'Search Console {site}, web search, UTC'}
+    if offline:
+        return dict(result, reason='offline check')
+    try:
+        # The vault OAuth token owns sc-domain:invoicesnap.work (read-only); the service account owns
+        # only the URL-prefix property that index-gate.py inspects.
+        token = google_token('GOOGLE_SEARCH_CONSOLE_')
+        data = post('https://www.googleapis.com/webmasters/v3/sites/' + urllib.parse.quote(site, safe='')
+                    + '/searchAnalytics/query',
+                    {'startDate': str(start), 'endDate': str(end), 'dimensions': ['date'], 'dataState': 'all'},
+                    token)
+        rows = data.get('rows', [])
+        clicks = sum(int(r['clicks']) for r in rows)
+        impressions = sum(int(r['impressions']) for r in rows)
+        last = max((r['keys'][0] for r in rows), default=None)
+        note = f'data through {last}' if last else 'no rows yet'
+        if not last or last < str(end):
+            note += '; preliminary'
+        return dict(result, status='measured', value=f'{clicks} clicks, {impressions} impressions',
+                    clicks=clicks, impressions=impressions, note=note)
     except Exception as error:
         return dict(result, reason='read failed: ' + type(error).__name__)
 
@@ -144,7 +228,7 @@ def downloads(start, end, offline):
                         if dict(key)['Download Type'] == 'First-time download'
                         and dict(key)['App Apple Identifier'] == APP_ID)
             note = f'Apple data through {latest}' if latest else 'no Apple rows yet'
-            return dict(result, status='measured', value=f'{value} first-time downloads',
+            return dict(result, status='measured', value=f'{value} first-time downloads', count=value,
                         note=note + ('; preliminary' if not latest or latest < str(end) else ''))
     except Exception as error:
         return dict(result, reason='read failed: ' + type(error).__name__)
@@ -172,7 +256,8 @@ def money(start, end, offline):
         incomplete = sum(chart['incomplete_days'] for chart in charts.values())
         value = (f'${revenue["Revenue"]:,.0f} revenue, {revenue["Transactions"]:.0f} transactions, '
                  f'{trials:.0f} new trials, {new_paid:.0f} new paid subscriptions')
-        return dict(result, status='measured', value=value,
+        return dict(result, status='measured', value=value, revenue=round(revenue['Revenue'], 2),
+                    transactions=int(revenue['Transactions']), trials=int(trials), new_paid=int(new_paid),
                     note='UTC' + ('; preliminary' if incomplete else ''))
     except Exception as error:
         return dict(result, reason='read failed: ' + type(error).__name__)
@@ -205,7 +290,7 @@ def web_purchases(start, end, offline):
         total = chart['summary']['total']
         # Product changes are existing payers moving plans, not new purchases.
         value = total['Total Paid Subscriptions'] - total['Product Changes']
-        return dict(result, status='measured', value=f'{value:.0f} new web subscriptions',
+        return dict(result, status='measured', value=f'{value:.0f} new web subscriptions', count=int(value),
                     note='UTC' + ('; preliminary' if incomplete else ''))
     except Exception as error:
         return dict(result, reason='read failed: ' + type(error).__name__)
@@ -229,32 +314,94 @@ def indexed(offline):
         return dict(result, reason='read failed: ' + type(error).__name__)
 
 
+SHEET_COLUMNS = [  # tab "weekly", one row per week; the Looker Studio dashboard reads these names
+    ('week', None), ('week_start', None), ('week_end', None),
+    ('site_visits', ('visits', 'count')), ('app_visits', ('app_visits', 'count')),
+    ('tool_used', ('tool_used', 'count')), ('web_signups', ('web_signups', 'count')),
+    ('paywall_views', ('paywall_views', 'count')), ('checkout_starts', ('checkout_starts', 'count')),
+    ('web_purchases', ('web_purchases', 'count')),
+    ('search_clicks', ('search', 'clicks')), ('search_impressions', ('search', 'impressions')),
+    ('app_downloads', ('downloads', 'count')), ('new_trials', ('money', 'trials')),
+    ('new_paid_subscriptions', ('money', 'new_paid')), ('revenue_usd', ('money', 'revenue')),
+    ('transactions', ('money', 'transactions')), ('indexed_pages', ('indexed_pages', 'value')),
+    ('unknown', None), ('generated_utc', None)]
+
+
+def gws(*args, body=None):
+    """Run the gws CLI (Google Workspace, logged in as kazakdstr@gmail.com) and parse its JSON."""
+    command = [str(HOME / '.local/bin/gws'), *args]
+    if body is not None:
+        command += ['--json', json.dumps(body)]
+    run = subprocess.run(command, capture_output=True, text=True, timeout=120, check=True)
+    return json.loads(run.stdout[run.stdout.index('{'):])
+
+
+def write_sheet(week, start, end, metrics, generated):
+    """Upsert this week's row. Unknown metrics stay blank and are named in the `unknown` column."""
+    row = []
+    for name, ref in SHEET_COLUMNS:
+        if ref is None:
+            row.append({'week': week, 'week_start': str(start), 'week_end': str(end), 'generated_utc': generated,
+                        'unknown': '; '.join(f'{k}: {m["reason"]}' for k, m in metrics.items()
+                                             if m['status'] != 'measured')}[name])
+        else:
+            metric = metrics[ref[0]]
+            row.append(metric.get(ref[1], '') if metric['status'] == 'measured' else '')
+    header = [name for name, _ in SHEET_COLUMNS]
+    gws('sheets', 'spreadsheets', 'values', 'update', '--params', json.dumps(
+        {'spreadsheetId': SHEET_ID, 'range': 'weekly!A1', 'valueInputOption': 'RAW'}), body={'values': [header]})
+    weeks = gws('sheets', 'spreadsheets', 'values', 'get', '--params', json.dumps(
+        {'spreadsheetId': SHEET_ID, 'range': 'weekly!A:A'})).get('values', [])
+    found = next((n for n, cells in enumerate(weeks, 1) if cells and cells[0] == week), None)
+    target = found or len(weeks) + 1
+    # USER_ENTERED turns week_start/week_end into Sheet dates, so Looker Studio reads a Date field.
+    gws('sheets', 'spreadsheets', 'values', 'update', '--params', json.dumps(
+        {'spreadsheetId': SHEET_ID, 'range': f'weekly!A{target}', 'valueInputOption': 'USER_ENTERED'}),
+        body={'values': [row]})
+    return target
+
+
 def main():
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('project', choices=['invoicesnap'])
     parser.add_argument('--post', action='store_true')
     parser.add_argument('--offline', action='store_true')
+    parser.add_argument('--start', type=dt.date.fromisoformat, help='Monday of the week to report (backfill)')
+    parser.add_argument('--no-sheet', action='store_true', help='do not write the Google Sheet')
     parser.add_argument('--output', type=Path, default=OUTPUT)
     args = parser.parse_args()
     if args.offline and args.post:
         parser.error('--offline cannot post to Linear')
+    if args.start and args.post:
+        parser.error('--start is a backfill: it cannot post to Linear')
+    if args.start and args.start.weekday() != 0:
+        parser.error('--start must be a Monday')
     today = dt.datetime.now(dt.timezone.utc).date()
-    start = today - dt.timedelta(days=today.weekday() + 7)
+    start = args.start or today - dt.timedelta(days=today.weekday() + 7)
     end = start + dt.timedelta(days=6)
     week = start.strftime('%G-W%V')
     window = f'{start}..{end}'
     metrics = {
         'visits': visits(start, end, args.offline),
+        'app_visits': visits(start, end, args.offline, host=APP_HOST),
+        **funnel(start, end, args.offline),
+        'search': search(start, end, args.offline),
         # Downloads and money are whole-app totals: no source attributes them to web visits (NIK-594).
         'downloads': downloads(start, end, args.offline),
         'ai_mentions': {'status': 'unknown', 'source': 'geo-playbook/projects/invoicesnap/prompts/v1.yml',
                         'reason': 'no complete weekly measurement; paid API collection disabled'},
-        'indexed_pages': indexed(args.offline),
+        # Indexing is a current snapshot: a backfilled week cannot know its old value.
+        'indexed_pages': (indexed(args.offline) if not args.start else
+                          {'status': 'unknown', 'source': 'Google URL Inspection',
+                           'reason': 'backfill: indexing is a current snapshot only'}),
         'money': money(start, end, args.offline),
         'web_purchases': web_purchases(start, end, args.offline),
     }
     lines = []
-    for label, key in [('Visits', 'visits'), ('Downloads', 'downloads'), ('AI mentions', 'ai_mentions'),
+    for label, key in [('Visits', 'visits'), ('Web app visits', 'app_visits'), ('Free tool use', 'tool_used'),
+                       ('Web sign-ups', 'web_signups'), ('Paywall views', 'paywall_views'),
+                       ('Checkout starts', 'checkout_starts'), ('Search', 'search'),
+                       ('Downloads', 'downloads'), ('AI mentions', 'ai_mentions'),
                        ('Indexed pages', 'indexed_pages'), ('Money', 'money'),
                        ('Web purchases', 'web_purchases')]:
         metric = metrics[key]
@@ -272,13 +419,22 @@ def main():
         else:
             text = 'unknown (' + metric['reason'] + ')'
         lines.append(f'{label}: {text}; {period}; source: {metric["source"]}.')
+    generated = dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')
+    sheet_error = None
+    if not args.offline and not args.no_sheet:
+        try:
+            write_sheet(week, start, end, metrics, generated)
+        except Exception as error:
+            sheet_error = type(error).__name__
+    lines.append(f'Dashboard: {DASHBOARD} (funnel, weekly trend, top pages, search queries, App Store and '
+                 f'RevenueCat); data sheet https://docs.google.com/spreadsheets/d/{SHEET_ID}'
+                 + (f' — this week NOT written ({sheet_error})' if sheet_error else '') + '.')
     report = '\n'.join(lines) + '\n'
     args.output.mkdir(parents=True, exist_ok=True)
     path = args.output / (week + ('.offline' if args.offline else ''))
     path.with_suffix('.offline.md' if args.offline else '.md').write_text(report)
     path.with_suffix('.offline.json' if args.offline else '.json').write_text(json.dumps({
-        'week': week, 'window': window, 'generated': dt.datetime.now(dt.timezone.utc).isoformat(),
-        'metrics': metrics}, indent=2) + '\n')
+        'week': week, 'window': window, 'generated': generated, 'metrics': metrics}, indent=2) + '\n')
     print(report, end='')
     if args.post:
         # Leave a marker only after Linear accepts the comment. Failed delivery retries next run.
@@ -291,9 +447,11 @@ def main():
     # still says unknown, then exit 3 marks the systemd unit failed. The unit sets
     # RestartPreventExitStatus=3, so a dead source does not repeat 27 URL inspections every 5 minutes.
     failed = [key for key, metric in metrics.items() if metric.get('reason', '').startswith('read failed')]
-    if failed:
+    if failed or sheet_error:
         print('SOURCE UNREACHABLE: ' + ', '.join(f'{key} ({metrics[key]["reason"]})' for key in failed)
-              + '. Fix: check the vault credentials, `asc auth status`, `revenuecat-axi`, and index-gate.py, then rerun.', file=sys.stderr)
+              + (f' sheet write ({sheet_error})' if sheet_error else '')
+              + '. Fix: check the vault credentials, `asc auth status`, `revenuecat-axi`, `gws auth status`'
+              ' and index-gate.py, then rerun.', file=sys.stderr)
         raise SystemExit(3)
 
 

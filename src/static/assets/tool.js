@@ -168,15 +168,19 @@ function xlsx(d,s){var out=[],n=0;function sc(col,t,st){return '<c r="'+col+n+'"
 
 /* ---------- downloads ---------- */
 function track(name,params){if(typeof gtag==='function')gtag('event',name,params)}
+/* tool_used (NIK-634): the first edit or download on this page view; ga.js sends it once. */
+function used(action,format){if(typeof window.trackToolUsed==='function')window.trackToolUsed(action,format)}
+['input','change'].forEach(function(t){document.addEventListener(t,function(e){if(e.target&&e.target.closest&&e.target.closest('[data-f],[data-i]'))used('edit')},true)});
 function save(blob,name){var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(a.href)},2000)}
 function dl(kind,src){var s=src||S,d=src?blankDoc(src):doc(s),base=C.slug+(src?'-blank':'-'+String(s.no||'draft').replace(/[^\w-]+/g,'-'));
  /* Only the file type and page go to GA4, for the weekly download count. Never a form value. */
  track('tool_download',{file_format:kind,blank:!!src,tool_page:location.pathname});
+ used('download',kind);
  if(kind==='pdf')save(pdf(d),base+'.pdf');
  if(kind==='docx')save(new Blob(docx(d),{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'}),base+'.docx');
  if(kind==='xlsx')save(new Blob(xlsx(d,s),{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}),base+'.xlsx')}
 $$('[data-dl]').forEach(function(b){b.addEventListener('click',function(){dl(b.getAttribute('data-dl'),b.hasAttribute('data-blank')?blank():null)})});
-$('#add-row').addEventListener('click',function(){addItem('',1,'','',C.split?'M':'L')});
+$('#add-row').addEventListener('click',function(){used('edit');addItem('',1,'','',C.split?'M':'L')});
 $$('[data-add]').forEach(function(b){b.addEventListener('click',function(){var v=JSON.parse(b.getAttribute('data-add'));addItem(v[0],v[1],v[2],v[3],v[4])})});
 $('#clear').addEventListener('click',function(){S=blank();bind();rows();render()});
 $$('a[href*="apps.apple.com"]').forEach(function(a){a.addEventListener('click',function(){track('click_app_store',{event_category:'conversion',event_label:'tool page',tool_page:location.pathname})})});
