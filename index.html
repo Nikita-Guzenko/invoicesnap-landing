@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X4TCVJMVEP"></script>
   <script src="/assets/ga.js"></script>
 
   <meta name="google-site-verification" content="rs92M-x7UmH0YQ6M5D2_y7qIeueO0KHaqVRNvXdkTt0" />
@@ -2138,16 +2137,7 @@
         link.href = buildWebAppEntry(link.dataset.appDestination || 'home');
       });
 
-      // Track App Store CTAs
-      document.querySelectorAll('a[href*="apps.apple.com"]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          trackEvent('click_app_store', {
-            'event_category': 'conversion',
-            'event_label': btn.innerText.trim() || 'App Store CTA',
-            'link_url': btn.href
-          });
-        });
-      });
+      // click_app_store is sent by /assets/ga.js on every page (NIK-634).
 
       // click_web_app is sent by /assets/ga.js on every page (NIK-634).
 
