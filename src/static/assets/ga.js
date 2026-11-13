@@ -12,6 +12,11 @@
    - Google Consent Mode v2 defaults go first on every load: denied in EEA+GB+CH, analytics granted
      elsewhere, ad_* denied everywhere (no ads), then an update with the stored choice.
    - "Cookie settings" in every footer reopens the banner.
+   External GA4 setting (NIK-634, 13 Nov 2026): shared InvoiceSnap stream
+   properties/516575048/dataStreams/15790441389 has formInteractionsEnabled=false. Enhanced
+   form_start exposed the raw implicit form_destination query even with page_location overridden.
+   Keep it off; manual tool_used remains. Reproduce: python3 tests/test_analytics_browser.py with
+   the local HTTPS build. It checks real SDK payloads containing private URL/form markers.
    Other rules:
    - Only the live host sends: local builds and gate_browser runs on 127.0.0.1 load no tracker and show
      no banner. Both hosts share the _ga cookie on invoicesnap.work: no cross-domain linker.
@@ -24,14 +29,31 @@
      browsers with navigator.webdriver (Playwright sets it), so the test must hide that flag. */
 (function () {
   var ID = 'G-X4TCVJMVEP';
+  // Analytics URLs contain public paths only; query/hash can contain credentials or form data
+  // (NIK-634 privacy review, 13 Nov 2026). Scrub nested replay frames and heatmap URL keys too.
+  function cleanUrl(value) {
+    try { var u = new URL(value); return u.origin + u.pathname; } catch (e) { return ''; }
+  }
+  function scrub(node, depth) {
+    if (!node || typeof node !== 'object' || depth > 40) return;
+    Object.keys(node).forEach(function (key) {
+      var value = node[key];
+      var target = key.indexOf('://') >= 0 ? cleanUrl(key) : key;
+      if (target !== key) { delete node[key]; node[target] = value; }
+      if (typeof value === 'string' && value.indexOf('://') >= 0) node[target] = cleanUrl(value);
+      else scrub(value, depth + 1);
+    });
+  }
   // PostHog project key: public, ingest-only, the same project as the iOS app (EAS EXPO_PUBLIC_POSTHOG_KEY).
   var PH_KEY = 'phc_pzZ5rXsdxHPRg2Thu2FBwvkFATmPvxRru4LMf3ZtDNbp';
   var PH_HOST = 'https://us.i.posthog.com';
-  var MASK = 'form, #paper, .paper-shell, .calc-card, #invoiceModal';
+  var MASK = 'form, #paper, .paper-shell, .calc-card, #invoiceModal, .bar';
   var REGIONS = ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV',
     'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB', 'CH'];
+  // EU outermost regions count too (EU law applies there): Réunion, Mayotte, Guiana, Antilles.
   var EU_ZONES = ['Atlantic/Canary', 'Atlantic/Madeira', 'Atlantic/Azores', 'Atlantic/Reykjavik', 'Atlantic/Faroe',
-    'Arctic/Longyearbyen', 'Asia/Nicosia', 'Asia/Famagusta'];
+    'Arctic/Longyearbyen', 'Asia/Nicosia', 'Asia/Famagusta', 'Indian/Reunion', 'Indian/Mayotte', 'America/Cayenne',
+    'America/Martinique', 'America/Guadeloupe', 'America/St_Barthelemy', 'America/Marigot'];
   var live = location.hostname === 'invoicesnap.work';
 
   window.dataLayer = window.dataLayer || [];
@@ -100,6 +122,7 @@
   try { choice = readCookie('isnap_consent'); } catch (e) { /* cookies off */ }
   if (choice !== 'granted' && choice !== 'denied') choice = '';
   declined = choice === 'denied';
+  if (declined) window['ga-disable-' + ID] = true;
 
   var denied = { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' };
   window.gtag('consent', 'default', Object.assign({ region: REGIONS }, denied));
@@ -119,10 +142,12 @@
   }
 
   var started = false;
+  var posthogRequested = false;
   function start() {
-    if (started) return;
+    if (started) { startPosthog(); return; }
     started = true;
-    var config = { cookie_flags: 'SameSite=None;Secure' };
+    var config = { cookie_flags: 'SameSite=None;Secure',
+      page_location: cleanUrl(location.href), page_referrer: cleanUrl(document.referrer) };
     if (internal) config.traffic_type = 'internal';
     window.gtag('js', new Date());
     window.gtag('config', ID, config);
@@ -130,7 +155,7 @@
     // Web vitals of real visits to GA4; CLS is sent x1000 so metric_value is a whole number.
     addScript('/assets/web-vitals.iife.js', function () {
       var wv = window.webVitals;
-      if (!wv) return;
+      if (!wv || declined) return;
       function report(m) {
         window.gtag('event', 'web_vital', {
           metric_name: m.name, metric_rating: m.rating, tool_page: location.pathname,
@@ -139,22 +164,34 @@
       }
       ['onLCP', 'onINP', 'onCLS', 'onFCP', 'onTTFB'].forEach(function (fn) { if (wv[fn]) wv[fn](report); });
     });
+    startPosthog();
+  }
+
+  // A declined in-flight bundle must be retryable on Accept (NIK-634, 13 Nov 2026).
+  function startPosthog() {
+    if (posthogRequested || declined) return;
+    posthogRequested = true;
     // PostHog starts after the body exists, so the mask classes are on the page before the recorder.
     // maskTextSelector also matches descendants (rrweb checks ancestors), so typed text never leaves.
     whenReady(function () {
+      if (declined) { posthogRequested = false; return; }
       var hidden = document.querySelectorAll(MASK);
       for (var i = 0; i < hidden.length; i++) hidden[i].classList.add('ph-no-capture');
       addScript('https://us-assets.i.posthog.com/static/array.js', function () {
-        if (!window.posthog || !window.posthog.init) return;
+        // A Decline that came while this script loaded wins: never init afterwards.
+        if (!window.posthog || !window.posthog.init || declined) { posthogRequested = false; return; }
         window.posthog.init(PH_KEY, {
           api_host: PH_HOST, ui_host: 'https://us.posthog.com', person_profiles: 'identified_only',
           autocapture: true, capture_pageview: true, capture_pageleave: true, enable_heatmaps: true,
           capture_performance: { web_vitals: true }, mask_all_element_attributes: true,
-          cross_subdomain_cookie: true,
+          cross_subdomain_cookie: true, disable_capture_url_hashes: true,
+          custom_personal_data_properties: ['email', 'code', 'access_token', 'refresh_token', 'token_hash'],
+          before_send: function (event) { scrub(event, 0); return event; },
           // The project records console logs by default; console text can hold page data, so keep it off.
-          enable_recording_console_log: false,
-          session_recording: { maskAllInputs: true, maskTextSelector: MASK },
-          loaded: function (ph) { if (internal) ph.register({ traffic_type: 'internal' }); }
+          enable_recording_console_log: false, capture_exceptions: false, mask_personal_data_properties: true,
+          session_recording: { maskAllInputs: true, maskTextSelector: MASK, maskAllElementAttributes: true,
+            blockSelector: 'canvas', captureCanvas: { recordCanvas: false }, recordHeaders: false, recordBody: false },
+          loaded: function (ph) { if (!declined) ph.opt_in_capturing(); if (internal) ph.register({ traffic_type: 'internal' }); }
         });
       });
     });
@@ -204,17 +241,35 @@
   }
 
   var banner = null;
-  function choose(value) {
-    try { writeCookie('isnap_consent', value, 15552000); } catch (e) { /* cookies off: this page only */ }
+  var channel = null;
+  try { channel = new BroadcastChannel('isnap-consent'); } catch (e) { /* old browser: the cookie re-read still works */ }
+  // Re-grant resumes an initialized recorder too (NIK-634 review, 13 Nov 2026).
+  // Apply a choice on this page: from the banner, another tab (BroadcastChannel) or the web app (cookie).
+  function apply(value) {
     choice = value;
+    declined = value === 'denied';
+    window['ga-disable-' + ID] = declined; // read by gtag.js when it handles config, also mid-load
     window.gtag('consent', 'update', { analytics_storage: value });
     if (banner) { banner.remove(); banner = null; }
-    declined = value === 'denied';
-    if (value === 'granted') start();
+    if (value === 'granted') {
+      if (window.posthog && window.posthog.opt_in_capturing) window.posthog.opt_in_capturing();
+      start();
+    }
     else if (window.posthog && window.posthog.opt_out_capturing) window.posthog.opt_out_capturing();
-    // A tracker that already runs (a US visitor who declines later) keeps only gtag's own cookieless
-    // denied-mode pings for the rest of this page; the next page loads nothing.
   }
+  function choose(value) {
+    try { writeCookie('isnap_consent', value, 15552000); } catch (e) { /* cookies off: this page only */ }
+    apply(value);
+    if (channel) channel.postMessage(value);
+  }
+  if (channel) channel.onmessage = function (e) { if (e.data === 'granted' || e.data === 'denied') apply(e.data); };
+  function recheck() {
+    var now = '';
+    try { now = readCookie('isnap_consent'); } catch (e) { return; }
+    if ((now === 'granted' || now === 'denied') && now !== choice) apply(now);
+  }
+  document.addEventListener('visibilitychange', recheck);
+  window.addEventListener('focus', recheck);
   function showBanner() {
     if (banner) return;
     var w = words();
