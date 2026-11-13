@@ -183,8 +183,7 @@ $$('[data-dl]').forEach(function(b){b.addEventListener('click',function(){dl(b.g
 $('#add-row').addEventListener('click',function(){used('edit');addItem('',1,'','',C.split?'M':'L')});
 $$('[data-add]').forEach(function(b){b.addEventListener('click',function(){var v=JSON.parse(b.getAttribute('data-add'));addItem(v[0],v[1],v[2],v[3],v[4])})});
 $('#clear').addEventListener('click',function(){S=blank();bind();rows();render()});
-$$('a[href*="apps.apple.com"]').forEach(function(a){a.addEventListener('click',function(){track('click_app_store',{event_category:'conversion',event_label:'tool page',tool_page:location.pathname})})});
-/* click_web_app is sent by ga.js for every page (NIK-634). */
+/* click_web_app, click_app_store and click_outbound are sent by ga.js for every page (NIK-634). */
 bind();rows();render();
 window.__invoice={state:function(){return S},totals:function(){return totals(S)},parse:parseNum};
 })();
