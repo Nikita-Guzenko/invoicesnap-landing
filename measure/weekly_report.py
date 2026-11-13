@@ -12,7 +12,7 @@ last Monday–Sunday; indexing is a separately dated current snapshot. --post
 adds the report to NIK-551 through the full-path Linear AXI. No email or AI API.
 --offline exercises unavailable sources without credentials or network access.
 Exit 3: a live source (GA4, Search Console, URL Inspection, App Store Connect `asc`, RevenueCat
-`revenuecat-axi chart`, NIK-594) was unreachable, or the Sheet write failed; its line says unknown.
+`revenuecat-axi chart`, NIK-594), PostHog or Sentry was unreachable, or the Sheet write failed; its line says unknown.
 Indexing runs ~/firstmate-invoicesnap/data/nik-542/index-gate.py (outside this repo).
 The timer loads the vault; credentials never enter an artifact or an error.
 """
@@ -20,6 +20,7 @@ import argparse
 import csv
 import datetime as dt
 import json
+import re
 import os
 from pathlib import Path
 import subprocess
@@ -159,6 +160,91 @@ def funnel(start, end, offline):
         return result
     except Exception as error:
         return {key: dict(m, reason='read failed: ' + type(error).__name__) for key, m in out.items()}
+
+
+
+def web_observability(start, end, offline):
+    """Read web-only sources; missing access is unknown, never a measured zero (13 Nov 2026)."""
+    sources = {
+        'posthog_events': 'PostHog Query API; events on invoicesnap.work + app.invoicesnap.work; UTC',
+        'sentry_web_errors': 'Sentry Events API; error events on app.invoicesnap.work; UTC',
+        **{f'ga4_{name.lower()}_samples': f'GA4 {GA_PROPERTY}; web_vital {name} sample count; both InvoiceSnap hosts'
+           for name in ('LCP', 'INP', 'CLS')},
+    }
+    out = {key: {'status': 'unknown', 'source': source} for key, source in sources.items()}
+    if offline:
+        return {key: dict(metric, reason='offline check') for key, metric in out.items()}
+    if end < FUNNEL_SINCE:
+        return {key: dict(metric, reason=f'web tracking not sent before {FUNNEL_SINCE}')
+                for key, metric in out.items()}
+    until = end + dt.timedelta(days=1)
+    # These are sample COUNTS, not LCP/INP durations or CLS scores: metric_value is not a
+    # registered GA4 custom metric. A missing row proves no sample, not good performance.
+    try:
+        data = ga_report({
+            'dateRanges': [{'startDate': str(start), 'endDate': str(end)}],
+            'dimensions': [{'name': 'customEvent:metric_name'}], 'metrics': [{'name': 'eventCount'}],
+            'dimensionFilter': {'andGroup': {'expressions': [
+                {'filter': {'fieldName': 'hostName', 'inListFilter': {'values': [SITE_HOST, APP_HOST]}}},
+                {'filter': {'fieldName': 'eventName', 'stringFilter': {'value': 'web_vital', 'matchType': 'EXACT'}}}]}}})
+        if not isinstance(data.get('metadata'), dict):
+            raise ValueError('missing report metadata')
+        counts = {r['dimensionValues'][0]['value']: int(r['metricValues'][0]['value'])
+                  for r in data.get('rows', [])}
+        if any(value < 0 for value in counts.values()):
+            raise ValueError('negative sample count')
+        for name in ('LCP', 'INP', 'CLS'):
+            key = f'ga4_{name.lower()}_samples'
+            out[key] = (dict(out[key], status='measured', value=counts[name], count=counts[name],
+                             timezone=data['metadata'].get('timeZone', 'property timezone')) if name in counts
+                        else dict(out[key], reason=f'no {name} samples yet; tracking absent or data not processed'))
+    except Exception as error:
+        for key in out:
+            if key.startswith('ga4_'):
+                out[key]['reason'] = 'read failed: ' + type(error).__name__
+    # A capture key (phc_) cannot read events. The project query read permission is required:
+    # https://posthog.com/docs/sql . Hosts are fixed; never send invoice content to this query.
+    key, project = os.environ.get('POSTHOG_READ_KEY'), os.environ.get('POSTHOG_PROJECT_ID', '')
+    if not key or not project.isdigit():
+        out['posthog_events']['reason'] = 'read failed: configure POSTHOG_READ_KEY (project query read) and POSTHOG_PROJECT_ID in vault'
+    else:
+        try:
+            sql = ("SELECT count() FROM events WHERE timestamp >= '" + str(start)
+                   + "' AND timestamp < '" + str(until)
+                   + "' AND properties.$host IN ('invoicesnap.work', 'app.invoicesnap.work')")
+            data = post(f'https://us.posthog.com/api/projects/{project}/query/',
+                        {'query': {'kind': 'HogQLQuery', 'query': sql}}, key)
+            count = data['results'][0][0]
+            if isinstance(count, bool) or not isinstance(count, int) or count < 0:
+                raise ValueError('invalid event count')
+            out['posthog_events'] = (dict(out['posthog_events'], status='measured', value=count, count=count,
+                                          timezone='UTC') if count else
+                                     dict(out['posthog_events'], reason='no web events yet; tag delivery unverified'))
+        except Exception as error:
+            out['posthog_events']['reason'] = 'read failed: ' + type(error).__name__
+    # Explicit read token only: never fall back to a revoked upload token. Scope the shared
+    # project to browser error URLs so native errors never become web errors (13 Nov 2026).
+    token = os.environ.get('SENTRY_READ_TOKEN')
+    org, project = os.environ.get('SENTRY_ORG', ''), os.environ.get('SENTRY_PROJECT_ID', '')
+    if not token or not re.fullmatch(r'[A-Za-z0-9_-]+', org) or not project.isdigit():
+        out['sentry_web_errors']['reason'] = 'read failed: configure SENTRY_READ_TOKEN (event:read), SENTRY_ORG and SENTRY_PROJECT_ID in vault'
+    else:
+        try:
+            params = urllib.parse.urlencode({'project': project, 'dataset': 'errors', 'field': 'count()',
+                'query': 'event.type:error browser.name:* url:https://app.invoicesnap.work/*',
+                'start': str(start) + 'T00:00:00', 'end': str(until) + 'T00:00:00'})
+            request = urllib.request.Request(f'https://sentry.io/api/0/organizations/{org}/events/?{params}',
+                                             headers={'Authorization': 'Bearer ' + token})
+            with urllib.request.urlopen(request, timeout=30) as response:
+                data = json.load(response)
+            count = data['data'][0]['count()']
+            if isinstance(count, bool) or not isinstance(count, int) or count < 0:
+                raise ValueError('invalid error count')
+            out['sentry_web_errors'] = dict(out['sentry_web_errors'], status='measured', value=count,
+                                            count=count, timezone='UTC')
+        except Exception as error:
+            out['sentry_web_errors']['reason'] = 'read failed: ' + type(error).__name__
+    return out
 
 
 def search(start, end, offline):
@@ -358,7 +444,11 @@ SHEET_COLUMNS = [  # tab "weekly", one row per week; the Looker Studio dashboard
     ('app_downloads', ('downloads', 'count')), ('new_trials', ('money', 'trials')),
     ('new_paid_subscriptions', ('money', 'new_paid')), ('revenue_usd', ('money', 'revenue')),
     ('transactions', ('money', 'transactions')), ('indexed_pages', ('indexed_pages', 'value')),
-    ('unknown', None), ('generated_utc', None)]
+    ('unknown', None), ('generated_utc', None),
+    # Append only: old rows and Looker fields A:T retain their positions (13 Nov 2026).
+    ('posthog_events', ('posthog_events', 'count')), ('sentry_web_errors', ('sentry_web_errors', 'count')),
+    ('ga4_lcp_samples', ('ga4_lcp_samples', 'count')), ('ga4_inp_samples', ('ga4_inp_samples', 'count')),
+    ('ga4_cls_samples', ('ga4_cls_samples', 'count'))]
 
 
 def gws(*args, body=None):
@@ -423,6 +513,7 @@ def main():
         'visits': visits(start, end, args.offline),
         'app_visits': visits(start, end, args.offline, host=APP_HOST),
         **funnel(start, end, args.offline),
+        **web_observability(start, end, args.offline),
         'search': search(start, end, args.offline),
         # Downloads and money are whole-app totals: no source attributes them to web visits (NIK-594).
         'downloads': downloads(start, end, args.offline),
@@ -441,7 +532,9 @@ def main():
                        ('Checkout starts', 'checkout_starts'), ('Search', 'search'),
                        ('Downloads', 'downloads'), ('AI mentions', 'ai_mentions'),
                        ('Indexed pages', 'indexed_pages'), ('Money', 'money'),
-                       ('Web purchases', 'web_purchases')]:
+                       ('Web purchases', 'web_purchases'), ('PostHog web events', 'posthog_events'),
+                       ('Sentry web errors', 'sentry_web_errors'), ('GA4 LCP samples', 'ga4_lcp_samples'),
+                       ('GA4 INP samples', 'ga4_inp_samples'), ('GA4 CLS samples', 'ga4_cls_samples')]:
         metric = metrics[key]
         period = window
         if metric['status'] == 'measured':
@@ -490,7 +583,8 @@ def main():
         print('SOURCE UNREACHABLE: ' + ', '.join(f'{key} ({metrics[key]["reason"]})' for key in failed)
               + (f' sheet write ({sheet_error})' if sheet_error else '')
               + '. Fix: check the vault credentials, `asc auth status`, `revenuecat-axi`, `gws auth status`'
-              ' and index-gate.py, then rerun.', file=sys.stderr)
+              ' and index-gate.py; web observability needs POSTHOG_READ_KEY/POSTHOG_PROJECT_ID and'
+              ' SENTRY_READ_TOKEN/SENTRY_ORG/SENTRY_PROJECT_ID, then rerun.', file=sys.stderr)
         raise SystemExit(3)
 
 
