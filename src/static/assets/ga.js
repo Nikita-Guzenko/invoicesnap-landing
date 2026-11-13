@@ -29,10 +29,32 @@
      browsers with navigator.webdriver (Playwright sets it), so the test must hide that flag. */
 (function () {
   var ID = 'G-X4TCVJMVEP';
-  // Analytics URLs contain public paths only; query/hash can contain credentials or form data
+  // Analytics URLs contain public paths and validated campaign fields only; all other query/hash may contain credentials
   // (NIK-634 privacy review, 13 Nov 2026). Scrub nested replay frames and heatmap URL keys too.
+  var CAMPAIGN_VALUES = {
+    utm_source: ['google', 'bing', 'meta', 'facebook', 'instagram', 'tiktok', 'linkedin', 'reddit',
+      'newsletter', 'email', 'partner', 'affiliate', 'referral', 'organic', 'direct', 'other'],
+    utm_medium: ['cpc', 'paid_search', 'paid_social', 'social', 'email', 'referral', 'organic',
+      'display', 'video', 'affiliate', 'partner', 'none']
+  };
+  function campaignValue(key, value) {
+    if (typeof value !== 'string' || value.length > 80) return '';
+    value = value.trim().toLowerCase();
+    if (!value || value.length > 64 || !/^[a-z0-9][a-z0-9._-]*$/.test(value) || /\d{7,}/.test(value)) return '';
+    return CAMPAIGN_VALUES[key] && CAMPAIGN_VALUES[key].indexOf(value) < 0 ? '' : value;
+  }
   function cleanUrl(value) {
-    try { var u = new URL(value); return u.origin + u.pathname; } catch (e) { return ''; }
+    try {
+      var u = new URL(value);
+      var params = new URLSearchParams();
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].forEach(function (key) {
+        var values = u.searchParams.getAll(key);
+        if (values.length !== 1) return;
+        var clean = campaignValue(key, values[0]);
+        if (clean) params.set(key, clean);
+      });
+      return u.origin + u.pathname + (params.toString() ? '?' + params : '');
+    } catch (e) { return ''; }
   }
   function scrub(node, depth) {
     if (!node || typeof node !== 'object' || depth > 40) return;
@@ -40,7 +62,10 @@
       var value = node[key];
       var target = key.indexOf('://') >= 0 ? cleanUrl(key) : key;
       if (target !== key) { delete node[key]; node[target] = value; }
-      if (typeof value === 'string' && value.indexOf('://') >= 0) node[target] = cleanUrl(value);
+      var campaignKey = target.replace(/^\$(?:initial|session_entry)_/, '');
+      if (campaignKey === 'utm_term') node[target] = '';
+      else if (/^utm_(source|medium|campaign|content)$/.test(campaignKey)) node[target] = campaignValue(campaignKey, value);
+      else if (typeof value === 'string' && value.indexOf('://') >= 0) node[target] = cleanUrl(value);
       else scrub(value, depth + 1);
     });
   }
@@ -59,12 +84,12 @@
   window.dataLayer = window.dataLayer || [];
   // After "Decline" no event of ours enters the queue (gtag ignores ga-disable after config).
   var declined = false;
-  window.gtag = function () { if (declined && arguments[0] === 'event') return; window.dataLayer.push(arguments); };
+  window.gtag = function () { if (arguments[0] === 'event' && !analyticsAllowed()) return; window.dataLayer.push(arguments); };
 
   // tool_used: once per page view, on the first real action with a free tool (key event in GA4).
   var used = false;
   window.trackToolUsed = function (action, fileFormat) {
-    if (used) return;
+    if (used || !analyticsAllowed()) return;
     used = true;
     var p = { tool_action: action, tool_page: location.pathname };
     if (fileFormat) p.file_format = fileFormat;
@@ -87,6 +112,7 @@
   // scroll_depth: 25 / 50 / 75 / 90 %, each once per page view.
   var marks = [25, 50, 75, 90];
   function onScroll() {
+    if (!analyticsAllowed()) return;
     var doc = document.documentElement;
     var depth = (window.scrollY + window.innerHeight) / Math.max(doc.scrollHeight, 1) * 100;
     while (marks.length && depth >= marks[0]) {
@@ -118,6 +144,7 @@
     try { zone = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) { /* unknown */ }
     return !zone || zone.indexOf('Europe/') === 0 || EU_ZONES.indexOf(zone) >= 0;
   }
+  function analyticsAllowed() { return !declined && (choice === 'granted' || !needsConsent()); }
   var choice = '';
   try { choice = readCookie('isnap_consent'); } catch (e) { /* cookies off */ }
   if (choice !== 'granted' && choice !== 'denied') choice = '';

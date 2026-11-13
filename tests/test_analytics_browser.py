@@ -25,6 +25,21 @@ const op=XMLHttpRequest.prototype.open,se=XMLHttpRequest.prototype.send;
 XMLHttpRequest.prototype.open=function(m,u){this.__url=u;return op.apply(this,arguments);};XMLHttpRequest.prototype.send=function(b){keep(this.__url,b);return se.apply(this,arguments);};
 const sb=navigator.sendBeacon.bind(navigator);navigator.sendBeacon=(u,b)=>{keep(u,b);return sb(u,b);};})()"""
 
+def expand_frames(node):
+    if isinstance(node, str):
+        if node.startswith('\x1f\x8b'):
+            return expand_frames(json.loads(gzip.decompress(node.encode('latin1'))))
+        try:
+            raw = base64.b64decode(node, validate=True)
+            if raw[:2] == b'\x1f\x8b':
+                return expand_frames(json.loads(gzip.decompress(raw)))
+        except (ValueError, TypeError):
+            pass
+        return node
+    if isinstance(node, list): return [expand_frames(x) for x in node]
+    if isinstance(node, dict): return {k: expand_frames(v) for k,v in node.items()}
+    return node
+
 def decoded(raw):
     if raw[:2] == b'\x1f\x8b': raw=gzip.decompress(raw)
     return raw.decode('utf-8','replace')
@@ -43,22 +58,39 @@ with sync_playwright() as p:
     c=context('Europe/Berlin'); pg=c.new_page(); req=[];pg.on('request',lambda r:req.append(r.url))
     pg.goto('https://invoicesnap.work/',wait_until='networkidle');pg.wait_for_timeout(1000)
     assert not any('google' in u or 'posthog' in u for u in req), 'EU tracker before Accept'
+    pg.evaluate("trackToolUsed('edit');window.dispatchEvent(new Event('scroll'))")
+    assert pg.evaluate("dataLayer.filter(x=>x[0]==='event').length")==0, 'Events queued before EU consent'
     pg.locator('[data-consent=denied]').click();pg.wait_for_timeout(500)
     assert not any('google' in u or 'posthog' in u for u in req), 'EU tracker after Decline'
     c.close();print('PASS EU no requests before Accept/after Decline',flush=True)
     c=context();pg=c.new_page();req=[];pg.on('request',lambda r:req.append((r.url,r.post_data_buffer)))
-    pg.goto('https://invoicesnap.work/invoice-generator/?email='+SECRET+'&token_hash='+SECRET,wait_until='networkidle')
+    pg.goto('https://invoicesnap.work/invoice-generator/?internal=1&utm_source=google&utm_medium=cpc&utm_campaign=2026-11-invoice-tools&utm_term='+SECRET+'&utm_content='+SECRET+'%40private.example&email='+SECRET+'&token_hash='+SECRET,wait_until='networkidle')
     pg.wait_for_function('window.posthog && posthog.__loaded')
     pg.locator('[data-f]').first.fill(SECRET)
     pg.mouse.click(5,5);pg.evaluate('window.scrollTo(0, document.documentElement.scrollHeight)');pg.wait_for_timeout(8000)
-    pg.evaluate("posthog.capture('privacy_regression_control')");pg.wait_for_timeout(6000)
+    pg.evaluate("s=>posthog.capture('privacy_regression_control', {utm_source:s, $initial_utm_source:s, $session_entry_utm_source:s, utm_term:s, $initial_utm_term:s, $session_entry_utm_term:s})", SECRET);pg.wait_for_timeout(6000)
     bodies=[decoded(base64.b64decode(x)) for x in pg.evaluate('window.__bodies')]
-    text='\n'.join(bodies)
+    events=[]
+    for body in bodies:
+        data=json.loads(body)
+        events.extend(data if isinstance(data,list) else [data])
+    expanded=expand_frames(events)
+    text=json.dumps(expanded)
+    snapshots=[e for e in expanded if e.get('event')=='$snapshot']
+    frames=[f for e in snapshots for f in e.get('properties',{}).get('$snapshot_data',[])]
+    meta=[f for f in frames if f.get('type')==4]
+    full=[f for f in frames if f.get('type')==2]
+    assert meta and full, 'No Meta/full snapshot replay controls'
+    assert any(f.get('cv')=='2024-10' for f in frames), 'No compressed rrweb event control'
+    print('PASS decoded replay controls: Meta='+str(len(meta))+' full='+str(len(full))+' compressed='+str(sum(f.get('cv')=='2024-10' for f in frames)),flush=True)
+    assert all('/invoice-generator/' in f['data']['href'] for f in meta), 'Wrong replay Meta path'
+    assert 'Invoice' in json.dumps(full), 'Decoded full snapshot has no public heading control'
     assert '$pageview' in text and '$snapshot' in text, 'No real PostHog replay/event payload control'
     assert SECRET not in text, 'Private marker in decoded PostHog payload'
     google='\n'.join(u+decoded(b or b'') for u,b in req if '/g/collect' in u)
     assert 'page_view' in google, 'No GA page_view delivery control'
     assert 'form_start' not in google, 'Unsafe enhanced form interactions enabled on shared GA stream'
+    assert 'utm_source%3Dgoogle' in google, 'Safe campaign attribution missing'
     assert SECRET not in google, 'Private marker in GA URL/payload'
     print('PASS real GA/PostHog events and replay have no private URL/form marker',flush=True)
     pg.locator('[data-cookie-settings]').first.click();pg.locator('[data-consent=denied]').click()
