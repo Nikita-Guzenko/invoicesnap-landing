@@ -29,33 +29,57 @@ class ReportingTests(unittest.TestCase):
             data = {'access_token': 'test-access'}
         elif 'analyticsdata' in url:
             body = json.loads(request.data)
-            self.assertIn('invoicesnap.work', json.dumps(body['dimensionFilter']))
-            self.assertIn('app.invoicesnap.work', json.dumps(body['dimensionFilter']))
+            filters = {part['filter']['fieldName']: part['filter']
+                       for part in body['dimensionFilter']['andGroup']['expressions']}
+            self.assertEqual(filters['hostName'], {'fieldName': 'hostName',
+                             'inListFilter': {'values': ['invoicesnap.work', 'app.invoicesnap.work']}})
+            self.assertEqual(filters['eventName'], {'fieldName': 'eventName',
+                             'stringFilter': {'value': 'web_vital', 'matchType': 'EXACT'}})
             data = {'metadata': {'timeZone': 'UTC'}, 'rows': [
                 {'dimensionValues': [{'value': 'LCP'}], 'metricValues': [{'value': '3'}]},
                 {'dimensionValues': [{'value': 'CLS'}], 'metricValues': [{'value': '2'}]}]}
         elif 'posthog.com' in url:
             sql = json.loads(request.data)['query']['query']
             self.assertIn("properties.$host IN ('invoicesnap.work', 'app.invoicesnap.work')", sql)
-            self.assertIn("timestamp < '2026-11-16'", sql)
+            self.assertIn("timestamp >= toDateTime('2026-11-09 00:00:00', 'UTC')", sql)
+            self.assertIn("timestamp < toDateTime('2026-11-16 00:00:00', 'UTC')", sql)
+            self.assertIn("coalesce(properties.traffic_type, '') != 'internal'", sql)
             data = {'results': [[7]]}
         else:
             self.assertIn('project=456', url)
             self.assertIn('app.invoicesnap.work', url)
-            data = {'data': [{'count()': 0}]}
+            data = {'data': [{'count()': self.sentry_count}]}
         return contextlib.closing(io.BytesIO(json.dumps(data).encode()))
 
     def setUp(self):
         self.requests = []
+        self.sentry_count = 0
 
     def test_provider_boundary_counts_and_missing_samples(self):
         with patch.dict(os.environ, ENV, clear=True), patch('urllib.request.urlopen', self.response):
             data = report.web_observability(START, END, False)
         self.assertEqual(data['posthog_events']['count'], 7)
-        self.assertEqual(data['sentry_web_errors']['count'], 0)
+        self.assertEqual(data['sentry_web_errors']['status'], 'unknown')
+        self.assertNotIn('count', data['sentry_web_errors'])
+        self.assertIn('delivery unverified', data['sentry_web_errors']['reason'])
         self.assertEqual(data['ga4_lcp_samples']['count'], 3)
         self.assertEqual(data['ga4_inp_samples']['status'], 'unknown')
         self.assertNotIn('count', data['ga4_inp_samples'])
+
+    def test_positive_sentry_event_proves_delivery(self):
+        self.sentry_count = 2
+        with patch.dict(os.environ, ENV, clear=True), patch('urllib.request.urlopen', self.response):
+            data = report.web_observability(START, END, False)
+        self.assertEqual(data['sentry_web_errors']['status'], 'measured')
+        self.assertEqual(data['sentry_web_errors']['count'], 2)
+
+    def test_malformed_sentry_count_is_unknown(self):
+        self.sentry_count = -1
+        with patch.dict(os.environ, ENV, clear=True), patch('urllib.request.urlopen', self.response):
+            data = report.web_observability(START, END, False)
+        self.assertEqual(data['sentry_web_errors']['status'], 'unknown')
+        self.assertIn('read failed', data['sentry_web_errors']['reason'])
+        self.assertNotIn('count', data['sentry_web_errors'])
 
     def test_provider_failure_is_unknown_without_secrets(self):
         with patch.dict(os.environ, ENV, clear=True), patch('urllib.request.urlopen', side_effect=OSError('secret-test')):

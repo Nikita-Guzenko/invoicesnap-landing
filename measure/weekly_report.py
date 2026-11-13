@@ -209,9 +209,12 @@ def web_observability(start, end, offline):
         out['posthog_events']['reason'] = 'read failed: configure POSTHOG_READ_KEY (project query read) and POSTHOG_PROJECT_ID in vault'
     else:
         try:
-            sql = ("SELECT count() FROM events WHERE timestamp >= '" + str(start)
-                   + "' AND timestamp < '" + str(until)
-                   + "' AND properties.$host IN ('invoicesnap.work', 'app.invoicesnap.work')")
+            # Project-local date literals shift the UTC week; always give the absolute timezone.
+            # Internal browser probes mark traffic_type so their events stay out of buyer counts.
+            sql = ("SELECT count() FROM events WHERE timestamp >= toDateTime('" + str(start)
+                   + " 00:00:00', 'UTC') AND timestamp < toDateTime('" + str(until)
+                   + " 00:00:00', 'UTC') AND properties.$host IN ('invoicesnap.work', 'app.invoicesnap.work')"
+                   + " AND coalesce(properties.traffic_type, '') != 'internal'")
             data = post(f'https://us.posthog.com/api/projects/{project}/query/',
                         {'query': {'kind': 'HogQLQuery', 'query': sql}}, key)
             count = data['results'][0][0]
@@ -232,7 +235,7 @@ def web_observability(start, end, offline):
         try:
             params = urllib.parse.urlencode({'project': project, 'dataset': 'errors', 'field': 'count()',
                 'query': 'event.type:error browser.name:* url:https://app.invoicesnap.work/*',
-                'start': str(start) + 'T00:00:00', 'end': str(until) + 'T00:00:00'})
+                'start': str(start) + 'T00:00:00Z', 'end': str(until) + 'T00:00:00Z'})
             request = urllib.request.Request(f'https://sentry.io/api/0/organizations/{org}/events/?{params}',
                                              headers={'Authorization': 'Bearer ' + token})
             with urllib.request.urlopen(request, timeout=30) as response:
@@ -240,8 +243,11 @@ def web_observability(start, end, offline):
             count = data['data'][0]['count()']
             if isinstance(count, bool) or not isinstance(count, int) or count < 0:
                 raise ValueError('invalid error count')
-            out['sentry_web_errors'] = dict(out['sentry_web_errors'], status='measured', value=count,
-                                            count=count, timezone='UTC')
+            # Zero errors and a missing browser SDK look identical to this API. Until a
+            # production control receipt is available, only an actual event proves delivery.
+            out['sentry_web_errors'] = (
+                dict(out['sentry_web_errors'], status='measured', value=count, count=count, timezone='UTC')
+                if count else dict(out['sentry_web_errors'], reason='no browser errors received; SDK delivery unverified'))
         except Exception as error:
             out['sentry_web_errors']['reason'] = 'read failed: ' + type(error).__name__
     return out
