@@ -10,7 +10,7 @@ Production repository for the official marketing and conversion landing page of 
 - **Hosting:** GitHub Pages + Fastly Edge CDN + Custom Domain DNS (Namecheap)
 - **SSL:** Let's Encrypt automated TLS certificate
 - **Analytics:** Google Analytics 4 (`G-X4TCVJMVEP`)
-- **Automated Watcher:** Runs daily via GitHub Actions (`.github/workflows/index-watch.yml`) to ping Google and Bing search crawlers and monitor live indexing.
+- **Automated Watcher:** `.github/workflows/index-watch.yml` crawls production daily at 12:00 UTC with `python3 check_site.py --base https://invoicesnap.work`. It fails on broken pages, sitemaps, robots rules or page gates. The summary records the crawler outcome and output; indexing stays unknown without Search Console evidence. Actions cannot start during the account billing lock. Gate 9 needs the repository secret `SITE_WATCH_APP_TOKEN` with read-only access to `Nikita-Guzenko/invoicesnap-expo`; the workflow checks out the evidence revision from `data/claims.json`. Missing access fails setup and reports unknown site health.
 
 ## Features
 - **Apple-Aesthetic Design:** Light ambient gradients, SF Pro / Plus Jakarta typography, dark titanium iPhone mockup.
