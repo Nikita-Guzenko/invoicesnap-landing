@@ -125,6 +125,8 @@ def main() -> int:
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
         data, out = make_data(tmp_path), tmp_path / "dist"
+        # The fixture copies current metadata; an unchanged page must retain its seed date (NIK-642, 19 Nov 2026).
+        privacy_seed_date = json.loads((data / "lastmod.json").read_text(encoding="utf-8"))["/privacy/"]["lastmod"]
         # 1. full scale
         started = time.time()
         result = build(data, out, "--today", "2026-11-09")
@@ -148,7 +150,7 @@ def main() -> int:
         result = build(data, out, "--today", "2026-12-25", "--check")
         expect("second build with no change: --check passes on a later day", result.returncode == 0, result.stderr)
         expect("second build keeps every lastmod", lastmods(out) == first, "")
-        expect("old page keeps its real date", first["https://invoicesnap.work/privacy/"] == "2026-09-28", str(first.get("https://invoicesnap.work/privacy/")))
+        expect("old page keeps its real date", first["https://invoicesnap.work/privacy/"] == privacy_seed_date, str(first.get("https://invoicesnap.work/privacy/")))
         page_file = data / "pages" / "fixture-3.json"
         original = page_file.read_text(encoding="utf-8")
         page_file.write_text(original.replace("Line 2 of page 3 in de", "Line 2 of page 3 in DE changed"), encoding="utf-8")
