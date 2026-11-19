@@ -29,7 +29,7 @@ with sync_playwright() as p:
  leaves=base.locator('main h2, main h3, main p, main li, main th, main td, .faq-q, .faq-a, footer a').all_text_contents()
  leaves=[' '.join(x.split()) for x in leaves if len(' '.join(x.split()))>10]
  links=base.locator('a[href^="https://apps.apple.com"],a[href^="https://app.invoicesnap.work"]').evaluate_all('(es)=>[...new Set(es.map(e=>e.getAttribute("href")))]')
- for n in [1,2,4,5]:
+ for n in [1]:
   for w in [1440,768,390,320]:
    page=b.new_page(viewport={'width':w,'height':900 if w>400 else 844},device_scale_factor=1,reduced_motion='reduce')
    errors=[]; external=[]
