@@ -1,0 +1,359 @@
+# Modern AI SaaS Hero with Interactive Live Preview — Default
+A conversion-focused SaaS hero section featuring a subtle animated background grid, gradient badge, staggered text reveal, dual CTAs, and an interactive product preview frame.
+
+install: npx shadcn@latest add "https://21st.dev/r/themeocean/modern-ai-saa-s-hero-with-interactive-live-preview?api_key=$API_KEY_21ST"
+
+## Component
+```tsx
+// This is file of your component
+// You can use any dependencies from npm; we import them automatically in package.json
+
+"use client";
+
+import * as React from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight, Sparkles } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+export interface HeroAction {
+  label: string;
+  onClick?: () => void;
+  href?: string;
+  icon?: React.ReactNode;
+}
+
+export interface ComponentProps {
+  badgeText?: string;
+  onBadgeClick?: () => void;
+  title: React.ReactNode;
+  subtitle: string;
+  primaryAction: HeroAction;
+  secondaryAction?: HeroAction;
+  previewContent?: React.ReactNode;
+  footerNote?: string;
+  className?: string;
+}
+
+export function Component({
+  badgeText,
+  onBadgeClick,
+  title,
+  subtitle,
+  primaryAction,
+  secondaryAction,
+  previewContent,
+  footerNote,
+  className,
+}: ComponentProps) {
+  const prefersReducedMotion = useReducedMotion();
+
+  const fadeUp = (delay = 0) => ({
+    initial: prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 18 },
+    animate: prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 },
+    transition: {
+      duration: prefersReducedMotion ? 0.15 : 0.5,
+      delay: prefersReducedMotion ? 0 : delay,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  });
+
+  return (
+    <section
+      aria-label="Hero Section"
+      className={cn(
+        "relative w-full overflow-hidden bg-background py-20 md:py-28 lg:py-32 text-foreground",
+        className
+      )}
+    >
+      {/* Subtle Grid & Radial Spotlight Background */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center"
+      >
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/0.45)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.45)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_70%_55%_at_50%_0%,#000_65%,transparent_100%)]" />
+        <div className="absolute -top-24 h-[340px] w-[620px] rounded-full bg-primary/15 blur-[110px]" />
+      </div>
+
+      <div className="mx-auto flex max-w-6xl flex-col items-center px-4 text-center sm:px-6 lg:px-8">
+        {/* Announcement Badge */}
+        {badgeText && (
+          <motion.div {...fadeUp(0)} className="mb-6">
+            <button
+              type="button"
+              onClick={onBadgeClick}
+              disabled={!onBadgeClick}
+              className={cn(
+                "group inline-flex items-center gap-2 rounded-full border border-border bg-muted/60 px-3.5 py-1.5 text-xs font-medium text-foreground backdrop-blur-md transition-colors",
+                onBadgeClick
+                  ? "cursor-pointer hover:border-primary/40 hover:bg-muted"
+                  : "cursor-default"
+              )}
+            >
+              <Sparkles className="size-3.5 text-primary" aria-hidden="true" />
+              <span>{badgeText}</span>
+              {onBadgeClick && (
+                <ArrowRight
+                  className="size-3.5 text-muted-foreground transition-transform duration-200 group-hover:translate-x-0.5"
+                  aria-hidden="true"
+                />
+              )}
+            </button>
+          </motion.div>
+        )}
+
+        {/* Headline */}
+        <motion.h1
+          {...fadeUp(0.08)}
+          className="max-w-4xl text-balance text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:leading-[1.1]"
+        >
+          {title}
+        </motion.h1>
+
+        {/* Subheadline */}
+        <motion.p
+          {...fadeUp(0.16)}
+          className="mt-6 max-w-2xl text-pretty text-base text-muted-foreground sm:text-lg md:text-xl"
+        >
+          {subtitle}
+        </motion.p>
+
+        {/* Dual CTA Buttons */}
+        <motion.div
+          {...fadeUp(0.24)}
+          className="mt-8 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:gap-4"
+        >
+          {primaryAction.href ? (
+            <a
+              href={primaryAction.href}
+              onClick={primaryAction.onClick}
+              className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 text-sm font-medium text-primary-foreground shadow-sm transition-all hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:w-auto"
+            >
+              <span>{primaryAction.label}</span>
+              {primaryAction.icon ?? <ArrowRight className="size-4" aria-hidden="true" />}
+            </a>
+          ) : (
+            <button
+              type="button"
+              onClick={primaryAction.onClick}
+              className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 text-sm font-medium text-primary-foreground shadow-sm transition-all hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:w-auto"
+            >
+              <span>{primaryAction.label}</span>
+              {primaryAction.icon ?? <ArrowRight className="size-4" aria-hidden="true" />}
+            </button>
+          )}
+
+          {secondaryAction &&
+            (secondaryAction.href ? (
+              <a
+                href={secondaryAction.href}
+                onClick={secondaryAction.onClick}
+                className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg border border-border bg-background/80 px-6 text-sm font-medium text-foreground backdrop-blur-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:w-auto"
+              >
+                {secondaryAction.icon}
+                <span>{secondaryAction.label}</span>
+              </a>
+            ) : (
+              <button
+                type="button"
+                onClick={secondaryAction.onClick}
+                className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg border border-border bg-background/80 px-6 text-sm font-medium text-foreground backdrop-blur-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:w-auto"
+              >
+                {secondaryAction.icon}
+                <span>{secondaryAction.label}</span>
+              </button>
+            ))}
+        </motion.div>
+
+        {/* Optional Micro Footer Note */}
+        {footerNote && (
+          <motion.p
+            {...fadeUp(0.3)}
+            className="mt-4 text-xs text-muted-foreground"
+          >
+            {footerNote}
+          </motion.p>
+        )}
+
+        {/* Glassmorphic Product Preview Container */}
+        {previewContent && (
+          <motion.div
+            {...fadeUp(0.36)}
+            className="mt-12 w-full max-w-4xl md:mt-16"
+          >
+            <div className="relative rounded-2xl border border-border/80 bg-card/60 p-2 shadow-2xl backdrop-blur-xl sm:p-3">
+              <div className="overflow-hidden rounded-xl border border-border bg-background">
+                {previewContent}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+export default Component;
+
+```
+
+## Demo (usage)
+```tsx
+// This is a file with a demo for your component
+// That's what users will see in the preview
+// Create new files in this directory to add more demos
+
+"use client";
+
+import * as React from "react";
+import { Play, Sparkles, Terminal, CheckCircle2, Loader2 } from "lucide-react";
+import { Component } from "@/components/ui/modern-ai-saa-s-hero-with-interactive-live-preview";
+
+const SAMPLE_PROMPTS = [
+  {
+    label: "Generate API Route",
+    prompt: "Create a rate-limited Next.js App Router endpoint for user auth.",
+    output: "✓ Generated app/api/auth/route.ts with Upstash Redis rate-limiter & Zod validation (142ms)",
+  },
+  {
+    label: "Optimize SQL Query",
+    prompt: "Analyze slow PostgreSQL join on orders and customers tables.",
+    output: "✓ Added composite index on orders(customer_id, created_at). Query time reduced from 840ms → 12ms.",
+  },
+  {
+    label: "Audit Accessibility",
+    prompt: "Check contrast ratios and ARIA landmarks across dashboard layout.",
+    output: "✓ Passed 18/18 WCAG AA checks. Suggested aria-live='polite' on async status banner.",
+  },
+];
+
+function InteractiveAiPreview() {
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const [isRunning, setIsRunning] = React.useState(false);
+  const [hasResult, setHasResult] = React.useState(true);
+
+  const activePrompt = SAMPLE_PROMPTS[selectedIndex];
+
+  const handleRun = () => {
+    setIsRunning(true);
+    setHasResult(false);
+    setTimeout(() => {
+      setIsRunning(false);
+      setHasResult(true);
+    }, 800);
+  };
+
+  return (
+    <div className="flex flex-col text-left">
+      {/* Window Top Bar */}
+      <div className="flex items-center justify-between border-b border-border bg-muted/40 px-4 py-3">
+        <div className="flex items-center gap-2">
+          <span className="size-2.5 rounded-full bg-border" />
+          <span className="size-2.5 rounded-full bg-border" />
+          <span className="size-2.5 rounded-full bg-border" />
+          <span className="ml-2 font-mono text-xs text-muted-foreground">
+            agent-workspace.tsx
+          </span>
+        </div>
+        <div className="flex items-center gap-1.5 rounded-md border border-border bg-background px-2 py-0.5 text-[11px] font-medium text-muted-foreground">
+          <span className="size-1.5 rounded-full bg-emerald-500" />
+          Ready
+        </div>
+      </div>
+
+      {/* Interactive Workspace Body */}
+      <div className="space-y-4 p-5 sm:p-6">
+        {/* Preset Prompt Pills */}
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-xs font-medium text-muted-foreground">Try preset:</span>
+          {SAMPLE_PROMPTS.map((item, idx) => (
+            <button
+              key={item.label}
+              type="button"
+              onClick={() => {
+                setSelectedIndex(idx);
+                setHasResult(true);
+              }}
+              className={`rounded-md border px-2.5 py-1 text-xs font-medium transition-colors ${
+                selectedIndex === idx
+                  ? "border-primary/40 bg-primary/10 text-primary"
+                  : "border-border bg-muted/40 text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Prompt Input Box */}
+        <div className="flex flex-col justify-between gap-3 rounded-xl border border-border bg-muted/30 p-3.5 sm:flex-row sm:items-center">
+          <div className="flex items-center gap-2.5 text-sm text-foreground">
+            <Terminal className="size-4 shrink-0 text-primary" />
+            <span>{activePrompt.prompt}</span>
+          </div>
+          <button
+            type="button"
+            onClick={handleRun}
+            disabled={isRunning}
+            className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-lg bg-primary px-3.5 py-2 text-xs font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-60"
+          >
+            {isRunning ? (
+              <>
+                <Loader2 className="size-3.5 animate-spin" />
+                Running...
+              </>
+            ) : (
+              <>
+                <Sparkles className="size-3.5" />
+                Run Agent
+              </>
+            )}
+          </button>
+        </div>
+
+        {/* Live Output Box */}
+        <div className="min-h-[54px] rounded-xl border border-border/70 bg-background p-3.5 font-mono text-xs">
+          {isRunning ? (
+            <span className="text-muted-foreground">Executing workflow pipeline...</span>
+          ) : hasResult ? (
+            <div className="flex items-start gap-2 text-foreground">
+              <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-emerald-500" />
+              <span>{activePrompt.output}</span>
+            </div>
+          ) : null}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function DemoOne() {
+  return (
+    <Component
+      badgeText="Introducing Autonomous Workflows 2.0"
+      onBadgeClick={() => {}}
+      title={
+        <>
+          Ship AI agents that{" "}
+          <span className="bg-gradient-to-r from-primary via-primary/80 to-foreground bg-clip-text text-transparent">
+            reason and execute
+          </span>{" "}
+          in real time
+        </>
+      }
+      subtitle="Build, test, and deploy production-grade AI workflows with zero infrastructure overhead. Designed for engineering teams that move fast."
+      primaryAction={{
+        label: "Start Building Free",
+        onClick: () => {},
+      }}
+      secondaryAction={{
+        label: "Watch 2-Min Demo",
+        icon: <Play className="size-3.5" />,
+        onClick: () => {},
+      }}
+      footerNote="No credit card required · 10,000 free agent runs every month"
+      previewContent={<InteractiveAiPreview />}
+    />
+  );
+}
+
+```
